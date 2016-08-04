@@ -8,21 +8,29 @@
 	<form action="villainally.asp" method="get" id="expacoptions">
   		<input type="checkbox" name="expac" value="AgentBlaise"> Agent Blaise<br>
 		<input type="checkbox" name="expac" value="AllianceSmuggler"> Alliance Smuggler<br>
-  		<input type="submit" value="Select">
+  		<input type="submit" value="Select" onClick="expacCheck">
 	</form>
 	
 	<script>
+		var expacCardsList = []
 		//grabs expansion packs form.
 		var expacoptions = document.getElementById('expacoptions')
 		//grabs possible selections
 		var expacsel = expacoptions.getElementsByTagName('expac')
 		
-		for (var i=0, len=expac.length; i<len; i++) {
-		    	if ( expac[i].type === 'checkbox' ) {
-				expac[i].onclick = addExpacCards() {
-            			// adds expansion cards to draw list
-        			}
-		 	}
+		//responds to click from submit button
+		function expacCheck(){
+			for (var i=0, len=expac.length; i<len; i++) {
+		    		if ( expac[i].type === 'checkbox' ) {
+					expac[i].onclick = addExpacCards(expac[i].value)
+		 		}
+			}	
+		}
+		
+
+		
+		function addExpacCards(expacName) {
+			expacCardsList.push(expacName)
 		}
 		
 	</script>
