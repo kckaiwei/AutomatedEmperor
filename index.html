@@ -22,15 +22,16 @@
 		function expacCheck(){
 			for (var i=0, len=expac.length; i<len; i++) {
 		    		if ( expac[i].type === 'checkbox' ) {
-					expac[i].onclick = addExpacCards(expac[i].value)
+					expac[i].onclick = addExpacCards(expac[i].value);
 		 		}
-			}	
+			}
+			window.alert(expacCardsList);
 		}
 		
 
 		
 		function addExpacCards(expacName) {
-			expacCardsList.push(expacName)
+			expacCardsList.push(expacName);
 		}
 		
 	</script>
