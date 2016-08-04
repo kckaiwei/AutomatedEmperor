@@ -5,9 +5,13 @@
 	<title>Automated Emperor</title>
 </head>
 <body>
-	<form id="expacoptions" action="#" method="post">
-  		<input type="checkbox" name="AgentBlaise" value="AgentBlaise"> Agent Blaise<br>
-		<input type="checkbox" name="AllianceSmuggler" value="AllianceSmuggler"> Alliance Smuggler<br>
+	<form id="expacoptions" action="#" method="post" onsubmit="return false">
+			<input type="checkbox" name="AgentBlaise" value="AgentBlaise"> Agent Blaise<br>
+			<input type="checkbox" name="AllianceSmuggler" value="AllianceSmuggler"> Alliance Smuggler<br>
+		<!--Insert more expacs here
+		-->
+
+		
   		<button onClick="expacCheck()">Choose</button>
 	</form>
 	
@@ -15,8 +19,6 @@
 		var expacCardsList = [];
 		//grabs expansion packs form.
 		var expacoptions = document.getElementById('expacoptions');
-		//grabs possible selections
-		var expacsel = expacoptions.getElementsByTagName('expac');
 		
 		//responds to click from submit button
 		function expacCheck(){
@@ -24,26 +26,20 @@
 			//
 			//Resets to blank list
 			expacCardsList = [];
-			for (var i=0, len=expacsel.length; i<len; i++) {
-		    		if ( expacsel[i].type === 'checkbox' ) {
-					if expacsel[i].checked == True {
-						addExpacCards(expacsel[i].value);
+			for (var i=0, len=expacoptions.length; i<len; i++) {
+		    	if ( expacoptions[i].type === 'checkbox' ) {
+					if (expacoptions[i].checked) {
+						expacCardsList.push(expacoptions[i].value);
 					}
-		 		}
+				}
 			}
 			document.getElementById('demo').innerHTML = expacCardsList
 		}
 		
-
-		
-		function addExpacCards(expacValue) {
-			//adds passed value into list of expac
-			expacCardsList.push(expacValue);
-		}
 		
 	</script>
 
-<p id="demo"></p>
+<p id="demo">List to be replaced here</p>
 
 </body>
 
