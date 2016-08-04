@@ -16,9 +16,63 @@
 	</form>
 	
 	<script type='text/javascript'>
+		//SETUP
+		//VAR
 		var expacCardsList = [];
 		//grabs expansion packs form.
 		var expacoptions = document.getElementById('expacoptions');
+		//blitz cards filenames
+		var blitzCards = ["Blitz 1","Blitz 2","Blitz 3","Blitz 4","Blitz 5", "Blitz 6","Blitz 7","Blitz 8","Blitz 9","Blitz 10"];
+		//New deck
+		//Load first, then call durstenfeld shuffle
+		var deck = [];
+		
+		//DECK SHUFFLE
+		//Starting number of cards
+		var startCardNum = 2;
+		//Randomly pick Blitz Cards
+		for (var i=0, len=startCardNum; i<startCardNum;i++){
+			//10 cards to pick from, randomly picks one
+			deck.push("Blitz " + randomCardNumberDraw(1,10));
+		}
+		//Load up focus cards
+		for (var i=0, len=startCardNum; i<startCardNum;i++){
+			//10 cards to pick from, randomly picks one
+			deck.push("Blitz " + randomCardNumberDraw(1,10));
+		}
+		
+		function randomCardNumberDraw(min,max){
+			//Takes min max integer to randomize from
+			return Math.floor(Math.random()*(max-min+1)+min);
+		}
+		
+		
+		//END VAR SETUP
+		//
+		//
+		
+		//Durstenfeld shuffle
+		function shuffleArray(array) {
+			for (var i = array.length - 1; i > 0; i--) {
+			var j = Math.floor(Math.random() * (i + 1));
+			var temp = array[i];
+			array[i] = array[j];
+			array[j] = temp;
+			}
+			return array;
+		}
+		
+		
+		function show_image(src, width, height, alt) {
+		var img = document.createElement("img");
+		img.src = src;
+		img.width = width;
+		img.height = height;
+		img.alt = alt;
+
+		// This next line will just add it to the <body> tag
+		document.body.appendChild(img);
+		}
 		
 		//responds to click from submit button
 		function expacCheck(){
