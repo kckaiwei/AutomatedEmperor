@@ -8,22 +8,22 @@
 	<form id="expacoptions">
   		<input type="checkbox" name="expac" value="AgentBlaise"> Agent Blaise<br>
 		<input type="checkbox" name="expac" value="AllianceSmuggler"> Alliance Smuggler<br>
-  		<input type="submit" value="Select" onClick="expacCheck">
+  		<button onClick="expacCheck">Choose</button>
 	</form>
 	
 	<script>
-		var expacCardsList = []
+		var expacCardsList = [];
 		//grabs expansion packs form.
-		var expacoptions = document.getElementById('expacoptions')
+		var expacoptions = document.getElementById('expacoptions');
 		//grabs possible selections
-		var expacsel = expacoptions.getElementsByTagName('expac')
+		var expacsel = expacoptions.getElementsByTagName('expac');
 		
 		//responds to click from submit button
 		function expacCheck(){
 			//checks which checkboxes are clicked
 			//
 			//Resets to blank list
-			expacCardsList = []
+			expacCardsList = [];
 			for (var i=0, len=expac.length; i<len; i++) {
 		    		if ( expac[i].type === 'checkbox' ) {
 					expac[i].onclick = addExpacCards(expac[i].value);
