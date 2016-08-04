@@ -5,10 +5,27 @@
 	<title>Automated Emperor</title>
 </head>
 <body>
-	<form action="villainally.asp" method="get">
+	<form action="villainally.asp" method="get" id="expacoptions">
   		<input type="checkbox" name="expac" value="AgentBlaise"> Agent Blaise<br>
 		<input type="checkbox" name="expac" value="AllianceSmuggler"> Alliance Smuggler<br>
   		<input type="submit" value="Select">
 	</form>
+	
+	<script>
+		//grabs expansion packs form.
+		var expacoptions = document.getElementById('expacoptions')
+		//grabs possible selections
+		var expacsel = expacoptions.getElementsByTagName('expac')
+		
+		for (var i=0, len=tops.length; i<len; i++) {
+		    	if ( expac[i].type === 'checkbox' ) {
+				expac[i].onclick = addExpacCards() {
+            			// adds expansion cards to draw list
+        			}
+		 	}
+		}
+		
+	</script>
+	
 </body>
 </html>
