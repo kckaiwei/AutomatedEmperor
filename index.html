@@ -20,6 +20,10 @@
 		
 		//responds to click from submit button
 		function expacCheck(){
+			//checks which checkboxes are clicked
+			//
+			//Resets to blank list
+			expacCardsList = []
 			for (var i=0, len=expac.length; i<len; i++) {
 		    		if ( expac[i].type === 'checkbox' ) {
 					expac[i].onclick = addExpacCards(expac[i].value);
@@ -30,8 +34,9 @@
 		
 
 		
-		function addExpacCards(expacName) {
-			expacCardsList.push(expacName);
+		function addExpacCards(expacValue) {
+			//adds passed value into list of expac
+			expacCardsList.push(expacValue);
 		}
 		
 	</script>
