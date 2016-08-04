@@ -24,9 +24,9 @@
 			//
 			//Resets to blank list
 			expacCardsList = [];
-			for (var i=0, len=expac.length; i<len; i++) {
-		    		if ( expac[i].type === 'checkbox' ) {
-					expac[i].onclick = addExpacCards(expac[i].value);
+			for (var i=0, len=expacsel.length; i<len; i++) {
+		    		if ( expacsel[i].type === 'checkbox' ) {
+					expacsel[i].onclick = addExpacCards(expacsel[i].value);
 		 		}
 			}
 			document.getElementById('demo').innerHTML = expacCardsList
