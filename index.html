@@ -5,6 +5,8 @@
 	<title>Automated Emperor</title>
 </head>
 <body onload="pageLoad()">
+
+	<b>Ally/Villain Packs</b>
 	<form id="expacoptions" action="#" method="post" onsubmit="return false">
 			<input type="checkbox" name="AgentBlaise" value="AgentBlaise"> Agent Blaise<br>
 			<input type="checkbox" name="AllianceSmuggler" value="AllianceSmuggler"> Alliance Smuggler<br>
@@ -16,9 +18,201 @@
 	</form>
 	
 	<br>
+	
+	<div id="missionSelector">
+	<b>Core Missions</b>
+		<form id="missionOptions" action="#" method="post" onsubmit="return false">
+			<input type="radio" name="mission" value="Aftermath">Aftermath<br>
+			<input type="radio" name="mission" value="Captured">Captured<br>
+			<input type="radio" name="mission" value="Brushfire">Brushfire<br>
+			<input type="radio" name="mission" value="Temptation">Temptation<br>
+			<input type="radio" name="mission" value="HighMoon">High Moon<br>
+			<input type="radio" name="mission" value="Indebted">Indebted<br>
+			<input type="radio" name="mission" value="LooseCannon">Loose Cannon<br>
+			<input type="radio" name="mission" value="FriendsOfOld">Friends Of Old<br>
+			<input type="radio" name="mission" value="SorryAboutTheMess">Sorry About the Mess<br>
+			<input type="radio" name="mission" value="Homecoming">Homecoming<br>
+			<input type="radio" name="mission" value="TheSpiceJob">The Spice Job<br>
+			<input type="radio" name="mission" value="TargetofOpportunity">Target Of Opportunity<br>
+			<input type="radio" name="mission" value="VipersDen">Viper's Den<br>
+			<input type="radio" name="mission" value="ASimpleTask">A Simple Task<br>
+			<input type="radio" name="mission" value="GenerousDonations">Generous Donations<br>
+			<input type="radio" name="mission" value="LuxuryCruise">Luxury Cruise<br>
+			<input type="radio" name="mission" value="MeansOfProduction">Means of Production<br>
+			<input type="radio" name="mission" value="BreakingPoint">Breaking Point<br>
+			<input type="radio" name="mission" value="Impounded">Impounded<br>
+			<input type="radio" name="mission" value="Wanted">Wanted<br>
+			<input type="radio" name="mission" value="ANewThreat">A New Threat<br>
+			<input type="radio" name="mission" value="UnderSiege">Under Siege<br>
+			<input type="radio" name="mission" value="ImperialHospitality">Imperial Hospitality<br>
+			<input type="radio" name="mission" value="FlySolo">Fly Solo<br>
+			<input type="radio" name="mission" value="Incoming">Incoming<br>
+			<input type="radio" name="mission" value="DrawnIn">Drawn In<br>
+			<input type="radio" name="mission" value="ChainOfCommand">Chain of Command<br>
+			<input type="radio" name="mission" value="TheSource">The Source<br>
+			<input type="radio" name="mission" value="LastStand">Last Stand<br>
+			<input type="radio" name="mission" value="DesperateHour">Desperate Hour<br>
+		<!--Insert more expacs here
+		-->
+
+		
+			<button onClick="missionSelect()">Choose</button>
+		</form>
+	
+	<br>
+	</div>
 
 	
-	<script type='text/javascript'>
+	
+
+<p id="demo">List to be replaced here</p>
+<p id="demo2">List2 to be replaced here</p>
+
+<img id="MilitaryMight" src="files/ImpClass/MilitaryMight.jpg" width="175" height="298" onclick="MMsel()"></img>
+<img id="SubversiveTactics" src="files/ImpClass/SubversiveTactics.jpg" width="175" height="298" onclick="STsel()"></img>
+<img id="TechnologicalSuperiority" src="files/ImpClass/TechnologicalSuperiority.jpg" width="175" height="298" onclick="TSsel()"></img>
+
+<div id="Deployment">
+
+<h3> Drawn Deployment Card for OPEN GROUP: </h3>
+
+	<form id="deployment" action="#" method="post" onsubmit="return false">
+  		<button onClick="displayDeploymentCards()">Draw deployment</button>
+	</form>
+	
+	<form id="deploymentreshuffle" action="#" method="post" onsubmit="return false">
+  		<button onClick="shuffleDeploymentCards()">Reshuffle deployment deck</button>
+	</form>
+	<br>
+	
+	Adjust deployment difficulty (WILL RESHUFFLE DECK!!!)
+	
+	<p id ="deployDiffInt"> </>
+	
+	<form id="deploymentDiffInc" action="#" method="post" onsubmit="return false">
+  		<button onClick="deploymentInc()">+</button>
+	</form>
+	<form id="deploymentDiffDec" action="#" method="post" onsubmit="return false">
+  		<button onClick="deploymentDec()">-</button>
+	</form>
+	<br>
+	
+
+	
+	<!--
+	Placeholder for image, when card is drawn
+	-->
+	<img id="deployImg">
+	</img>
+
+</div>
+
+<div id="Imperial Class div">
+
+<h3>Selected Imperial Class<h3>
+
+<p id="selImpClass">None Selected</p>
+
+	<img id="IC1"></img><img id="IC2"></img><img id="IC3"></img><img id="IC4"></img><img id="IC5"></img><img id="IC6"></img><img id="IC7"></img><img id="IC8"></img><img id="IC9"></img>
+
+</div>
+
+<div id="Mission Staging">
+	<h3>Current Mission</h3>
+	
+	<img id="missionFront"></img><img id="missionBack"></img>
+</div>
+
+<div id="Instructions">
+	<div id="Choosing Targets">
+		<h3>Choosing Targets</h3>
+		<ul class="tutoriallist">
+			<li>Target choice is determine by mission card and automated emperor card drawn at 
+			start of a group's activation
+			</li>
+			<li>Priority targets will always be targeted before any other targets</li>
+			<li>If a figure is not assigned a priority target, or priority target is not in range, 
+			figure attempts to resolve action against a Secondary Target</li>
+			<li>Secondary targets are shown as Rebel icons on the Automated Emperor card, 
+			and resolved left to right</li>
+			<li>If no priority or secondary targets are available, closest rebel controlled 
+			figure with least health is targeted</li>
+		</ul>
+	</div>
+	<div id="AEActions">
+		<h3>Automated Emperor Card Actions</h3>
+		
+		Attempt to resolve actions on drawn card in listed order. 
+		Standard action rules apply. Actions that cannot be completed or don't apply are skipped. 
+		If bottom of list is reached and actions are still remaining, start from top of list. <br>
+		
+		<ul id="AEList">
+			<li>Attack
+				<ol>
+					<li>Closest assigned priority target</li>
+					<li>1st Secondary Target within range</li>
+					<li>Closes Rebel-controlled figure with least health</li>
+				</ol>
+			</li>
+			<li>Range Definition
+				<ul>
+					<li><b>Melee </b>: Adjacent space</li>
+					<li><b>Reach </b>: 2 spaces</li>
+					<li><b>Ranged </b>: 4 spaces</li>
+					<li>Non-surge +Accuracy modifiers are added to figure's max attack range</li>
+					<li>If no targets are in range/line of sight, Attack action is skipped</li>
+					<li>If priority target is not attackable, attack action becomes interact</li>
+					<li>Attack action becomes interact, in the case of doors</li>
+				</ul>
+			</li>
+			<li>Engage
+				<ul>
+					<li>Move action to figure's speed</li>
+					<li>
+						<ol>
+							<li>Attempt for max attack range & line of sight, using shortest route</li>
+							<li>Move towards closest assigned priority target as much as possible, 
+					regardless of distance</li>
+							<li>Move toward closest secondary target as list if no priority target</li>
+						</ol>
+					</li>
+					<li>Move through opposing figures if necessary if there are enough move points</li>
+				</ul>
+			</li>
+			<li>Ability
+				<ul>
+					<li>Activate ability if it makes sense</li>
+					<li>Includes attached Modification Imperial Class cards</li>
+					<li>Resolve in order as listed on deployment card</li>
+				</ul>
+			
+			</li>
+			<li>Repositioning
+				<ul>
+					<li>Utilize any remaining move points to reposition to better position</li>
+					<li><b>Melee </b>: Break line of sight of ranged rebels </li>
+					<li><b>Reach </b>: Move to be 2 spaces away from nearby rebels </li>
+					<li><b>Ranged </b>: Move to be up to 4 spaces away from nearby rebels. 
+					Use cover if possible </li>
+					<li>Attempt to move towards closest Priority target if assigned 
+					and not already in max attack range and line of sight</li>
+				</ul>
+			</li>
+			<li>Surges
+				<ol>
+					<li>Spend to increase accuracy to hit</li>
+					<li>Double Surges</li>
+					<li>Apply remaining from left to right, top to bottom on deployment card</li>
+				</ol>
+			
+			</li>
+		
+		</ul>
+		
+	</div>
+</div>
+
+<script type='text/javascript'>
 		//SETUP
 		//MESS OF VARS
 		var expacCardsList = [];
@@ -146,6 +340,20 @@
 				}
 			}
 			document.getElementById('demo').innerHTML = expacCardsList;
+		}
+		
+		//MISSION SELECTION RADIO BUTTONS
+		//
+		function missionSelect(){
+			for (var i=0, len=missionOptions.length; i<len; i++){
+				if (missionOptions[i].type === 'radio'){
+					if (missionOptions[i].checked){
+						replace_image("files/Mission/Core/" + missionOptions[i].value + "Front.jpg", 298, 430, "Mission Front", "missionFront");
+						replace_image("files/Mission/Core/" + missionOptions[i].value + "Back.jpg", 298, 430, "Mission Back", "missionBack");
+					}
+				}
+			}
+		
 		}
 		
 		//DEPLOYMENT SECTION
@@ -298,146 +506,6 @@
 		
 		
 	</script>
-
-<p id="demo">List to be replaced here</p>
-<p id="demo2">List2 to be replaced here</p>
-
-<img id="MilitaryMight" src="files/ImpClass/MilitaryMight.jpg" width="175" height="298" onclick="MMsel()"></img>
-<img id="SubversiveTactics" src="files/ImpClass/SubversiveTactics.jpg" width="175" height="298" onclick="STsel()"></img>
-<img id="TechnologicalSuperiority" src="files/ImpClass/TechnologicalSuperiority.jpg" width="175" height="298" onclick="TSsel()"></img>
-
-<div id="Deployment">
-
-<h3> Drawn Deployment Card for OPEN GROUP: </h3>
-
-	<form id="deployment" action="#" method="post" onsubmit="return false">
-  		<button onClick="displayDeploymentCards()">Draw deployment</button>
-	</form>
-	
-	<form id="deploymentreshuffle" action="#" method="post" onsubmit="return false">
-  		<button onClick="shuffleDeploymentCards()">Reshuffle deployment deck</button>
-	</form>
-	<br>
-	
-	Adjust deployment difficulty (WILL RESHUFFLE DECK!!!)
-	
-	<p id ="deployDiffInt"> </>
-	
-	<form id="deploymentDiffInc" action="#" method="post" onsubmit="return false">
-  		<button onClick="deploymentInc()">+</button>
-	</form>
-	<form id="deploymentDiffDec" action="#" method="post" onsubmit="return false">
-  		<button onClick="deploymentDec()">-</button>
-	</form>
-	<br>
-
-	
-	<!--
-	Placeholder for image, when card is drawn
-	-->
-	<img id="deployImg">
-	</img>
-
-</div>
-
-<div id="Imperial Class div">
-
-<h3> Selected Imperial Class <h3>
-
-<p id="selImpClass">None Selected</p>
-
-	<img id="IC1"></img><img id="IC2"></img><img id="IC3"></img><img id="IC4"></img><img id="IC5"></img><img id="IC6"></img><img id="IC7"></img><img id="IC8"></img><img id="IC9"></img>
-
-</div>
-
-<div id="Instructions">
-	<div id="Choosing Targets">
-		<h3>Choosing Targets</h3>
-		<ul class="tutoriallist">
-			<li>Target choice is determine by mission card and automated emperor card drawn at 
-			start of a group's activation
-			</li>
-			<li>Priority targets will always be targeted before any other targets</li>
-			<li>If a figure is not assigned a priority target, or priority target is not in range, 
-			figure attempts to resolve action against a Secondary Target</li>
-			<li>Secondary targets are shown as Rebel icons on the Automated Emperor card, 
-			and resolved left to right</li>
-			<li>If no priority or secondary targets are available, closest rebel controlled 
-			figure with least health is targeted</li>
-		</ul>
-	</div>
-	<div id="AEActions">
-		<h3>Automated Emperor Card Actions</h3>
-		
-		Attempt to resolve actions on drawn card in listed order. 
-		Standard action rules apply. Actions that cannot be completed or don't apply are skipped. 
-		If bottom of list is reached and actions are still remaining, start from top of list. <br>
-		
-		<ul id="AEList">
-			<li>Attack
-				<ol>
-					<li>Closest assigned priority target</li>
-					<li>1st Secondary Target within range</li>
-					<li>Closes Rebel-controlled figure with least health</li>
-				</ol>
-			</li>
-			<li>Range Definition
-				<ul>
-					<li><b>Melee </b>: Adjacent space</li>
-					<li><b>Reach </b>: 2 spaces</li>
-					<li><b>Ranged </b>: 4 spaces</li>
-					<li>Non-surge +Accuracy modifiers are added to figure's max attack range</li>
-					<li>If no targets are in range/line of sight, Attack action is skipped</li>
-					<li>If priority target is not attackable, attack action becomes interact</li>
-					<li>Attack action becomes interact, in the case of doors</li>
-				</ul>
-			</li>
-			<li>Engage
-				<ul>
-					<li>Move action to figure's speed</li>
-					<li>
-						<ol>
-							<li>Attempt for max attack range & line of sight, using shortest route</li>
-							<li>Move towards closest assigned priority target as much as possible, 
-					regardless of distance</li>
-							<li>Move toward closest secondary target as list if no priority target</li>
-						</ol>
-					</li>
-					<li>Move through opposing figures if necessary if there are enough move points</li>
-				</ul>
-			</li>
-			<li>Ability
-				<ul>
-					<li>Activate ability if it makes sense</li>
-					<li>Includes attached Modification Imperial Class cards</li>
-					<li>Resolve in order as listed on deployment card</li>
-				</ul>
-			
-			</li>
-			<li>Repositioning
-				<ul>
-					<li>Utilize any remaining move points to reposition to better position</li>
-					<li><b>Melee </b>: Break line of sight of ranged rebels </li>
-					<li><b>Reach </b>: Move to be 2 spaces away from nearby rebels </li>
-					<li><b>Ranged </b>: Move to be up to 4 spaces away from nearby rebels. 
-					Use cover if possible </li>
-					<li>Attempt to move towards closest Priority target if assigned 
-					and not already in max attack range and line of sight</li>
-				</ul>
-			</li>
-			<li>Surges
-				<ol>
-					<li>Spend to increase accuracy to hit</li>
-					<li>Double Surges</li>
-					<li>Apply remaining from left to right, top to bottom on deployment card</li>
-				</ol>
-			
-			</li>
-		
-		</ul>
-		
-	</div>
-</div>
 
 </body>
 
