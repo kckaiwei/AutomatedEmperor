@@ -350,6 +350,80 @@
 
 </div>
 
+<div id="Instructions">
+	<div id="AEActions">
+		<h3>Automated Emperor Card Actions</h3>
+		
+		Attempt to resolve actions on drawn card in listed order. 
+		Standard action rules apply. Actions that cannot be completed or don't apply are skipped. 
+		If bottom of list is reached and actions are still remaining, start from top of list. <br>
+		
+		<ul id="AEList">
+			<li>Attack
+				<ol>
+					<li>Closest assigned priority target</li>
+					<li>1st Secondary Target within range</li>
+					<li>Closes Rebel-controlled figure with least health</li>
+				</ol>
+			</li>
+			<li>Range Definition
+				<ul>
+					<li><b>Melee </b>: Adjacent space</li>
+					<li><b>Reach </b>: 2 spaces</li>
+					<li><b>Ranged </b>: 4 spaces</li>
+					<li>Non-surge +Accuracy modifiers are added to figure's max attack range</li>
+					<li>If no targets are in range/line of sight, Attack action is skipped</li>
+					<li>If priority target is not attackable, attack action becomes interact</li>
+					<li>Attack action becomes interact, in the case of doors</li>
+				</ul>
+			</li>
+			<li>Engage
+				<ul>
+					<li>Move action to figure's speed</li>
+					<li>
+						<ol>
+							<li>Attempt for max attack range & line of sight, using shortest route</li>
+							<li>Move towards closest assigned priority target as much as possible, 
+					regardless of distance</li>
+							<li>Move toward closest secondary target as list if no priority target</li>
+						</ol>
+					</li>
+					<li>Move through opposing figures if necessary if there are enough move points</li>
+				</ul>
+			</li>
+			<li>Ability
+				<ul>
+					<li>Activate ability if it makes sense</li>
+					<li>Includes attached Modification Imperial Class cards</li>
+					<li>Resolve in order as listed on deployment card</li>
+				</ul>
+			
+			</li>
+			<li>Repositioning
+				<ul>
+					<li>Utilize any remaining move points to reposition to better position</li>
+					<li><b>Melee </b>: Break line of sight of ranged rebels </li>
+					<li><b>Reach </b>: Move to be 2 spaces away from nearby rebels </li>
+					<li><b>Ranged </b>: Move to be up to 4 spaces away from nearby rebels. 
+					Use cover if possible </li>
+					<li>Attempt to move towards closest Priority target if assigned 
+					and not already in max attack range and line of sight</li>
+				</ul>
+			</li>
+			<li>Surges
+				<ol>
+					<li>Spend to increase accuracy to hit</li>
+					<li>Double Surges</li>
+					<li>Apply remaining from left to right, top to bottom on deployment card</li>
+				</ol>
+			
+			</li>
+		
+		</ul>
+		
+	</div>
+</div>
+
 </body>
 
 </html>
