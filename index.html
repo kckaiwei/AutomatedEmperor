@@ -20,7 +20,7 @@
 	
 	<script type='text/javascript'>
 		//SETUP
-		//VARS
+		//MESS OF VARS
 		var expacCardsList = [];
 		//grabs expansion packs form.
 		var expacoptions = document.getElementById('expacoptions');
@@ -248,11 +248,63 @@
 		//END DEPLOYMENT SECTION
 		//
 		
+		//BEGIN IMPERIAL CLASS SECTION
+		//
+		//
+		//for loop doesn't work, wtf. Maybe due to replace_image() needs tag
+		function MMsel(){
+			document.getElementById('selImpClass').innerHTML = "Military Might";
+			replace_image("files/ImpClass/MM1.jpg", 335, 523, "MM", "IC1");
+			replace_image("files/ImpClass/MM2.jpg", 335, 523, "MM", "IC2");
+			replace_image("files/ImpClass/MM3.jpg", 335, 523, "MM", "IC3");
+			replace_image("files/ImpClass/MM4.jpg", 335, 523, "MM", "IC4");
+			replace_image("files/ImpClass/MM5.jpg", 335, 523, "MM", "IC5");
+			replace_image("files/ImpClass/MM6.jpg", 335, 523, "MM", "IC6");
+			replace_image("files/ImpClass/MM7.jpg", 335, 523, "MM", "IC7");
+			replace_image("files/ImpClass/MM8.jpg", 335, 523, "MM", "IC8");
+			replace_image("files/ImpClass/MM9.jpg", 335, 523, "MM", "IC9");
+		}
+		
+		function STsel(){
+			document.getElementById('selImpClass').innerHTML = "Subversive Tactics";
+			replace_image("files/ImpClass/ST1.jpg", 335, 523, "ST", "IC1");
+			replace_image("files/ImpClass/ST2.jpg", 335, 523, "ST", "IC2");
+			replace_image("files/ImpClass/ST3.jpg", 335, 523, "ST", "IC3");
+			replace_image("files/ImpClass/ST4.jpg", 335, 523, "ST", "IC4");
+			replace_image("files/ImpClass/ST5.jpg", 335, 523, "ST", "IC5");
+			replace_image("files/ImpClass/ST6.jpg", 335, 523, "ST", "IC6");
+			replace_image("files/ImpClass/ST7.jpg", 335, 523, "ST", "IC7");
+			replace_image("files/ImpClass/ST8.jpg", 335, 523, "ST", "IC8");
+			replace_image("files/ImpClass/ST9.jpg", 335, 523, "ST", "IC9");
+			
+		}
+		
+		function TSsel(){
+			document.getElementById('selImpClass').innerHTML = "Technological Superiority";
+			replace_image("files/ImpClass/TS1.jpg", 335, 523, "TS", "IC1");
+			replace_image("files/ImpClass/TS2.jpg", 335, 523, "TS", "IC2");
+			replace_image("files/ImpClass/TS3.jpg", 335, 523, "TS", "IC3");
+			replace_image("files/ImpClass/TS4.jpg", 335, 523, "TS", "IC4");
+			replace_image("files/ImpClass/TS5.jpg", 335, 523, "TS", "IC5");
+			replace_image("files/ImpClass/TS6.jpg", 335, 523, "TS", "IC6");
+			replace_image("files/ImpClass/TS7.jpg", 335, 523, "TS", "IC7");
+			replace_image("files/ImpClass/TS8.jpg", 335, 523, "TS", "IC8");
+			replace_image("files/ImpClass/TS9.jpg", 335, 523, "TS", "IC9");
+		}
+		
+		//
+		//END IMPERIAL CLASS SECTION
+		//
+		
 		
 	</script>
 
 <p id="demo">List to be replaced here</p>
 <p id="demo2">List2 to be replaced here</p>
+
+<img id="MilitaryMight" src="files/ImpClass/MilitaryMight.jpg" width="175" height="298" onclick="MMsel()"></img>
+<img id="SubversiveTactics" src="files/ImpClass/SubversiveTactics.jpg" width="175" height="298" onclick="STsel()"></img>
+<img id="TechnologicalSuperiority" src="files/ImpClass/TechnologicalSuperiority.jpg" width="175" height="298" onclick="TSsel()"></img>
 
 <div id="Deployment">
 
@@ -279,8 +331,22 @@
 	</form>
 	<br>
 
-<img id="deployImg">
-</img>
+	
+	<!--
+	Placeholder for image, when card is drawn
+	-->
+	<img id="deployImg">
+	</img>
+
+</div>
+
+<div id="Imperial Class div">
+
+<h3> Selected Imperial Class <h3>
+
+<p id="selImpClass">None Selected</p>
+
+	<img id="IC1"></img><img id="IC2"></img><img id="IC3"></img><img id="IC4"></img><img id="IC5"></img><img id="IC6"></img><img id="IC7"></img><img id="IC8"></img><img id="IC9"></img>
 
 </div>
 
