@@ -20,7 +20,7 @@
 	
 	<script type='text/javascript'>
 		//SETUP
-		//VAR
+		//VARS
 		var expacCardsList = [];
 		//grabs expansion packs form.
 		var expacoptions = document.getElementById('expacoptions');
@@ -34,6 +34,13 @@
 		var coreScum6_8Standard = ["TrandoshanHunter"];
 		var coreScum8_12Standard = ["ELTrandoshanHunter"];
 		var coreScumNonUnique12Up = [];
+		
+		//Difficulty Settings
+		//deployment threat level (starts at 2)
+		//2-6below; 3-8below; 4-12below; 5+ -all non-unique
+		var deploymentDiff = 2;
+		
+		
 		//New deck
 		//Load first, then call durstenfeld shuffle
 		var deck = [];
@@ -74,6 +81,8 @@
 			deployDeck = deployDeck.concat(coreImpBelow6Standard);
 			deployDeck = deployDeck.concat(coreScumBelow6Standard);
 			deployDeck = shuffleArray(deployDeck);
+			savedDeployDeck = deployDeck.slice(0);
+			document.getElementById('deployDiffInt').innerHTML = deploymentDiff;
 			//Test to show shuffled
 			//document.getElementById('demo2').innerHTML = deployDeck;
 		}
@@ -83,6 +92,7 @@
 		//END VAR SETUP
 		//
 		//
+		
 		//HELPER FUNCTIONS
 		//Durstenfeld shuffle
 		function shuffleArray(array) {
@@ -109,14 +119,16 @@
 		}
 		
 		//IMAGE REPLACE
-		function replace_image(src, width, height, alt, pageTag) {
-			img = document.getElementById(String(pageTag));
+		//replaces an img ALREADY on the page, by page id
+		function replace_image(src, width, height, alt, pageID) {
+			img = document.getElementById(String(pageID));
 			img.src = src;
 			img.width = width;
 			img.height = height;
 			img.alt = alt;
 
 		}
+		//END HELPER FUNCTIONS
 		
 		//MAIN BODY
 		//
@@ -135,6 +147,8 @@
 			}
 			document.getElementById('demo').innerHTML = expacCardsList;
 		}
+		
+		//DEPLOYMENT SECTION
 		//responds to deployment display click
 		function displayDeploymentCards(){
 			//checks to see if there is something left in deck
@@ -145,6 +159,94 @@
 				replace_image(imgSrc, 335, 523, imgSrc, "deployImg");
 			}
 		}
+		
+		//reshuffles deployment cards using saved copy
+		function shuffleDeploymentCards(){
+			savedDeployDeck = shuffleArray(savedDeployDeck);
+			deployDeck = savedDeployDeck.slice(0);
+			document.getElementById('demo2').innerHTML = deployDeck;
+		}
+		
+		//increase deployment difficulty
+		//calls reshuffle and adds required cards
+		function deploymentInc(){
+			deploymentDiff = deploymentDiff + 1;
+			readjustDiff();
+			document.getElementById('deployDiffInt').innerHTML = deploymentDiff;
+			document.getElementById('demo2').innerHTML = deployDeck;
+		}
+		
+		//decrease deployment difficulty
+		//calls reshuffle and adds required cards
+		function deploymentDec(){
+			if (deploymentDiff > 2){
+				deploymentDiff = deploymentDiff - 1 ;
+				readjustDiff();
+				document.getElementById('deployDiffInt').innerHTML = deploymentDiff;
+				document.getElementById('demo2').innerHTML = deployDeck;
+			}
+		}
+		
+		function readjustDiff(){
+			if (deploymentDiff >= 2) {
+				//reset deployDeck
+				deployDeck = [];
+				deployDeck = deployDeck.concat(coreImpBelow6Standard);
+				deployDeck = deployDeck.concat(coreScumBelow6Standard);
+				addDeployNonCore2Threat();
+			}
+			
+			if (deploymentDiff >= 3){
+				deployDeck = deployDeck.concat(coreImp6_8Standard);
+				deployDeck = deployDeck.concat(coreScum6_8Standard);
+				addDeployNonCore3Threat();
+			
+			
+			}
+			
+			if (deploymentDiff >= 4){
+				deployDeck = deployDeck.concat(coreImp8_12Standard);
+				deployDeck = deployDeck.concat(coreScum8_12Standard);
+				addDeployNonCore4Threat();
+			
+			
+			}
+			
+			//5 is max
+			if (deploymentDiff >= 5){
+				deployDeck = deployDeck.concat(coreImpNonUnique12Up);
+				deployDeck = deployDeck.concat(coreScumNonUnique12Up);
+				addDeployNonCore5Threat();
+			
+			
+			}
+			
+			deployDeck = shuffleArray(deployDeck);
+			savedDeployDeck = deployDeck.slice(0);
+			
+		}
+		
+		//Add expacs 2 threat deployment cards
+		function addDeployNonCore2Threat(){
+		
+		}
+		
+		//Adds expacs 3 threat deployment cards
+		function addDeployNonCore3Threat(){
+		
+		}
+		
+		function addDeployNonCore4Threat(){
+		
+		}
+		
+		function addDeployNonCore5Threat(){
+		
+		}
+		
+		//
+		//END DEPLOYMENT SECTION
+		//
 		
 		
 	</script>
@@ -158,6 +260,22 @@
 
 	<form id="deployment" action="#" method="post" onsubmit="return false">
   		<button onClick="displayDeploymentCards()">Draw deployment</button>
+	</form>
+	
+	<form id="deploymentreshuffle" action="#" method="post" onsubmit="return false">
+  		<button onClick="shuffleDeploymentCards()">Reshuffle deployment deck</button>
+	</form>
+	<br>
+	
+	Adjust deployment difficulty
+	
+	<p id ="deployDiffInt"> </>
+	
+	<form id="deploymentDiffInc" action="#" method="post" onsubmit="return false">
+  		<button onClick="deploymentInc()">+</button>
+	</form>
+	<form id="deploymentDiffDec" action="#" method="post" onsubmit="return false">
+  		<button onClick="deploymentDec()">-</button>
 	</form>
 	<br>
 
