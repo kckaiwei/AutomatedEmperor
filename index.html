@@ -4,7 +4,7 @@
 <head>
 	<title>Automated Emperor</title>
 </head>
-<body>
+<body onload="pageLoad()">
 	<form id="expacoptions" action="#" method="post" onsubmit="return false">
 			<input type="checkbox" name="AgentBlaise" value="AgentBlaise"> Agent Blaise<br>
 			<input type="checkbox" name="AllianceSmuggler" value="AllianceSmuggler"> Alliance Smuggler<br>
@@ -15,6 +15,11 @@
   		<button onClick="expacCheck()">Choose</button>
 	</form>
 	
+	<br>
+	<form id="deployment" action="#" method="post" onsubmit="return false">
+  		<button onClick="displayDeploymentCards()">Draw deployment</button>
+	</form>
+	
 	<script type='text/javascript'>
 		//SETUP
 		//VAR
@@ -23,18 +28,32 @@
 		var expacoptions = document.getElementById('expacoptions');
 		//blitz cards filenames
 		var blitzCards = ["Blitz 1","Blitz 2","Blitz 3","Blitz 4","Blitz 5", "Blitz 6","Blitz 7","Blitz 8","Blitz 9","Blitz 10"];
+		var coreImpBelow6Standard = ["ProbeDroid","Stormtrooper","ImpOfficer","EWebEngi","ELImpOfficer","ELProbeDroid"];
+		var coreImp6_8Standard = ["RoyalGuard","ELEWebEngi"];
+		var coreImp8_12Standard = ["ELStormtrooper","ELRoyalGuard"];
+		var coreImpNonUnique12Up = ["AT-ST"];
+		var coreScumBelow6Standard = ["Nexu", "ELNexu"];
+		var coreScum6_8Standard = ["TrandoshanHunter"];
+		var coreScum8_12Standard = ["ELTrandoshanHunter"];
+		var coreScumNonUnique12Up = [];
 		//New deck
 		//Load first, then call durstenfeld shuffle
 		var deck = [];
 		
 		//DECK SHUFFLE
+		
+		//BLITZ DECK MANAGEMENT
 		//Starting number of cards
 		var startCardNum = 2;
+		
+		
 		//Randomly pick Blitz Cards
 		for (var i=0, len=startCardNum; i<startCardNum;i++){
 			//10 cards to pick from, randomly picks one
 			deck.push("Blitz " + randomCardNumberDraw(1,10));
 		}
+		
+		
 		//Load up focus cards
 		for (var i=0, len=startCardNum; i<startCardNum;i++){
 			//10 cards to pick from, randomly picks one
@@ -46,34 +65,49 @@
 			return Math.floor(Math.random()*(max-min+1)+min);
 		}
 		
+		//DEPLOYMENT DECK MANAGEMENT
+		var deployDeck = [];
+		
+		//ON PAGE LOAD FUNCTIONS
+		function pageLoad(){
+			deployDeck = deployDeck.concat(coreImpBelow6Standard);
+			deployDeck = deployDeck.concat(coreScumBelow6Standard);
+			deployDeck = shuffleArray(deployDeck);
+			//Test to show shuffled
+			//document.getElementById('demo2').innerHTML = deployDeck;
+		}
+		
+		
 		
 		//END VAR SETUP
 		//
 		//
-		
+		//HELPER FUNCTIONS
 		//Durstenfeld shuffle
 		function shuffleArray(array) {
 			for (var i = array.length - 1; i > 0; i--) {
-			var j = Math.floor(Math.random() * (i + 1));
-			var temp = array[i];
-			array[i] = array[j];
-			array[j] = temp;
+				var j = Math.floor(Math.random() * (i + 1));
+				var temp = array[i];
+				array[i] = array[j];
+				array[j] = temp;
 			}
 			return array;
 		}
 		
-		
+		//adding image function
 		function show_image(src, width, height, alt) {
-		var img = document.createElement("img");
-		img.src = src;
-		img.width = width;
-		img.height = height;
-		img.alt = alt;
+			var img = document.createElement("img");
+			img.src = src;
+			img.width = width;
+			img.height = height;
+			img.alt = alt;
 
-		// This next line will just add it to the <body> tag
-		document.body.appendChild(img);
+			// This next line will just add it to the <body> tag
+			document.body.appendChild(img);
 		}
 		
+		//MAIN BODY
+		//
 		//responds to click from submit button
 		function expacCheck(){
 			//checks which checkboxes are clicked
@@ -87,13 +121,28 @@
 					}
 				}
 			}
-			document.getElementById('demo').innerHTML = expacCardsList
+			document.getElementById('demo').innerHTML = expacCardsList;
+		}
+		//responds to deployment display click
+		function displayDeploymentCards(){
+			var poppedItem = String(deployDeck.pop());
+			var imgSrc = "/files/Deployment/Core" + poppedItem + ".jpg";
+			document.getElementById('demo2').innerHTML = deployDeck;
+			show_image(imgSrc, 335, 523, imgSrc);
 		}
 		
 		
 	</script>
 
 <p id="demo">List to be replaced here</p>
+<p id="demo2">List2 to be replaced here</p>
+
+<div id="Deployment">
+
+<img id="deployImg">
+</img>
+
+</div>
 
 </body>
 
