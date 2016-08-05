@@ -16,9 +16,7 @@
 	</form>
 	
 	<br>
-	<form id="deployment" action="#" method="post" onsubmit="return false">
-  		<button onClick="displayDeploymentCards()">Draw deployment</button>
-	</form>
+
 	
 	<script type='text/javascript'>
 		//SETUP
@@ -67,6 +65,9 @@
 		
 		//DEPLOYMENT DECK MANAGEMENT
 		var deployDeck = [];
+		//Copy of shuffled deploy Deck
+		//Use when resetting deck to draw
+		var savedDeployDeck = [];
 		
 		//ON PAGE LOAD FUNCTIONS
 		function pageLoad(){
@@ -95,6 +96,7 @@
 		}
 		
 		//adding image function
+		//GENERIC TEMPLATE!!! MODIFY AS NEEDED
 		function show_image(src, width, height, alt) {
 			var img = document.createElement("img");
 			img.src = src;
@@ -104,6 +106,16 @@
 
 			// This next line will just add it to the <body> tag
 			document.body.appendChild(img);
+		}
+		
+		//IMAGE REPLACE
+		function replace_image(src, width, height, alt, pageTag) {
+			img = document.getElementById(String(pageTag));
+			img.src = src;
+			img.width = width;
+			img.height = height;
+			img.alt = alt;
+
 		}
 		
 		//MAIN BODY
@@ -125,10 +137,13 @@
 		}
 		//responds to deployment display click
 		function displayDeploymentCards(){
-			var poppedItem = String(deployDeck.pop());
-			var imgSrc = "files/Deployment/Core/" + poppedItem + ".jpg";
-			document.getElementById('demo2').innerHTML = deployDeck;
-			show_image(imgSrc, 335, 523, imgSrc);
+			//checks to see if there is something left in deck
+			if (deployDeck[0]){
+				var poppedItem = String(deployDeck.pop());
+				var imgSrc = "files/Deployment/Core/" + poppedItem + ".jpg";
+				document.getElementById('demo2').innerHTML = deployDeck;
+				replace_image(imgSrc, 335, 523, imgSrc, "deployImg");
+			}
 		}
 		
 		
@@ -138,6 +153,13 @@
 <p id="demo2">List2 to be replaced here</p>
 
 <div id="Deployment">
+
+<h3> Drawn Deployment Card: </h3>
+
+	<form id="deployment" action="#" method="post" onsubmit="return false">
+  		<button onClick="displayDeploymentCards()">Draw deployment</button>
+	</form>
+	<br>
 
 <img id="deployImg">
 </img>
