@@ -72,6 +72,24 @@
 <img id="SubversiveTactics" src="files/ImpClass/SubversiveTactics.jpg" width="175" height="298" onclick="STsel()"></img>
 <img id="TechnologicalSuperiority" src="files/ImpClass/TechnologicalSuperiority.jpg" width="175" height="298" onclick="TSsel()"></img>
 
+<div id="Blitz">
+	<h3> Drawn Automated Emperor/Blitz Card: </h3>
+	
+	<form id="blitzDraw" action="#" method="post" onsubmit="return false">
+  		<button onClick="displayBlitzCards()">Draw Automated Emperor Card</button>
+	</form>
+	
+	<form id="blitzReshuffle" action="#" method="post" onsubmit="return false">
+  		<button onClick="shuffleBlitzCards()">Reshuffle Automated Emperor deck</button>
+	</form>
+	<br>
+	
+	<img id="currentBlitzImg"></img>
+
+
+</div>
+
+
 <div id="Deployment">
 
 <h3> Drawn Deployment Card for OPEN GROUP: </h3>
@@ -109,7 +127,7 @@
 
 <div id="Imperial Class div">
 
-<h3>Selected Imperial Class<h3>
+<h3>Selected Imperial Class</h3>
 
 <p id="selImpClass">None Selected</p>
 
@@ -220,6 +238,7 @@
 		var expacoptions = document.getElementById('expacoptions');
 		//blitz cards filenames
 		var blitzCards = ["Blitz 1","Blitz 2","Blitz 3","Blitz 4","Blitz 5", "Blitz 6","Blitz 7","Blitz 8","Blitz 9","Blitz 10"];
+		var blitzColors = ["Blue", "Gold", "Green", "Red"];
 		var coreImpBelow6Standard = ["ProbeDroid","Stormtrooper","ImpOfficer","EWebEngi","ELImpOfficer","ELProbeDroid"];
 		var coreImp6_8Standard = ["RoyalGuard","ELEWebEngi"];
 		var coreImp8_12Standard = ["ELStormtrooper","ELRoyalGuard"];
@@ -238,26 +257,14 @@
 		//New deck
 		//Load first, then call durstenfeld shuffle
 		var deck = [];
+		//Used when resetting deck to draw
+		var savedBlitzDeck = [];
 		
 		//DECK SHUFFLE
 		
 		//BLITZ DECK MANAGEMENT
 		//Starting number of cards
-		var startCardNum = 2;
-		
-		
-		//Randomly pick Blitz Cards
-		for (var i=0, len=startCardNum; i<startCardNum;i++){
-			//10 cards to pick from, randomly picks one
-			deck.push("Blitz " + randomCardNumberDraw(1,10));
-		}
-		
-		
-		//Load up focus cards
-		for (var i=0, len=startCardNum; i<startCardNum;i++){
-			//10 cards to pick from, randomly picks one
-			deck.push("Blitz " + randomCardNumberDraw(1,10));
-		}
+		var blitzCardsInt = 2;
 		
 		function randomCardNumberDraw(min,max){
 			//Takes min max integer to randomize from
@@ -275,10 +282,41 @@
 			deployDeck = deployDeck.concat(coreImpBelow6Standard);
 			deployDeck = deployDeck.concat(coreScumBelow6Standard);
 			deployDeck = shuffleArray(deployDeck);
+			//clone deployment deck and save it to saved blitz deck
 			savedDeployDeck = deployDeck.slice(0);
 			document.getElementById('deployDiffInt').innerHTML = deploymentDiff;
 			//Test to show shuffled
 			//document.getElementById('demo2').innerHTML = deployDeck;
+				
+			
+			//BLITZ CARD ON LOAD SECTION
+			//Randomly pick Blitz Cards
+			//To current blitz level
+			//clone blitz card's deck to shuffle and POP
+			var blitzCardsDeckClone = shuffleArray(blitzCards);
+			
+			for (var i=0, len=blitzCardsInt; i<blitzCardsInt; i++){
+			//10 cards to pick from, randomly picks one
+				deck.push(blitzCardsDeckClone.pop());
+
+			}
+		
+		
+			//Load up blitz color focus cards
+			for (var i=0; i<blitzColors.length; i++){
+				for (var j=1; j<7; j++){
+					deck.push(String(blitzColors[i]) + " " + String(j));
+				}
+			}
+			deck = shuffleArray(deck);
+			//clone deck and save it to saved blitz deck
+			savedBlitzDeck = deck.slice(0);
+			document.getElementById('demo').innerHTML = deck;
+			
+			//END BLITZ CARD ON LOAD SECTION
+			//
+			//
+			
 		}
 		
 		
@@ -455,6 +493,30 @@
 		//
 		//END DEPLOYMENT SECTION
 		//
+		
+		//
+		//BEGIN BLITZ/AUTOMATED EMPEROR SECTION
+		//
+		
+		function displayBlitzCards(){
+			//checks to see if there is something left in deck
+			if (deck[0]){
+				var poppedItem = String(deck.pop());
+				var imgSrc = "files/AE/" + poppedItem + ".jpg";
+				document.getElementById('demo').innerHTML = deck;
+				replace_image(imgSrc, 335, 523, imgSrc, "currentBlitzImg");
+			}
+		}
+		
+		//reshuffles deployment cards using saved copy
+		function shuffleBlitzCards(){
+			savedBlitzDeck = shuffleArray(savedBlitzDeck);
+			deck = savedBlitzDeck.slice(0);
+			document.getElementById('demo').innerHTML = deck;
+		}
+		
+		//END BLITZ/AUTOMATED EMPEROR SECTION
+		
 		
 		//BEGIN IMPERIAL CLASS SECTION
 		//
