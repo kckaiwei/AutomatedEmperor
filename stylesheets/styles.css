@@ -48,7 +48,11 @@
     color: white;
 }
 
-.modal-body {padding: 2px 16px;}
+.modal-body {
+	padding: 2px 16px;
+	max-height: calc(100vh - 210px);
+	overflow-y: auto;		
+}
 
 .modal-footer {
     padding: 2px 16px;
