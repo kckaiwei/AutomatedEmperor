@@ -3,8 +3,12 @@
 <html>
 <head>
 	<title>Automated Emperor</title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/styles.css" />
 </head>
 <body onload="pageLoad()">
+
+<button id="myBtn">Open Instruction Steps</button>
+<br><br>
 
 	<b>Ally/Villain Packs</b>
 	<form id="expacoptions" action="#" method="post" onsubmit="return false">
@@ -84,6 +88,21 @@
 	</form>
 	<br>
 	
+	<br>
+	
+	Adjust Blitz Cards (WILL RESHUFFLE DECK!!!) - Add one when Imperial loses a mission (applies every lost mission)
+	
+	<p id ="blitzLevelIntText"> </p>
+	
+	<form id="blitzIncForm" action="#" method="post" onsubmit="return false">
+  		<button onClick="blitzInc()">+</button>
+	</form>
+	<form id="blitzDecForm" action="#" method="post" onsubmit="return false">
+  		<button onClick="blitzDec()">-</button>
+	</form>
+	<br>
+	
+	
 	<img id="currentBlitzImg"></img>
 
 
@@ -103,9 +122,9 @@
 	</form>
 	<br>
 	
-	Adjust deployment difficulty (WILL RESHUFFLE DECK!!!)
+	Adjust campaign threat level (WILL RESHUFFLE DECK!!!)
 	
-	<p id ="deployDiffInt"> </>
+	<p id ="deployDiffInt"> </p>
 	
 	<form id="deploymentDiffInc" action="#" method="post" onsubmit="return false">
   		<button onClick="deploymentInc()">+</button>
@@ -141,96 +160,120 @@
 	<img id="missionFront"></img><img id="missionBack"></img>
 </div>
 
-<div id="Instructions">
-	<div id="Choosing Targets">
-		<h3>Choosing Targets</h3>
-		<ul class="tutoriallist">
-			<li>Target choice is determine by mission card and automated emperor card drawn at 
-			start of a group's activation
-			</li>
-			<li>Priority targets will always be targeted before any other targets</li>
-			<li>If a figure is not assigned a priority target, or priority target is not in range, 
-			figure attempts to resolve action against a Secondary Target</li>
-			<li>Secondary targets are shown as Rebel icons on the Automated Emperor card, 
-			and resolved left to right</li>
-			<li>If no priority or secondary targets are available, closest rebel controlled 
-			figure with least health is targeted</li>
-		</ul>
-	</div>
-	<div id="AEActions">
-		<h3>Automated Emperor Card Actions</h3>
-		
-		Attempt to resolve actions on drawn card in listed order. 
-		Standard action rules apply. Actions that cannot be completed or don't apply are skipped. 
-		If bottom of list is reached and actions are still remaining, start from top of list. <br>
-		
-		<ul id="AEList">
-			<li>Attack
-				<ol>
-					<li>Closest assigned priority target</li>
-					<li>1st Secondary Target within range</li>
-					<li>Closes Rebel-controlled figure with least health</li>
-				</ol>
-			</li>
-			<li>Range Definition
-				<ul>
-					<li><b>Melee </b>: Adjacent space</li>
-					<li><b>Reach </b>: 2 spaces</li>
-					<li><b>Ranged </b>: 4 spaces</li>
-					<li>Non-surge +Accuracy modifiers are added to figure's max attack range</li>
-					<li>If no targets are in range/line of sight, Attack action is skipped</li>
-					<li>If priority target is not attackable, attack action becomes interact</li>
-					<li>Attack action becomes interact, in the case of doors</li>
-				</ul>
-			</li>
-			<li>Engage
-				<ul>
-					<li>Move action to figure's speed</li>
-					<li>
-						<ol>
-							<li>Attempt for max attack range & line of sight, using shortest route</li>
-							<li>Move towards closest assigned priority target as much as possible, 
-					regardless of distance</li>
-							<li>Move toward closest secondary target as list if no priority target</li>
-						</ol>
-					</li>
-					<li>Move through opposing figures if necessary if there are enough move points</li>
-				</ul>
-			</li>
-			<li>Ability
-				<ul>
-					<li>Activate ability if it makes sense</li>
-					<li>Includes attached Modification Imperial Class cards</li>
-					<li>Resolve in order as listed on deployment card</li>
-				</ul>
+<!--
+PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
+
+-->
+
+	<div id="myModal" class="modal">
+
+	<!-- Modal content -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<span class="close">&times</span>
+				<h2>Instructions on using Automated Emperor</h2>
+			</div>
+			<div class="modal-body">
+				<div id="Instructions">
+					<div id="Choosing Targets">
+						<h3>Choosing Targets</h3>
+						<ul class="tutoriallist">
+							<li>Target choice is determine by mission card and automated emperor card drawn at 
+							start of a group's activation
+							</li>
+							<li>Priority targets will always be targeted before any other targets</li>
+							<li>If a figure is not assigned a priority target, or priority target is not in range, 
+							figure attempts to resolve action against a Secondary Target</li>
+							<li>Secondary targets are shown as Rebel icons on the Automated Emperor card, 
+							and resolved left to right</li>
+							<li>If no priority or secondary targets are available, closest rebel controlled 
+							figure with least health is targeted</li>
+						</ul>
+					</div>
+					<div id="AEActions">
+						<h3>Automated Emperor Card Actions</h3>
+						
+						Attempt to resolve actions on drawn Automated Emperor card in listed order. 
+						Standard action rules apply. Actions that cannot be completed or don't apply are skipped. 
+						If bottom of list is reached and actions are still remaining, start from top of list. <br>
+						
+						<ul id="AEList">
+							<li>Attack
+								<ol>
+									<li>Closest assigned priority target</li>
+									<li>1st Secondary Target within range</li>
+									<li>Closes Rebel-controlled figure with least health</li>
+								</ol>
+							</li>
+							<li>Range Definition
+								<ul>
+									<li><b>Melee </b>: Adjacent space</li>
+									<li><b>Reach </b>: 2 spaces</li>
+									<li><b>Ranged </b>: 4 spaces</li>
+									<li>Non-surge +Accuracy modifiers are added to figure's max attack range</li>
+									<li>If no targets are in range/line of sight, Attack action is skipped</li>
+									<li>If priority target is not attackable, attack action becomes interact</li>
+									<li>Attack action becomes interact, in the case of doors</li>
+								</ul>
+							</li>
+							<li>Engage
+								<ul>
+									<li>Move action to figure's speed</li>
+									<li>
+										<ol>
+											<li>Attempt for max attack range & line of sight, using shortest route</li>
+											<li>Move towards closest assigned priority target as much as possible, 
+									regardless of distance</li>
+											<li>Move toward closest secondary target as list if no priority target</li>
+										</ol>
+									</li>
+									<li>Move through opposing figures if necessary if there are enough move points</li>
+								</ul>
+							</li>
+							<li>Ability
+								<ul>
+									<li>Activate ability if it makes sense</li>
+									<li>Includes attached Modification Imperial Class cards</li>
+									<li>Resolve in order as listed on deployment card</li>
+								</ul>
+							
+							</li>
+							<li>Repositioning
+								<ul>
+									<li>Utilize any remaining move points to reposition to better position</li>
+									<li><b>Melee </b>: Break line of sight of ranged rebels </li>
+									<li><b>Reach </b>: Move to be 2 spaces away from nearby rebels </li>
+									<li><b>Ranged </b>: Move to be up to 4 spaces away from nearby rebels. 
+									Use cover if possible </li>
+									<li>Attempt to move towards closest Priority target if assigned 
+									and not already in max attack range and line of sight</li>
+								</ul>
+							</li>
+							<li>Surges
+								<ol>
+									<li>Spend to increase accuracy to hit</li>
+									<li>Double Surges</li>
+									<li>Apply remaining from left to right, top to bottom on deployment card</li>
+								</ol>
+							
+							</li>
+						
+						</ul>
+							
+						</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<p>Web app developed by <a href="https://github.com/kckaiwei">Kevin Chang</a> Automated Emperor Cards by <a href="https://boardgamegeek.com/user/RedJak7">RedJak7</a></p>
+			</div>
 			
-			</li>
-			<li>Repositioning
-				<ul>
-					<li>Utilize any remaining move points to reposition to better position</li>
-					<li><b>Melee </b>: Break line of sight of ranged rebels </li>
-					<li><b>Reach </b>: Move to be 2 spaces away from nearby rebels </li>
-					<li><b>Ranged </b>: Move to be up to 4 spaces away from nearby rebels. 
-					Use cover if possible </li>
-					<li>Attempt to move towards closest Priority target if assigned 
-					and not already in max attack range and line of sight</li>
-				</ul>
-			</li>
-			<li>Surges
-				<ol>
-					<li>Spend to increase accuracy to hit</li>
-					<li>Double Surges</li>
-					<li>Apply remaining from left to right, top to bottom on deployment card</li>
-				</ol>
-			
-			</li>
-		
-		</ul>
-		
+		</div>
 	</div>
-</div>
 
 <script type='text/javascript'>
+
+		//MESS AHEAD! Should've started it modular. TODO
+
 		//SETUP
 		//MESS OF VARS
 		var expacCardsList = [];
@@ -276,12 +319,13 @@
 		//Copy of shuffled deploy Deck
 		//Use when resetting deck to draw
 		var savedDeployDeck = [];
+		var blitzCardsDeckClone = [];
 		
 		//ON PAGE LOAD FUNCTIONS
 		function pageLoad(){
 			deployDeck = deployDeck.concat(coreImpBelow6Standard);
 			deployDeck = deployDeck.concat(coreScumBelow6Standard);
-			deployDeck = shuffleArray(deployDeck);
+			deployDeck = shuffleArray(deployDeck.slice(0));
 			//clone deployment deck and save it to saved blitz deck
 			savedDeployDeck = deployDeck.slice(0);
 			document.getElementById('deployDiffInt').innerHTML = deploymentDiff;
@@ -293,7 +337,7 @@
 			//Randomly pick Blitz Cards
 			//To current blitz level
 			//clone blitz card's deck to shuffle and POP
-			var blitzCardsDeckClone = shuffleArray(blitzCards);
+			blitzCardsDeckClone = shuffleArray(blitzCards.slice(0));
 			
 			for (var i=0, len=blitzCardsInt; i<blitzCardsInt; i++){
 			//10 cards to pick from, randomly picks one
@@ -308,10 +352,11 @@
 					deck.push(String(blitzColors[i]) + " " + String(j));
 				}
 			}
-			deck = shuffleArray(deck);
+			deck = shuffleArray(deck.slice(0));
 			//clone deck and save it to saved blitz deck
 			savedBlitzDeck = deck.slice(0);
 			document.getElementById('demo').innerHTML = deck;
+			document.getElementById('blitzLevelIntText').innerHTML = blitzCardsInt;
 			
 			//END BLITZ CARD ON LOAD SECTION
 			//
@@ -319,14 +364,14 @@
 			
 		}
 		
-		
-		
 		//END VAR SETUP
 		//
 		//
 		
 		//HELPER FUNCTIONS
 		//Durstenfeld shuffle
+		//ALWAYS CLONE!!!!!! array = array.slice(0)
+		//Somehow losing first and last index if not using clone.
 		function shuffleArray(array) {
 			for (var i = array.length - 1; i > 0; i--) {
 				var j = Math.floor(Math.random() * (i + 1));
@@ -408,7 +453,7 @@
 		
 		//reshuffles deployment cards using saved copy
 		function shuffleDeploymentCards(){
-			savedDeployDeck = shuffleArray(savedDeployDeck);
+			savedDeployDeck = shuffleArray(savedDeployDeck.slice(0));
 			deployDeck = savedDeployDeck.slice(0);
 			document.getElementById('demo2').innerHTML = deployDeck;
 		}
@@ -515,6 +560,57 @@
 			document.getElementById('demo').innerHTML = deck;
 		}
 		
+		function blitzInc(){
+			//Did not know javascript takes +=, too late now.
+			if (blitzCardsInt < 10) {
+				blitzCardsInt = blitzCardsInt + 1;
+				blitzReadjust();
+			}
+			document.getElementById('blitzLevelIntText').innerHTML = blitzCardsInt;			
+		}
+		
+		function blitzDec(){
+			//Did not know javascript takes +=, too late now.
+			if (blitzCardsInt > 2){
+				blitzCardsInt = blitzCardsInt - 1;
+				blitzReadjust();
+			}
+			document.getElementById('blitzLevelIntText').innerHTML = blitzCardsInt;
+		}
+		
+		function blitzReadjust(){
+			//First, clear deck
+			deck = [];
+			//reshuffle blitzCardsDeckClone
+			//reset + shuffle then pop from it to ensure random draw
+			blitzCardsDeckClone = [];
+			//must clone with .slice(0)
+			//shufflearray modifies original and messes up somehow.
+			blitzCardsDeckClone = shuffleArray(blitzCards.slice(0));
+			//push in cards as needed
+			for (var i=0; i<blitzCardsInt; i++){
+			//10 cards to pick from, randomly picks one
+				deck.push(blitzCardsDeckClone.pop());
+
+			}
+		
+		
+			//Load up blitz color focus cards; always same amount
+			for (var i=0; i<blitzColors.length; i++){
+				for (var j=1; j<7; j++){
+					deck.push(String(blitzColors[i]) + " " + String(j));
+				}
+			}
+			deck = shuffleArray(deck);
+			//clone deck and save it to saved blitz deck
+			//reset savedBlitzDeck before reusing
+			savedBlitzDeck = [];
+			savedBlitzDeck = deck.slice(0);
+			document.getElementById('demo').innerHTML = deck;
+			document.getElementById('demo2').innerHTML = blitzCards;
+
+		}
+		
 		//END BLITZ/AUTOMATED EMPEROR SECTION
 		
 		
@@ -564,6 +660,39 @@
 		
 		//
 		//END IMPERIAL CLASS SECTION
+		//
+		
+		
+		//MODAL SECTION BEGIN
+		//
+		
+		// Get the modal
+		var modal = document.getElementById('myModal');
+
+		// Get the button that opens the modal
+		var btn = document.getElementById("myBtn");
+
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		// When the user clicks on the button, open the modal 
+		btn.onclick = function() {
+			modal.style.display = "block";
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+			modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+
+		//END MODAL SECTION
 		//
 		
 		
