@@ -4,6 +4,15 @@ input[type=radio] {
 	display: inline;
 }
 
+#missionTable {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.buttonCenter {
+	text-align: center;
+}
+
 /*MODAL SECTION
 BEGINS
 */
