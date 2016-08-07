@@ -23,8 +23,27 @@
 	
 	<br>
 	
+	<div id="uniques">
+		<b>Rewarded Uniques</b> (Reshuffle after selecting!)
+			<form id="uniqueOptions" action="#" onsubmit="return false">
+				<table id="uniqueTable">
+					<tr>
+						<td>
+							<input type="checkbox" name="uniqueCheck" value="DarthVader">Darth Vader<br>
+						</td>
+						<td>
+							<input type="checkbox" name="uniqueCheck" value="ELGeneralWeiss">General Weiss<br>
+						</td>
+						<td>
+							<input type="checkbox" name="uniqueCheck" value="ELRoyalGuardChamp">Royal Guard Champion<br>
+						</td>
+					</tr>
+				</table>
+			</form>
+	</div>
+	
 	<div id="missionSelector">
-	<b>Core Missions</b>
+	<b class="center">Core Missions</b>
 		<form id="missionOptions" action="#" method="post" onsubmit="return false">
 			<table id="missionTable">
 				<tr>
@@ -164,13 +183,12 @@ COMMENTED OUT UNTIL FULLY DONE
 <div id="Blitz">
 	<h3> Drawn Automated Emperor/Blitz Card: </h3>
 	
-	<form id="blitzDraw" action="#" method="post" onsubmit="return false">
-  		<button onClick="displayBlitzCards()">Draw Automated Emperor Card</button>
-	</form>
-	
-	<form id="blitzReshuffle" action="#" method="post" onsubmit="return false">
-  		<button onClick="shuffleBlitzCards()">Reshuffle Automated Emperor deck</button>
-	</form>
+	<div class="buttonCenter">
+		<form id="blitzDraw" action="#" method="post" onsubmit="return false">
+			<button onClick="displayBlitzCards()">Draw Automated Emperor Card</button>
+			<button onClick="shuffleBlitzCards()">Reshuffle Automated Emperor deck</button>
+		</form>
+	</div>
 	<br>
 	
 	<p id="blitzShuffleStatus"></p>
@@ -181,16 +199,16 @@ COMMENTED OUT UNTIL FULLY DONE
 	
 	<p> Current Blitz Level: </p> <p id ="blitzLevelIntText"> </p>
 	
-	<form id="blitzIncForm" action="#" method="post" onsubmit="return false">
-  		<button onClick="blitzInc()">+</button>
-	</form>
-	<form id="blitzDecForm" action="#" method="post" onsubmit="return false">
-  		<button onClick="blitzDec()">-</button>
-	</form>
+	<div class="buttonCenter">
+		<form id="blitzForm" action="#" method="post" onsubmit="return false">
+			<button onClick="blitzDec()">-</button>
+			<button onClick="blitzInc()">+</button>
+		</form>
+	</div>
 	<br>
 	
 	
-	<img id="currentBlitzImg"></img>
+	<img id="currentBlitzImg" class="center"></img>
 
 
 </div>
@@ -199,14 +217,13 @@ COMMENTED OUT UNTIL FULLY DONE
 <div id="Deployment">
 
 <h3> Drawn Deployment Card for OPEN GROUP: </h3>
-
-	<form id="deployment" action="#" method="post" onsubmit="return false">
-  		<button onClick="displayDeploymentCards()">Draw deployment</button>
-	</form>
+	<div class="center">
+		<form id="deploymentDisplayForm" action="#" method="post" onsubmit="return false">
+			<button onClick="displayDeploymentCards()">Draw deployment</button>
+			<button onClick="shuffleDeploymentCards()">Reshuffle deployment deck</button>
+		</form>
+	</div>
 	
-	<form id="deploymentreshuffle" action="#" method="post" onsubmit="return false">
-  		<button onClick="shuffleDeploymentCards()">Reshuffle deployment deck</button>
-	</form>
 	<br>
 	
 	<p id="deployShuffleStatus"></p> 
@@ -215,14 +232,14 @@ COMMENTED OUT UNTIL FULLY DONE
 	
 	Adjust campaign threat level (WILL RESHUFFLE DECK!!!)
 	
-	<p>Current Threat Level: </p> <p id ="deployDiffInt"> </p>
+	<p>Current Threat Level: </p> <p id ="deployDiffInt" class="currentValues"> </p>
 	
-	<form id="deploymentDiffInc" action="#" method="post" onsubmit="return false">
-  		<button onClick="deploymentInc()">+</button>
-	</form>
-	<form id="deploymentDiffDec" action="#" method="post" onsubmit="return false">
-  		<button onClick="deploymentDec()">-</button>
-	</form>
+	<div class="center">
+		<form id="deploymentDiffForm" action="#" method="post" onsubmit="return false">
+			<button onClick="deploymentDec()">-</button>
+			<button onClick="deploymentInc()">+</button>
+		</form>
+	</div>
 	<br>
 	
 
@@ -251,7 +268,7 @@ COMMENTING THIS OUT UNTIL FULL DONE
 </div>
 -->
 <div id="Mission Staging">
-	<h3>Current Mission</h3>
+	<h3>Current Mission:</h3>
 	
 	<img id="missionFront"></img><img id="missionBack"></img>
 </div>
@@ -599,6 +616,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		var expacCardsList = [];
 		//grabs expansion packs form.
 		var expacoptions = document.getElementById('expacoptions');
+		var uniqueOptions = document.getElementById('uniqueOptions');
 		//blitz cards filenames
 		var blitzCards = ["Blitz 1","Blitz 2","Blitz 3","Blitz 4","Blitz 5", "Blitz 6","Blitz 7","Blitz 8","Blitz 9","Blitz 10"];
 		var blitzColors = ["Blue", "Gold", "Green", "Red"];
@@ -646,9 +664,9 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		function pageLoad(){
 			deployDeck = deployDeck.concat(coreImpBelow6Standard);
 			deployDeck = deployDeck.concat(coreScumBelow6Standard);
+			savedDeployDeck = deployDeck.slice(0);
 			deployDeck = shuffleArray(deployDeck.slice(0));
 			//clone deployment deck and save it to saved blitz deck
-			savedDeployDeck = deployDeck.slice(0);
 			document.getElementById('deployDiffInt').innerHTML = deploymentDiff;
 			//Test to show shuffled
 			//document.getElementById('demo2').innerHTML = deployDeck;
@@ -800,6 +818,10 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		function shuffleDeploymentCards(){
 			savedDeployDeck = shuffleArray(savedDeployDeck.slice(0));
 			deployDeck = savedDeployDeck.slice(0);
+			//add extras
+			checkAndAddUniques();
+			//reshuffle
+			deployDeck = shuffleArray(deployDeck.slice(0));
 			//HIDING LINE FOR DEBUGGING
 			//document.getElementById('demo2').innerHTML = deployDeck;
 			document.getElementById('deployShuffleStatus').innerHTML = "Deployment Cards Shuffled!";
@@ -968,6 +990,22 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		
 		//END BLITZ/AUTOMATED EMPEROR SECTION
 		
+		//UNIQUES SECTION BEGIN
+		//
+		function checkAndAddUniques() {
+			var test = [];
+			for (var i=0, len=uniqueOptions.length; i<len; i++){
+				if (uniqueOptions[i].type === 'checkbox'){
+					if (uniqueOptions[i].checked){
+						deployDeck.push(uniqueOptions[i].value);
+					}
+				}
+			}
+			
+		}
+		
+		//UNIQUES SECTION END
+		//
 		
 		//BEGIN IMPERIAL CLASS SECTION
 		//
