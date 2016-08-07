@@ -197,11 +197,12 @@ COMMENTED OUT UNTIL FULLY DONE
 	
 	Adjust Blitz Cards (WILL RESHUFFLE DECK!!!) - Add one when Imperial loses a mission (applies every lost mission)
 	
-	<p> Current Blitz Level: </p> <p id ="blitzLevelIntText"> </p>
+	<p> Current Blitz Level: </p> 
 	
 	<div class="buttonCenter">
 		<form id="blitzForm" action="#" method="post" onsubmit="return false">
 			<button onClick="blitzDec()">-</button>
+			<span id ="blitzLevelIntText"> </span>
 			<button onClick="blitzInc()">+</button>
 		</form>
 	</div>
@@ -232,11 +233,12 @@ COMMENTED OUT UNTIL FULLY DONE
 	
 	Adjust campaign threat level (WILL RESHUFFLE DECK!!!)
 	
-	<p>Current Threat Level: </p> <p id ="deployDiffInt" class="currentValues"> </p>
+	<p>Current Threat Level: </p> 
 	
 	<div class="center">
 		<form id="deploymentDiffForm" action="#" method="post" onsubmit="return false">
 			<button onClick="deploymentDec()">-</button>
+			<span id ="deployDiffInt" class="currentValues"> </span>
 			<button onClick="deploymentInc()">+</button>
 		</form>
 	</div>
