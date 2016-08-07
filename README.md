@@ -7,7 +7,23 @@ Visit:
 
 Work on gh-pages branch. Trunk is not used by Github Pages
 
+#### Table of Contents
+
+1. [Description](#Description)
+2. [Features - Supported Sets](#Features)
+
+
+# Description
+
+Automated Emperor provides Imperial Assault players a co-op web app that controls the Imperial forces. Automated Emperor (AE) utilizes RedJak7's system to provide an AI system. AE uses standard Imperial Assault rules with a few special rules. See the included Instructions for full rules.
+
 # Features
+
+Draws deployment cards based on Threat Level.
+
+Provides AE cards for Imperial instruction.
+
+Provides corresponding Mission cards that detail how Imperials act.
 
 Supports:
 - Core Set
