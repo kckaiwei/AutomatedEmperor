@@ -11,3 +11,5 @@ Work on gh-pages branch. Trunk is not used by Github Pages
 
 Supports:
 - Core Set
+- Luke Pack
+- Darth Vader Pack
