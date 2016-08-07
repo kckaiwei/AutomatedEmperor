@@ -25,7 +25,7 @@ Automated Emperor provides Imperial Assault players a co-op web app that control
 - Imperial Threat Resource Counter
 - Imperial Influence Counter
 
-*Supports:*
+**Supports:**
 - Core Set
 - Luke Pack
 - Darth Vader Pack
