@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="stylesheets/styles.css" />
 </head>
 <body onload="pageLoad()">
-
+<p id="STARTHERE"><b>START HERE:</b><p>
 <button id="myBtn">Open Instruction Steps</button>
 <br><br>
 
@@ -67,14 +67,21 @@
 	</div>
 
 	
-	
+<!--
+HIDING DEBUG OUTPUTS
+
 
 <p id="demo">List to be replaced here</p>
 <p id="demo2">List2 to be replaced here</p>
+-->
+
+<!--
+COMMENTED OUT UNTIL FULLY DONE
 
 <img id="MilitaryMight" src="files/ImpClass/MilitaryMight.jpg" width="175" height="298" onclick="MMsel()"></img>
 <img id="SubversiveTactics" src="files/ImpClass/SubversiveTactics.jpg" width="175" height="298" onclick="STsel()"></img>
 <img id="TechnologicalSuperiority" src="files/ImpClass/TechnologicalSuperiority.jpg" width="175" height="298" onclick="TSsel()"></img>
+-->
 
 <div id="Blitz">
 	<h3> Drawn Automated Emperor/Blitz Card: </h3>
@@ -87,6 +94,8 @@
   		<button onClick="shuffleBlitzCards()">Reshuffle Automated Emperor deck</button>
 	</form>
 	<br>
+	
+	<p id="blitzShuffleStatus"></p>
 	
 	<br>
 	
@@ -122,6 +131,10 @@
 	</form>
 	<br>
 	
+	<p id="deployShuffleStatus"></p> 
+	
+	<br>
+	
 	Adjust campaign threat level (WILL RESHUFFLE DECK!!!)
 	
 	<p id ="deployDiffInt"> </p>
@@ -141,8 +154,13 @@
 	-->
 	<img id="deployImg">
 	</img>
+	
+	<div id="deployImgDiv">
+	</div>
 
 </div>
+<!--
+COMMENTING THIS OUT UNTIL FULL DONE
 
 <div id="Imperial Class div">
 
@@ -153,7 +171,7 @@
 	<img id="IC1"></img><img id="IC2"></img><img id="IC3"></img><img id="IC4"></img><img id="IC5"></img><img id="IC6"></img><img id="IC7"></img><img id="IC8"></img><img id="IC9"></img>
 
 </div>
-
+-->
 <div id="Mission Staging">
 	<h3>Current Mission</h3>
 	
@@ -374,16 +392,16 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 										a deployment group</li>
 										<li>If there are fewer than 4 deployment groups, it will attempt to deploy a new group.
 										<li>Reinforcements are placed at the closest Imperial spawn point to the heros</li>
-										<li>
-											<ul><h4>Reinforcement</h4>
+										<li><b>Reinforcement</b>
+											<ul>
 												<li>Locate the first deployment group in play starting from the left that can accept reinforcements</li>
 												<li>Reinforce with as many units as possible</li>
 												<li>If reinforcements are placed, AE will not attempt to deploy new groups</li>
 												<li>If is an inadequet amount of threat, AE will save it for next status phase</li>
 											</ul>
 										</li>
-										<li>
-											<ul><h4>Deployment</h4>
+										<li><b>Deployment</b>
+											<ul>
 												<li>Draw top card of deployment hand</li>
 												<li>If AE has enough threat to deploy, do so</li>
 												<li>Place deployment card right of any in play</li>
@@ -391,8 +409,99 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 												and save threat for next status phase</li>
 											</ul>
 										</li>
+										<li><b>Allies</b>
+											<ul>
+												<li>If playing with less than 4 Rebels, assign a color to an Ally when placing them for a mission</li>
+											</ul>
+										</li>
 									</ul>
 							</div>
+							<div id="upgradePhaseText">
+								<h3>Upgrade Stage</h3>
+									<ul>
+										<li>Rebels upgrade as usual</li>
+										<li><b>Purchasing Class Cards</b>
+											<ul>
+												<li>Shuffle the Imperial Class deck and draw the top card</li>
+												<li>If AE has enough XP to buy the card, place it into the AE play area</li>
+												<li>If it cannot be bought, draw another card until 3 cards are drawn, or a card is bought</li>
+											</ul>
+										</li>
+										<li><b>Purchasing Agenda Cards</b>
+											<ul>
+												<li>Shuffle the Agenda deck and draw the top card</li>
+												<li>If AE has enough influence to buy the card, place it into the AE play area</li>
+												<li>If the card cannot be bought, draw anohter card, repeat until 4 cards have been drawn, or a card has been bought</li>
+											</ul>
+										</li>
+										<li><b>Increase AE Difficulty</b>
+											<ul>
+												<li>If AE lost the previous mission, increase the Blitz card counter</li>
+											</ul>
+										<li>
+									</ul>
+							</div>
+							<div id="miscText">
+								<h3>Other Bits</h3>
+									<ul>
+										<li>Any effect that would target a single Rebel will target the mission Priority Target</li>
+										<li>If Priority Target is not a valid target, draw an AE card and target the first Secondary Target</li>
+										<li>Any effect/ability that targets multiple targets should be placed to maximize targets</li>
+										<li>If unsure of anything, do the action that is <b>MOST</b> damaging to the Rebels</li>
+										<li><b>Imperial Figure Abilities</b>
+											<ul>
+												<li>AT-ST
+													<ul>
+														<li>Targeting Computer: If a single HIT result is rolled on the RED die, use this ability to reroll</li>
+													</ul>
+												</li>
+												<li>Darth Vader
+													<ul>
+														<li>Brutality: This ability will only be used if there are 2 different targets in range</li>
+														<li>Foresight: If a single DEFENSE result is rolled on a DEFENSE die, then use this ability to reroll</li>
+													</ul>
+												</li>
+												<li>General Weiss
+													<ul>
+														<li>General's Orders: Choose 2 figures that are furthest away and not within max attack of a target</li>
+														<li>Epic Arsenal: If within 2 spaces of a target, use 2 RED and 1 GREEN attack dice. If not within 2 spaces, use 1 RED, 1 BLUE, and 1 GREEN attack dice</li>
+													</ul>
+												</li>
+												<li>IG-88
+													<ul>
+														<li>Arsenal: If within 2 spaces of a target, use the RED and GREEN attack dice. If not, use the BLUE and GREEN attack dice</li>
+													</ul>
+												</li>
+												<li>Imperial Officer
+													<ul>
+														<li>Order: Choose the closest friendly figure</li>
+														<li>Executive Order: Choose the closest friendly figure. If the figure is in range to attack, attck. If not, move</li>
+														<li>Cower: Reroll if the result is a blank face on a defense die</li>
+													</ul>
+												</li>
+												<li>Nexu
+													<ul>
+														<li>Pounce: Use if within 4 spaces of a target, and Nexu has not performed an Attack this activation</li>
+													</ul>
+												</li>
+												<li>Probe Droid
+													<ul>
+														<li>Self-Destruct: Use this ability when adjacent to 2 or more Rebels are the end of the round, and there are NO adjacent friendly figures</li>
+													</ul>
+												</li>
+												<li>Royal Guard Champion
+													<ul>
+														<li>Brutality: This ability will only be used if there are 2 different targets in range</li>
+													</ul>
+												</li>
+												<li>Stormtrooper
+													<ul>
+														<li>Last Stand: Choose the closest friendly figure when using this ability</li>
+													</ul>
+												</li>
+											</ul>
+										</li>
+									</ul>
 						</div>
 				</div>
 			</div>
@@ -415,7 +524,8 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		//blitz cards filenames
 		var blitzCards = ["Blitz 1","Blitz 2","Blitz 3","Blitz 4","Blitz 5", "Blitz 6","Blitz 7","Blitz 8","Blitz 9","Blitz 10"];
 		var blitzColors = ["Blue", "Gold", "Green", "Red"];
-		var coreImpBelow6Standard = ["ProbeDroid","Stormtrooper","ImpOfficer","EWebEngi","ELImpOfficer","ELProbeDroid"];
+		//Include multiples if multiple in set
+		var coreImpBelow6Standard = ["ProbeDroid","ProbeDroid","Stormtrooper","Stormtrooper","ImpOfficer","ImpOfficer","EWebEngi","ELImpOfficer","ELProbeDroid"];
 		var coreImp6_8Standard = ["RoyalGuard","ELEWebEngi"];
 		var coreImp8_12Standard = ["ELStormtrooper","ELRoyalGuard"];
 		var coreImpNonUnique12Up = ["AT-ST"];
@@ -488,7 +598,8 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 			deck = shuffleArray(deck.slice(0));
 			//clone deck and save it to saved blitz deck
 			savedBlitzDeck = deck.slice(0);
-			document.getElementById('demo').innerHTML = deck;
+			//HIDING DEBUG OUTPUT
+			//document.getElementById('demo').innerHTML = deck;
 			document.getElementById('blitzLevelIntText').innerHTML = blitzCardsInt;
 			
 			//END BLITZ CARD ON LOAD SECTION
@@ -528,6 +639,18 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 			document.body.appendChild(img);
 		}
 		
+		//DEPLOYMENT CARDS ONLY!!!
+		function addDeployCard(src, width, height, alt) {
+			var img = document.createElement("img");
+			img.src = src;
+			img.width = width;
+			img.height = height;
+			img.alt = alt;
+
+			// This next line will just add it to the <body> tag
+			document.getElementById('deployImgDiv').appendChild(img);
+		}
+		
 		//IMAGE REPLACE
 		//replaces an img ALREADY on the page, by page id
 		function replace_image(src, width, height, alt, pageID) {
@@ -538,6 +661,14 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 			img.alt = alt;
 
 		}
+		
+		//Clear an element
+		function clearBox(elementID) {
+			document.getElementById(elementID).innerHTML = "";
+		}
+		
+		
+		
 		//END HELPER FUNCTIONS
 		
 		//MAIN BODY
@@ -555,7 +686,8 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 					}
 				}
 			}
-			document.getElementById('demo').innerHTML = expacCardsList;
+			//HIDING DEBUG LINE
+			//document.getElementById('demo').innerHTML = expacCardsList;
 		}
 		
 		//MISSION SELECTION RADIO BUTTONS
@@ -579,8 +711,10 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 			if (deployDeck[0]){
 				var poppedItem = String(deployDeck.pop());
 				var imgSrc = "files/Deployment/Core/" + poppedItem + ".jpg";
-				document.getElementById('demo2').innerHTML = deployDeck;
-				replace_image(imgSrc, 335, 523, imgSrc, "deployImg");
+				//HIDING LINE USED FOR DEBUGGING
+				//document.getElementById('demo2').innerHTML = deployDeck;
+				addDeployCard(imgSrc, 335, 523, imgSrc);
+				document.getElementById('deployShuffleStatus').innerHTML = "";
 			}
 		}
 		
@@ -588,7 +722,10 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		function shuffleDeploymentCards(){
 			savedDeployDeck = shuffleArray(savedDeployDeck.slice(0));
 			deployDeck = savedDeployDeck.slice(0);
-			document.getElementById('demo2').innerHTML = deployDeck;
+			//HIDING LINE FOR DEBUGGING
+			//document.getElementById('demo2').innerHTML = deployDeck;
+			document.getElementById('deployShuffleStatus').innerHTML = "Deployment Cards Shuffled!";
+			clearBox("deployImgDiv");
 		}
 		
 		//increase deployment difficulty
@@ -597,7 +734,8 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 			deploymentDiff = deploymentDiff + 1;
 			readjustDiff();
 			document.getElementById('deployDiffInt').innerHTML = deploymentDiff;
-			document.getElementById('demo2').innerHTML = deployDeck;
+			//HIDING LINE FOR DEBUGGING
+			//document.getElementById('demo2').innerHTML = deployDeck;
 		}
 		
 		//decrease deployment difficulty
@@ -607,7 +745,8 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 				deploymentDiff = deploymentDiff - 1 ;
 				readjustDiff();
 				document.getElementById('deployDiffInt').innerHTML = deploymentDiff;
-				document.getElementById('demo2').innerHTML = deployDeck;
+				//HIDING LINE FOR DEBUGGING
+				//document.getElementById('demo2').innerHTML = deployDeck;
 			}
 		}
 		
@@ -681,8 +820,10 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 			if (deck[0]){
 				var poppedItem = String(deck.pop());
 				var imgSrc = "files/AE/" + poppedItem + ".jpg";
-				document.getElementById('demo').innerHTML = deck;
+				//HIDING DISPLAY LINE FOR DEBUG
+				//document.getElementById('demo').innerHTML = deck;
 				replace_image(imgSrc, 335, 523, imgSrc, "currentBlitzImg");
+				document.getElementById('blitzShuffleStatus').innerHTML = "";
 			}
 		}
 		
@@ -690,7 +831,9 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		function shuffleBlitzCards(){
 			savedBlitzDeck = shuffleArray(savedBlitzDeck);
 			deck = savedBlitzDeck.slice(0);
-			document.getElementById('demo').innerHTML = deck;
+			//HIDING LINE USED FOR DEBUG
+			//document.getElementById('demo').innerHTML = deck;
+			document.getElementById('blitzShuffleStatus').innerHTML = "AE cards Shuffled!";
 		}
 		
 		function blitzInc(){
@@ -739,8 +882,9 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 			//reset savedBlitzDeck before reusing
 			savedBlitzDeck = [];
 			savedBlitzDeck = deck.slice(0);
-			document.getElementById('demo').innerHTML = deck;
-			document.getElementById('demo2').innerHTML = blitzCards;
+			//HIDING LINES USED FOR DEBUGGING
+			//document.getElementById('demo').innerHTML = deck;
+			//document.getElementById('demo2').innerHTML = blitzCards;
 
 		}
 		

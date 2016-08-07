@@ -1,3 +1,12 @@
+input[type=radio] {
+	vertical-align: middle;
+	margin: 0;
+	display: inline;
+}
+
+/*MODAL SECTION
+BEGINS
+*/
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -80,3 +89,7 @@
     from {opacity: 0}
     to {opacity: 1}
 }
+
+/* MODAL SECTION
+ENDS
+*/
