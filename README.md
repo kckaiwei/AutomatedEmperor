@@ -29,3 +29,10 @@ Automated Emperor provides Imperial Assault players a co-op web app that control
 - Core Set
 - Luke Pack
 - Darth Vader Pack
+- Unique Reward Characters
+
+# TODO List
+
+- Campaign loadout tracker using save/load system
+- Full GUI
+- Support for all expansions
