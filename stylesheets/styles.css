@@ -14,8 +14,21 @@ img.center {
 	margin-right: auto;
 }
 
+div {
+	padding: 10px 10px 10px 10px;
+}
+
 div.center{
 	text-align: center;
+}
+
+/* Padding: top,right,bottom,left
+*/
+div.shaded{
+	background-color: #e6e6e6;
+	height: 50px;
+	padding: 10px 10px 10px 10px;
+	margin: 10px 5px 10px 5px;
 }
 
 b.center{
