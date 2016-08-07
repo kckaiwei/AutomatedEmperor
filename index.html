@@ -371,8 +371,12 @@ COMMENTING THIS OUT UNTIL FULL DONE
 -->
 <div id="Mission Staging">
 	<h3>Current Mission:</h3>
+	<br>
+	<span>Click card to flip
+	</span>
+	<br>
 	
-	<img id="missionFront"></img><img id="missionBack"></img>
+	<img id="missionFront" onClick="missionFlip()"></img>
 </div>
 
 <!--
@@ -737,6 +741,10 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		var threatCounterInt = 0;
 		//INFLUENCE Counter
 		var influenceCounterInt = 0;
+		//current mission
+		var currentMission = "";
+		//0 is showing front, 1 is showing back
+		var missionFace = 0;
 		
 		//Difficulty Settings
 		//deployment threat level (starts at 2)
@@ -941,13 +949,27 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 			for (var i=0, len=missionOptions.length; i<len; i++){
 				if (missionOptions[i].type === 'radio'){
 					if (missionOptions[i].checked){
+						currentMission = missionOptions[i].value;
 						replace_image("files/Mission/Core/" + missionOptions[i].value + "Front.jpg", 298, 430, "Mission Front", "missionFront");
-						replace_image("files/Mission/Core/" + missionOptions[i].value + "Back.jpg", 298, 430, "Mission Back", "missionBack");
+						document.getElementById("missionFront").addEventListenter("click", missionFlip);
 					}
 				}
 			}
 		
 		}
+		
+		function missionFlip(){
+			if (missionFace == 0){
+				replace_image("files/Mission/Core/" + currentMission + "Back.jpg", 298, 430, "Mission Back", "missionFront");
+				missionFace = 1;
+			}
+			else{
+				replace_image("files/Mission/Core/" + currentMission + "Front.jpg", 298, 430, "Mission Front", "missionFront");
+				missionFace = 0;
+			}
+			
+		}
+		
 		//CHECK IF IN ARRAY 
 		function isInArray(value, array) {
 			return array.indexOf(value) > -1;
