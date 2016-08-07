@@ -19,13 +19,13 @@ Automated Emperor provides Imperial Assault players a co-op web app that control
 
 # Features
 
-Draws deployment cards based on Threat Level.
+- Draws deployment cards based on Threat Level.
+- Provides AE cards for Imperial instruction.
+- Provides corresponding Mission cards that detail how Imperials act.
+- Imperial Threat Resource Counter
+- Imperial Influence Counter
 
-Provides AE cards for Imperial instruction.
-
-Provides corresponding Mission cards that detail how Imperials act.
-
-Supports:
+*Supports:*
 - Core Set
 - Luke Pack
 - Darth Vader Pack
