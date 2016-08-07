@@ -4,22 +4,66 @@
 <head>
 	<title>Automated Emperor</title>
 	<link rel="stylesheet" type="text/css" href="stylesheets/styles.css" />
+	<link rel="icon" href="files/Threat.png" />
 </head>
 <body onload="pageLoad()">
 <p id="STARTHERE"><b>START HERE:</b><p>
 <button id="myBtn">Open Instruction Steps</button>
 <br><br>
 
-	<b>Ally/Villain Packs</b>
-	<form id="expacoptions" action="#" method="post" onsubmit="return false">
-			<input type="checkbox" name="AgentBlaise" value="AgentBlaise"> Agent Blaise<br>
-			<input type="checkbox" name="AllianceSmuggler" value="AllianceSmuggler"> Alliance Smuggler<br>
-		<!--Insert more expacs here
-		-->
+	<div class="buttonCenter" id="threatCounterDiv">
+		<p>
+			<span>Imperial Threat Counter
+			</span>
+		</p>
+		<button onClick="threatCounterDec()">-</button>
+		<span id ="threatCounterIntText">0</span>
+		<button onClick="threatCounterInc()">+</button>
+	</div>
+	
+	<div class="buttonCenter" id="influenceCounterDiv">
+		<p>
+			<span>Imperial Influence Counter
+			</span>
+		</p>
+		<button onClick="influenceCounterDec()">-</button>
+		<span id ="influenceCounterIntText">0</span>
+		<button onClick="influenceCounterInc()">+</button>
+	</div>
+	
+	<div id="avp" class="options">
+		<b>Ally/Villain Packs Deployments WIP DOESN'T WORK YET</b>
+		<form id="expacoptions" action="#" method="post" onsubmit="return false">
+			<table id="avpTable">
+				<tr>
+					<td>
+						<input type="checkbox" name="AVPoption" value="HiredGuns"> Hired Guns<br>
+					</td>
+					<td>
+						<input type="checkbox" name="AVPoption" value="BanthaRider"> Bantha Rider<br>
+					</td>
+					<td>
+						<input type="checkbox" name="AVPoption" value="BobaFett"> Boba Fett<br>
+					</td>
+					<td>
+						<input type="checkbox" name="AVPoption" value="Bossk"> Bossk<br>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="checkbox" name="AVPoption" value="Dengar"> Dengar<br>
+					</td>
+				</tr>
+			</table>
+				
 
-		
-  		<button onClick="expacCheck()">Choose</button>
-	</form>
+			<!--Insert more expacs here
+			-->
+
+			
+			<button onClick="expacCheck()">Choose</button>
+		</form>
+	</div>
 	
 	<br>
 	
@@ -29,13 +73,41 @@
 				<table id="uniqueTable">
 					<tr>
 						<td>
-							<input type="checkbox" name="uniqueCheck" value="DarthVader">Darth Vader<br>
+							<input type="checkbox" name="uniqueCheck" value="DarthVader"> Darth Vader<br>
 						</td>
 						<td>
-							<input type="checkbox" name="uniqueCheck" value="ELGeneralWeiss">General Weiss<br>
+							<input type="checkbox" name="uniqueCheck" value="ELGeneralWeiss"> General Weiss<br>
 						</td>
 						<td>
-							<input type="checkbox" name="uniqueCheck" value="ELRoyalGuardChamp">Royal Guard Champion<br>
+							<input type="checkbox" name="uniqueCheck" value="ELRoyalGuardChamp"> Royal Guard Champion<br>
+						</td>
+						<td>
+							<input type="checkbox" name="uniqueCheck" value="ELIG88"> IG-88<br>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" name="uniqueCheck" value="BobaFett"> Boba Fett<br>
+						</td>
+						<td>
+							<input type="checkbox" name="uniqueCheck" value="KaynSomos"> Kayn Somos<br>
+						</td>
+						<td>
+							<input type="checkbox" name="uniqueCheck" value="Dengar"> Dengar<br>
+						</td>
+						<td>
+							<input type="checkbox" name="uniqueCheck" value="General Sorin"> General Sorin<br>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" name="uniqueCheck" value="AgentBlaiseC"> Agent Blaise<br>
+						</td>
+						<td>
+							<input type="checkbox" name="uniqueCheck" value="Greedo"> Greedo<br>
+						</td>
+						<td>
+							<input type="checkbox" name="uniqueCheck" value="TheGrandInquisitor"> The Grand Inquisitor<br>
 						</td>
 					</tr>
 				</table>
@@ -45,123 +117,151 @@
 	<div id="missionSelector">
 	<b class="center">Core Missions</b>
 		<form id="missionOptions" action="#" method="post" onsubmit="return false">
-			<table id="missionTable">
+			<table id="missionTable" class="center">
 				<tr>
 					<td>
-						<input type="radio" name="mission" value="Aftermath">Aftermath<br>
+						<input type="radio" name="mission" value="Aftermath"> Aftermath<br>
 					</td>
 					<td>
-						<input type="radio" name="mission" value="Captured">Captured<br>
+						<input type="radio" name="mission" value="Captured"> Captured<br>
 					</td>
 					<td>
-						<input type="radio" name="mission" value="Brushfire">Brushfire<br>
+						<input type="radio" name="mission" value="Brushfire"> Brushfire<br>
 					</td>
 					<td>
-						<input type="radio" name="mission" value="Temptation">Temptation<br>
+						<input type="radio" name="mission" value="Temptation"> Temptation<br>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<input type="radio" name="mission" value="HighMoon">High Moon<br>
+						<input type="radio" name="mission" value="HighMoon"> High Moon<br>
 					</td>
 					<td>
-						<input type="radio" name="mission" value="Indebted">Indebted<br>
+						<input type="radio" name="mission" value="Indebted"> Indebted<br>
 					</td>
 					<td>
-						<input type="radio" name="mission" value="LooseCannon">Loose Cannon<br>
+						<input type="radio" name="mission" value="LooseCannon"> Loose Cannon<br>
 					</td>
 					<td>
-						<input type="radio" name="mission" value="FriendsOfOld">Friends Of Old<br>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<input type="radio" name="mission" value="SorryAboutTheMess">Sorry About the Mess<br>
-					</td>
-					<td>
-						<input type="radio" name="mission" value="Homecoming">Homecoming<br>
-					</td>
-					<td>
-						<input type="radio" name="mission" value="TheSpiceJob">The Spice Job<br>
-					</td>
-					<td>
-						<input type="radio" name="mission" value="TargetofOpportunity">Target Of Opportunity<br>
+						<input type="radio" name="mission" value="FriendsOfOld"> Friends Of Old<br>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<input type="radio" name="mission" value="VipersDen">Viper's Den<br>
+						<input type="radio" name="mission" value="SorryAboutTheMess"> Sorry About the Mess<br>
 					</td>
 					<td>
-						<input type="radio" name="mission" value="ASimpleTask">A Simple Task<br>
+						<input type="radio" name="mission" value="Homecoming"> Homecoming<br>
 					</td>
 					<td>
-						<input type="radio" name="mission" value="GenerousDonations">Generous Donations<br>
+						<input type="radio" name="mission" value="TheSpiceJob"> The Spice Job<br>
 					</td>
 					<td>
-						<input type="radio" name="mission" value="LuxuryCruise">Luxury Cruise<br>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<input type="radio" name="mission" value="MeansOfProduction">Means of Production<br>
-					</td>
-					<td>
-						<input type="radio" name="mission" value="BreakingPoint">Breaking Point<br>
-					</td>
-					<td>
-						<input type="radio" name="mission" value="Impounded">Impounded<br>
-					</td>
-					<td>
-						<input type="radio" name="mission" value="Wanted">Wanted<br>
-					</td>
-				<tr>
-					<td>
-						<input type="radio" name="mission" value="ANewThreat">A New Threat<br>
-					</td>
-					<td>
-						<input type="radio" name="mission" value="UnderSiege">Under Siege<br>
-					</td>
-					<td>
-						<input type="radio" name="mission" value="ImperialHospitality">Imperial Hospitality<br>
-					</td>
-					<td>
-						<input type="radio" name="mission" value="FlySolo">Fly Solo<br>
+						<input type="radio" name="mission" value="TargetofOpportunity"> Target Of Opportunity<br>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<input type="radio" name="mission" value="Incoming">Incoming<br>
+						<input type="radio" name="mission" value="VipersDen"> Viper's Den<br>
 					</td>
 					<td>
-						<input type="radio" name="mission" value="DrawnIn">Drawn In<br>
+						<input type="radio" name="mission" value="ASimpleTask"> A Simple Task<br>
 					</td>
 					<td>
-						<input type="radio" name="mission" value="ChainOfCommand">Chain of Command<br>
+						<input type="radio" name="mission" value="GenerousDonations"> Generous Donations<br>
 					</td>
 					<td>
-						<input type="radio" name="mission" value="TheSource">The Source<br>
+						<input type="radio" name="mission" value="LuxuryCruise"> Luxury Cruise<br>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<input type="radio" name="mission" value="LastStand">Last Stand<br>
+						<input type="radio" name="mission" value="MeansOfProduction"> Means of Production<br>
 					</td>
 					<td>
-						<input type="radio" name="mission" value="DesperateHour">Desperate Hour<br>
+						<input type="radio" name="mission" value="BreakingPoint"> Breaking Point<br>
+					</td>
+					<td>
+						<input type="radio" name="mission" value="Impounded"> Impounded<br>
+					</td>
+					<td>
+						<input type="radio" name="mission" value="Wanted"> Wanted<br>
+					</td>
+				<tr>
+					<td>
+						<input type="radio" name="mission" value="ANewThreat"> A New Threat<br>
+					</td>
+					<td>
+						<input type="radio" name="mission" value="UnderSiege"> Under Siege<br>
+					</td>
+					<td>
+						<input type="radio" name="mission" value="ImperialHospitality"> Imperial Hospitality<br>
+					</td>
+					<td>
+						<input type="radio" name="mission" value="FlySolo"> Fly Solo<br>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="radio" name="mission" value="Incoming"> Incoming<br>
+					</td>
+					<td>
+						<input type="radio" name="mission" value="DrawnIn"> Drawn In<br>
+					</td>
+					<td>
+						<input type="radio" name="mission" value="ChainOfCommand"> Chain of Command<br>
+					</td>
+					<td>
+						<input type="radio" name="mission" value="TheSource"> The Source<br>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="radio" name="mission" value="LastStand"> Last Stand<br>
+					</td>
+					<td>
+						<input type="radio" name="mission" value="DesperateHour"> Desperate Hour<br>
+					</td>
+					<td>
+						<input type="radio" name="mission" value="DarkObsession"> Dark Obsession<br>
+					</td>
+					<td>
+						<input type="radio" name="mission" value="SympathyForTheRebellion"> Sympathy for the Rebellion<br>
 					</td>
 			</table>
 
 		<!--Insert more expacs here
 		-->
 
-		<div class="buttonCenter">
-			<button id="missionChooseButton" onClick="missionSelect()">Choose</button>
-		</div>
+
 		</form>
+
+	
+
 	
 	<br>
 	</div>
+	<div class="buttonCenter">
+		<button id="missionChooseButton" onClick="missionSelect()">Choose</button>
+	</div>
+	
+	<div id="Expansion Missions">
+	<b>Expansion Missions WIP DOESN'T WORK!</b>
+		<table class="center">
+			<tr>
+				<td>
+					<input type="radio" name="expMission" value="Celebration"> Celebration<br>
+				</td>
+			</tr>
+		</table>
+	
+	</div>
+	
+	<div class="buttonCenter">
+		<button id="missionChooseButton" onClick="missionSelect()">Choose</button>
+	</div>
+	
+
 
 	
 <!--
@@ -631,6 +731,12 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		var coreScum6_8Standard = ["TrandoshanHunter"];
 		var coreScum8_12Standard = ["ELTrandoshanHunter"];
 		var coreScumNonUnique12Up = [];
+		var coreCheckList = ["ELIG88","DarthVader","ELGeneralWeiss","ELRoyalGuardChamp","ELRoyalGuard","AT-ST","Nexu","ELNexu","TrandoshanHunter","ELTrandoshanHunter","ProbeDroid","RoyalGuard","Stormtrooper","ELEWebEngi","ImpOfficer","ELStormtrooper","EWebEngi","ELImpOfficer","ELProbeDroid"]
+		var expac6Below = []
+		//THREAT COUNTER
+		var threatCounterInt = 0;
+		//INFLUENCE Counter
+		var influenceCounterInt = 0;
 		
 		//Difficulty Settings
 		//deployment threat level (starts at 2)
@@ -710,6 +816,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		//
 		//
 		
+		
 		//HELPER FUNCTIONS
 		//Durstenfeld shuffle
 		//ALWAYS CLONE!!!!!! array = array.slice(0)
@@ -771,6 +878,46 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		
 		//MAIN BODY
 		//
+		
+		//THREAT COUNTER SECTION
+		//
+		function threatCounterInc(){
+			//Did not know javascript takes +=, too late now.
+			if (threatCounterInt < 20) {
+				threatCounterInt = threatCounterInt + 1;
+			}
+			document.getElementById('threatCounterIntText').innerHTML = threatCounterInt;			
+		}
+		
+		function threatCounterDec(){
+			//Did not know javascript takes +=, too late now.
+			if (threatCounterInt > 0) {
+				threatCounterInt = threatCounterInt - 1;
+			}
+			document.getElementById('threatCounterIntText').innerHTML = threatCounterInt;	
+		
+		}
+		
+		//INFLUENCE COUNTER SECTION
+		//
+		
+		function influenceCounterInc(){
+			//Did not know javascript takes +=, too late now.
+			if (influenceCounterInt < 10) {
+				influenceCounterInt = influenceCounterInt + 1;
+			}
+			document.getElementById('influenceCounterIntText').innerHTML = influenceCounterInt;			
+		}
+		
+		function influenceCounterDec(){
+			//Did not know javascript takes +=, too late now.
+			if (influenceCounterInt > 0) {
+				influenceCounterInt = influenceCounterInt - 1;
+			}
+			document.getElementById('influenceCounterIntText').innerHTML = influenceCounterInt;	
+		
+		}
+		
 		//responds to click from submit button
 		function expacCheck(){
 			//checks which checkboxes are clicked
@@ -801,6 +948,10 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 			}
 		
 		}
+		//CHECK IF IN ARRAY 
+		function isInArray(value, array) {
+			return array.indexOf(value) > -1;
+		}
 		
 		//DEPLOYMENT SECTION
 		//responds to deployment display click
@@ -808,7 +959,13 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 			//checks to see if there is something left in deck
 			if (deployDeck[0]){
 				var poppedItem = String(deployDeck.pop());
-				var imgSrc = "files/Deployment/Core/" + poppedItem + ".jpg";
+				var imgSrc = "";
+				if (coreCheckList.indexOf(poppedItem) != -1) {
+					imgSrc = "files/Deployment/Core/" + poppedItem + ".jpg";
+				}
+				else {
+					imgSrc = "files/Deployment/Exp/" + poppedItem + ".jpg";
+				}
 				//HIDING LINE USED FOR DEBUGGING
 				//document.getElementById('demo2').innerHTML = deployDeck;
 				addDeployCard(imgSrc, 335, 523, imgSrc);

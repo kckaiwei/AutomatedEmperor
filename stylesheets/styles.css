@@ -4,11 +4,6 @@ input[type=radio] {
 	display: inline;
 }
 
-#missionTable {
-	margin-left: auto;
-	margin-right: auto;
-}
-
 .buttonCenter {
 	text-align: center;
 }
@@ -25,6 +20,11 @@ div.center{
 
 b.center{
 	text-align: center;
+}
+
+table.center{
+	margin-left: auto;
+	margin-right: auto;
 }
 
 /*MODAL SECTION
