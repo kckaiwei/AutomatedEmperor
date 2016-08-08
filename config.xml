@@ -1,0 +1,24 @@
+<widget>
+
+	<platform name="ios">
+		<icon src="files/Threat.png" width="180" height="180" />
+	</platform>
+
+	<platform name="android">
+		<icon src="files/Threat.png" width="180" height="180" />
+	</platform>
+	<platform name="winphone">
+		<icon src="files/Threat.png" width="180" height="180" />
+	</platform>
+	
+	<name>Imperial Assault Automated Emperor AI</name>
+	
+	<description>
+		An Imperial Assault Co-op AI app based on RedJak7's Automated Emperor
+	</description>
+	
+	<author href="https://github.com/kckaiwei" email="kckaiwei@gmail.com">
+		Kevin Chang
+	</author>
+	
+</widget>
