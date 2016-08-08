@@ -38,22 +38,22 @@
 	
 	<div id="avp" class="options">
 	<div class="shaded">
-		<h2>Ally/Villain Packs Deployments WIP DOESN'T WORK YET</h2>
+		<h2>Villain Packs Deployments (Reshuffle after selecting!)</h2>
 	</div>
 		<form id="expacoptions" action="#" method="post" onsubmit="return false">
 			<table id="avpTable">
 				<tr>
 					<td>
-						<input type="checkbox" name="AVPoption" value="HiredGuns"> Hired Guns<br>
+						<input type="checkbox" name="AVPoption" value="HiredGun"> Hired Guns<br>
 					</td>
 					<td>
-						<input type="checkbox" name="AVPoption" value="Stormtroopers"> Stormtroopers<br>
+						<input type="checkbox" name="AVPoption" value="Stormtrooper"> Stormtroopers<br>
 					</td>
 					<td>
 						<input type="checkbox" name="AVPoption" value="BanthaRider"> Bantha Rider<br>
 					</td>
 					<td>
-						<input type="checkbox" name="AVPoption" value="ISBInfiltrators"> ISB Infiltrators<br>
+						<input type="checkbox" name="AVPoption" value="ISBInfiltrator"> ISB Infiltrators<br>
 					</td>
 				</tr>
 			</table>
@@ -840,7 +840,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		var coreScum8_12Standard = ["ELTrandoshanHunter"];
 		var coreScumNonUnique12Up = [];
 		var coreCheckList = ["ELIG88","DarthVader","ELGeneralWeiss","ELRoyalGuardChamp","ELRoyalGuard","AT-ST","Nexu","ELNexu","TrandoshanHunter","ELTrandoshanHunter","ProbeDroid","RoyalGuard","Stormtrooper","ELEWebEngi","ImpOfficer","ELStormtrooper","EWebEngi","ELImpOfficer","ELProbeDroid"]
-		var expac6Below = ["HiredGuns", "ELHiredGuns", "ISBInfiltrators"];
+		var expac6Below = ["HiredGuns", "ELHiredGuns", "ISBInfiltrators","Stormtrooper"];
 		var expac6_8 = ["ELISBInfiltrators"];
 		var expac8_12 = ["ELBanthaRider"];
 		//AVP Pack deploycards
@@ -1125,6 +1125,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 			deployDeck = savedDeployDeck.slice(0);
 			//add extras
 			checkAndAddUniques();
+			checkAndAddExpac();
 			//reshuffle
 			deployDeck = shuffleArray(deployDeck.slice(0));
 			//HIDING LINE FOR DEBUGGING
@@ -1194,6 +1195,71 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 			
 		}
 		
+		function checkAndAddExpac(){
+			for (var i=0, len=expacoptions.length; i<len; i++){
+				if (expacoptions[i].type === 'checkbox'){
+					if (expacoptions[i].checked){
+						if (deploymentDiff > 1){
+							switch (expacoptions[i].value) {
+								case "Stormtrooper":
+									deployDeck.push("Stormtrooper");
+									break;
+								
+								case "HiredGun":
+									deployDeck.push("HiredGun");
+									deployDeck.push("ELHiredGun");
+									break;
+									
+								case "ISBInfiltrator":
+									deployDeck.push("ISBInfiltrator");
+									break;
+							}
+						}
+						if (deploymentDiff > 2){
+							switch (expacoptions[i].value) {
+								case "Stormtrooper":
+									deployDeck.push("Stormtrooper");
+									break;
+								
+								case "HiredGun":
+									deployDeck.push("HiredGun");
+									deployDeck.push("ELHiredGun");
+									break;
+									
+								case "ISBInfiltrator":
+									deployDeck.push("ISBInfiltrator");
+									deployDeck.push("ELISBInfiltrator");
+									break;
+							}
+						}
+						if (deploymentDiff > 4){
+							switch (expacoptions[i].value) {
+								case "Stormtrooper":
+									deployDeck.push("Stormtrooper");
+									deployDeck.push("ELStormtrooper");
+									break;
+								
+								case "HiredGun":
+									deployDeck.push("HiredGun");
+									deployDeck.push("ELHiredGun");
+									break;
+									
+								case "ISBInfiltrator":
+									deployDeck.push("ISBInfiltrator");
+									deployDeck.push("ELISBInfiltrator");
+									break;
+									
+								case "BanthaRider":
+									deployDeck.push("ELBanthaRider");
+									break;
+							}
+						}
+						
+					}
+				}
+			}
+		}
+		
 		//Add expacs 2 threat deployment cards
 		function addDeployNonCore2Threat(){
 			
@@ -1201,31 +1267,34 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		    	if ( expacoptions[i].type === 'checkbox' ) {
 					if (expacoptions[i].checked) {
 						//Have to use Switch since can't assign Array as a value to checkbox, WHY NOT?!?!?!
-						switch(expacoptions[i].value){
-							case "Stormtroopers":
+						if (expacoptions[i].value == "Stormtroopers") {
 								//for item in array IS VERY BAD TO USE IN JS!!!
 								for (var j=0; j<Stormtroopers.length; j++){
 									if (isInArray(Stormtroopers[j].value,expac6Below)){
-										deployDeck.push(Stormtroopers[j].value)
+										deployDeck.push(Stormtroopers[j].value);
 									}
 								}
-								break;
-							case "HiredGuns":
+						}
+						else if (expacoptions[i].value == "HiredGuns") {
+								//for item in array IS VERY BAD TO USE IN JS!!!
 								for (var j=0; j<HiredGuns.length; j++){
 									if (isInArray(HiredGuns[j].value,expac6Below)){
-										deployDeck.push(HiredGuns[j].value)
+										deployDeck.push(HiredGuns[j].value);
 									}
 								}
-								break;
-							case "ISBInfiltrators":
+						}
+						else if (expacoptions[i].value == "ISBInfiltrators") {
+								//for item in array IS VERY BAD TO USE IN JS!!!
 								for (var j=0; j<ISBInfiltrators.length; j++){
 									if (isInArray(ISBInfiltrators[j].value,expac6Below)){
-										deployDeck.push(ISBInfiltrators[j].value)
+										deployDeck.push(ISBInfiltrators[j].value);
 									}
 								}
-								break;
-							//I KNOW banthas are not 6 so no need for it here
 						}
+						else {
+						}
+							//I KNOW banthas are not 6 so no need for it here
+						
 					}
 				}
 			}
@@ -1234,38 +1303,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		
 		//Adds expacs 3 threat deployment cards
 		function addDeployNonCore3Threat(){
-			for (var i=0, len=expacoptions.length; i<len; i++) {
-		    	if ( expacoptions[i].type === 'checkbox' ) {
-					if (expacoptions[i].checked) {
-						//Have to use Switch since can't assign Array as a value to checkbox, WHY NOT?!?!?!
-						switch(expacoptions[i].value){
-							case "Stormtroopers":
-								//for item in array IS VERY BAD TO USE IN JS!!!
-								for (var j=0; j<Stormtroopers.length; j++){
-									if (isInArray(Stormtroopers[j].value,expac6Below)){
-										deployDeck.push(Stormtroopers[j].value)
-									}
-								}
-								break;
-							case "HiredGuns":
-								for (var j=0; j<HiredGuns.length; j++){
-									if (isInArray(HiredGuns[j].value,expac8Below)){
-										deployDeck.push(HiredGuns[j].value)
-									}
-								}
-								break;
-							case "ISBInfiltrators":
-								for (var j=0; j<ISBInfiltrators.length; j++){
-									if (isInArray(ISBInfiltrators[j].value,expac8Below)){
-										deployDeck.push(ISBInfiltrators[j].value)
-									}
-								}
-								break;
-							//I KNOW banthas are not 6 so no need for it here
-						}
-					}
-				}
-			}
+
 		
 		}
 		
@@ -1363,7 +1401,6 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		//UNIQUES SECTION BEGIN
 		//
 		function checkAndAddUniques() {
-			var test = [];
 			for (var i=0, len=uniqueOptions.length; i<len; i++){
 				if (uniqueOptions[i].type === 'checkbox'){
 					if (uniqueOptions[i].checked){
