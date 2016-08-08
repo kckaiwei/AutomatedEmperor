@@ -43,6 +43,10 @@ table.center{
 	margin-right: auto;
 }
 
+td.coreMission{
+	color: #00ace6;
+}
+
 tr.wave1{
 	color: #cc0000;
 }

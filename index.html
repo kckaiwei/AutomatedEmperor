@@ -38,7 +38,7 @@
 	
 	<div id="avp" class="options">
 	<div class="shaded">
-		<h3>Ally/Villain Packs Deployments WIP DOESN'T WORK YET</h3>
+		<h2>Ally/Villain Packs Deployments WIP DOESN'T WORK YET</h2>
 	</div>
 		<form id="expacoptions" action="#" method="post" onsubmit="return false">
 			<table id="avpTable">
@@ -47,18 +47,13 @@
 						<input type="checkbox" name="AVPoption" value="HiredGuns"> Hired Guns<br>
 					</td>
 					<td>
+						<input type="checkbox" name="AVPoption" value="Stormtroopers"> Stormtroopers<br>
+					</td>
+					<td>
 						<input type="checkbox" name="AVPoption" value="BanthaRider"> Bantha Rider<br>
 					</td>
 					<td>
-						<input type="checkbox" name="AVPoption" value="BobaFett"> Boba Fett<br>
-					</td>
-					<td>
-						<input type="checkbox" name="AVPoption" value="Bossk"> Bossk<br>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<input type="checkbox" name="AVPoption" value="Dengar"> Dengar<br>
+						<input type="checkbox" name="AVPoption" value="ISBInfiltrators"> ISB Infiltrators<br>
 					</td>
 				</tr>
 			</table>
@@ -68,7 +63,9 @@
 			-->
 
 			
+			<!--
 			<button onClick="expacCheck()">Choose</button>
+			-->
 		</form>
 	</div>
 	
@@ -76,7 +73,7 @@
 	
 	<div id="uniques">
 	<div class="shaded">
-		<h3>Rewarded Uniques (Reshuffle after selecting!) </h3>
+		<h2>Rewarded Uniques (Reshuffle after selecting!) </h2>
 	</div>
 			<form id="uniqueOptions" action="#" onsubmit="return false">
 				<table id="uniqueTable">
@@ -125,12 +122,12 @@
 	
 	<div id="missionSelector">
 	<div class="shaded">
-		<h3 class="center">Core Missions</h3>
+		<h2 class="center">Core Missions</h2>
 	</div>
 		<form id="missionOptions" action="#" method="post" onsubmit="return false">
 			<table id="missionTable" class="center">
 				<tr>
-					<td>
+					<td class="coreMission">
 						<input type="radio" name="mission" value="Aftermath"> Aftermath<br>
 					</td>
 					<td>
@@ -199,38 +196,38 @@
 						<input type="radio" name="mission" value="Wanted"> Wanted<br>
 					</td>
 				<tr>
-					<td>
+					<td class="coreMission">
 						<input type="radio" name="mission" value="ANewThreat"> A New Threat<br>
 					</td>
-					<td>
+					<td class="coreMission">
 						<input type="radio" name="mission" value="UnderSiege"> Under Siege<br>
 					</td>
-					<td>
+					<td class="coreMission">
 						<input type="radio" name="mission" value="ImperialHospitality"> Imperial Hospitality<br>
 					</td>
-					<td>
+					<td class="coreMission">
 						<input type="radio" name="mission" value="FlySolo"> Fly Solo<br>
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td class="coreMission">
 						<input type="radio" name="mission" value="Incoming"> Incoming<br>
 					</td>
-					<td>
+					<td class="coreMission">
 						<input type="radio" name="mission" value="DrawnIn"> Drawn In<br>
 					</td>
-					<td>
+					<td class="coreMission">
 						<input type="radio" name="mission" value="ChainOfCommand"> Chain of Command<br>
 					</td>
-					<td>
+					<td class="coreMission">
 						<input type="radio" name="mission" value="TheSource"> The Source<br>
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td class="coreMission">
 						<input type="radio" name="mission" value="LastStand"> Last Stand<br>
 					</td>
-					<td>
+					<td class="coreMission">
 						<input type="radio" name="mission" value="DesperateHour"> Desperate Hour<br>
 					</td>
 					<td>
@@ -257,7 +254,7 @@
 	</div>
 	
 	<div id="Expansion Missions" class="shaded">
-	<h3 id="expansionTitleText">Ally/Villain Pack Missions: Sorted by Release Wave</h3>
+	<h2 id="expansionTitleText">Ally/Villain Pack Missions: Sorted by Release Wave</h2>
 	</div>
 	<div>
 		<form id="expMissionOptions" action="#" onsubmit="return false">
@@ -292,7 +289,7 @@
 						<input type="radio" name="expMission" value="PredatorAndPrey"> Predator and Prey<br>
 					</td>
 					<td>
-						<input type="radio" name="expMission" value="StrengthOfCommand"> Strenght of Command<br>
+						<input type="radio" name="expMission" value="StrengthOfCommand"> Strength of Command<br>
 					</td>
 					<td>
 						<input type="radio" name="expMission" value="OpenToInterpretation"> Open to Interpretation<br>
@@ -385,7 +382,7 @@ COMMENTED OUT UNTIL FULLY DONE
 
 <div id="Blitz">
 	<div class="shaded">
-		<h3 class="title"> Drawn Automated Emperor/Blitz Card: </h3>
+		<h2 class="title"> Drawn Automated Emperor/Blitz Card: </h2>
 	</div>
 	<div class="buttonCenter">
 		<form id="blitzDraw" action="#" method="post" onsubmit="return false">
@@ -421,7 +418,7 @@ COMMENTED OUT UNTIL FULLY DONE
 
 <div id="Deployment">
 <div class="shaded">
-	<h3> Drawn Deployment Card for OPEN GROUP: </h3>
+	<h2> Drawn Deployment Card for OPEN GROUP: </h2>
 </div>
 	<div class="center">
 		<form id="deploymentDisplayForm" action="#" method="post" onsubmit="return false">
@@ -466,7 +463,7 @@ COMMENTING THIS OUT UNTIL FULL DONE
 
 <div id="Imperial Class div">
 
-<h3>Selected Imperial Class</h3>
+<h2>Selected Imperial Class</h2>
 
 <p id="selImpClass">None Selected</p>
 
@@ -476,7 +473,7 @@ COMMENTING THIS OUT UNTIL FULL DONE
 -->
 <div id="Mission Staging">
 	<div class="shaded">
-		<h3>Current Mission:</h3>
+		<h2>Current Mission:</h2>
 	</div>
 	<br>
 	<span>Click card to flip
@@ -557,7 +554,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 				</div>
 				<div id="Instructions">
 					<div id="Activation Phase">
-						<h3>Activation Phase and Deployment Groups</h3>
+						<h2>Activation Phase and Deployment Groups</h2>
 							<ul>
 								<li> During a round, AE activates deployment groups in order from left to right.</li>
 								<li> Figures are activated starting with one closest to a hero or priority target </li>
@@ -602,7 +599,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 							</ol>
 					</div>
 					<div id="Choosing Targets">
-						<h3>Choosing Targets</h3>
+						<h2>Choosing Targets</h2>
 						<ul class="tutoriallist">
 							<li>Target choice is determine by mission card and automated emperor card drawn at 
 							start of a group's activation
@@ -617,7 +614,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 						</ul>
 					</div>
 					<div id="AEActions">
-						<h3>Automated Emperor Card Actions</h3>
+						<h2>Automated Emperor Card Actions</h2>
 						
 						Attempt to resolve actions on drawn Automated Emperor card in listed order. 
 						Standard action rules apply. Actions that cannot be completed or don't apply are skipped. 
@@ -686,14 +683,14 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 						
 						</ul>
 							<div id="conditionsText">
-							<h3>Conditions</h3>
+							<h2>Conditions</h2>
 								<ul id="conditionslist">
 									<li>If an Imperial figure has condition that requires action to remove, they will use an action 
 									at start of activation to remove it</li>
 								</ul>
 							</div>
 							<div id="statusPhaseText">
-								<h3>Status Phase</h3>
+								<h2>Status Phase</h2>
 									<ul>
 										<li>During Status Phase, AE will reinforce an existing deployment group, or deploy a new group</li>
 										<li>If there are 4 or more deployment groups in play, or no cards in the deployment hand, it will attempt to reinforce 
@@ -725,7 +722,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 									</ul>
 							</div>
 							<div id="upgradePhaseText">
-								<h3>Upgrade Stage</h3>
+								<h2>Upgrade Stage</h2>
 									<ul>
 										<li>Rebels upgrade as usual</li>
 										<li><b>Purchasing Class Cards</b>
@@ -750,7 +747,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 									</ul>
 							</div>
 							<div id="miscText">
-								<h3>Other Bits</h3>
+								<h2>Other Bits</h2>
 									<ul>
 										<li>Any effect that would target a single Rebel will target the mission Priority Target</li>
 										<li>If Priority Target is not a valid target, draw an AE card and target the first Secondary Target</li>
@@ -843,7 +840,14 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		var coreScum8_12Standard = ["ELTrandoshanHunter"];
 		var coreScumNonUnique12Up = [];
 		var coreCheckList = ["ELIG88","DarthVader","ELGeneralWeiss","ELRoyalGuardChamp","ELRoyalGuard","AT-ST","Nexu","ELNexu","TrandoshanHunter","ELTrandoshanHunter","ProbeDroid","RoyalGuard","Stormtrooper","ELEWebEngi","ImpOfficer","ELStormtrooper","EWebEngi","ELImpOfficer","ELProbeDroid"]
-		var expac6Below = []
+		var expac6Below = ["HiredGuns", "ELHiredGuns", "ISBInfiltrators"];
+		var expac6_8 = ["ELISBInfiltrators"];
+		var expac8_12 = ["ELBanthaRider"];
+		//AVP Pack deploycards
+		var Stormtroopers = ["Stormtrooper", "ELStormtrooper"];
+		var ISBInfiltrators = ["ISBInfiltrators", "ELISBInfiltrators"];
+		var HiredGuns = ["HiredGuns","ELHiredGuns"];
+		var BanthaRider = ["ELBanthaRider"];
 		//THREAT COUNTER
 		var threatCounterInt = 0;
 		//INFLUENCE Counter
@@ -1034,23 +1038,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 			document.getElementById('influenceCounterIntText').innerHTML = influenceCounterInt;	
 		
 		}
-		
-		//responds to click from submit button
-		function expacCheck(){
-			//checks which checkboxes are clicked
-			//
-			//Resets to blank list
-			expacCardsList = [];
-			for (var i=0, len=expacoptions.length; i<len; i++) {
-		    	if ( expacoptions[i].type === 'checkbox' ) {
-					if (expacoptions[i].checked) {
-						expacCardsList.push(expacoptions[i].value);
-					}
-				}
-			}
-			//HIDING DEBUG LINE
-			//document.getElementById('demo').innerHTML = expacCardsList;
-		}
+
 		
 		//MISSION SELECTION RADIO BUTTONS
 		//
@@ -1208,11 +1196,76 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		
 		//Add expacs 2 threat deployment cards
 		function addDeployNonCore2Threat(){
+			
+			for (var i=0, len=expacoptions.length; i<len; i++) {
+		    	if ( expacoptions[i].type === 'checkbox' ) {
+					if (expacoptions[i].checked) {
+						//Have to use Switch since can't assign Array as a value to checkbox, WHY NOT?!?!?!
+						switch(expacoptions[i].value){
+							case "Stormtroopers":
+								//for item in array IS VERY BAD TO USE IN JS!!!
+								for (var j=0; j<Stormtroopers.length; j++){
+									if (isInArray(Stormtroopers[j].value,expac6Below)){
+										deployDeck.push(Stormtroopers[j].value)
+									}
+								}
+								break;
+							case "HiredGuns":
+								for (var j=0; j<HiredGuns.length; j++){
+									if (isInArray(HiredGuns[j].value,expac6Below)){
+										deployDeck.push(HiredGuns[j].value)
+									}
+								}
+								break;
+							case "ISBInfiltrators":
+								for (var j=0; j<ISBInfiltrators.length; j++){
+									if (isInArray(ISBInfiltrators[j].value,expac6Below)){
+										deployDeck.push(ISBInfiltrators[j].value)
+									}
+								}
+								break;
+							//I KNOW banthas are not 6 so no need for it here
+						}
+					}
+				}
+			}
 		
 		}
 		
 		//Adds expacs 3 threat deployment cards
 		function addDeployNonCore3Threat(){
+			for (var i=0, len=expacoptions.length; i<len; i++) {
+		    	if ( expacoptions[i].type === 'checkbox' ) {
+					if (expacoptions[i].checked) {
+						//Have to use Switch since can't assign Array as a value to checkbox, WHY NOT?!?!?!
+						switch(expacoptions[i].value){
+							case "Stormtroopers":
+								//for item in array IS VERY BAD TO USE IN JS!!!
+								for (var j=0; j<Stormtroopers.length; j++){
+									if (isInArray(Stormtroopers[j].value,expac6Below)){
+										deployDeck.push(Stormtroopers[j].value)
+									}
+								}
+								break;
+							case "HiredGuns":
+								for (var j=0; j<HiredGuns.length; j++){
+									if (isInArray(HiredGuns[j].value,expac8Below)){
+										deployDeck.push(HiredGuns[j].value)
+									}
+								}
+								break;
+							case "ISBInfiltrators":
+								for (var j=0; j<ISBInfiltrators.length; j++){
+									if (isInArray(ISBInfiltrators[j].value,expac8Below)){
+										deployDeck.push(ISBInfiltrators[j].value)
+									}
+								}
+								break;
+							//I KNOW banthas are not 6 so no need for it here
+						}
+					}
+				}
+			}
 		
 		}
 		
