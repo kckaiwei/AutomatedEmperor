@@ -43,6 +43,34 @@ table.center{
 	margin-right: auto;
 }
 
+tr.wave1{
+	color: #cc0000;
+}
+
+tr.wave2{
+	color: #999900;
+}
+
+tr.wave3{
+	color: #730099;
+}
+
+tr.wave4{ 
+	color: #992600;
+}
+
+tr.wave5{
+	color: #002699;
+}
+
+tr.wave6{
+	color: #269900;
+}
+
+tr.wave7{
+	color: #009999;
+}
+
 @font-face {
 	font-family: agencyfb;
 	src: url('../files/fonts/agencyfb.ttf');
