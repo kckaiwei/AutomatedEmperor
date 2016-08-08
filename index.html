@@ -253,25 +253,113 @@
 	<br>
 	</div>
 	<div class="buttonCenter">
-		<button id="missionChooseButton" onClick="missionSelect()">Choose</button>
+		<button id="missionChooseButton" onClick="missionCoreSelect()">Choose</button>
 	</div>
 	
 	<div id="Expansion Missions" class="shaded">
-	<h3 id="expansionTitleText">Expansion Missions WIP DOESN'T WORK!</h3>
+	<h3 id="expansionTitleText">Ally/Villain Pack Missions: Sorted by Release Wave</h3>
 	</div>
 	<div>
-		<table class="center">
-			<tr>
-				<td>
-					<input type="radio" name="expMission" value="Celebration"> Celebration<br>
-				</td>
-			</tr>
-		</table>
-	
+		<form id="expMissionOptions" action="#" onsubmit="return false">
+			<table class="center" id="expansionTable">
+				<tr>
+					<td>
+						<input type="radio" name="expMission" value="Celebration"> Celebration<br>
+					</td>
+					<td>
+						<input type="radio" name="expMission" value="ForestAmbush"> Forest Ambush<br>
+					</td>
+					<td>
+						<input type="radio" name="expMission" value="ImperialEntanglements"> Imperial Entanglements<br>
+					</td>
+					<td>
+						<input type="radio" name="expMission" value="BinaryRevolution"> Binary Revolution<br>
+					</td>
+					<td>
+						<input type="radio" name="expMission" value="ArmedAndOperational"> Armed and Operational<br>
+					</td>
+					<td>
+						<input type="radio" name="expMission" value="BraceForImpact"> Brace for Impact<br>
+					</td>
+					<td>
+						<input type="radio" name="expMission" value="Infection"> Infection<br>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="radio" name="expMission" value="PredatorAndPrey"> Predator and Prey<br>
+					</td>
+					<td>
+						<input type="radio" name="expMission" value="StrengthOfCommand"> Strenght of Command<br>
+					</td>
+					<td>
+						<input type="radio" name="expMission" value="OpenToInterpretation"> Open to Interpretation<br>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="radio" name="expMission" value="Back-RoomBargains"> Back-Room Bargains<br>
+					</td>
+					<td>
+						<input type="radio" name="expMission" value="BunkerBuster"> Bunker Buster<br>
+					</td>
+					<td>
+						<input type="radio" name="expMission" value="BruteForce"> Brute Force<br>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="radio" name="expMission" value="PreciousCargo"> Precious Cargo<br>
+					</td>
+					<td>
+						<input type="radio" name="expMission" value="IntoTheWastes"> Into the Wastes<br>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="radio" name="expMission" value="ABountyProtected"> A Bounty Protected<br>
+					</td>
+					<td>
+						<input type="radio" name="expMission" value="Snowcrash"> Snowcrash<br>
+					</td>
+					<td>
+						<input type="radio" name="expMission" value="FullyCharged"> Fully Charged<br>
+					</td>
+					<td>
+						<input type="radio" name="expMission" value="CommunicationBreakdown"> Communication Breakdown<br>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="radio" name="expMission" value="SecurityBreach"> Security Breach<br>
+					</td>
+					<td>
+						<input type="radio" name="expMission" value="Gunrunner"> Gunrunner<br>
+					</td>
+					<td>
+						<input type="radio" name="expMission" value="IntoTheUnknown"> Into the Unknown<br>
+					</td>
+					<td>
+						<input type="radio" name="expMission" value="PayingDebts"> Paying Debts<br>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="radio" name="expMission" value="TopTarget"> Top Target<br>
+					</td>
+					<td>
+						<input type="radio" name="expMission" value="DeadlyTransmission"> Deadly Transmission<br>
+					</td>
+					<td>
+						<input type="radio" name="expMission" value="Cornered"> Cornered<br>
+					</td>
+				</tr>
+			</table>
+		</form
 	</div>
 	
 	<div class="buttonCenter">
-		<button id="missionChooseButton" onClick="missionSelect()">Choose</button>
+		<button id="missionChooseButton" onClick="missionExpacSelect()">Choose</button>
 	</div>
 	
 
@@ -768,6 +856,8 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		//2-6below; 3-8below; 4-12below; 5+ -all non-unique
 		var deploymentDiff = 2;
 		
+		//Where file path to mission images are
+		var currentMissionPath = "";
 		
 		//New deck
 		//Load first, then call durstenfeld shuffle
@@ -962,11 +1052,12 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		
 		//MISSION SELECTION RADIO BUTTONS
 		//
-		function missionSelect(){
+		function missionCoreSelect(){
 			for (var i=0, len=missionOptions.length; i<len; i++){
 				if (missionOptions[i].type === 'radio'){
 					if (missionOptions[i].checked){
 						currentMission = missionOptions[i].value;
+						currentMissionPath = "Core";
 						replace_image("files/Mission/Core/" + missionOptions[i].value + "Front.jpg", 298, 430, "Mission Front", "missionFront");
 						document.getElementById("missionFront").addEventListenter("click", missionFlip);
 					}
@@ -975,13 +1066,39 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		
 		}
 		
-		function missionFlip(){
+		function missionExpacSelect(){
+			for (var i=0, len=expMissionOptions.length; i<len; i++){
+				if (expMissionOptions[i].type === 'radio'){
+					if (expMissionOptions[i].checked){
+						currentMission = expMissionOptions[i].value;
+						currentMissionPath = "Expansions";
+						replace_image("files/Mission/Expansions/" + expMissionOptions[i].value + "Front.jpg", 298, 430, "Mission Front", "missionFront");
+						document.getElementById("missionFront").addEventListenter("click", missionFlip);
+					}
+				}
+			}
+		
+		}
+		
+		function missionCoreFlip(){
 			if (missionFace == 0){
 				replace_image("files/Mission/Core/" + currentMission + "Back.jpg", 298, 430, "Mission Back", "missionFront");
 				missionFace = 1;
 			}
 			else{
 				replace_image("files/Mission/Core/" + currentMission + "Front.jpg", 298, 430, "Mission Front", "missionFront");
+				missionFace = 0;
+			}
+			
+		}
+		
+		function missionFlip(){
+			if (missionFace == 0){
+				replace_image("files/Mission/" + currentMissionPath + "/" + currentMission + "Back.jpg", 298, 430, "Mission Back", "missionFront");
+				missionFace = 1;
+			}
+			else{
+				replace_image("files/Mission/" + currentMissionPath + "/" + currentMission + "Front.jpg", 298, 430, "Mission Front", "missionFront");
 				missionFace = 0;
 			}
 			
