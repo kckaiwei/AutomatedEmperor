@@ -14,6 +14,11 @@ img.center {
 	margin-right: auto;
 }
 
+.IAfont.large {
+	font-family: agencyfb;
+	font-weight: bold;
+	font-size: 150%;
+}
 
 div.center{
 	text-align: center;
