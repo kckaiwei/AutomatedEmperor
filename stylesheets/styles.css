@@ -4,6 +4,10 @@ input[type=radio] {
 	display: inline;
 }
 
+.large {
+	font-size: 150%;
+}
+
 .center {
 	text-align: center;
 }

@@ -1,6 +1,6 @@
 <widget
 	id		= "com.kckaiwei.AutomatedEmperor"
-	version = "0.2.5">
+	version = "0.7.3">
 	
 	<platform name="ios">
 		<icon src="files/Threat.png" width="180" height="180" />
