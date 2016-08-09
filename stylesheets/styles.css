@@ -37,6 +37,10 @@ div.center{
 	clear: both;
 }
 
+#missionStaging{
+	padding-bottom: 20px;
+}
+
 h2.center {
     text-align: center;
 }
@@ -88,7 +92,7 @@ table.center{
 }
 
 td.coreMission{
-	color: #00ace6;
+	color: #0047b3;
 }
 
 tr.wave1{
