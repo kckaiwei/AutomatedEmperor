@@ -4,6 +4,10 @@ input[type=radio] {
 	display: inline;
 }
 
+.center {
+	text-align: center;
+}
+
 .buttonCenter {
 	text-align: center;
 }
@@ -24,7 +28,12 @@ div.center{
 	text-align: center;
 }
 
-h3.center {
+#blitzMissionSection{
+	position: relative;
+	clear: both;
+}
+
+h2.center {
     text-align: center;
 }
 
@@ -34,16 +43,16 @@ h3.center {
     position: relative;
 	float: left;
 	width: 33%;
-	overflow: auto;
+	overflow: hidden;
 	background-color: #B9D7D9;
 	margin: 10px 5px 10px 5px;
 }
 
 .missionTableRight {
     position: relative;
-	float: right;
+	float: left;
 	width: 65.5%;
-	overflow: auto;
+	height: 100%;
 	background-color: #B9D7D9;
 	margin: 10px 5px 10px 0px;
 }
@@ -52,14 +61,11 @@ div.padded {
 	padding-bottom: 10px;
 }
 
-#blitz {
-    position: relative;
-    clear: both;
-}
 
 /* Padding: top,right,bottom,left
 */
 div.shaded{
+	clear: both;
 	background-color: #e6e6e6;
 	height: 50px;
 	padding: 10px 10px 10px 10px;
@@ -72,6 +78,7 @@ b.center{
 }
 
 table.center{
+	text-align: initial;
 	margin-left: auto;
 	margin-right: auto;
 }
