@@ -64,7 +64,7 @@ h2.center {
     position: relative;
 	float: left;
 	width: 33%;
-	min-width: 300px;
+	min-width: 380px;
 	overflow: hidden;
 	background-color: #B9D7D9;
 	margin: 10px 5px 10px 5px;
@@ -74,6 +74,7 @@ h2.center {
     position: relative;
 	float: left;
 	width: 65.5%;
+	min-width: 480px;
 	height: 100%;
 	background-color: #B9D7D9;
 	margin: 10px 5px 10px 0px;
