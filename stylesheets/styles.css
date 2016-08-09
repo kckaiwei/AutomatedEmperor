@@ -34,7 +34,7 @@ h3.center {
     position: relative;
 	float: left;
 	width: 33%;
-	height: 400px;
+	overflow: auto;
 	background-color: #B9D7D9;
 	margin: 10px 5px 10px 5px;
 }
@@ -43,9 +43,13 @@ h3.center {
     position: relative;
 	float: right;
 	width: 65.5%;
-	height: 400px;
+	overflow: auto;
 	background-color: #B9D7D9;
 	margin: 10px 5px 10px 0px;
+}
+
+div.padded {
+	padding-bottom: 10px;
 }
 
 #blitz {
