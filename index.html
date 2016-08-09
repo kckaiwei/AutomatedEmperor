@@ -13,27 +13,37 @@
 	</p>
 
 </div>
-	<div class="buttonCenter" id="threatCounterDiv">
-		<p>
-			<span>Imperial Threat Counter
-			</span>
-		</p>
-		<button onClick="threatCounterDec()">-</button>
-		<span id ="threatCounterIntText" class="IAfont large">0</span>
-		<button onClick="threatCounterInc()">+</button>
-	</div>
-	
-	<div class="buttonCenter" id="influenceCounterDiv">
-		<p>
-			<span>Imperial Influence Counter
-			</span>
-		</p>
-		<button onClick="influenceCounterDec()">-</button>
-		<span id ="influenceCounterIntText" class="IAfont large">0</span>
-		<button onClick="influenceCounterInc()">+</button>
+	<div id="loadout">
+		<table>
+			<tr>
+				<td>
+					<div class="buttonCenter" id="threatCounterDiv">
+						<p>
+							<span>Imperial Threat Counter
+							</span>
+						</p>
+						<button onClick="threatCounterDec()">-</button>
+						<span id ="threatCounterIntText" class="IAfont large green">0</span>
+						<button onClick="threatCounterInc()">+</button>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="buttonCenter" id="influenceCounterDiv">
+						<p>
+							<span>Imperial Influence Counter
+							</span>
+						</p>
+						<button onClick="influenceCounterDec()">-</button>
+						<span id ="influenceCounterIntText" class="IAfont large green">0</span>
+						<button onClick="influenceCounterInc()">+</button>
+					</div>
+				</td>
+			</tr>
+		</table>
 	</div>
 
-	
 	<div id="missionSelector" class="shaded">
 		<h2 class="center">Missions</h2>
 	</div>
@@ -895,8 +905,6 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		//END VAR SETUP
 		//
 		//
-		
-		
 		//HELPER FUNCTIONS
 		//Durstenfeld shuffle
 		//ALWAYS CLONE!!!!!! array = array.slice(0)
@@ -962,8 +970,9 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 			if (threatCounterInt < 20) {
 				threatCounterInt = threatCounterInt + 1;
 			}
-			document.getElementById('threatCounterIntText').innerHTML = threatCounterInt;			
-		}
+			document.getElementById('threatCounterIntText').innerHTML = threatCounterInt;
+			setTextColorByValue(threatCounterInt, 'threatCounterIntText');
+		}	
 		
 		function threatCounterDec(){
 			//Did not know javascript takes +=, too late now.
@@ -971,7 +980,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 				threatCounterInt = threatCounterInt - 1;
 			}
 			document.getElementById('threatCounterIntText').innerHTML = threatCounterInt;	
-		
+			setTextColorByValue(threatCounterInt, 'threatCounterIntText');
 		}
 		
 		//INFLUENCE COUNTER SECTION
@@ -979,10 +988,11 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		
 		function influenceCounterInc(){
 			//Did not know javascript takes +=, too late now.
-			if (influenceCounterInt < 10) {
+			if (influenceCounterInt < 20) {
 				influenceCounterInt = influenceCounterInt + 1;
 			}
-			document.getElementById('influenceCounterIntText').innerHTML = influenceCounterInt;			
+			document.getElementById('influenceCounterIntText').innerHTML = influenceCounterInt;
+			setTextColorByValue(influenceCounterInt, 'influenceCounterIntText');
 		}
 		
 		function influenceCounterDec(){
@@ -991,9 +1001,36 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 				influenceCounterInt = influenceCounterInt - 1;
 			}
 			document.getElementById('influenceCounterIntText').innerHTML = influenceCounterInt;	
-		
+			setTextColorByValue(influenceCounterInt, 'influenceCounterIntText');
 		}
-
+		
+		//Text color setting
+		function setTextColorByValue(value, objid){
+			if (value > 14){
+				document.getElementById(objid).style.color = "rgb(204, 0, 0)";
+			}
+			
+			if (value > 12 && value < 14) {
+				document.getElementById(objid).style.color = "rgb(204, 102, 0)";
+			}
+			
+			if (value > 9 && value < 11) {
+				document.getElementById(objid).style.color = "rgb(204, 204, 0)";
+			}
+			
+			if (value > 6 && value < 8) {
+				document.getElementById(objid).style.color = "rgb(153, 204, 0)";
+			}
+			
+			if (value > 3 && value < 5){
+				document.getElementById(objid).style.color = "rgb(51, 204, 0)";
+			}
+			
+			//Green
+			if (value > 0 && value < 2){
+				document.getElementById(objid).style.color = "rgb(0, 204, 0)";
+			}
+		}
 		
 		//MISSION SELECTION RADIO BUTTONS
 		//

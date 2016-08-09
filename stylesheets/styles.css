@@ -28,6 +28,10 @@ img.center {
 	font-size: 150%;
 }
 
+.green {
+	color: rgb(0, 204, 0);
+}
+
 div.center{
 	text-align: center;
 }
