@@ -24,6 +24,35 @@ div.center{
 	text-align: center;
 }
 
+h3.center {
+    text-align: center;
+}
+
+/* Create container for Mission Table
+*/
+.missionTableLeft {
+    position: relative;
+	float: left;
+	width: 33%;
+	height: 400px;
+	background-color: #B9D7D9;
+	margin: 10px 5px 10px 5px;
+}
+
+.missionTableRight {
+    position: relative;
+	float: right;
+	width: 65.5%;
+	height: 400px;
+	background-color: #B9D7D9;
+	margin: 10px 5px 10px 0px;
+}
+
+#blitz {
+    position: relative;
+    clear: both;
+}
+
 /* Padding: top,right,bottom,left
 */
 div.shaded{
