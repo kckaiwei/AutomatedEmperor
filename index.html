@@ -288,7 +288,7 @@ AGENT CARDS
 	<!--Second Split section -->
 	<div id="missionStaging" class="missionTableLeft">
 		<div class="shaded">
-			<h2 class="center">Current Mission:</h2>
+			<h3 class="center">Current Mission:</h3>
 		</div>
 			<p class="center">Click card to flip
 			</p>
@@ -297,7 +297,7 @@ AGENT CARDS
 	</div>
 	<div id="blitz" class="missionTableRight">
 		<div class="shaded">
-			<h2 class="title center"> Drawn Automated Emperor/Blitz Card: </h2>
+			<h3 class="title center"> Drawn Automated Emperor/Blitz Card: </h3>
 		</div>
 		<div class="buttonCenter">
 			<form id="blitzDraw" action="#" method="post" onsubmit="return false">
@@ -328,7 +328,7 @@ AGENT CARDS
 	<div id="avp" class="options">
 		<div id="avpDiv" class="missionTableLeft">
 			<div class="shaded center">
-				<h2>Villain Packs Deployments (Reshuffle after selecting!)</h2>
+				<h3>Villain Packs Deployments (Reshuffle after selecting!)</h3>
 			</div>
 			<form id="expacoptions" action="#" method="post" onsubmit="return false">
 				<table id="avpTable" class="center">
@@ -350,13 +350,11 @@ AGENT CARDS
 			</form>
 		</div>
 	</div>
-	
 	<br>
-	
 	<div id="uniques">
 		<div id="rewardUniqueDiv" class="missionTableRight">
 			<div class="shaded center">
-				<h2>Rewarded Uniques (Reshuffle after selecting!) </h2>
+				<h3>Rewarded Uniques (Reshuffle after selecting!) </h3>
 			</div>
 			<form id="uniqueOptions" action="#" onsubmit="return false">
 				<table id="uniqueTable" class="center">
@@ -415,15 +413,12 @@ AGENT CARDS
 			<button onClick="shuffleDeploymentCards()">Reshuffle deployment deck</button>
 		</form>
 	</div>
-	
 	<br>
-	
 	<p id="deployShuffleStatus" class="center"></p> 
-
 	<p class="center">
-	Adjust campaign threat level (WILL RESHUFFLE DECK!!!) 
-	<br>
-	Current Threat Level: 
+		Adjust campaign threat level (WILL RESHUFFLE DECK!!!) 
+		<br>
+		Current Threat Level: 
 	</p> 
 	
 	<div class="center">
@@ -465,7 +460,6 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 -->
 
 	<div id="myModal" class="modal">
-
 	<!-- Modal content -->
 		<div class="modal-content">
 			<div class="modal-header">
@@ -635,7 +629,6 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 									<li>Includes attached Modification Imperial Class cards</li>
 									<li>Resolve in order as listed on deployment card</li>
 								</ul>
-							
 							</li>
 							<li>Repositioning
 								<ul>
@@ -654,9 +647,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 									<li>Double Surges</li>
 									<li>Apply remaining from left to right, top to bottom on deployment card</li>
 								</ol>
-							
 							</li>
-						
 						</ul>
 							<div id="conditionsText">
 							<h2>Conditions</h2>
@@ -799,10 +790,6 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 
 		//SETUP
 		//MESS OF VARS
-		var expacCardsList = [];
-		//grabs expansion packs form.
-		var expacoptions = document.getElementById('expacoptions');
-		var uniqueOptions = document.getElementById('uniqueOptions');
 		//blitz cards filenames
 		var blitzCards = ["Blitz 1","Blitz 2","Blitz 3","Blitz 4","Blitz 5", "Blitz 6","Blitz 7","Blitz 8","Blitz 9","Blitz 10"];
 		var blitzColors = ["Blue", "Gold", "Green", "Red"];
@@ -873,9 +860,6 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 			deployDeck = shuffleArray(deployDeck.slice(0));
 			//clone deployment deck and save it to saved blitz deck
 			document.getElementById('deployDiffInt').innerHTML = deploymentDiff;
-			//Test to show shuffled
-			//document.getElementById('demo2').innerHTML = deployDeck;
-				
 			
 			//BLITZ CARD ON LOAD SECTION
 			//Randomly pick Blitz Cards
@@ -886,7 +870,6 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 			for (var i=0, len=blitzCardsInt; i<blitzCardsInt; i++){
 			//10 cards to pick from, randomly picks one
 				deck.push(blitzCardsDeckClone.pop());
-
 			}
 		
 		
@@ -968,14 +951,10 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		function clearBox(elementID) {
 			document.getElementById(elementID).innerHTML = "";
 		}
-		
-		
-		
 		//END HELPER FUNCTIONS
 		
 		//MAIN BODY
 		//
-		
 		//THREAT COUNTER SECTION
 		//
 		function threatCounterInc(){
@@ -1018,13 +997,15 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		
 		//MISSION SELECTION RADIO BUTTONS
 		//
+		var missionCardWidth = 310;
+		var missionCardHeight = 455;
 		function missionCoreSelect(){
 			for (var i=0, len=missionOptions.length; i<len; i++){
 				if (missionOptions[i].type === 'radio'){
 					if (missionOptions[i].checked){
 						currentMission = missionOptions[i].value;
 						currentMissionPath = "Core";
-						replace_image("files/Mission/Core/" + missionOptions[i].value + "Front.jpg", 298, 430, "Mission Front", "missionFront");
+						replace_image("files/Mission/Core/" + missionOptions[i].value + "Front.jpg", missionCardWidth, missionCardHeight, "Mission Front", "missionFront");
 						document.getElementById("missionFront").addEventListenter("click", missionFlip);
 					}
 				}
@@ -1038,7 +1019,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 					if (expMissionOptions[i].checked){
 						currentMission = expMissionOptions[i].value;
 						currentMissionPath = "Expansions";
-						replace_image("files/Mission/Expansions/" + expMissionOptions[i].value + "Front.jpg", 298, 430, "Mission Front", "missionFront");
+						replace_image("files/Mission/Expansions/" + expMissionOptions[i].value + "Front.jpg", missionCardWidth, missionCardHeight, "Mission Front", "missionFront");
 						document.getElementById("missionFront").addEventListenter("click", missionFlip);
 					}
 				}
@@ -1048,11 +1029,11 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		
 		function missionCoreFlip(){
 			if (missionFace == 0){
-				replace_image("files/Mission/Core/" + currentMission + "Back.jpg", 298, 430, "Mission Back", "missionFront");
+				replace_image("files/Mission/Core/" + currentMission + "Back.jpg", missionCardWidth, missionCardHeight, "Mission Back", "missionFront");
 				missionFace = 1;
 			}
 			else{
-				replace_image("files/Mission/Core/" + currentMission + "Front.jpg", 298, 430, "Mission Front", "missionFront");
+				replace_image("files/Mission/Core/" + currentMission + "Front.jpg", missionCardWidth, missionCardHeight, "Mission Front", "missionFront");
 				missionFace = 0;
 			}
 			
@@ -1060,11 +1041,11 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		
 		function missionFlip(){
 			if (missionFace == 0){
-				replace_image("files/Mission/" + currentMissionPath + "/" + currentMission + "Back.jpg", 298, 430, "Mission Back", "missionFront");
+				replace_image("files/Mission/" + currentMissionPath + "/" + currentMission + "Back.jpg", missionCardWidth, missionCardHeight, "Mission Back", "missionFront");
 				missionFace = 1;
 			}
 			else{
-				replace_image("files/Mission/" + currentMissionPath + "/" + currentMission + "Front.jpg", 298, 430, "Mission Front", "missionFront");
+				replace_image("files/Mission/" + currentMissionPath + "/" + currentMission + "Front.jpg", missionCardWidth, missionCardHeight, "Mission Front", "missionFront");
 				missionFace = 0;
 			}
 			

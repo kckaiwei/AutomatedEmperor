@@ -41,8 +41,17 @@ div.center{
 	padding-bottom: 20px;
 }
 
+#avpTable{
+	padding-bottom: 48px;
+}
+
+h3{
+	font-family: abel;
+}
+
 h2.center {
     text-align: center;
+	font-family: agencyfb;
 }
 
 /* Create container for Mission Table
@@ -123,9 +132,16 @@ tr.wave7{
 	color: #009999;
 }
 
+/*Collection of fonts
+*/
 @font-face {
 	font-family: agencyfb;
 	src: url('../files/fonts/agencyfb.ttf');
+}
+
+@font-face {
+	font-family: abel;
+	src: url('../files/fonts/Abel-Regular.ttf');
 }
 
 /*MODAL SECTION
