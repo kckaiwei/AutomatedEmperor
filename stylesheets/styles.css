@@ -83,6 +83,10 @@ div.padded {
 	padding-bottom: 10px;
 }
 
+img {
+	max-width: 100%;
+}
+
 
 /* Padding: top,right,bottom,left
 */
