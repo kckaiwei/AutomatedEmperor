@@ -90,10 +90,26 @@ h2.center {
 		width: 100%;
 		float: none;
 	}
+	div.shaded{
+		clear: none;
+	}
 }
 
 @media only screen and (max-width: 480px) {
-	.span_2_of_2, .span_1_of_2 { width: 100%; }
+	body{
+		width: 100%;
+	}
+	.missionTableLeft{
+		width: 100%;
+		float: none;
+	}
+	.missionTableRight{
+		width: 100%;
+		float: none;
+	}
+	div.shaded{
+		clear: none;
+	}
 }
 
 div.padded {
