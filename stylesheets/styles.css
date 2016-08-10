@@ -79,8 +79,8 @@ h2.center {
 }
 
 @media only screen and (max-width: 480px) {
-	.col { 
-		margin: 1% 0 1% 0%;
+	body{
+		width: 100%;
 	}
 	.missionTableLeft{
 		width: 100%;
@@ -88,12 +88,10 @@ h2.center {
 	.missionTableRight{
 		width: 100%;
 	}
-	.shaded{
-		width: 100%;
-	}
-	.div {
-		width: 100%;
-	}
+}
+
+@media only screen and (max-width: 480px) {
+	.span_2_of_2, .span_1_of_2 { width: 100%; }
 }
 
 div.padded {
