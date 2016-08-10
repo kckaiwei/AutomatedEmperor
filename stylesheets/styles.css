@@ -64,7 +64,6 @@ h2.center {
     position: relative;
 	float: left;
 	width: 33%;
-	min-width: 440px;
 	overflow: hidden;
 	background-color: #B9D7D9;
 	margin: 10px 5px 10px 5px;
@@ -74,10 +73,20 @@ h2.center {
     position: relative;
 	float: left;
 	width: 65.5%;
-	min-width: 440px;
 	height: 100%;
 	background-color: #B9D7D9;
 	margin: 10px 5px 10px 0px;
+}
+
+@media only screen and (max-width: 480px) {
+	.col { 
+		margin: 1% 0 1% 0%;
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	.span_2_of_2, .span_1_of_2 { width: 100%; }
 }
 
 div.padded {
