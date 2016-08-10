@@ -74,14 +74,12 @@ h2.center {
 	float: left;
 	width: 65.5%;
 	height: 100%;
+	overflow: hidden;
 	background-color: #B9D7D9;
 	margin: 10px 5px 10px 0px;
 }
 
 @media only screen and (max-width: 768px) {
-	body{
-		width: 100%;
-	}
 	.missionTableLeft{
 		width: 100%;
 		float: none;
@@ -96,9 +94,6 @@ h2.center {
 }
 
 @media only screen and (max-width: 480px) {
-	body{
-		width: 100%;
-	}
 	.missionTableLeft{
 		width: 100%;
 		float: none;
