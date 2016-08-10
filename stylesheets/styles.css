@@ -83,12 +83,12 @@ h2.center {
 	.missionTableLeft{
 		width: 100%;
 		float: none;
-		padding: 5px 5px 5px 5px;
+		padding: 0px 0px 0px 0px;
 	}
 	.missionTableRight{
 		width: 100%;
 		float: none;
-		padding: 5px 5px 5px 5px;
+		padding: 0px 0px 0px 0px;
 	}
 	div.shaded{
 		clear: none;
@@ -99,12 +99,14 @@ h2.center {
 	.missionTableLeft{
 		width: 100%;
 		float: none;
-		padding: 5px 5px 5px 5px;
+		padding: 0px 0px 0px 0px;
+		overflow: auto;
 	}
 	.missionTableRight{
 		width: 100%;
 		float: none;
-		padding: 5px 5px 5px 5px;
+		padding: 0px 0px 0px 0px;
+		overflow: auto;
 	}
 	div.shaded{
 		clear: none;
