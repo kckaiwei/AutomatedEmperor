@@ -93,7 +93,8 @@ h2.center {
 		margin: 2px 2px 2px 2px;
 	}
 	div.shaded{
-		clear: none;
+		clear: both;
+		width: 100%;
 	}
 	
 	div {
@@ -119,7 +120,8 @@ h2.center {
 		overflow: auto;
 	}
 	div.shaded{
-		clear: none;
+		clear: both;
+		width: 100%;
 	}
 	
 	div {
