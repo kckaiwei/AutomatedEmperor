@@ -76,7 +76,7 @@ h2.center {
 	height: 100%;
 	overflow: hidden;
 	background-color: #B9D7D9;
-	margin: 10px 5px 10px 0px;
+	margin: 10px 5px 10px 10px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -123,8 +123,8 @@ div.shaded{
 	background-color: #e6e6e6;
 	height: 50px;
 	width: 100%;
-	padding: 10px 10px 10px 10px;
-	margin: 10px 5px 10px 5px;
+	padding-top: 5px;
+	padding-bottom: 6px;
 	font-family: agencyfb;
 }
 
