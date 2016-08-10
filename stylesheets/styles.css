@@ -88,6 +88,12 @@ h2.center {
 	.missionTableRight{
 		width: 100%;
 	}
+	.shaded{
+		width: 100%;
+	}
+	.div {
+		width: 100%;
+	}
 }
 
 @media only screen and (max-width: 480px) {
