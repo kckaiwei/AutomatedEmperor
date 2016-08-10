@@ -84,11 +84,13 @@ h2.center {
 		width: 100%;
 		float: none;
 		padding: 0px 0px 0px 0px;
+		margin: 2px 2px 2px 2px;
 	}
 	.missionTableRight{
 		width: 100%;
 		float: none;
 		padding: 0px 0px 0px 0px;
+		margin: 2px 2px 2px 2px;
 	}
 	div.shaded{
 		clear: none;
@@ -106,12 +108,14 @@ h2.center {
 		width: 100%;
 		float: none;
 		padding: 0px 0px 0px 0px;
+		margin: 2px 2px 2px 2px;
 		overflow: auto;
 	}
 	.missionTableRight{
 		width: 100%;
 		float: none;
 		padding: 0px 0px 0px 0px;
+		margin: 2px 2px 2px 2px;
 		overflow: auto;
 	}
 	div.shaded{
