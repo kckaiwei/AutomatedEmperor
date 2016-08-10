@@ -81,6 +81,11 @@ h2.center {
 @media only screen and (max-width: 480px) {
 	.col { 
 		margin: 1% 0 1% 0%;
+	}
+	.missionTableLeft{
+		width: 100%;
+	}
+	.missionTableRight{
 		width: 100%;
 	}
 }
