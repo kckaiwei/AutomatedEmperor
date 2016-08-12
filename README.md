@@ -30,9 +30,12 @@ Automated Emperor provides Imperial Assault players a co-op web app that control
 - Luke Pack
 - Darth Vader Pack
 - Unique Reward Characters
+- Twin Shadows Expansion
+- Return to Hoth Expansion
+- Bespin Gambit Expansion
+- Mobile Support
 
 # TODO List
 
 - Campaign loadout tracker using save/load system
-- Full GUI
-- Support for all expansions
+- Side GUI for reference material and save/load
