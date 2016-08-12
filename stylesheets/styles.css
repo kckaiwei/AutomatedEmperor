@@ -99,7 +99,7 @@ h2.center {
 	}
 
         div.mobilealign {
-                padding-right: 0px;
+                padding-right: -1px;
         }
 }
 
@@ -129,7 +129,7 @@ h2.center {
 	}
 
         div.mobilealign {
-                padding-right: 0px;
+                padding-right: -1px;
         }
 }
 
