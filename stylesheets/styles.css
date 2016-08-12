@@ -91,7 +91,7 @@ h2.center {
 	div.shaded{
 		clear: both;
 		width: 100%;
-                margin: auto;
+        margin: auto;
 	}
 	
 	div {
@@ -99,7 +99,8 @@ h2.center {
 	}
 
         div.mobilealign {
-                padding-right: -3px;
+            padding-right: 0px;
+			margin-right: -2px;
         }
 }
 
@@ -121,7 +122,7 @@ h2.center {
 	div.shaded{
 		clear: both;
 		width: 100%;
-                margin: auto;
+        margin: auto;
 	}
 	
 	div {
@@ -129,7 +130,8 @@ h2.center {
 	}
 
         div.mobilealign {
-                padding-right: -3px;
+            padding-right: 0px;
+			margin-right: -3px;
         }
 }
 
