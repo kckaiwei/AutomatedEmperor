@@ -1,6 +1,6 @@
 <widget
 	id		= "com.kckaiwei.AutomatedEmperor"
-	version = "0.9.0">
+	version = "1.0.0">
 	
 	<icon src="icon.png"/>
 	

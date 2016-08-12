@@ -292,9 +292,10 @@
 		</div>
 		<div id="expacMissionSection">
 			<div id="expStory" class="missionTableLeft">
+			<h3 class="center">Expansion Box Story Missions</h3>
 				<form id="expStoryForm" onsubmit="return false">
 					<table class="center">
-						<tr>
+						<tr class="wave2">
 							<td>
 								<input type="radio" name="expMission" value="WhiteNoise"> White Noise<br>
 							</td>
@@ -305,13 +306,10 @@
 								<input type="radio" name="expMission" value="ReturnToEchoBase"> Return to Echo Base<br>
 							</td>
 							<td>
-								<input type="radio" name="expMission" value="DontStepBehind"> Don't Step Behind<br>
-							</td>
-						</tr>
-						<tr>
-							<td>
 								<input type="radio" name="expMission" value="RescueOps"> Rescue Ops<br>
 							</td>
+						</tr>
+						<tr class="wave2">
 							<td>
 								<input type="radio" name="expMission" value="TheLastLine"> The Last Line<br>
 							</td>
@@ -330,12 +328,10 @@
 				</div>
 			</div>
 			<div class="missionTableRight">
+			<h3 class="center">Expansion Box Side Missions: Colored by Expansion Box</h3>
 				<form id="expSideForm" onsubmit="return false">
 					<table class="center">
 						<tr class="wave1">
-							<td>
-								<input type="radio" name="Twin" value="HuntThemDown"> Hunt Them Down<br>
-							</td>
 							<td>
 								<input type="radio" name="Twin" value="ShadyDealings"> Shady Dealings<br>
 							</td>
@@ -348,10 +344,10 @@
 						</tr>
 						<tr class="wave2">
 							<td>
-								<input type="radio" name="expMission" value="KnowYourEnemy"> Know Your Enemy<br>
+								<input type="radio" name="expMission" value="SurvivalOfTheFittest"> Survival of the Fittest<br>
 							</td>
 							<td>
-								<input type="radio" name="expMission" value="ConstantVigilance"> Constant Vigilance<br>
+								<input type="radio" name="expMission" value="TheHardWay"> The Hard Way<br>
 							</td>
 							<td>
 								<input type="radio" name="expMission" value="PreventiveMeasures"> Preventive Measures<br>
@@ -362,13 +358,29 @@
 						</tr>
 						<tr class="wave2">
 							<td>
-								<input type="radio" name="expMission" value="SurvivalOfTheFittest"> Survival of the Fittest<br>
-							</td>
-							<td>
-								<input type="radio" name="expMission" value="TheHardWay"> The Hard Way<br>
-							</td>
-							<td>
 								<input type="radio" name="expMission" value="ScouringOfTheHomestead"> Scouring of the Homestead<br>
+							</td>
+						</tr>
+						<tr class="wave3">
+							<td>
+								<input type="radio" name="Bespin" value="Reclamation"> Reclamation<br>
+							</td>
+							<td>
+								<input type="radio" name="Bespin" value="CloudCitysSecret"> Cloud City's Secret<br>
+							</td>
+							<td>
+								<input type="radio" name="Bespin" value="FreedomFighters"> Freedom Fighters<br>
+							</td>
+							<td>
+								<input type="radio" name="Bespin" value="HostileTakeover"> Hostile Takeover<br>
+							</td>
+						</tr>
+						<tr class="wave3">
+							<td>
+								<input type="radio" name="Bespin" value="PanicInTheStreets"> Panic in the Streets<br>
+							</td>
+							<td>
+								<input type="radio" name="Bespin" value="Reclassified"> Reclassified<br>
 							</td>
 						</tr>
 					</table>
@@ -1133,8 +1145,8 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		
 		//MISSION SELECTION RADIO BUTTONS
 		//
-		var missionCardWidth = 310;
-		var missionCardHeight = 455;
+		var missionCardWidth = 335;
+		var missionCardHeight = 523;
 		function missionCoreSelect(){
 			for (var i=0, len=missionOptions.length; i<len; i++){
 				if (missionOptions[i].type === 'radio'){
@@ -1171,6 +1183,9 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 						if (expStoryForm[i].name == "Twin"){
 							currentMissionPath = "Twin Shadows";
 						}
+						else if (expStoryForm[i].name == "Bespin"){
+							currentMissionPath = "The Bespin Gambit";
+						}
 						else {
 							currentMissionPath = "Return to Hoth";
 						}
@@ -1189,6 +1204,9 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 						currentMission = expSideForm[i].value;
 						if (expSideForm[i].name == "Twin"){
 							currentMissionPath = "Twin Shadows";
+						}
+						else if (expSideForm[i].name == "Bespin"){
+							currentMissionPath = "The Bespin Gambit";
 						}
 						else{
 							currentMissionPath = "Return to Hoth";
