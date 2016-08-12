@@ -290,6 +290,96 @@
 				</div>
 			</div>
 		</div>
+		<div id="expacMissionSection">
+			<div id="expStory" class="missionTableLeft">
+				<form id="expStoryForm" onsubmit="return false">
+					<table class="center">
+						<tr>
+							<td>
+								<input type="radio" name="expMission" value="WhiteNoise"> White Noise<br>
+							</td>
+							<td>
+								<input type="radio" name="expMission" value="HomeFront"> Home Front<br>
+							</td>
+							<td>
+								<input type="radio" name="expMission" value="ReturnToEchoBase"> Return to Echo Base<br>
+							</td>
+							<td>
+								<input type="radio" name="expMission" value="DontStepBehind"> Don't Step Behind<br>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="radio" name="expMission" value="RescueOps"> Rescue Ops<br>
+							</td>
+							<td>
+								<input type="radio" name="expMission" value="TheLastLine"> The Last Line<br>
+							</td>
+							<td>
+								<input type="radio" name="expMission" value="Disaster"> Disaster<br>
+							</td>
+							<td>
+								<input type="radio" name="expMission" value="OurLastHope"> Our Last Hope<br>
+							</td>
+						</tr>
+					</table>
+				</form>
+				<br>
+				<div class="buttonCenter padded">
+					<button id="missionExpCoreChooseButton" class="padded" onClick="missionExpacBoxSelect()">Choose</button>
+				</div>
+			</div>
+			<div class="missionTableRight">
+				<form id="expSideForm" onsubmit="return false">
+					<table class="center">
+						<tr class="wave1">
+							<td>
+								<input type="radio" name="Twin" value="HuntThemDown"> Hunt Them Down<br>
+							</td>
+							<td>
+								<input type="radio" name="Twin" value="ShadyDealings"> Shady Dealings<br>
+							</td>
+							<td>
+								<input type="radio" name="Twin" value="HuntedDown"> Hunted Down<br>
+							</td>
+							<td>
+								<input type="radio" name="Twin" value="CanyonRun"> Canyon Run<br>
+							</td>
+						</tr>
+						<tr class="wave2">
+							<td>
+								<input type="radio" name="expMission" value="KnowYourEnemy"> Know Your Enemy<br>
+							</td>
+							<td>
+								<input type="radio" name="expMission" value="ConstantVigilance"> Constant Vigilance<br>
+							</td>
+							<td>
+								<input type="radio" name="expMission" value="PreventiveMeasures"> Preventive Measures<br>
+							</td>
+							<td>
+								<input type="radio" name="expMission" value="EscapeFromCloudCity"> Escape from Cloud City<br>
+							</td>
+						</tr>
+						<tr class="wave2">
+							<td>
+								<input type="radio" name="expMission" value="SurvivalOfTheFittest"> Survival of the Fittest<br>
+							</td>
+							<td>
+								<input type="radio" name="expMission" value="TheHardWay"> The Hard Way<br>
+							</td>
+							<td>
+								<input type="radio" name="expMission" value="ScouringOfTheHomestead"> Scouring of the Homestead<br>
+							</td>
+						</tr>
+					</table>
+				</form>
+				<br>
+				
+				<div class="buttonCenter padded">
+					<button id="expacMissionChooseButton" onClick="missionExpacSideSelect()">Choose</button>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 
@@ -1066,6 +1156,44 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 						currentMission = expMissionOptions[i].value;
 						currentMissionPath = "Expansions";
 						replace_image("files/Mission/Expansions/" + expMissionOptions[i].value + "Front.jpg", missionCardWidth, missionCardHeight, "Mission Front", "missionFront");
+						document.getElementById("missionFront").addEventListenter("click", missionFlip);
+					}
+				}
+			}
+		
+		}
+		
+		function missionExpacBoxSelect(){
+			for (var i=0, len=expStoryForm.length; i<len; i++){
+				if (expStoryForm[i].type === 'radio'){
+					if (expStoryForm[i].checked){
+						currentMission = expStoryForm[i].value;
+						if (expStoryForm[i].name == "Twin"){
+							currentMissionPath = "Twin Shadows";
+						}
+						else {
+							currentMissionPath = "Return to Hoth";
+						}
+						replace_image("files/Mission/" + currentMissionPath + "/" + expStoryForm[i].value + "Front.jpg", missionCardWidth, missionCardHeight, "Mission Front", "missionFront");
+						document.getElementById("missionFront").addEventListenter("click", missionFlip);
+					}
+				}
+			}
+		
+		}
+		
+		function missionExpacSideSelect(){
+			for (var i=0, len=expSideForm.length; i<len; i++){
+				if (expSideForm[i].type === 'radio'){
+					if (expSideForm[i].checked){
+						currentMission = expSideForm[i].value;
+						if (expSideForm[i].name == "Twin"){
+							currentMissionPath = "Twin Shadows";
+						}
+						else{
+							currentMissionPath = "Return to Hoth";
+						}
+						replace_image("files/Mission/" + currentMissionPath + "/" + expSideForm[i].value + "Front.jpg", missionCardWidth, missionCardHeight, "Mission Front", "missionFront");
 						document.getElementById("missionFront").addEventListenter("click", missionFlip);
 					}
 				}
