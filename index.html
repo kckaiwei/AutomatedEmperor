@@ -54,343 +54,361 @@
 		<h2 class="center">Missions</h2>
 	</div>
     </div>
-		<div class="tableHolder section group">
-			<div class="missionTableLeft col">
+		<table id="missionOverallTable" class="tableHolder section group divTable">
+				<tr>
+					<td>
+			<div class="col">
 				<h3 class="center">Core Missions (Story Missions in Blue)</h3>
-				<div>
-					<form id="missionOptions" action="#" method="post" onsubmit="return false">
-						<table id="missionTable" class="center">
-							<tr>
-								<td class="coreMission">
-									<input type="radio" name="mission" value="Aftermath"> Aftermath<br>
-								</td>
-								<td>
-									<input type="radio" name="mission" value="Captured"> Captured<br>
-								</td>
-								<td>
-									<input type="radio" name="mission" value="Brushfire"> Brushfire<br>
-								</td>
-								<td>
-									<input type="radio" name="mission" value="Temptation"> Temptation<br>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<input type="radio" name="mission" value="HighMoon"> High Moon<br>
-								</td>
-								<td>
-									<input type="radio" name="mission" value="Indebted"> Indebted<br>
-								</td>
-								<td>
-									<input type="radio" name="mission" value="LooseCannon"> Loose Cannon<br>
-								</td>
-								<td>
-									<input type="radio" name="mission" value="FriendsOfOld"> Friends Of Old<br>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<input type="radio" name="mission" value="SorryAboutTheMess"> Sorry About the Mess<br>
-								</td>
-								<td>
-									<input type="radio" name="mission" value="Homecoming"> Homecoming<br>
-								</td>
-								<td>
-									<input type="radio" name="mission" value="TheSpiceJob"> The Spice Job<br>
-								</td>
-								<td>
-									<input type="radio" name="mission" value="TargetofOpportunity"> Target Of Opportunity<br>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<input type="radio" name="mission" value="VipersDen"> Viper's Den<br>
-								</td>
-								<td>
-									<input type="radio" name="mission" value="ASimpleTask"> A Simple Task<br>
-								</td>
-								<td>
-									<input type="radio" name="mission" value="GenerousDonations"> Generous Donations<br>
-								</td>
-								<td>
-									<input type="radio" name="mission" value="LuxuryCruise"> Luxury Cruise<br>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<input type="radio" name="mission" value="MeansOfProduction"> Means of Production<br>
-								</td>
-								<td>
-									<input type="radio" name="mission" value="BreakingPoint"> Breaking Point<br>
-								</td>
-								<td>
-									<input type="radio" name="mission" value="Impounded"> Impounded<br>
-								</td>
-								<td>
-									<input type="radio" name="mission" value="Wanted"> Wanted<br>
-								</td>
-							<tr>
-								<td class="coreMission">
-									<input type="radio" name="mission" value="ANewThreat"> A New Threat<br>
-								</td>
-								<td class="coreMission">
-									<input type="radio" name="mission" value="UnderSiege"> Under Siege<br>
-								</td>
-								<td class="coreMission">
-									<input type="radio" name="mission" value="ImperialHospitality"> Imperial Hospitality<br>
-								</td>
-								<td class="coreMission">
-									<input type="radio" name="mission" value="FlySolo"> Fly Solo<br>
-								</td>
-							</tr>
-							<tr>
-								<td class="coreMission">
-									<input type="radio" name="mission" value="Incoming"> Incoming<br>
-								</td>
-								<td class="coreMission">
-									<input type="radio" name="mission" value="DrawnIn"> Drawn In<br>
-								</td>
-								<td class="coreMission">
-									<input type="radio" name="mission" value="ChainOfCommand"> Chain of Command<br>
-								</td>
-								<td class="coreMission">
-									<input type="radio" name="mission" value="TheSource"> The Source<br>
-								</td>
-							</tr>
-							<tr>
-								<td class="coreMission">
-									<input type="radio" name="mission" value="LastStand"> Last Stand<br>
-								</td>
-								<td class="coreMission">
-									<input type="radio" name="mission" value="DesperateHour"> Desperate Hour<br>
-								</td>
-								<td>
-									<input type="radio" name="mission" value="DarkObsession"> Dark Obsession<br>
-								</td>
-								<td>
-									<input type="radio" name="mission" value="SympathyForTheRebellion"> Sympathy for the Rebellion<br>
-								</td>
-						</table>
-					</form>
-				</div>
-			<br>
+					<div>
+						<form id="missionOptions" action="#" method="post" onsubmit="return false">
+							<table id="missionTable" class="center">
+								<tr>
+									<td class="coreMission">
+										<input type="radio" name="mission" value="Aftermath"> Aftermath<br>
+									</td>
+									<td>
+										<input type="radio" name="mission" value="Captured"> Captured<br>
+									</td>
+									<td>
+										<input type="radio" name="mission" value="Brushfire"> Brushfire<br>
+									</td>
+									<td>
+										<input type="radio" name="mission" value="Temptation"> Temptation<br>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="radio" name="mission" value="HighMoon"> High Moon<br>
+									</td>
+									<td>
+										<input type="radio" name="mission" value="Indebted"> Indebted<br>
+									</td>
+									<td>
+										<input type="radio" name="mission" value="LooseCannon"> Loose Cannon<br>
+									</td>
+									<td>
+										<input type="radio" name="mission" value="FriendsOfOld"> Friends Of Old<br>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="radio" name="mission" value="SorryAboutTheMess"> Sorry About the Mess<br>
+									</td>
+									<td>
+										<input type="radio" name="mission" value="Homecoming"> Homecoming<br>
+									</td>
+									<td>
+										<input type="radio" name="mission" value="TheSpiceJob"> The Spice Job<br>
+									</td>
+									<td>
+										<input type="radio" name="mission" value="TargetofOpportunity"> Target Of Opportunity<br>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="radio" name="mission" value="VipersDen"> Viper's Den<br>
+									</td>
+									<td>
+										<input type="radio" name="mission" value="ASimpleTask"> A Simple Task<br>
+									</td>
+									<td>
+										<input type="radio" name="mission" value="GenerousDonations"> Generous Donations<br>
+									</td>
+									<td>
+										<input type="radio" name="mission" value="LuxuryCruise"> Luxury Cruise<br>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="radio" name="mission" value="MeansOfProduction"> Means of Production<br>
+									</td>
+									<td>
+										<input type="radio" name="mission" value="BreakingPoint"> Breaking Point<br>
+									</td>
+									<td>
+										<input type="radio" name="mission" value="Impounded"> Impounded<br>
+									</td>
+									<td>
+										<input type="radio" name="mission" value="Wanted"> Wanted<br>
+									</td>
+								<tr>
+									<td class="coreMission">
+										<input type="radio" name="mission" value="ANewThreat"> A New Threat<br>
+									</td>
+									<td class="coreMission">
+										<input type="radio" name="mission" value="UnderSiege"> Under Siege<br>
+									</td>
+									<td class="coreMission">
+										<input type="radio" name="mission" value="ImperialHospitality"> Imperial Hospitality<br>
+									</td>
+									<td class="coreMission">
+										<input type="radio" name="mission" value="FlySolo"> Fly Solo<br>
+									</td>
+								</tr>
+								<tr>
+									<td class="coreMission">
+										<input type="radio" name="mission" value="Incoming"> Incoming<br>
+									</td>
+									<td class="coreMission">
+										<input type="radio" name="mission" value="DrawnIn"> Drawn In<br>
+									</td>
+									<td class="coreMission">
+										<input type="radio" name="mission" value="ChainOfCommand"> Chain of Command<br>
+									</td>
+									<td class="coreMission">
+										<input type="radio" name="mission" value="TheSource"> The Source<br>
+									</td>
+								</tr>
+								<tr>
+									<td class="coreMission">
+										<input type="radio" name="mission" value="LastStand"> Last Stand<br>
+									</td>
+									<td class="coreMission">
+										<input type="radio" name="mission" value="DesperateHour"> Desperate Hour<br>
+									</td>
+									<td>
+										<input type="radio" name="mission" value="DarkObsession"> Dark Obsession<br>
+									</td>
+									<td>
+										<input type="radio" name="mission" value="SympathyForTheRebellion"> Sympathy for the Rebellion<br>
+									</td>
+							</table>
+						</form>
+					</div>
+				<br>
 			
 				<div class="buttonCenter padded">
 					<button id="missionChooseButton" class="padded" onClick="missionCoreSelect()">Choose</button>
 				</div>
-			</div>
+				</td>
+				
+				<td>
+				
+				<div class="col">
+					<h3 id="expansionTitleText" class="center">Ally/Villain Pack Missions: Colored by Release Wave</h3>
+					<div>
+						<form id="expMissionOptions" action="#" onsubmit="return false">
+							<table class="center" id="expansionTable">
+								<tr class="wave1">
+									<td>
+										<input type="radio" name="expMission" value="Celebration"> Celebration<br>
+									</td>
+									<td>
+										<input type="radio" name="expMission" value="ForestAmbush"> Forest Ambush<br>
+									</td>
+									<td>
+										<input type="radio" name="expMission" value="ImperialEntanglements"> Imperial Entanglements<br>
+									</td>
+									<td>
+										<input type="radio" name="expMission" value="BinaryRevolution"> Binary Revolution<br>
+									</td>
+								</tr>
+								<tr class="wave1">
+									<td>
+										<input type="radio" name="expMission" value="ArmedAndOperational"> Armed and Operational<br>
+									</td>
+									<td>
+										<input type="radio" name="expMission" value="BraceForImpact"> Brace for Impact<br>
+									</td>
+									<td>
+										<input type="radio" name="expMission" value="Infection"> Infection<br>
+									</td>
+								</tr>
+								<tr class="wave2">
+									<td>
+										<input type="radio" name="expMission" value="PredatorAndPrey"> Predator and Prey<br>
+									</td>
+									<td>
+										<input type="radio" name="expMission" value="StrengthOfCommand"> Strength of Command<br>
+									</td>
+									<td>
+										<input type="radio" name="expMission" value="OpenToInterpretation"> Open to Interpretation<br>
+									</td>
+								</tr>
+								<tr class="wave3">
+									<td>
+										<input type="radio" name="expMission" value="Back-RoomBargains"> Back-Room Bargains<br>
+									</td>
+									<td>
+										<input type="radio" name="expMission" value="BunkerBuster"> Bunker Buster<br>
+									</td>
+									<td>
+										<input type="radio" name="expMission" value="BruteForce"> Brute Force<br>
+									</td>
+								</tr>
+								<tr class="wave4">
+									<td>
+										<input type="radio" name="expMission" value="PreciousCargo"> Precious Cargo<br>
+									</td>
+									<td>
+										<input type="radio" name="expMission" value="IntoTheWastes"> Into the Wastes<br>
+									</td>
+								</tr>
+								<tr class="wave5">
+									<td>
+										<input type="radio" name="expMission" value="ABountyProtected"> A Bounty Protected<br>
+									</td>
+									<td>
+										<input type="radio" name="expMission" value="Snowcrash"> Snowcrash<br>
+									</td>
+									<td>
+										<input type="radio" name="expMission" value="FullyCharged"> Fully Charged<br>
+									</td>
+									<td>
+										<input type="radio" name="expMission" value="CommunicationBreakdown"> Communication Breakdown<br>
+									</td>
+								</tr>
+								<tr class="wave6">
+									<td>
+										<input type="radio" name="expMission" value="SecurityBreach"> Security Breach<br>
+									</td>
+									<td>
+										<input type="radio" name="expMission" value="Gunrunner"> Gunrunner<br>
+									</td>
+									<td>
+										<input type="radio" name="expMission" value="IntoTheUnknown"> Into the Unknown<br>
+									</td>
+									<td>
+										<input type="radio" name="expMission" value="PayingDebts"> Paying Debts<br>
+									</td>
+								</tr>
+								<tr class="wave7">
+									<td>
+										<input type="radio" name="expMission" value="TopTarget"> Top Target<br>
+									</td>
+									<td>
+										<input type="radio" name="expMission" value="DeadlyTransmission"> Deadly Transmission<br>
+									</td>
+									<td>
+										<input type="radio" name="expMission" value="Cornered"> Cornered<br>
+									</td>
+								</tr>
+							</table>
+						</form>
+					</div>
+					
+					<br>
+					
+					<div class="buttonCenter padded">
+						<button id="missionChooseButton" onClick="missionExpacSelect()">Choose</button>
+					</div>
+				</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="expStory" class="col">
+					<h3 class="center">Expansion Box Story Missions</h3>
+						<form id="expStoryForm" onsubmit="return false">
+							<table class="center">
+								<tr class="wave2">
+									<td>
+										<input type="radio" name="expMission" value="WhiteNoise"> White Noise<br>
+									</td>
+									<td>
+										<input type="radio" name="expMission" value="HomeFront"> Home Front<br>
+									</td>
+									<td>
+										<input type="radio" name="expMission" value="ReturnToEchoBase"> Return to Echo Base<br>
+									</td>
+									<td>
+										<input type="radio" name="expMission" value="RescueOps"> Rescue Ops<br>
+									</td>
+								</tr>
+								<tr class="wave2">
+									<td>
+										<input type="radio" name="expMission" value="TheLastLine"> The Last Line<br>
+									</td>
+									<td>
+										<input type="radio" name="expMission" value="Disaster"> Disaster<br>
+									</td>
+									<td>
+										<input type="radio" name="expMission" value="OurLastHope"> Our Last Hope<br>
+									</td>
+								</tr>
+							</table>
+						</form>
+						<br>
+						<div class="buttonCenter padded">
+							<button id="missionExpCoreChooseButton" class="padded" onClick="missionExpacBoxSelect()">Choose</button>
+						</div>
+					</div>
+				</td>
+				<td>
+					<div class="col">
+					<h3 class="center">Expansion Box Side Missions: Colored by Expansion Box</h3>
+						<form id="expSideForm" onsubmit="return false">
+							<table class="center">
+								<tr class="wave1">
+									<td>
+										<input type="radio" name="Twin" value="ShadyDealings"> Shady Dealings<br>
+									</td>
+									<td>
+										<input type="radio" name="Twin" value="HuntedDown"> Hunted Down<br>
+									</td>
+									<td>
+										<input type="radio" name="Twin" value="CanyonRun"> Canyon Run<br>
+									</td>
+								</tr>
+								<tr class="wave2">
+									<td>
+										<input type="radio" name="expMission" value="SurvivalOfTheFittest"> Survival of the Fittest<br>
+									</td>
+									<td>
+										<input type="radio" name="expMission" value="TheHardWay"> The Hard Way<br>
+									</td>
+									<td>
+										<input type="radio" name="expMission" value="PreventiveMeasures"> Preventive Measures<br>
+									</td>
+									<td>
+										<input type="radio" name="expMission" value="EscapeFromCloudCity"> Escape from Cloud City<br>
+									</td>
+								</tr>
+								<tr class="wave2">
+									<td>
+										<input type="radio" name="expMission" value="ScouringOfTheHomestead"> Scouring of the Homestead<br>
+									</td>
+								</tr>
+								<tr class="wave3">
+									<td>
+										<input type="radio" name="Bespin" value="Reclamation"> Reclamation<br>
+									</td>
+									<td>
+										<input type="radio" name="Bespin" value="CloudCitysSecret"> Cloud City's Secret<br>
+									</td>
+									<td>
+										<input type="radio" name="Bespin" value="FreedomFighters"> Freedom Fighters<br>
+									</td>
+									<td>
+										<input type="radio" name="Bespin" value="HostileTakeover"> Hostile Takeover<br>
+									</td>
+								</tr>
+								<tr class="wave3">
+									<td>
+										<input type="radio" name="Bespin" value="PanicInTheStreets"> Panic in the Streets<br>
+									</td>
+									<td>
+										<input type="radio" name="Bespin" value="Reclassified"> Reclassified<br>
+									</td>
+								</tr>
+							</table>
+						</form>
+						<br>
+						
+						<div class="buttonCenter padded">
+							<button id="expacMissionChooseButton" onClick="missionExpacSideSelect()">Choose</button>
+						</div>
+					</div>
+				</td>
+			</tr>
 			
-			<div class="missionTableRight col">
-				<h3 id="expansionTitleText" class="center">Ally/Villain Pack Missions: Colored by Release Wave</h3>
-				<div>
-					<form id="expMissionOptions" action="#" onsubmit="return false">
-						<table class="center" id="expansionTable">
-							<tr class="wave1">
-								<td>
-									<input type="radio" name="expMission" value="Celebration"> Celebration<br>
-								</td>
-								<td>
-									<input type="radio" name="expMission" value="ForestAmbush"> Forest Ambush<br>
-								</td>
-								<td>
-									<input type="radio" name="expMission" value="ImperialEntanglements"> Imperial Entanglements<br>
-								</td>
-								<td>
-									<input type="radio" name="expMission" value="BinaryRevolution"> Binary Revolution<br>
-								</td>
-							</tr>
-							<tr class="wave1">
-								<td>
-									<input type="radio" name="expMission" value="ArmedAndOperational"> Armed and Operational<br>
-								</td>
-								<td>
-									<input type="radio" name="expMission" value="BraceForImpact"> Brace for Impact<br>
-								</td>
-								<td>
-									<input type="radio" name="expMission" value="Infection"> Infection<br>
-								</td>
-							</tr>
-							<tr class="wave2">
-								<td>
-									<input type="radio" name="expMission" value="PredatorAndPrey"> Predator and Prey<br>
-								</td>
-								<td>
-									<input type="radio" name="expMission" value="StrengthOfCommand"> Strength of Command<br>
-								</td>
-								<td>
-									<input type="radio" name="expMission" value="OpenToInterpretation"> Open to Interpretation<br>
-								</td>
-							</tr>
-							<tr class="wave3">
-								<td>
-									<input type="radio" name="expMission" value="Back-RoomBargains"> Back-Room Bargains<br>
-								</td>
-								<td>
-									<input type="radio" name="expMission" value="BunkerBuster"> Bunker Buster<br>
-								</td>
-								<td>
-									<input type="radio" name="expMission" value="BruteForce"> Brute Force<br>
-								</td>
-							</tr>
-							<tr class="wave4">
-								<td>
-									<input type="radio" name="expMission" value="PreciousCargo"> Precious Cargo<br>
-								</td>
-								<td>
-									<input type="radio" name="expMission" value="IntoTheWastes"> Into the Wastes<br>
-								</td>
-							</tr>
-							<tr class="wave5">
-								<td>
-									<input type="radio" name="expMission" value="ABountyProtected"> A Bounty Protected<br>
-								</td>
-								<td>
-									<input type="radio" name="expMission" value="Snowcrash"> Snowcrash<br>
-								</td>
-								<td>
-									<input type="radio" name="expMission" value="FullyCharged"> Fully Charged<br>
-								</td>
-								<td>
-									<input type="radio" name="expMission" value="CommunicationBreakdown"> Communication Breakdown<br>
-								</td>
-							</tr>
-							<tr class="wave6">
-								<td>
-									<input type="radio" name="expMission" value="SecurityBreach"> Security Breach<br>
-								</td>
-								<td>
-									<input type="radio" name="expMission" value="Gunrunner"> Gunrunner<br>
-								</td>
-								<td>
-									<input type="radio" name="expMission" value="IntoTheUnknown"> Into the Unknown<br>
-								</td>
-								<td>
-									<input type="radio" name="expMission" value="PayingDebts"> Paying Debts<br>
-								</td>
-							</tr>
-							<tr class="wave7">
-								<td>
-									<input type="radio" name="expMission" value="TopTarget"> Top Target<br>
-								</td>
-								<td>
-									<input type="radio" name="expMission" value="DeadlyTransmission"> Deadly Transmission<br>
-								</td>
-								<td>
-									<input type="radio" name="expMission" value="Cornered"> Cornered<br>
-								</td>
-							</tr>
-						</table>
-					</form>
-				</div>
-				
-				<br>
-				
-				<div class="buttonCenter padded">
-					<button id="missionChooseButton" onClick="missionExpacSelect()">Choose</button>
-				</div>
-			</div>
+			
+		</table>
+			
 		</div>
 		<div id="expacMissionSection">
-			<div id="expStory" class="missionTableLeft">
-			<h3 class="center">Expansion Box Story Missions</h3>
-				<form id="expStoryForm" onsubmit="return false">
-					<table class="center">
-						<tr class="wave2">
-							<td>
-								<input type="radio" name="expMission" value="WhiteNoise"> White Noise<br>
-							</td>
-							<td>
-								<input type="radio" name="expMission" value="HomeFront"> Home Front<br>
-							</td>
-							<td>
-								<input type="radio" name="expMission" value="ReturnToEchoBase"> Return to Echo Base<br>
-							</td>
-							<td>
-								<input type="radio" name="expMission" value="RescueOps"> Rescue Ops<br>
-							</td>
-						</tr>
-						<tr class="wave2">
-							<td>
-								<input type="radio" name="expMission" value="TheLastLine"> The Last Line<br>
-							</td>
-							<td>
-								<input type="radio" name="expMission" value="Disaster"> Disaster<br>
-							</td>
-							<td>
-								<input type="radio" name="expMission" value="OurLastHope"> Our Last Hope<br>
-							</td>
-						</tr>
-					</table>
-				</form>
-				<br>
-				<div class="buttonCenter padded">
-					<button id="missionExpCoreChooseButton" class="padded" onClick="missionExpacBoxSelect()">Choose</button>
-				</div>
-			</div>
-			<div class="missionTableRight">
-			<h3 class="center">Expansion Box Side Missions: Colored by Expansion Box</h3>
-				<form id="expSideForm" onsubmit="return false">
-					<table class="center">
-						<tr class="wave1">
-							<td>
-								<input type="radio" name="Twin" value="ShadyDealings"> Shady Dealings<br>
-							</td>
-							<td>
-								<input type="radio" name="Twin" value="HuntedDown"> Hunted Down<br>
-							</td>
-							<td>
-								<input type="radio" name="Twin" value="CanyonRun"> Canyon Run<br>
-							</td>
-						</tr>
-						<tr class="wave2">
-							<td>
-								<input type="radio" name="expMission" value="SurvivalOfTheFittest"> Survival of the Fittest<br>
-							</td>
-							<td>
-								<input type="radio" name="expMission" value="TheHardWay"> The Hard Way<br>
-							</td>
-							<td>
-								<input type="radio" name="expMission" value="PreventiveMeasures"> Preventive Measures<br>
-							</td>
-							<td>
-								<input type="radio" name="expMission" value="EscapeFromCloudCity"> Escape from Cloud City<br>
-							</td>
-						</tr>
-						<tr class="wave2">
-							<td>
-								<input type="radio" name="expMission" value="ScouringOfTheHomestead"> Scouring of the Homestead<br>
-							</td>
-						</tr>
-						<tr class="wave3">
-							<td>
-								<input type="radio" name="Bespin" value="Reclamation"> Reclamation<br>
-							</td>
-							<td>
-								<input type="radio" name="Bespin" value="CloudCitysSecret"> Cloud City's Secret<br>
-							</td>
-							<td>
-								<input type="radio" name="Bespin" value="FreedomFighters"> Freedom Fighters<br>
-							</td>
-							<td>
-								<input type="radio" name="Bespin" value="HostileTakeover"> Hostile Takeover<br>
-							</td>
-						</tr>
-						<tr class="wave3">
-							<td>
-								<input type="radio" name="Bespin" value="PanicInTheStreets"> Panic in the Streets<br>
-							</td>
-							<td>
-								<input type="radio" name="Bespin" value="Reclassified"> Reclassified<br>
-							</td>
-						</tr>
-					</table>
-				</form>
-				<br>
-				
-				<div class="buttonCenter padded">
-					<button id="expacMissionChooseButton" onClick="missionExpacSideSelect()">Choose</button>
-				</div>
-			</div>
+			
+			
 		</div>
 	</div>
 </div>
@@ -403,124 +421,132 @@ AGENT CARDS
 <img id="SubversiveTactics" src="files/ImpClass/SubversiveTactics.jpg" width="175" height="298" onclick="STsel()"></img>
 <img id="TechnologicalSuperiority" src="files/ImpClass/TechnologicalSuperiority.jpg" width="175" height="298" onclick="TSsel()"></img>
 -->
-<div id="blitzMissionSection" class="padded fillWidth">
+<table id="blitzMissionSection" class="padded fillWidth divTable">
 	<!--Second Split section -->
-	<div id="missionStaging" class="missionTableLeft">
-		<div class="shaded">
-			<h3 class="center">Current Mission:</h3>
-		</div>
-			<p class="center">Click card to flip
-			</p>
-		<br>
-		<img id="missionFront" class="center" onClick="missionFlip()"></img>
-	</div>
-	<div id="blitz" class="missionTableRight">
-		<div class="shaded">
-			<h3 class="title center"> Drawn Automated Emperor/Blitz Card: </h3>
-		</div>
-		<div class="buttonCenter">
-			<form id="blitzDraw" action="#" method="post" onsubmit="return false">
-				<button onClick="displayBlitzCards()">Draw Automated Emperor Card</button>
-				<button onClick="shuffleBlitzCards()">Reshuffle Automated Emperor deck</button>
-			</form>
-		</div>
-
-		<p id="blitzShuffleStatus" class="center"></p>
-			<p class="center">
-				Adjust Blitz Cards (WILL RESHUFFLE DECK!!!) - Add one when Imperial loses a mission (applies every lost mission)
-			</p>
-		<p class="center"> Current Blitz Level: </p> 
-		
-		<div class="buttonCenter">
-			<form id="blitzForm" action="#" method="post" onsubmit="return false">
-				<button onClick="blitzDec()">-</button>
-				<span id ="blitzLevelIntText" class="IAfont large"> </span>
-				<button onClick="blitzInc()">+</button>
-			</form>
-		</div>
-		<br>
-		<img id="currentBlitzImg" class="center"></img>
-	</div>
-</div>
-
-<div id="deploymentAddon" class="padded fillWidth">
-	<div id="avp" class="options">
-		<div id="avpDiv" class="missionTableLeft">
-			<div class="shaded center">
-				<h3>Villain Packs Deployments (Reshuffle after selecting!)</h3>
+	<tr>
+		<td>
+			<div id="missionStaging" class="col">
+				<div class="shaded">
+					<h3 class="center">Current Mission:</h3>
+				</div>
+					<p class="center">Click card to flip
+					</p>
+				<br>
+				<img id="missionFront" class="center" onClick="missionFlip()"></img>
 			</div>
-			<form id="expacoptions" action="#" method="post" onsubmit="return false">
-				<table id="avpTable" class="center">
-					<tr>
-						<td>
-							<input type="checkbox" name="AVPoption" value="HiredGun"> Hired Guns<br>
-						</td>
-						<td>
-							<input type="checkbox" name="AVPoption" value="Stormtrooper"> Stormtroopers<br>
-						</td>
-						<td>
-							<input type="checkbox" name="AVPoption" value="BanthaRider"> Bantha Rider<br>
-						</td>
-						<td>
-							<input type="checkbox" name="AVPoption" value="ISBInfiltrator"> ISB Infiltrators<br>
-						</td>
-					</tr>
-				</table>
-			</form>
-		</div>
-	</div>
+		</td>
+		<td>
+			<div id="blitz" class="col">
+				<div class="shaded">
+					<h3 class="title center"> Drawn Automated Emperor/Blitz Card: </h3>
+				</div>
+				<div class="buttonCenter">
+					<form id="blitzDraw" action="#" method="post" onsubmit="return false">
+						<button onClick="displayBlitzCards()">Draw Automated Emperor Card</button>
+						<button onClick="shuffleBlitzCards()">Reshuffle Automated Emperor deck</button>
+					</form>
+				</div>
+
+				<p id="blitzShuffleStatus" class="center"></p>
+					<p class="center">
+						Adjust Blitz Cards (WILL RESHUFFLE DECK!!!) - Add one when Imperial loses a mission (applies every lost mission)
+					</p>
+				<p class="center"> Current Blitz Level: </p> 
+				
+				<div class="buttonCenter">
+					<form id="blitzForm" action="#" method="post" onsubmit="return false">
+						<button onClick="blitzDec()">-</button>
+						<span id ="blitzLevelIntText" class="IAfont large"> </span>
+						<button onClick="blitzInc()">+</button>
+					</form>
+				</div>
+				<br>
+				<img id="currentBlitzImg" class="center"></img>
+			</div>
+		</td>
+	</tr>
+</table>
+
+<table id="deploymentAddon" class="padded fillWidth divTable">
+	<tr>
+		<td id="avp" class="options">
+			<div id="avpDiv" class="col">
+				<div class="shaded center">
+					<h3>Villain Packs Deployments (Reshuffle after selecting!)</h3>
+				</div>
+				<form id="expacoptions" action="#" method="post" onsubmit="return false">
+					<table id="avpTable" class="center">
+						<tr>
+							<td>
+								<input type="checkbox" name="AVPoption" value="HiredGun"> Hired Guns<br>
+							</td>
+							<td>
+								<input type="checkbox" name="AVPoption" value="Stormtrooper"> Stormtroopers<br>
+							</td>
+							<td>
+								<input type="checkbox" name="AVPoption" value="BanthaRider"> Bantha Rider<br>
+							</td>
+							<td>
+								<input type="checkbox" name="AVPoption" value="ISBInfiltrator"> ISB Infiltrators<br>
+							</td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</td>
 	<br>
-	<div id="uniques">
-		<div id="rewardUniqueDiv" class="missionTableRight">
-			<div class="shaded center">
-				<h3>Rewarded Uniques (Reshuffle after selecting!) </h3>
+		<td id="uniques">
+			<div id="rewardUniqueDiv" class="col">
+				<div class="shaded center">
+					<h3>Rewarded Uniques (Reshuffle after selecting!) </h3>
+				</div>
+				<form id="uniqueOptions" action="#" onsubmit="return false">
+					<table id="uniqueTable" class="center">
+						<tr>
+							<td>
+								<input type="checkbox" name="uniqueCheck" value="DarthVader"> Darth Vader<br>
+							</td>
+							<td>
+								<input type="checkbox" name="uniqueCheck" value="ELGeneralWeiss"> General Weiss<br>
+							</td>
+							<td>
+								<input type="checkbox" name="uniqueCheck" value="ELRoyalGuardChamp"> Royal Guard Champion<br>
+							</td>
+							<td>
+								<input type="checkbox" name="uniqueCheck" value="ELIG88"> IG-88<br>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="checkbox" name="uniqueCheck" value="BobaFett"> Boba Fett<br>
+							</td>
+							<td>
+								<input type="checkbox" name="uniqueCheck" value="KaynSomos"> Kayn Somos<br>
+							</td>
+							<td>
+								<input type="checkbox" name="uniqueCheck" value="Dengar"> Dengar<br>
+							</td>
+							<td>
+								<input type="checkbox" name="uniqueCheck" value="General Sorin"> General Sorin<br>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="checkbox" name="uniqueCheck" value="AgentBlaiseC"> Agent Blaise<br>
+							</td>
+							<td>
+								<input type="checkbox" name="uniqueCheck" value="Greedo"> Greedo<br>
+							</td>
+							<td>
+								<input type="checkbox" name="uniqueCheck" value="TheGrandInquisitor"> The Grand Inquisitor<br>
+							</td>
+						</tr>
+					</table>
+				</form>
 			</div>
-			<form id="uniqueOptions" action="#" onsubmit="return false">
-				<table id="uniqueTable" class="center">
-					<tr>
-						<td>
-							<input type="checkbox" name="uniqueCheck" value="DarthVader"> Darth Vader<br>
-						</td>
-						<td>
-							<input type="checkbox" name="uniqueCheck" value="ELGeneralWeiss"> General Weiss<br>
-						</td>
-						<td>
-							<input type="checkbox" name="uniqueCheck" value="ELRoyalGuardChamp"> Royal Guard Champion<br>
-						</td>
-						<td>
-							<input type="checkbox" name="uniqueCheck" value="ELIG88"> IG-88<br>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<input type="checkbox" name="uniqueCheck" value="BobaFett"> Boba Fett<br>
-						</td>
-						<td>
-							<input type="checkbox" name="uniqueCheck" value="KaynSomos"> Kayn Somos<br>
-						</td>
-						<td>
-							<input type="checkbox" name="uniqueCheck" value="Dengar"> Dengar<br>
-						</td>
-						<td>
-							<input type="checkbox" name="uniqueCheck" value="General Sorin"> General Sorin<br>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<input type="checkbox" name="uniqueCheck" value="AgentBlaiseC"> Agent Blaise<br>
-						</td>
-						<td>
-							<input type="checkbox" name="uniqueCheck" value="Greedo"> Greedo<br>
-						</td>
-						<td>
-							<input type="checkbox" name="uniqueCheck" value="TheGrandInquisitor"> The Grand Inquisitor<br>
-						</td>
-					</tr>
-				</table>
-			</form>
-		</div>
-	</div>
-</div>
+		</td>
+	</tr>
+</table>
 
 <div id="Deployment">
     <div class="mobilealign">
@@ -561,7 +587,7 @@ AGENT CARDS
 	<div id="deployImgDiv">
 	</div>
 
-</div>
+</table>
 <!--
 COMMENTING THIS OUT UNTIL FULL DONE
 

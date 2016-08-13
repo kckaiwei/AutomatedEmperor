@@ -56,38 +56,33 @@ h2.center {
 
 /* Create container for Mission Table
 */
-.missionTableLeft {
-    position: relative;
-	float: left;
-	width: 33%;
+.divTable {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.divTable td{
+	padding: 5px;
+	vertical-align: top;
+	width: 50%;
+}
+
+.divTable td td{
+	padding: 5px;
+	vertical-align: top;
+	width: 25%;
+}
+
+.col{
+	position: relative;
+	float: center;
 	overflow: hidden;
 	background-color: #B9D7D9;
 	margin: 10px 5px 10px 5px;
-}
-
-.missionTableRight {
-    position: relative;
-	float: left;
-	width: 65.5%;
-	height: 100%;
-	overflow: hidden;
-	background-color: #B9D7D9;
-	margin: 10px 5px 10px 10px;
+	
 }
 
 @media only screen and (max-width: 768px) {
-	.missionTableLeft{
-		width: 100%;
-		float: none;
-		padding: 0px 0px 0px 0px;
-		margin: 2px 2px 2px 2px;
-	}
-	.missionTableRight{
-		width: 100%;
-		float: none;
-		padding: 0px 0px 0px 0px;
-		margin: 2px 2px 2px 2px;
-	}
 	div.shaded{
 		clear: both;
 		width: 100%;
@@ -98,27 +93,13 @@ h2.center {
 		margin: auto;
 	}
 
-        div.mobilealign {
-            padding-right: 0px;
-			margin-right: -4px;
-        }
+    div.mobilealign {
+        padding-right: 0px;
+		margin-right: -4px;
+    }
 }
 
 @media only screen and (max-width: 480px) {
-	.missionTableLeft{
-		width: 100%;
-		float: none;
-		padding: 0px 0px 0px 0px;
-		margin: 2px 2px 2px 2px;
-		overflow: auto;
-	}
-	.missionTableRight{
-		width: 100%;
-		float: none;
-		padding: 0px 0px 0px 0px;
-		margin: 2px 2px 2px 2px;
-		overflow: auto;
-	}
 	div.shaded{
 		clear: both;
 		width: 100%;
@@ -129,10 +110,10 @@ h2.center {
 		margin: auto;
 	}
 
-        div.mobilealign {
-            padding-right: 0px;
-			margin-right: -4px;
-        }
+    div.mobilealign {
+        padding-right: 0px;
+		margin-right: -4px;
+    }
 }
 
 div.padded {
