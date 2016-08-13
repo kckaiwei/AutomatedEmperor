@@ -83,37 +83,9 @@ h2.center {
 }
 
 @media only screen and (max-width: 768px) {
-	div.shaded{
-		clear: both;
-		width: 100%;
-        margin: auto;
-	}
-	
-	div {
-		margin: auto;
-	}
-
-    div.mobilealign {
-        padding-right: 0px;
-		margin-right: -4px;
-    }
 }
 
 @media only screen and (max-width: 480px) {
-	div.shaded{
-		clear: both;
-		width: 100%;
-        margin: auto;
-	}
-	
-	div {
-		margin: auto;
-	}
-
-    div.mobilealign {
-        padding-right: 0px;
-		margin-right: -4px;
-    }
 }
 
 div.padded {
