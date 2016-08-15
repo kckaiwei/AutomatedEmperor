@@ -3,6 +3,23 @@ input[type=radio] {
 	margin: 0;
 	display: inline;
 }
+a{
+	font-size: 22px;
+	font-family: agencyfb;
+}
+
+a:link {
+	text-decoration: underline;
+	color: #6699ff;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+a:visited{
+	color: #b366ff;
+}
 
 .large {
 	font-size: 150%;
@@ -17,12 +34,27 @@ input[type=radio] {
 }
 
 button {
+	border-radius: 5px;
 }
 
 img.center {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+img.barIcons {
+	width: 80%;
+	height: 80%;
+	padding: 5px 5px 5px 5px;
+}
+
+img {
+	max-width: 100%;
+}
+
+span.large {
+	font-size: 200%;
 }
 
 .IAfont.large {
@@ -34,6 +66,28 @@ img.center {
 .green {
 	color: rgb(0, 204, 0);
 }
+
+div.floatRight{
+	position: fixed;
+	right: 0.25%;
+	width: 50px;
+	height: 50px;
+	background-color: #9cc6c9;
+	border-radius: 10px;
+	border-width: 2px;
+	border-style: solid;
+	border-color: #deeaed;
+}
+
+#loadoutIcon{
+	top: 100px;
+}
+
+#referenceIcon{
+	top: 160px;
+}
+
+
 
 #blitzMissionSection{
 	position: relative;
@@ -105,11 +159,6 @@ div.padded {
 	padding-bottom: 10px;
 }
 
-img {
-	max-width: 100%;
-}
-
-
 /* Padding: top,right,bottom,left
 */
 div.shaded{
@@ -130,6 +179,9 @@ table.center{
 	text-align: initial;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.loadoutTable tr td{
 }
 
 td.coreMission{
@@ -225,7 +277,7 @@ BEGINS
 
 .modal-header {
     padding: 2px 16px;
-    background-color: #5cb85c;
+    background-color: #487784;
     color: white;
 }
 
@@ -237,8 +289,37 @@ BEGINS
 
 .modal-footer {
     padding: 2px 16px;
-    background-color: #5cb85c;
+    background-color: #487784;
     color: white;
+}
+
+.modalRight {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s
+}
+
+/* Modal Content */
+.modal-contentRight {
+    position: fixed;
+    bottom: 50%;
+    background-color: #fefefe;
+    width: 100%;
+    -webkit-animation-name: slideInRight;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideInRight;
+    animation-duration: 0.4s
 }
 
 /* Add Animation */

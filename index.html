@@ -930,6 +930,131 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 			
 		</div>
 	</div>
+</div>
+
+<!--END MODAL
+-->
+
+<!--Begin floating side pullouts-->
+
+<div id="loadoutIcon" class="floatRight">
+	<img src="files/itemIcons/Ranged.png" onClick="loadoutModal()" class="barIcons" id="loadoutBtn">
+	</img>
+
+</div>
+
+<div id="referenceIcon" class="floatRight">
+	<img src="files/itemIcons/Tech.png" onClick="referenceModal()" class="barIcons" id="referenceBtn">
+	</img>
+
+</div>
+
+
+<!--Pullout Modals-->
+
+<div id="loadoutModal" class="modalRight">
+	<!-- Modal content -->
+	<div class="modal-contentRight">
+		<div class="modal-header">
+				<span class="close large">&times</span>
+				<h1>Rebel Loadout WIP</h1>
+		</div>
+		<div class="modal-body">
+			<table class="loadoutTable">
+				<tr id="titleRow">
+					<td>
+						<h3>Player #</h3>
+					</td>
+					<td>
+						<h3>Character</h3>
+					</td>
+					<td>
+						<h3>Current Experience</h3>
+					</td>
+					<td>
+						<h3>Skills</h3>
+					</td>
+					<td>
+						<h3>Equipment</h3>
+					</td>
+				</tr>
+				<tr id="playerOnneRow">
+					<td>
+						<h3>1</h3>
+					</td>
+					<td>
+						<select class="charSelect">
+							<option value="Diala">Diala Passil</option>
+							<option value="Fenn">Fenn Signis</option>
+							<option value="Gaarkhan">Gaarkhan</option>
+							<option value="Gideon">Gideon</option>
+							<option value="Jyn">Jyn Odan</option>
+							<option value="Biv">Biv Bodhrik</option>
+							<option value="Saska">Saska Teft</option>
+							<option value="Loku">Loku Kanoloa</option>
+							<option value="MHD-19">MHD-19</option>
+							<option value="Verena">Verena Talos</option>
+							<option value="Davith">Davith Elso</option>
+							<option value="Murne">Murne Rin</option>
+						</select>
+					</td>
+					<td>
+						<button onClick="playerOneExpDec()">-</button>
+						<span id ="playerOneExp" class="IAfont large">0</span>
+						<button onClick="playerOneExpInc()">+</button>
+					</td>
+					<td>
+						<form id="playerOneSkills" submit="return false">
+						</form>
+					</td>
+				</tr>
+				
+			</table>
+		</div>
+		<div class="modal-footer">
+		
+		</div>
+			
+	</div>
+</div>
+
+<div id="referenceModal" class="modalRight">
+	<!-- Modal content -->
+	<div class="modal-contentRight">
+		<div id="referenceModalHeader" class="modal-header">
+				<span class="close large">&times</span>
+				<h1>Imperial Assault Reference Documents</h1>
+		</div>
+		<div class="modal-body">
+		<a href="https://images-cdn.fantasyflightgames.com/filer_public/84/fc/84fcff54-eafe-45ec-acf4-538a86e1acfc/imperial_assault_learn_to_play_guide.pdf">
+		Imperial Assault Learn-to-Play Guide
+		</a>
+		<br>
+		<a href="https://images-cdn.fantasyflightgames.com/filer_public/ef/86/ef866943-534b-429e-b8db-7d99875431b7/imperial_assault_rules_reference_guide.pdf">
+		Imperial Assault Rules Reference Guide
+		</a>
+		<br>
+		<a href="https://images-cdn.fantasyflightgames.com/filer_public/00/45/00451ac7-4dfe-46b6-987a-743c5b1e5108/imperial_assault_twin_shadows_rulebook.pdf">
+		Twin Shadows Rules
+		</a>
+		<br>
+		<a href="https://images-cdn.fantasyflightgames.com/filer_public/71/c1/71c1dbbc-6427-4674-be0e-5d35937c4f37/return_to_hoth_rules.pdf">
+		Return to Hoth Rules
+		</a>
+		<br>
+		<a href="https://images-cdn.fantasyflightgames.com/filer_public/95/9c/959cd379-db67-4218-ae79-7450f183d090/swi24_rulebook.pdf">
+		The Bespin Gambit Rules
+		</a>
+		<br>
+		</div>
+		<div class="modal-footer">
+		
+		</div>
+			
+	</div>
+</div>
+
+<!--END PULLOUTS-->
 
 <script type='text/javascript'>
 
@@ -1669,6 +1794,58 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 
 		//END MODAL SECTION
 		//
+		
+		//Loadout Modal
+		var loadoutModal = document.getElementById('loadoutModal');
+
+		// Get the button that opens the modal
+		var loadoutBtn = document.getElementById("loadoutBtn");
+
+		// Get the <span> element that closes the modal
+		var loadoutSpan = document.getElementsByClassName("close")[1];
+
+		// When the user clicks on the button, open the modal 
+		loadoutBtn.onclick = function() {
+			loadoutModal.style.display = "block";
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		loadoutSpan.onclick = function() {
+			loadoutModal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+			if (event.target == loadoutModal) {
+				loadoutModal.style.display = "none";
+			}
+		}
+		
+		//Reference Modal
+		var referenceModal = document.getElementById('referenceModal');
+
+		// Get the button that opens the modal
+		var referenceBtn = document.getElementById("referenceBtn");
+
+		// Get the <span> element that closes the modal
+		var referenceSpan = document.getElementsByClassName("close")[2];
+
+		// When the user clicks on the button, open the modal 
+		referenceBtn.onclick = function() {
+			referenceModal.style.display = "block";
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		referenceSpan.onclick = function() {
+			referenceModal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+			if (event.target == referenceModal) {
+				referenceModal.style.display = "none";
+			}
+		}
 		
 		
 	</script>
