@@ -87,9 +87,19 @@ h2.center {
 }
 
 @media only screen and (max-width: 768px) {
+	div.shaded {
+		clear: both;
+		width: 100%;
+		margin: auto;
+	}
 }
 
 @media only screen and (max-width: 480px) {
+	div.shaded {
+		clear: both;
+		width: 100%;
+		margin: auto;
+	}
 }
 
 div.padded {
