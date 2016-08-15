@@ -140,6 +140,17 @@ h2.center {
 	margin: 10px 5px 10px 5px;
 	
 }
+.barIcons{
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.barIcons:hover {
+	-webkit-transform: scale(1.3);
+	transform: scale(1.3);
+}
 
 @media only screen and (max-width: 768px) {
 	div.shaded {
