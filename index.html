@@ -981,16 +981,17 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 						<h3 class="playerOne">1</h3>
 					</td>
 					<td>
-						<select class="charSelect">
+						<select id="charSelect1" onchange="selectPOne()">
 							<option value="Diala">Diala Passil</option>
 							<option value="Fenn">Fenn Signis</option>
 							<option value="Gaarkhan">Gaarkhan</option>
 							<option value="Gideon">Gideon</option>
 							<option value="Jyn">Jyn Odan</option>
+							<option value="Mak">Mak Eshka'rey</option>
 							<option value="Biv">Biv Bodhrik</option>
 							<option value="Saska">Saska Teft</option>
 							<option value="Loku">Loku Kanoloa</option>
-							<option value="MHD-19">MHD-19</option>
+							<option value="MHD">MHD-19</option>
 							<option value="Verena">Verena Talos</option>
 							<option value="Davith">Davith Elso</option>
 							<option value="Murne">Murne Rin</option>
@@ -1015,16 +1016,17 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 						<h3 class="playerTwo">2</h3>
 					</td>
 					<td>
-						<select class="charSelect">
+						<select id="charSelect2" onchange="selectPTwo()">
 							<option value="Diala">Diala Passil</option>
 							<option value="Fenn">Fenn Signis</option>
 							<option value="Gaarkhan">Gaarkhan</option>
 							<option value="Gideon">Gideon</option>
 							<option value="Jyn">Jyn Odan</option>
+							<option value="Mak">Mak Eshka'rey</option>
 							<option value="Biv">Biv Bodhrik</option>
 							<option value="Saska">Saska Teft</option>
 							<option value="Loku">Loku Kanoloa</option>
-							<option value="MHD-19">MHD-19</option>
+							<option value="MHD">MHD-19</option>
 							<option value="Verena">Verena Talos</option>
 							<option value="Davith">Davith Elso</option>
 							<option value="Murne">Murne Rin</option>
@@ -1049,16 +1051,17 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 						<h3 class="playerThree">3</h3>
 					</td>
 					<td>
-						<select class="charSelect">
+						<select id="charSelect3" onchange="selectPThree">
 							<option value="Diala">Diala Passil</option>
 							<option value="Fenn">Fenn Signis</option>
 							<option value="Gaarkhan">Gaarkhan</option>
 							<option value="Gideon">Gideon</option>
 							<option value="Jyn">Jyn Odan</option>
+							<option value="Mak">Mak Eshka'rey</option>
 							<option value="Biv">Biv Bodhrik</option>
 							<option value="Saska">Saska Teft</option>
 							<option value="Loku">Loku Kanoloa</option>
-							<option value="MHD-19">MHD-19</option>
+							<option value="MHD">MHD-19</option>
 							<option value="Verena">Verena Talos</option>
 							<option value="Davith">Davith Elso</option>
 							<option value="Murne">Murne Rin</option>
@@ -1083,16 +1086,17 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 						<h3 class="playerFour">4</h3>
 					</td>
 					<td>
-						<select class="charSelect">
+						<select id="charSelect4" onchange="selectPFour">
 							<option value="Diala">Diala Passil</option>
 							<option value="Fenn">Fenn Signis</option>
 							<option value="Gaarkhan">Gaarkhan</option>
 							<option value="Gideon">Gideon</option>
 							<option value="Jyn">Jyn Odan</option>
+							<option value="Mak">Mak Eshka'rey</option>
 							<option value="Biv">Biv Bodhrik</option>
 							<option value="Saska">Saska Teft</option>
 							<option value="Loku">Loku Kanoloa</option>
-							<option value="MHD-19">MHD-19</option>
+							<option value="MHD">MHD-19</option>
 							<option value="Verena">Verena Talos</option>
 							<option value="Davith">Davith Elso</option>
 							<option value="Murne">Murne Rin</option>
@@ -1187,6 +1191,20 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		var ISBInfiltrators = ["ISBInfiltrators", "ELISBInfiltrators"];
 		var HiredGuns = ["HiredGuns","ELHiredGuns"];
 		var BanthaRider = ["ELBanthaRider"];
+		//Character Skills
+		var Diala = ["Force Adept (1)","Force Throw (1)","Battle Meditation (2)","Defensive Stance (2)","Art of Movement (3)","Snap Kick (3)", "Dancing Weapon (4)","Way of the Sarlacc (4)"];
+		var Fenn = ["Tactile Movement (1)","Take Cover (1)","Adrenaline Rush (2)","Weapon Expert (2)", "Suppressive Fire (3)","Trench Fighter (3)","Rebel Elite (4)","Superior Positioning (4)"];
+		var Gaarkhan = ["Wookiee Fortitude (1)","Wookiee Loyalty (1)","Ferocity (2)","Staggering Blow (2)","Vicious Strike (3)","Rampage (3)","Unstoppable (4)","Brutal Cleave (4)"];
+		var Gideon = ["Called Shot (1)","Military Efficiency (1)", "Air of Command (2)","Mobile Tactician (2)","For the Cause! (3)", "Rallying Shout (3)","Hammer and Anvil (4)","Master Stroke (4)",];
+		var Jyn = ["Quick as a Whip (1)","Smuggler's Luck (1)","Cheap Shot (2)", "Roll with It (2)","Get Cocky (3)","Gunslinger (3)", "Sidewinder (4)","Trick Shot (4)"];
+		var Mak = ["Disenage (1)","Supply Network (1)","Jeswandi Training (2)", "Target Acquired (2)","Execute (3)", "Expertise (3)","Decoy (4)","No Escape (4)"];
+		var Biv = ["Advance (1)","Shake it Off (1)","Crushing Blow (2)", "Into the Fray (2)", "Trophy Armor (3)","Vibrobayonet (3)","Final Stand (4)", "Stay Down (4)"];
+		var Saska = ["Tool Kit (1)","Unstable Device (1)", "Energy Shield (2)","Structural Weakness (2)","Gadgeteer (3)", "Power Converter (3)","Adrenaline Injector (4)", "Remote Distribution (4)"];
+		var Loku = ["Combat Spotter (1)", "Scouting Report (1)","Overwatch (2)","Spectrum Scanner (2)","Scout's Guidance (3)","Study of Enemies (3)","Coordinated Attack (4)","Mon Cala Special Forces (4)"];
+		var MHD = ["Bacta Injector (1)","Improper Procedure (1)","Field Surgeon (2)", "Fuel Injection (2)","Adrenal Vapor (3)", "Miracle Worker (3)","Bacta Radiator (4)","Combat Override (4)"];
+		var Verena = ["Combat Momentum (1)","Create Opening (1)","K'tara Maneuver (2)","Student of Battle (2)","Point Blank Shot (3)","Improvised Cover (3)", "Master Operative (4)","Combat Mastery (4)"];
+		var Davith = ["Covert Operative (1)","Elusive Agent (1)","Blindside (2)","Falling Leaf (2)", "Force Illusion (3)", "Shrouded Lightsaber (3)","Fell Swoop (4)", "Embody the Force (4)"];
+		var Murne = ["Company of Heroes (1)", "Sonic Bellow (1)", "Rebel Propaganda (2)", "Professional Aide (2)", "Solidarity (3)", "Double Agent (3)","Waylay (4)", "Leady from the Front (4)"];
 		//THREAT COUNTER
 		var threatCounterInt = 0;
 		//INFLUENCE Counter
