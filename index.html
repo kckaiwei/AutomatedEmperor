@@ -603,7 +603,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		<div class="modal-content">
 			<div class="modal-header">
 				<span class="close large">&times</span>
-				<h2>Instructions on using Automated Emperor</h2>
+				<h1>Instructions on using Automated Emperor</h1>
 			</div>
 			<div class="modal-body">
 				<div id="instructionsteps">
@@ -976,9 +976,9 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 						<h3>Equipment</h3>
 					</td>
 				</tr>
-				<tr id="playerOnneRow">
+				<tr id="playerOneRow">
 					<td>
-						<h3>1</h3>
+						<h3 class="playerOne">1</h3>
 					</td>
 					<td>
 						<select class="charSelect">
@@ -1003,6 +1003,112 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 					</td>
 					<td>
 						<form id="playerOneSkills" submit="return false">
+						</form>
+					</td>
+					<td>
+						<form id="playerOneEquip" submit="return false">
+						</form>
+					</td>
+				</tr>
+				<tr id="playerTwoRow">
+					<td>
+						<h3 class="playerTwo">2</h3>
+					</td>
+					<td>
+						<select class="charSelect">
+							<option value="Diala">Diala Passil</option>
+							<option value="Fenn">Fenn Signis</option>
+							<option value="Gaarkhan">Gaarkhan</option>
+							<option value="Gideon">Gideon</option>
+							<option value="Jyn">Jyn Odan</option>
+							<option value="Biv">Biv Bodhrik</option>
+							<option value="Saska">Saska Teft</option>
+							<option value="Loku">Loku Kanoloa</option>
+							<option value="MHD-19">MHD-19</option>
+							<option value="Verena">Verena Talos</option>
+							<option value="Davith">Davith Elso</option>
+							<option value="Murne">Murne Rin</option>
+						</select>
+					</td>
+					<td>
+						<button onClick="playerTwoExpDec()">-</button>
+						<span id ="playerTwoExp" class="IAfont large">0</span>
+						<button onClick="playerTwoExpInc()">+</button>
+					</td>
+					<td>
+						<form id="playerTwoSkills" submit="return false">
+						</form>
+					</td>
+					<td>
+						<form id="playerTwoEquip" submit="return false">
+						</form>
+					</td>
+				</tr>
+				<tr id="playerThreeRow">
+					<td>
+						<h3 class="playerThree">3</h3>
+					</td>
+					<td>
+						<select class="charSelect">
+							<option value="Diala">Diala Passil</option>
+							<option value="Fenn">Fenn Signis</option>
+							<option value="Gaarkhan">Gaarkhan</option>
+							<option value="Gideon">Gideon</option>
+							<option value="Jyn">Jyn Odan</option>
+							<option value="Biv">Biv Bodhrik</option>
+							<option value="Saska">Saska Teft</option>
+							<option value="Loku">Loku Kanoloa</option>
+							<option value="MHD-19">MHD-19</option>
+							<option value="Verena">Verena Talos</option>
+							<option value="Davith">Davith Elso</option>
+							<option value="Murne">Murne Rin</option>
+						</select>
+					</td>
+					<td>
+						<button onClick="playerThreeExpDec()">-</button>
+						<span id ="playerThreeExp" class="IAfont large">0</span>
+						<button onClick="playerThreeExpInc()">+</button>
+					</td>
+					<td>
+						<form id="playerThreeSkills" submit="return false">
+						</form>
+					</td>
+					<td>
+						<form id="playerThreeEquip" submit="return false">
+						</form>
+					</td>
+				</tr>
+				<tr id="playerFourRow">
+					<td>
+						<h3 class="playerFour">4</h3>
+					</td>
+					<td>
+						<select class="charSelect">
+							<option value="Diala">Diala Passil</option>
+							<option value="Fenn">Fenn Signis</option>
+							<option value="Gaarkhan">Gaarkhan</option>
+							<option value="Gideon">Gideon</option>
+							<option value="Jyn">Jyn Odan</option>
+							<option value="Biv">Biv Bodhrik</option>
+							<option value="Saska">Saska Teft</option>
+							<option value="Loku">Loku Kanoloa</option>
+							<option value="MHD-19">MHD-19</option>
+							<option value="Verena">Verena Talos</option>
+							<option value="Davith">Davith Elso</option>
+							<option value="Murne">Murne Rin</option>
+						</select>
+					</td>
+					<td>
+						<button onClick="playerFourExpDec()">-</button>
+						<span id ="playerFourExp" class="IAfont large">0</span>
+						<button onClick="playerFourExpInc()">+</button>
+					</td>
+					<td>
+						<form id="playerFourSkills" submit="return false">
+						</form>
+					</td>
+					<td>
+						<form id="playerFourEquip" submit="return false">
 						</form>
 					</td>
 				</tr>
@@ -1085,6 +1191,11 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		var threatCounterInt = 0;
 		//INFLUENCE Counter
 		var influenceCounterInt = 0;
+		//Player Exp
+		var playerOneExp = 0;
+		var playerTwoExp = 0;
+		var playerThreeExp = 0;
+		var playerFourExp = 0;
 		//current mission
 		var currentMission = "";
 		//0 is showing front, 1 is showing back
@@ -1818,6 +1929,67 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 				loadoutModal.style.display = "none";
 			}
 		}
+		
+		//Loadout Logic
+		//Player Exp
+		
+		function playerOneExpInc(){
+			//Did not know javascript takes +=, too late now.
+			playerOneExp = playerOneExp + 1;
+			document.getElementById('playerOneExp').innerHTML = playerOneExp;			
+		}
+		
+		function playerOneExpDec(){
+			//Did not know javascript takes +=, too late now.
+			if (playerOneExp > 0){
+				playerOneExp = playerOneExp - 1;
+			}
+			document.getElementById('playerOneExp').innerHTML = playerOneExp;
+		}
+		
+		function playerTwoExpInc(){
+			//Did not know javascript takes +=, too late now.
+			playerTwoExp = playerTwoExp + 1;
+			document.getElementById('playerTwoExp').innerHTML = playerTwoExp;			
+		}
+		
+		function playerTwoExpDec(){
+			//Did not know javascript takes +=, too late now.
+			if (playerTwoExp > 0){
+				playerTwoExp = playerTwoExp - 1;
+			}
+			document.getElementById('playerTwoExp').innerHTML = playerTwoExp;
+		}
+		
+		function playerThreeExpInc(){
+			//Did not know javascript takes +=, too late now.
+			playerThreeExp = playerThreeExp + 1;
+			document.getElementById('playerThreeExp').innerHTML = playerThreeExp;			
+		}
+		
+		function playerThreeExpDec(){
+			//Did not know javascript takes +=, too late now.
+			if (playerThreeExp > 0){
+				playerThreeExp = playerThreeExp - 1;
+			}
+			document.getElementById('playerThreeExp').innerHTML = playerThreeExp;
+		}
+		
+		function playerFourExpInc(){
+			//Did not know javascript takes +=, too late now.
+			playerFourExp = playerFourExp + 1;
+			document.getElementById('playerFourExp').innerHTML = playerFourExp;			
+		}
+		
+		function playerFourExpDec(){
+			//Did not know javascript takes +=, too late now.
+			if (playerFourExp > 0){
+				playerFourExp = playerFourExp - 1;
+			}
+			document.getElementById('playerFourExp').innerHTML = playerFourExp;
+		}
+		
+		//END PLAYER EXP
 		
 		//Reference Modal
 		var referenceModal = document.getElementById('referenceModal');

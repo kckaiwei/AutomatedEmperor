@@ -91,8 +91,6 @@ div.floatRight{
 	top: 220px;
 }
 
-
-
 #blitzMissionSection{
 	position: relative;
 	clear: both;
@@ -186,6 +184,22 @@ table.center{
 }
 
 .loadoutTable tr td{
+}
+
+.playerOne{
+	color: Red;
+}
+
+.playerTwo{
+	color: Blue;
+}
+
+.playerThree{
+	color: Gold;
+}
+
+.playerFour{
+	color: Green;
 }
 
 td.coreMission{
