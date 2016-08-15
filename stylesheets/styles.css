@@ -16,6 +16,10 @@ input[type=radio] {
 	text-align: center;
 }
 
+button {
+	border-radius: 5px;
+}
+
 img.center {
 	display: block;
 	margin-left: auto;
@@ -237,6 +241,16 @@ BEGINS
 @keyframes slideIn {
     from {bottom: -300px; opacity: 0}
     to {bottom: 0; opacity: 1}
+}
+
+@-webkit-keyframes slideInRight {
+    from {right: -300px; opacity: 0}
+    to {right: 0; opacity: 1}
+}
+
+@keyframes slideInRight {
+    from {right: -300px; opacity: 0}
+    to {right: 0; opacity: 1}
 }
 
 @-webkit-keyframes fadeIn {
