@@ -87,6 +87,10 @@ div.floatRight{
 	top: 160px;
 }
 
+#helpIcon{
+	top: 220px;
+}
+
 
 
 #blitzMissionSection{
@@ -254,9 +258,9 @@ BEGINS
     bottom: 0;
     background-color: #fefefe;
     width: 100%;
-    -webkit-animation-name: slideIn;
+    -webkit-animation-name: slideInRight;
     -webkit-animation-duration: 0.4s;
-    animation-name: slideIn;
+    animation-name: slideInRight;
     animation-duration: 0.4s
 }
 
