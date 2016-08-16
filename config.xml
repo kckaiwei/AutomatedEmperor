@@ -4,6 +4,8 @@
 	
 	<icon src="icon.png"/>
 	
+	<access origin="*"/>
+	
 	<platform name="ios">
 		<icon src="files/Threat.png" width="180" height="180" />
 	</platform>
