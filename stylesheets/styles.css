@@ -342,9 +342,10 @@ BEGINS
 /* Modal Content */
 .modal-contentRight {
     position: fixed;
-    bottom: 50%;
+    top: 20%;
     background-color: #fefefe;
     width: 100%;
+	overflow: auto;
     -webkit-animation-name: slideInRight;
     -webkit-animation-duration: 0.4s;
     animation-name: slideInRight;
