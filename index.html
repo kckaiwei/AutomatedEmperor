@@ -46,14 +46,14 @@
 	</div>
     </div>
 	<div class="tablewrapper">
-		<table id="missionOverallTable" class="tableHolder section group divTable">
+		<table id="missionOverallTable" class="tableHolder section group divTable stack">
 				<tr>
 					<td>
 			<div class="col">
 				<h3 class="center">Core Missions (Story Missions in Blue)</h3>
 					<div>
 						<form id="missionOptions" action="#" method="post" onsubmit="return false">
-							<table id="missionTable" class="center">
+							<table id="missionTable" class="center internalnonstack">
 								<tr>
 									<td class="coreMission">
 										<input type="radio" name="mission" value="Aftermath"> Aftermath<br>
@@ -180,7 +180,7 @@
 					<h3 id="expansionTitleText" class="center">Ally/Villain Pack Missions: Colored by Release Wave</h3>
 					<div>
 						<form id="expMissionOptions" action="#" onsubmit="return false">
-							<table class="center" id="expansionTable">
+							<table class="center internalnonstack" id="expansionTable">
 								<tr class="wave1">
 									<td>
 										<input type="radio" name="expMission" value="Celebration"> Celebration<br>
@@ -292,7 +292,7 @@
 					<div id="expStory" class="col">
 					<h3 class="center">Expansion Box Story Missions</h3>
 						<form id="expStoryForm" onsubmit="return false">
-							<table class="center">
+							<table class="center internalnonstack">
 								<tr class="wave2">
 									<td>
 										<input type="radio" name="expMission" value="WhiteNoise"> White Noise<br>
@@ -330,7 +330,7 @@
 					<div class="col">
 					<h3 class="center">Expansion Box Side Missions: Colored by Expansion Box</h3>
 						<form id="expSideForm" onsubmit="return false">
-							<table class="center">
+							<table class="center internalnonstack">
 								<tr class="wave1">
 									<td>
 										<input type="radio" name="Twin" value="ShadyDealings"> Shady Dealings<br>
@@ -414,7 +414,7 @@ AGENT CARDS
 <img id="SubversiveTactics" src="files/ImpClass/SubversiveTactics.jpg" width="175" height="298" onclick="STsel()"></img>
 <img id="TechnologicalSuperiority" src="files/ImpClass/TechnologicalSuperiority.jpg" width="175" height="298" onclick="TSsel()"></img>
 -->
-<table id="blitzMissionSection" class="padded fillWidth divTable">
+<table id="blitzMissionSection" class="padded fillWidth divTable stack">
 	<!--Second Split section -->
 	<tr>
 		<td>
@@ -462,7 +462,7 @@ AGENT CARDS
 </table>
 
 <div class="tablewrapper">
-	<table id="deploymentAddon" class="padded fillWidth divTable">
+	<table id="deploymentAddon" class="padded fillWidth divTable stack">
 		<tr>
 			<td id="avp" class="options">
 				<div id="avpDiv" class="col">
@@ -470,7 +470,7 @@ AGENT CARDS
 						<h3>Villain Packs Deployments (Reshuffle after selecting!)</h3>
 					</div>
 					<form id="expacoptions" action="#" method="post" onsubmit="return false">
-						<table id="avpTable" class="center">
+						<table id="avpTable" class="center internalnonstack">
 							<tr>
 								<td>
 									<input type="checkbox" name="AVPoption" value="HiredGun"> Hired Guns<br>
@@ -496,7 +496,7 @@ AGENT CARDS
 						<h3>Rewarded Uniques (Reshuffle after selecting!) </h3>
 					</div>
 					<form id="uniqueOptions" action="#" onsubmit="return false">
-						<table id="uniqueTable" class="center">
+						<table id="uniqueTable" class="center internalnonstack">
 							<tr>
 								<td>
 									<input type="checkbox" name="uniqueCheck" value="DarthVader"> Darth Vader<br>

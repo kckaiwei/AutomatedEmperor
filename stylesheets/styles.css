@@ -163,9 +163,14 @@ h2.center {
 		overflow: auto;
 	}
 	
-	#blitzMissionSection td{
+	.stack td{
 		display: block;
 		width: 100%;
+	}
+	
+	.stack td .internalnonstack td{
+		display: inline;
+		width: auto;
 	}
 }
 
@@ -180,9 +185,14 @@ h2.center {
 		overflow: auto;
 	}
 	
-	#blitzMissionSection td{
+	.stack td{
 		display: block;
 		width: 100%;
+	}
+	
+	.stack td .internalnonstack td{
+		display: inline;
+		width: auto;
 	}
 }
 
