@@ -2047,6 +2047,54 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		
 		//END PLAYER EXP
 		
+		//Helper to find which list for skills
+		function selectedChar(character){
+		//param character: selected character from drop down
+		//type character: string
+		//returns a list of character skills
+			switch(character) {
+				case "Diala":
+					return Diala;
+					break;
+				case "Fenn":
+					return Fenn;
+					break;
+				case "Gaarkhan":
+					return Gaarkhan;
+					break;
+				case "Gideon":
+					return Gideon;
+					break;
+				case "Jyn":
+					return Jyn;
+					break;
+				case "Mak":
+					return Mak;
+					break;
+				case "Biv":
+					return Biv;
+					break;
+				case "Saska":
+					return Saska;
+					break;
+				case "Loku":
+					return Loku;
+					break;
+				case "MHD":
+					return MHD;
+					break;
+				case "Verena":
+					return Verena;
+					break;
+				case "Davith":
+					return Davith;
+					break;
+				case "Murne":
+					return Murne;
+					break;
+			}
+		}
+		
 		//Reference Modal
 		var referenceModal = document.getElementById('referenceModal');
 
