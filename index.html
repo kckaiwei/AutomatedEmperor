@@ -461,86 +461,88 @@ AGENT CARDS
 	</tr>
 </table>
 
-<table id="deploymentAddon" class="padded fillWidth divTable">
-	<tr>
-		<td id="avp" class="options">
-			<div id="avpDiv" class="col">
-				<div class="shaded center">
-					<h3>Villain Packs Deployments (Reshuffle after selecting!)</h3>
+<div class="tablewrapper">
+	<table id="deploymentAddon" class="padded fillWidth divTable">
+		<tr>
+			<td id="avp" class="options">
+				<div id="avpDiv" class="col">
+					<div class="shaded center">
+						<h3>Villain Packs Deployments (Reshuffle after selecting!)</h3>
+					</div>
+					<form id="expacoptions" action="#" method="post" onsubmit="return false">
+						<table id="avpTable" class="center">
+							<tr>
+								<td>
+									<input type="checkbox" name="AVPoption" value="HiredGun"> Hired Guns<br>
+								</td>
+								<td>
+									<input type="checkbox" name="AVPoption" value="Stormtrooper"> Stormtroopers<br>
+								</td>
+								<td>
+									<input type="checkbox" name="AVPoption" value="BanthaRider"> Bantha Rider<br>
+								</td>
+								<td>
+									<input type="checkbox" name="AVPoption" value="ISBInfiltrator"> ISB Infiltrators<br>
+								</td>
+							</tr>
+						</table>
+					</form>
 				</div>
-				<form id="expacoptions" action="#" method="post" onsubmit="return false">
-					<table id="avpTable" class="center">
-						<tr>
-							<td>
-								<input type="checkbox" name="AVPoption" value="HiredGun"> Hired Guns<br>
-							</td>
-							<td>
-								<input type="checkbox" name="AVPoption" value="Stormtrooper"> Stormtroopers<br>
-							</td>
-							<td>
-								<input type="checkbox" name="AVPoption" value="BanthaRider"> Bantha Rider<br>
-							</td>
-							<td>
-								<input type="checkbox" name="AVPoption" value="ISBInfiltrator"> ISB Infiltrators<br>
-							</td>
-						</tr>
-					</table>
-				</form>
-			</div>
-		</td>
-	<br>
-		<td id="uniques">
-			<div id="rewardUniqueDiv" class="col">
-				<div class="shaded center">
-					<h3>Rewarded Uniques (Reshuffle after selecting!) </h3>
+			</td>
+		<br>
+			<td id="uniques">
+				<div id="rewardUniqueDiv" class="col">
+					<div class="shaded center">
+						<h3>Rewarded Uniques (Reshuffle after selecting!) </h3>
+					</div>
+					<form id="uniqueOptions" action="#" onsubmit="return false">
+						<table id="uniqueTable" class="center">
+							<tr>
+								<td>
+									<input type="checkbox" name="uniqueCheck" value="DarthVader"> Darth Vader<br>
+								</td>
+								<td>
+									<input type="checkbox" name="uniqueCheck" value="ELGeneralWeiss"> General Weiss<br>
+								</td>
+								<td>
+									<input type="checkbox" name="uniqueCheck" value="ELRoyalGuardChamp"> Royal Guard Champion<br>
+								</td>
+								<td>
+									<input type="checkbox" name="uniqueCheck" value="ELIG88"> IG-88<br>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="checkbox" name="uniqueCheck" value="BobaFett"> Boba Fett<br>
+								</td>
+								<td>
+									<input type="checkbox" name="uniqueCheck" value="KaynSomos"> Kayn Somos<br>
+								</td>
+								<td>
+									<input type="checkbox" name="uniqueCheck" value="Dengar"> Dengar<br>
+								</td>
+								<td>
+									<input type="checkbox" name="uniqueCheck" value="General Sorin"> General Sorin<br>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="checkbox" name="uniqueCheck" value="AgentBlaiseC"> Agent Blaise<br>
+								</td>
+								<td>
+									<input type="checkbox" name="uniqueCheck" value="Greedo"> Greedo<br>
+								</td>
+								<td>
+									<input type="checkbox" name="uniqueCheck" value="TheGrandInquisitor"> The Grand Inquisitor<br>
+								</td>
+							</tr>
+						</table>
+					</form>
 				</div>
-				<form id="uniqueOptions" action="#" onsubmit="return false">
-					<table id="uniqueTable" class="center">
-						<tr>
-							<td>
-								<input type="checkbox" name="uniqueCheck" value="DarthVader"> Darth Vader<br>
-							</td>
-							<td>
-								<input type="checkbox" name="uniqueCheck" value="ELGeneralWeiss"> General Weiss<br>
-							</td>
-							<td>
-								<input type="checkbox" name="uniqueCheck" value="ELRoyalGuardChamp"> Royal Guard Champion<br>
-							</td>
-							<td>
-								<input type="checkbox" name="uniqueCheck" value="ELIG88"> IG-88<br>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<input type="checkbox" name="uniqueCheck" value="BobaFett"> Boba Fett<br>
-							</td>
-							<td>
-								<input type="checkbox" name="uniqueCheck" value="KaynSomos"> Kayn Somos<br>
-							</td>
-							<td>
-								<input type="checkbox" name="uniqueCheck" value="Dengar"> Dengar<br>
-							</td>
-							<td>
-								<input type="checkbox" name="uniqueCheck" value="General Sorin"> General Sorin<br>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<input type="checkbox" name="uniqueCheck" value="AgentBlaiseC"> Agent Blaise<br>
-							</td>
-							<td>
-								<input type="checkbox" name="uniqueCheck" value="Greedo"> Greedo<br>
-							</td>
-							<td>
-								<input type="checkbox" name="uniqueCheck" value="TheGrandInquisitor"> The Grand Inquisitor<br>
-							</td>
-						</tr>
-					</table>
-				</form>
-			</div>
-		</td>
-	</tr>
-</table>
+			</td>
+		</tr>
+	</table>
+</div>
 
 <div id="Deployment">
     <div class="mobilealign">
