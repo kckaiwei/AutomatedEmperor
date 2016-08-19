@@ -158,6 +158,14 @@ h2.center {
 		width: 100%;
 		margin: auto;
 	}
+	
+	.tablewrapper {
+		overflow: auto;
+	}
+	
+	#blitzMissionSection{
+		display: block;
+	}
 }
 
 @media only screen and (max-width: 480px) {
@@ -169,6 +177,10 @@ h2.center {
 	
 	.tablewrapper {
 		overflow: auto;
+	}
+	
+	#blitzMissionSection{
+		display: block;
 	}
 }
 
