@@ -166,6 +166,10 @@ h2.center {
 		width: 100%;
 		margin: auto;
 	}
+	
+	.tablewrapper {
+		overflow: auto;
+	}
 }
 
 div.padded {
