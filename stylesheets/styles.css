@@ -163,7 +163,7 @@ h2.center {
 		overflow: auto;
 	}
 	
-	#blitzMissionSection{
+	#blitzMissionSection td{
 		display: block;
 	}
 }
@@ -179,7 +179,7 @@ h2.center {
 		overflow: auto;
 	}
 	
-	#blitzMissionSection{
+	#blitzMissionSection td{
 		display: block;
 	}
 }
