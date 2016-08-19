@@ -1212,10 +1212,12 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 
 		//SETUP
 		//MESS OF VARS
+		
 		//blitz cards filenames
 		var blitzCards = ["Blitz 1","Blitz 2","Blitz 3","Blitz 4","Blitz 5", "Blitz 6","Blitz 7","Blitz 8","Blitz 9","Blitz 10"];
 		var blitzColors = ["Blue", "Gold", "Green", "Red"];
 		//Include multiples if multiple in set
+		//deployment card sets
 		var coreImpBelow6Standard = ["ProbeDroid","ProbeDroid","Stormtrooper","Stormtrooper","ImpOfficer","ImpOfficer","EWebEngi","ELImpOfficer","ELProbeDroid"];
 		var coreImp6_8Standard = ["RoyalGuard","ELEWebEngi"];
 		var coreImp8_12Standard = ["ELStormtrooper","ELRoyalGuard"];
@@ -1282,7 +1284,11 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		var blitzCardsInt = 2;
 		
 		function randomCardNumberDraw(min,max){
-			//Takes min max integer to randomize from
+			//param min: minimum number to random draw from
+			//type min: integer
+			//param max: maximum number to random draw from
+			//type max: integer
+			//returns: returns a randomized integer
 			return Math.floor(Math.random()*(max-min+1)+min);
 		}
 		
@@ -1295,6 +1301,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		
 		//ON PAGE LOAD FUNCTIONS
 		function pageLoad(){
+			//Everything that must be loaded upon page load
 			deployDeck = deployDeck.concat(coreImpBelow6Standard);
 			deployDeck = deployDeck.concat(coreScumBelow6Standard);
 			savedDeployDeck = deployDeck.slice(0);
@@ -1341,6 +1348,9 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		//ALWAYS CLONE!!!!!! array = array.slice(0)
 		//Somehow losing first and last index if not using clone.
 		function shuffleArray(array) {
+			//param array: array to be shuffled
+			//type array: array
+			//returns: returns a shuffled array, the original is changed, so clone if needed
 			for (var i = array.length - 1; i > 0; i--) {
 				var j = Math.floor(Math.random() * (i + 1));
 				var temp = array[i];
@@ -1353,6 +1363,15 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		//adding image function
 		//GENERIC TEMPLATE!!! MODIFY AS NEEDED
 		function show_image(src, width, height, alt) {
+			//param src: file path of image source
+			//type src: string
+			//param width: width of image to be shown
+			//type width: integer
+			//param height: height of image to be shown
+			//type height: integer
+			//param alt: alternative text for image
+			//type alt: string
+			//returns: appends an image element in the body, this creates a new element
 			var img = document.createElement("img");
 			img.src = src;
 			img.width = width;
@@ -1365,6 +1384,15 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		
 		//DEPLOYMENT CARDS ONLY!!!
 		function addDeployCard(src, width, height, alt) {
+			//param src: file path of image source
+			//type src: string
+			//param width: width of image to be shown
+			//type width: integer
+			//param height: height of image to be shown
+			//type height: integer
+			//param alt: alternative text for image
+			//type alt: string
+			//returns: appends an image element in the deployment Div, this creates a new element
 			var img = document.createElement("img");
 			img.src = src;
 			img.width = width;
@@ -1375,9 +1403,18 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 			document.getElementById('deployImgDiv').appendChild(img);
 		}
 		
-		//IMAGE REPLACE
-		//replaces an img ALREADY on the page, by page id
 		function replace_image(src, width, height, alt, pageID) {
+			//param src: file path of image source
+			//type src: string
+			//param width: width of image to be shown
+			//type width: integer
+			//param height: height of image to be shown
+			//type height: integer
+			//param alt: alternative text for image
+			//type alt: string
+			//param pageID: element ID of the image to be modified
+			//type pageID: string
+			//returns: replaces an image element with a new image. Used for dynamic images
 			img = document.getElementById(String(pageID));
 			img.src = src;
 			img.width = width;
@@ -1385,9 +1422,11 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 			img.alt = alt;
 
 		}
-		
-		//Clear an element
+
 		function clearBox(elementID) {
+			//param elementID: element id to be cleared
+			//type elementID: string
+			//returns: clears out the selected elementID
 			document.getElementById(elementID).innerHTML = "";
 		}
 		//END HELPER FUNCTIONS
@@ -1398,6 +1437,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		//
 		function threatCounterInc(){
 			//Did not know javascript takes +=, too late now.
+			//returns: increases the threat counter integer, changes color as necessary
 			if (threatCounterInt < 20) {
 				threatCounterInt = threatCounterInt + 1;
 			}
@@ -1407,6 +1447,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		
 		function threatCounterDec(){
 			//Did not know javascript takes +=, too late now.
+			//returns: decreases the threat counter integer, changes color as necessary
 			if (threatCounterInt > 0) {
 				threatCounterInt = threatCounterInt - 1;
 			}
@@ -1419,6 +1460,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		
 		function influenceCounterInc(){
 			//Did not know javascript takes +=, too late now.
+			//returns: increases the influence counter integer, changes color as necessary
 			if (influenceCounterInt < 20) {
 				influenceCounterInt = influenceCounterInt + 1;
 			}
@@ -1428,6 +1470,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		
 		function influenceCounterDec(){
 			//Did not know javascript takes +=, too late now.
+			//returns: decreases the influence counter integer, changes color as necessary
 			if (influenceCounterInt > 0) {
 				influenceCounterInt = influenceCounterInt - 1;
 			}
@@ -1437,6 +1480,11 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		
 		//Text color setting
 		function setTextColorByValue(value, objid){
+			//param value: value to be checked against a color
+			//type value: integer
+			//param objid: element ID to be color changed
+			//type objid: string
+			//returns: changes the color of objid based on value
 			if (value > 14){
 				document.getElementById(objid).style.color = "rgb(204, 0, 0)";
 			}
@@ -1468,6 +1516,8 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		var missionCardWidth = 335;
 		var missionCardHeight = 523;
 		function missionCoreSelect(){
+			//returns: checks for selected mission, and replaces mission image with select mission (used for core missions)
+			//Also adds eventListener to flip mission image
 			for (var i=0, len=missionOptions.length; i<len; i++){
 				if (missionOptions[i].type === 'radio'){
 					if (missionOptions[i].checked){
@@ -1482,6 +1532,8 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		}
 		
 		function missionExpacSelect(){
+			//returns: checks for selected mission, and replaces mission image with select mission (used for none core missions)
+			//Also adds eventListener to flip mission image
 			for (var i=0, len=expMissionOptions.length; i<len; i++){
 				if (expMissionOptions[i].type === 'radio'){
 					if (expMissionOptions[i].checked){
@@ -1496,6 +1548,8 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		}
 		
 		function missionExpacBoxSelect(){
+			//returns: checks for selected mission, and replaces mission image with select mission (used for expansion box missions)
+			//sets current misison path for flipping function. Also adds eventListener to flip mission image
 			for (var i=0, len=expStoryForm.length; i<len; i++){
 				if (expStoryForm[i].type === 'radio'){
 					if (expStoryForm[i].checked){
@@ -1518,6 +1572,8 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		}
 		
 		function missionExpacSideSelect(){
+			//returns: checks for selected mission, and replaces mission image with select mission (used for expansion box side missions)
+			//Also adds eventListener to flip mission image
 			for (var i=0, len=expSideForm.length; i<len; i++){
 				if (expSideForm[i].type === 'radio'){
 					if (expSideForm[i].checked){
@@ -1540,6 +1596,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		}
 		
 		function missionCoreFlip(){
+			//returns: flips the current displayed core mission card image
 			if (missionFace == 0){
 				replace_image("files/Mission/Core/" + currentMission + "Back.jpg", missionCardWidth, missionCardHeight, "Mission Back", "missionFront");
 				missionFace = 1;
@@ -1552,6 +1609,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		}
 		
 		function missionFlip(){
+			//returns: flips the current displayed mission card image based on currentMissionPath
 			if (missionFace == 0){
 				replace_image("files/Mission/" + currentMissionPath + "/" + currentMission + "Back.jpg", missionCardWidth, missionCardHeight, "Mission Back", "missionFront");
 				missionFace = 1;
@@ -1565,12 +1623,19 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		
 		//CHECK IF IN ARRAY 
 		function isInArray(value, array) {
+			//param value: value to be checked
+			//type value: any type
+			//param array: array to be evalutated
+			//type array: array
+			//returns: returns boolean
 			return array.indexOf(value) > -1;
 		}
 		
 		//DEPLOYMENT SECTION
 		//responds to deployment display click
 		function displayDeploymentCards(){
+			//return: displays top deployment card from the deck
+			//top card is popped from list
 			//checks to see if there is something left in deck
 			if (deployDeck[0]){
 				var poppedItem = String(deployDeck.pop());
