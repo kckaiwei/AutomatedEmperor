@@ -2321,15 +2321,17 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 			//type character: string
 			//param element: element containing skill checkboxes for recursive adding
 			//type element: document element
+			//returns: sets value of element to corresponding skill by index
 			var charSkills = selectedChar(character);
 			for (var i=0, len=element.length; i<len; i++){
-				if (element[i].type === 'checkbox'){
-					element[i].value = charSkills[i];
+				if (element[i].type == 'checkbox'){
+					element[i].innerHTML = charSkills[i];
 				}
 			}
 		}
 
 		function selectPOne(){
+			//returns: sets player one skills
 			loadSkills(document.getElementById("charSelect1").value, document.getElementById("playerOneSkills"));
 		}
 		
