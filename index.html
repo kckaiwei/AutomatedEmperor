@@ -1655,6 +1655,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		
 		//reshuffles deployment cards using saved copy
 		function shuffleDeploymentCards(){
+			//returns: shuffles deployment cards, and adds in any checked new deployment cards
 			savedDeployDeck = shuffleArray(savedDeployDeck.slice(0));
 			deployDeck = savedDeployDeck.slice(0);
 			//add extras
@@ -1671,6 +1672,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		//increase deployment difficulty
 		//calls reshuffle and adds required cards
 		function deploymentInc(){
+			//returns: increases deployment difficulty integer, and displays the new integer
 			deploymentDiff = deploymentDiff + 1;
 			readjustDiff();
 			document.getElementById('deployDiffInt').innerHTML = deploymentDiff;
@@ -1681,6 +1683,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		//decrease deployment difficulty
 		//calls reshuffle and adds required cards
 		function deploymentDec(){
+			//returns: decreases deployment difficulty integer, and displays the new integer
 			if (deploymentDiff > 2){
 				deploymentDiff = deploymentDiff - 1 ;
 				readjustDiff();
@@ -1691,6 +1694,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		}
 		
 		function readjustDiff(){
+			//returns: readjusts the cards in the deployment deck through concating from core card lists
 			if (deploymentDiff >= 2) {
 				//reset deployDeck
 				deployDeck = [];
@@ -1730,6 +1734,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		}
 		
 		function checkAndAddExpac(){
+			//returns: checks the checkboxes for any added AVP expansions and pushes it into the deployment deck
 			for (var i=0, len=expacoptions.length; i<len; i++){
 				if (expacoptions[i].type === 'checkbox'){
 					if (expacoptions[i].checked){
@@ -1796,7 +1801,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		
 		//Add expacs 2 threat deployment cards
 		function addDeployNonCore2Threat(){
-			
+			//returns: pushes in additional deployment cards from AVP expansions checkboxes
 			for (var i=0, len=expacoptions.length; i<len; i++) {
 		    	if ( expacoptions[i].type === 'checkbox' ) {
 					if (expacoptions[i].checked) {
@@ -1858,7 +1863,8 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		//
 		
 		function displayBlitzCards(){
-			//checks to see if there is something left in deck
+			//returns: checks to see if there is something left in blitz deck
+			//if so, top card is popped and displayed
 			if (deck[0]){
 				var poppedItem = String(deck.pop());
 				var imgSrc = "files/AE/" + poppedItem + ".jpg";
@@ -1869,8 +1875,8 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 			}
 		}
 		
-		//reshuffles deployment cards using saved copy
 		function shuffleBlitzCards(){
+			//returns: reshuffles deployment cards using a saved copy
 			savedBlitzDeck = shuffleArray(savedBlitzDeck);
 			deck = savedBlitzDeck.slice(0);
 			//HIDING LINE USED FOR DEBUG
@@ -1879,6 +1885,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		}
 		
 		function blitzInc(){
+			//returns: increases the blitz threat level
 			//Did not know javascript takes +=, too late now.
 			if (blitzCardsInt < 10) {
 				blitzCardsInt = blitzCardsInt + 1;
@@ -1888,6 +1895,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		}
 		
 		function blitzDec(){
+			//returns: decrease the blitz threat level
 			//Did not know javascript takes +=, too late now.
 			if (blitzCardsInt > 2){
 				blitzCardsInt = blitzCardsInt - 1;
