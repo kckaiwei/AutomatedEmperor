@@ -772,7 +772,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 						<h3 class="playerThree">3</h3>
 					</td>
 					<td>
-						<select id="charSelect3" onchange="selectPThree">
+						<select id="charSelect3" onchange="selectPThree()">
 							<option value="Diala">Diala Passil</option>
 							<option value="Fenn">Fenn Signis</option>
 							<option value="Gaarkhan">Gaarkhan</option>
@@ -813,7 +813,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 						<h3 class="playerFour">4</h3>
 					</td>
 					<td>
-						<select id="charSelect4" onchange="selectPFour">
+						<select id="charSelect4" onchange="selectPFour()">
 							<option value="Diala">Diala Passil</option>
 							<option value="Fenn">Fenn Signis</option>
 							<option value="Gaarkhan">Gaarkhan</option>
@@ -1318,7 +1318,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 	<!-- Modal content -->
 	<div class="modal-contentRight">
 		<div id="referenceModalHeader" class="modal-header">
-				<span class="close large">&times</span>
+				<span class="close large">&times </span>
 				<h1>Imperial Assault Reference Documents</h1>
 		</div>
 		<div class="modal-body">
@@ -2314,6 +2314,23 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 					return Murne;
 					break;
 			}
+		}
+
+		function loadSkills(character, element){
+			//param character: character selected to load skills for
+			//type character: string
+			//param element: element containing skill checkboxes for recursive adding
+			//type element: document element
+			var charSkills = selectedChar(character);
+			for (var i=0, len=element.length; i<len; i++){
+				if (element[i].type === 'checkbox'){
+					element[i].value = charSkills[i];
+				}
+			}
+		}
+
+		function selectPOne(){
+			loadSkills(document.getElementById("charSelect1").value, document.getElementById("playerOneSkills"));
 		}
 		
 		//mission Modal
