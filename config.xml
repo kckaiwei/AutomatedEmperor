@@ -8,6 +8,7 @@
 	
 	<!-- Core plugins -->
 	<plugin name="cordova-plugin-inappbrowser"        source="npm" spec="~1.3.0" />
+	<plugin name="cordova-plugin-whitelist" version="1"/>
 	
 	<platform name="ios">
 		<icon src="files/Threat.png" width="180" height="180" />
