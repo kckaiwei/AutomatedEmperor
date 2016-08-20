@@ -9,7 +9,14 @@
 <body onload="pageLoad()">
     <!-- Wrapper div for alignment
     -->
-	<div id="loadout">
+	<div id="shortInstructions" class="shaded center">
+	<h3>
+	Read the instructions <img src="files/itemIcons/Help.png" class="intro-icons"></img>. 
+	Set loadouts <img src="files/itemIcons/Ranged.png" class="intro-icons"></img>.
+	Choose a mission <img src="files/itemIcons/Mission.png" class="intro-icons"></img>.
+	</h3>
+	</div>
+	<div id="counters">
 		<table>
 			<tr>
 				<td>
@@ -23,8 +30,6 @@
 						<button onClick="threatCounterInc()">+</button>
 					</div>
 				</td>
-			</tr>
-			<tr>
 				<td>
 					<div class="buttonCenter" id="influenceCounterDiv">
 						<p>
@@ -39,451 +44,7 @@
 			</tr>
 		</table>
 	</div>
-    <!-- wrapper div for alignment -->
-    <div class="mobilealign">
-	<div id="missionSelector" class="shaded">
-		<h2 class="center">Missions</h2>
-	</div>
-    </div>
-	<div class="tablewrapper">
-		<table id="missionOverallTable" class="tableHolder section group divTable stack">
-				<tr>
-					<td>
-			<div class="col">
-				<h3 class="center">Core Missions (Story Missions in Blue)</h3>
-					<div>
-						<form id="missionOptions" action="#" method="post" onsubmit="return false">
-							<table id="missionTable" class="center internalnonstack">
-								<tr>
-									<td class="coreMission">
-										<input type="radio" name="mission" id="mission1" value="Aftermath">
-										<label for="mission1">Aftermath</label>
-									</td>
-									<td>
-										<input type="radio" name="mission" id="mission2" value="Captured">
-										<label for="mission2">Captured</label>
-									</td>
-									<td>
-										<input type="radio" name="mission" id="mission3" value="Brushfire">
-										<label for="mission3">Brushfire</label>
-									</td>
-									<td>
-										<input type="radio" name="mission" id="mission4" value="Temptation">
-										<label for="mission4">Temptation</label>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<input type="radio" name="mission" id="mission5" value="HighMoon"> 
-										<label for="mission5">High Moon</label>
-									</td>
-									<td>
-										<input type="radio" name="mission" id="mission6" value="Indebted">
-										<label for="mission6">Indebted</label>
-									</td>
-									<td>
-										<input type="radio" name="mission" id="mission7" value="LooseCannon">
-										<label for="mission7">Loose Cannon</label>
-									</td>
-									<td>
-										<input type="radio" name="mission" id="mission8" value="FriendsOfOld">
-										<label for="mission8">Friends Of Old</label>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<input type="radio" name="mission" id="mission9" value="SorryAboutTheMess">
-										<label for="mission9">Sorry About the Mess</label>
-									</td>
-									<td>
-										<input type="radio" name="mission" id="mission10" value="Homecoming">
-										<label for="mission10">Homecoming</label>
-									</td>
-									<td>
-										<input type="radio" name="mission" id="mission11" value="TheSpiceJob">
-										<label for="mission11">The Spice Job</label>
-									</td>
-									<td>
-										<input type="radio" name="mission" id="mission12" value="TargetOfOpportunity">
-										<label for="mission12">Target Of Opportunity</label>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<input type="radio" name="mission" id="mission13" value="VipersDen">
-										<label for="mission13">Viper's Den</label>
-									</td>
-									<td>
-										<input type="radio" name="mission" id="mission14" value="ASimpleTask">
-										<label for="mission14">A Simple Task</label>
-									</td>
-									<td>
-										<input type="radio" name="mission" id="mission15" value="GenerousDonations">
-										<label for="mission15">Generous Donations</label>
-									</td>
-									<td>
-										<input type="radio" name="mission" id="mission16" value="LuxuryCruise">
-										<label for="mission16">Luxury Cruise</label>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<input type="radio" name="mission" id="mission17" value="MeansOfProduction">
-										<label for="mission17">Means of Production</label>
-									</td>
-									<td>
-										<input type="radio" name="mission" id="mission18" value="BreakingPoint">
-										<label for="mission18">Breaking Point</label>
-									</td>
-									<td>
-										<input type="radio" name="mission" id="mission19" value="Impounded">
-										<label for="mission19">Impounded</label>
-									</td>
-									<td>
-										<input type="radio" name="mission" id="mission20" value="Wanted">
-										<label for="mission20">Wanted</label>
-									</td>
-								<tr>
-									<td class="coreMission">
-										<input type="radio" name="mission" id="mission21" value="ANewThreat">
-										<label for="mission21">A New Threat</label>
-									</td>
-									<td class="coreMission">
-										<input type="radio" name="mission" id="mission22" value="UnderSiege">
-										<label for="mission22">Under Siege</label>
-									</td>
-									<td class="coreMission">
-										<input type="radio" name="mission" id="mission23" value="ImperialHospitality">
-										<label for="mission23">Imperial Hospitality</label>
-									</td>
-									<td class="coreMission">
-										<input type="radio" name="mission" id="mission24" value="FlySolo">
-										<label for="mission24">Fly Solo</label>
-									</td>
-								</tr>
-								<tr>
-									<td class="coreMission">
-										<input type="radio" name="mission" id="mission25" value="Incoming">
-										<label for="mission25">Incoming</label>
-									</td>
-									<td class="coreMission">
-										<input type="radio" name="mission" id="mission26" value="DrawnIn">
-										<label for="mission26">Drawn In</label>
-									</td>
-									<td class="coreMission">
-										<input type="radio" name="mission" id="mission27" value="ChainOfCommand">
-										<label for="mission27">Chain of Command</label>
-									</td>
-									<td class="coreMission">
-										<input type="radio" name="mission" id="mission28" value="TheSource">
-										<label for="mission28">The Source</label>
-									</td>
-								</tr>
-								<tr>
-									<td class="coreMission">
-										<input type="radio" name="mission" id="mission29" value="LastStand">
-										<label for="mission29">Last Stand</label>
-									</td>
-									<td class="coreMission">
-										<input type="radio" name="mission" id="mission30" value="DesperateHour">
-										<label for="mission30">Desperate Hour</label>
-									</td>
-									<td>
-										<input type="radio" name="mission" id="mission31" value="DarkObsession">
-										<label for="mission31">Dark Obsession</label>
-									</td>
-									<td>
-										<input type="radio" name="mission" id="mission32" value="SympathyForTheRebellion">
-										<label for="mission32">Sympathy for the Rebellion</label>
-									</td>
-							</table>
-						</form>
-					</div>
-				<br>
-			
-				<div class="buttonCenter padded">
-					<button id="missionChooseButton" class="padded" onClick="missionCoreSelect()">Choose</button>
-				</div>
-				</td>
-				
-				<td>
-				
-				<div class="col">
-					<h3 id="expansionTitleText" class="center">Ally/Villain Pack Missions: Colored by Release Wave</h3>
-					<div>
-						<form id="expMissionOptions" action="#" onsubmit="return false">
-							<table class="center internalnonstack" id="expansionTable">
-								<tr class="wave1">
-									<td>
-										<input type="radio" name="expMission" id="expMission1" value="Celebration">
-										<label for="expMission1">Celebration</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission2" value="ForestAmbush">
-										<label for="expMission2">Forest Ambush</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission3" value="ImperialEntanglements">
-										<label for="expMission3">Imperial Entanglements</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission4" value="BinaryRevolution">
-										<label for="expMission4">Binary Revolution</label>
-									</td>
-								</tr>
-								<tr class="wave1">
-									<td>
-										<input type="radio" name="expMission" id="expMission5" value="ArmedAndOperational">
-										<label for="expMission5">Armed and Operational</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission6" value="BraceForImpact">
-										<label for="expMission6">Brace for Impact</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission7" value="Infection">
-										<label for="expMission7">Infection</label>
-									</td>
-								</tr>
-								<tr class="wave2">
-									<td>
-										<input type="radio" name="expMission" id="expMission8" value="PredatorAndPrey">
-										<label for="expMission8">Predator and Prey</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission9" value="StrengthOfCommand">
-										<label for="expMission9">Strength of Command</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission10" value="OpenToInterpretation">
-										<label for="expMission10">Open to Interpretation</label>
-									</td>
-								</tr>
-								<tr class="wave3">
-									<td>
-										<input type="radio" name="expMission" id="expMission11" value="Back-RoomBargains">
-										<label for="expMission11"> Back-Room Bargains</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission12" value="BunkerBuster">
-										<label for="expMission12">Bunker Buster</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission13" value="BruteForce">
-										<label for="expMission13">Brute Force</label>
-									</td>
-								</tr>
-								<tr class="wave4">
-									<td>
-										<input type="radio" name="expMission" id="expMission14" value="PreciousCargo">
-										<label for="expMission14">Precious Cargo</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission15" value="IntoTheWastes">
-										<label for="expMission15">Into the Wastes</label>
-									</td>
-								</tr>
-								<tr class="wave5">
-									<td>
-										<input type="radio" name="expMission" id="expMission16" value="ABountyProtected">
-										<label for="expMission16">A Bounty Protected</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission17" value="Snowcrash">
-										<label for="expMission17">Snowcrash</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission18" value="FullyCharged">
-										<label for="expMission18">Fully Charged</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission19" value="CommunicationBreakdown">
-										<label for="expMission19">Communication Breakdown</label>
-									</td>
-								</tr>
-								<tr class="wave6">
-									<td>
-										<input type="radio" name="expMission" id="expMission20" value="SecurityBreach">
-										<label for="expMission20">Security Breach</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission21" value="Gunrunner">
-										<label for="expMission21">Gunrunner</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission22" value="IntoTheUnknown">
-										<label for="expMission22">Into the Unknown</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission23" value="PayingDebts">
-										<label for="expMission23">Paying Debts</label>
-									</td>
-								</tr>
-								<tr class="wave7">
-									<td>
-										<input type="radio" name="expMission" id="expMission24" value="TopTarget">
-										<label for="expMission24">Top Target</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission25" value="DeadlyTransmission">
-										<label for="expMission25">Deadly Transmission</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission26" value="Cornered">
-										<label for="expMission26">Cornered</label>
-									</td>
-								</tr>
-							</table>
-						</form>
-					</div>
-					
-					<br>
-					
-					<div class="buttonCenter padded">
-						<button id="missionChooseButton" onClick="missionExpacSelect()">Choose</button>
-					</div>
-				</div>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<div id="expStory" class="col">
-					<h3 class="center">Expansion Box Story Missions</h3>
-						<form id="expStoryForm" onsubmit="return false">
-							<table class="center internalnonstack">
-								<tr class="wave2">
-									<td>
-										<input type="radio" name="expMission" id="expStory1" value="WhiteNoise">
-										<label for="expStory1">White Noise</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expStory2" value="HomeFront">
-										<label for="expStory2">Home Front</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expStory3" value="ReturnToEchoBase">
-										<label for="expStory3">Return to Echo Base</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expStory4" value="RescueOps">
-										<label for="expStory4">Rescue Ops</label>
-									</td>
-								</tr>
-								<tr class="wave2">
-									<td>
-										<input type="radio" name="expMission" id="expStory5" value="TheLastLine">
-										<label for="expStory5">The Last Line</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expStory6" value="Disaster">
-										<label for="expStory6">Disaster</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expStory7" value="OurLastHope">
-										<label for="expStory7">Our Last Hope</label>
-									</td>
-								</tr>
-							</table>
-						</form>
-						<br>
-						<div class="buttonCenter padded">
-							<button id="missionExpCoreChooseButton" class="padded" onClick="missionExpacBoxSelect()">Choose</button>
-						</div>
-					</div>
-				</td>
-				<td>
-					<div class="col">
-					<h3 class="center">Expansion Box Side Missions: Colored by Expansion Box</h3>
-						<form id="expSideForm" onsubmit="return false">
-							<table class="center internalnonstack">
-								<tr class="wave1">
-									<td>
-										<input type="radio" name="Twin" id="expSide1" value="ShadyDealings">
-										<label for="expSide1">Shady Dealings</label>
-									</td>
-									<td>
-										<input type="radio" name="Twin" id="expSide2" value="HuntedDown">
-										<label for="expSide2">Hunted Down</label>
-									</td>
-									<td>
-										<input type="radio" name="Twin" id="expSide3" value="CanyonRun">
-										<label for="expSide3">Canyon Run</label>
-									</td>
-								</tr>
-								<tr class="wave2">
-									<td>
-										<input type="radio" name="expMission" id="expSide4" value="SurvivalOfTheFittest">
-										<label for="expSide4">Survival of the Fittest</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expSide5" value="TheHardWay">
-										<label for="expSide5">The Hard Way</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expSide6" value="PreventiveMeasures">
-										<label for="expSide6">Preventive Measures</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expSide7" value="EscapeFromCloudCity">
-										<label for="expSide7">Escape from Cloud City</label>
-									</td>
-								</tr>
-								<tr class="wave2">
-									<td>
-										<input type="radio" name="expMission" id="expSide8" value="ScouringOfTheHomestead">
-										<label for="expSide8">Scouring of the Homestead</label>
-									</td>
-								</tr>
-								<tr class="wave3">
-									<td>
-										<input type="radio" name="Bespin" id="expSide9" value="Reclamation">
-										<label for="expSide9">Reclamation</label>
-									</td>
-									<td>
-										<input type="radio" name="Bespin" id="expSide10" value="CloudCitysSecret">
-										<label for="expSide10">Cloud City's Secret</label>
-									</td>
-									<td>
-										<input type="radio" name="Bespin" id="expSide11" value="FreedomFighters">
-										<label for="expSide11">Freedom Fighters</label>
-									</td>
-									<td>
-										<input type="radio" name="Bespin" id="expSide12" value="HostileTakeover">
-										<label for="expSide12">Hostile Takeover</label>
-									</td>
-								</tr>
-								<tr class="wave3">
-									<td>
-										<input type="radio" name="Bespin" id="expSide13" value="PanicInTheStreets">
-										<label for="expSide13">Panic in the Streets</label>
-									</td>
-									<td>
-										<input type="radio" name="Bespin" id="expSide14" value="Reclassified">
-										<label for="expSide14">Reclassified</label>
-									</td>
-								</tr>
-							</table>
-						</form>
-						<br>
-						
-						<div class="buttonCenter padded">
-							<button id="expacMissionChooseButton" onClick="missionExpacSideSelect()">Choose</button>
-						</div>
-					</div>
-				</td>
-			</tr>
-			
-			
-		</table>
-	</div>
-			
-		</div>
-		<div id="expacMissionSection">
-			
-			
-		</div>
-	</div>
-</div>
+
 
 <!--
 COMMENTED OUT UNTIL FULLY DONE
@@ -1030,19 +591,25 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 <!--Begin floating side pullouts-->
 
 <div id="loadoutIcon" class="floatRight">
-	<img src="files/itemIcons/Ranged.png" onClick="loadoutModal()" class="barIcons" id="loadoutBtn">
+	<img src="files/itemIcons/Ranged.png" class="barIcons" id="loadoutBtn">
+	</img>
+
+</div>
+
+<div id="missionIcon" class="floatRight">
+	<img src="files/itemIcons/Mission.png" class="barIcons" id="missionBtn">
 	</img>
 
 </div>
 
 <div id="referenceIcon" class="floatRight">
-	<img src="files/itemIcons/Tech.png" onClick="referenceModal()" class="barIcons" id="referenceBtn">
+	<img src="files/itemIcons/Tech.png" class="barIcons" id="referenceBtn">
 	</img>
 
 </div>
 
 <div id="helpIcon" class="floatRight">
-	<img src="files/itemIcons/Help.png" onClick="modal()" class="barIcons" id="myBtn">
+	<img src="files/itemIcons/Help.png" class="barIcons" id="myBtn">
 	</img>
 
 </div>
@@ -1284,6 +851,459 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 				
 			</table>
 		</div>
+		<div class="modal-footer">
+		
+		</div>
+			
+	</div>
+</div>
+
+<div id="missionModal" class="modalRight">
+	<!-- Modal content -->
+	<div class="modal-contentRight">
+		<div id="missionModalHeader" class="modal-header">
+				<span class="close large">&times</span>
+				<h1>Mission Selection</h1>
+		</div>
+		<div class="modal-body">
+		<!-- wrapper div for alignment -->
+    <div class="mobilealign">
+	<div id="missionSelector" class="shaded">
+		<h2 class="center">Missions</h2>
+	</div>
+    </div>
+	<div class="tablewrapper">
+		<table id="missionOverallTable" class="tableHolder section group divTable stack">
+				<tr>
+					<td>
+			<div class="col">
+				<h3 class="center">Core Missions (Story Missions in Blue)</h3>
+					<div>
+						<form id="missionOptions" action="#" method="post" onsubmit="return false">
+							<table id="missionTable" class="center internalnonstack">
+								<tr>
+									<td class="coreMission">
+										<input type="radio" name="mission" id="mission1" value="Aftermath">
+										<label for="mission1">Aftermath</label>
+									</td>
+									<td>
+										<input type="radio" name="mission" id="mission2" value="Captured">
+										<label for="mission2">Captured</label>
+									</td>
+									<td>
+										<input type="radio" name="mission" id="mission3" value="Brushfire">
+										<label for="mission3">Brushfire</label>
+									</td>
+									<td>
+										<input type="radio" name="mission" id="mission4" value="Temptation">
+										<label for="mission4">Temptation</label>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="radio" name="mission" id="mission5" value="HighMoon"> 
+										<label for="mission5">High Moon</label>
+									</td>
+									<td>
+										<input type="radio" name="mission" id="mission6" value="Indebted">
+										<label for="mission6">Indebted</label>
+									</td>
+									<td>
+										<input type="radio" name="mission" id="mission7" value="LooseCannon">
+										<label for="mission7">Loose Cannon</label>
+									</td>
+									<td>
+										<input type="radio" name="mission" id="mission8" value="FriendsOfOld">
+										<label for="mission8">Friends Of Old</label>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="radio" name="mission" id="mission9" value="SorryAboutTheMess">
+										<label for="mission9">Sorry About the Mess</label>
+									</td>
+									<td>
+										<input type="radio" name="mission" id="mission10" value="Homecoming">
+										<label for="mission10">Homecoming</label>
+									</td>
+									<td>
+										<input type="radio" name="mission" id="mission11" value="TheSpiceJob">
+										<label for="mission11">The Spice Job</label>
+									</td>
+									<td>
+										<input type="radio" name="mission" id="mission12" value="TargetOfOpportunity">
+										<label for="mission12">Target Of Opportunity</label>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="radio" name="mission" id="mission13" value="VipersDen">
+										<label for="mission13">Viper's Den</label>
+									</td>
+									<td>
+										<input type="radio" name="mission" id="mission14" value="ASimpleTask">
+										<label for="mission14">A Simple Task</label>
+									</td>
+									<td>
+										<input type="radio" name="mission" id="mission15" value="GenerousDonations">
+										<label for="mission15">Generous Donations</label>
+									</td>
+									<td>
+										<input type="radio" name="mission" id="mission16" value="LuxuryCruise">
+										<label for="mission16">Luxury Cruise</label>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="radio" name="mission" id="mission17" value="MeansOfProduction">
+										<label for="mission17">Means of Production</label>
+									</td>
+									<td>
+										<input type="radio" name="mission" id="mission18" value="BreakingPoint">
+										<label for="mission18">Breaking Point</label>
+									</td>
+									<td>
+										<input type="radio" name="mission" id="mission19" value="Impounded">
+										<label for="mission19">Impounded</label>
+									</td>
+									<td>
+										<input type="radio" name="mission" id="mission20" value="Wanted">
+										<label for="mission20">Wanted</label>
+									</td>
+								<tr>
+									<td class="coreMission">
+										<input type="radio" name="mission" id="mission21" value="ANewThreat">
+										<label for="mission21">A New Threat</label>
+									</td>
+									<td class="coreMission">
+										<input type="radio" name="mission" id="mission22" value="UnderSiege">
+										<label for="mission22">Under Siege</label>
+									</td>
+									<td class="coreMission">
+										<input type="radio" name="mission" id="mission23" value="ImperialHospitality">
+										<label for="mission23">Imperial Hospitality</label>
+									</td>
+									<td class="coreMission">
+										<input type="radio" name="mission" id="mission24" value="FlySolo">
+										<label for="mission24">Fly Solo</label>
+									</td>
+								</tr>
+								<tr>
+									<td class="coreMission">
+										<input type="radio" name="mission" id="mission25" value="Incoming">
+										<label for="mission25">Incoming</label>
+									</td>
+									<td class="coreMission">
+										<input type="radio" name="mission" id="mission26" value="DrawnIn">
+										<label for="mission26">Drawn In</label>
+									</td>
+									<td class="coreMission">
+										<input type="radio" name="mission" id="mission27" value="ChainOfCommand">
+										<label for="mission27">Chain of Command</label>
+									</td>
+									<td class="coreMission">
+										<input type="radio" name="mission" id="mission28" value="TheSource">
+										<label for="mission28">The Source</label>
+									</td>
+								</tr>
+								<tr>
+									<td class="coreMission">
+										<input type="radio" name="mission" id="mission29" value="LastStand">
+										<label for="mission29">Last Stand</label>
+									</td>
+									<td class="coreMission">
+										<input type="radio" name="mission" id="mission30" value="DesperateHour">
+										<label for="mission30">Desperate Hour</label>
+									</td>
+									<td>
+										<input type="radio" name="mission" id="mission31" value="DarkObsession">
+										<label for="mission31">Dark Obsession</label>
+									</td>
+									<td>
+										<input type="radio" name="mission" id="mission32" value="SympathyForTheRebellion">
+										<label for="mission32">Sympathy for the Rebellion</label>
+									</td>
+							</table>
+						</form>
+					</div>
+				<br>
+			
+				<div class="buttonCenter padded">
+					<button id="missionChooseButton" class="padded" onClick="missionCoreSelect()">Choose</button>
+				</div>
+				</td>
+				
+				<td>
+				
+				<div class="col">
+					<h3 id="expansionTitleText" class="center">Ally/Villain Pack Missions: Colored by Release Wave</h3>
+					<div>
+						<form id="expMissionOptions" action="#" onsubmit="return false">
+							<table class="center internalnonstack" id="expansionTable">
+								<tr class="wave1">
+									<td>
+										<input type="radio" name="expMission" id="expMission1" value="Celebration">
+										<label for="expMission1">Celebration</label>
+									</td>
+									<td>
+										<input type="radio" name="expMission" id="expMission2" value="ForestAmbush">
+										<label for="expMission2">Forest Ambush</label>
+									</td>
+									<td>
+										<input type="radio" name="expMission" id="expMission3" value="ImperialEntanglements">
+										<label for="expMission3">Imperial Entanglements</label>
+									</td>
+									<td>
+										<input type="radio" name="expMission" id="expMission4" value="BinaryRevolution">
+										<label for="expMission4">Binary Revolution</label>
+									</td>
+								</tr>
+								<tr class="wave1">
+									<td>
+										<input type="radio" name="expMission" id="expMission5" value="ArmedAndOperational">
+										<label for="expMission5">Armed and Operational</label>
+									</td>
+									<td>
+										<input type="radio" name="expMission" id="expMission6" value="BraceForImpact">
+										<label for="expMission6">Brace for Impact</label>
+									</td>
+									<td>
+										<input type="radio" name="expMission" id="expMission7" value="Infection">
+										<label for="expMission7">Infection</label>
+									</td>
+								</tr>
+								<tr class="wave2">
+									<td>
+										<input type="radio" name="expMission" id="expMission8" value="PredatorAndPrey">
+										<label for="expMission8">Predator and Prey</label>
+									</td>
+									<td>
+										<input type="radio" name="expMission" id="expMission9" value="StrengthOfCommand">
+										<label for="expMission9">Strength of Command</label>
+									</td>
+									<td>
+										<input type="radio" name="expMission" id="expMission10" value="OpenToInterpretation">
+										<label for="expMission10">Open to Interpretation</label>
+									</td>
+								</tr>
+								<tr class="wave3">
+									<td>
+										<input type="radio" name="expMission" id="expMission11" value="Back-RoomBargains">
+										<label for="expMission11"> Back-Room Bargains</label>
+									</td>
+									<td>
+										<input type="radio" name="expMission" id="expMission12" value="BunkerBuster">
+										<label for="expMission12">Bunker Buster</label>
+									</td>
+									<td>
+										<input type="radio" name="expMission" id="expMission13" value="BruteForce">
+										<label for="expMission13">Brute Force</label>
+									</td>
+								</tr>
+								<tr class="wave4">
+									<td>
+										<input type="radio" name="expMission" id="expMission14" value="PreciousCargo">
+										<label for="expMission14">Precious Cargo</label>
+									</td>
+									<td>
+										<input type="radio" name="expMission" id="expMission15" value="IntoTheWastes">
+										<label for="expMission15">Into the Wastes</label>
+									</td>
+								</tr>
+								<tr class="wave5">
+									<td>
+										<input type="radio" name="expMission" id="expMission16" value="ABountyProtected">
+										<label for="expMission16">A Bounty Protected</label>
+									</td>
+									<td>
+										<input type="radio" name="expMission" id="expMission17" value="Snowcrash">
+										<label for="expMission17">Snowcrash</label>
+									</td>
+									<td>
+										<input type="radio" name="expMission" id="expMission18" value="FullyCharged">
+										<label for="expMission18">Fully Charged</label>
+									</td>
+									<td>
+										<input type="radio" name="expMission" id="expMission19" value="CommunicationBreakdown">
+										<label for="expMission19">Communication Breakdown</label>
+									</td>
+								</tr>
+								<tr class="wave6">
+									<td>
+										<input type="radio" name="expMission" id="expMission20" value="SecurityBreach">
+										<label for="expMission20">Security Breach</label>
+									</td>
+									<td>
+										<input type="radio" name="expMission" id="expMission21" value="Gunrunner">
+										<label for="expMission21">Gunrunner</label>
+									</td>
+									<td>
+										<input type="radio" name="expMission" id="expMission22" value="IntoTheUnknown">
+										<label for="expMission22">Into the Unknown</label>
+									</td>
+									<td>
+										<input type="radio" name="expMission" id="expMission23" value="PayingDebts">
+										<label for="expMission23">Paying Debts</label>
+									</td>
+								</tr>
+								<tr class="wave7">
+									<td>
+										<input type="radio" name="expMission" id="expMission24" value="TopTarget">
+										<label for="expMission24">Top Target</label>
+									</td>
+									<td>
+										<input type="radio" name="expMission" id="expMission25" value="DeadlyTransmission">
+										<label for="expMission25">Deadly Transmission</label>
+									</td>
+									<td>
+										<input type="radio" name="expMission" id="expMission26" value="Cornered">
+										<label for="expMission26">Cornered</label>
+									</td>
+								</tr>
+							</table>
+						</form>
+					</div>
+					
+					<br>
+					
+					<div class="buttonCenter padded">
+						<button id="missionChooseButton" onClick="missionExpacSelect()">Choose</button>
+					</div>
+				</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="expStory" class="col">
+					<h3 class="center">Expansion Box Story Missions</h3>
+						<form id="expStoryForm" onsubmit="return false">
+							<table class="center internalnonstack">
+								<tr class="wave2">
+									<td>
+										<input type="radio" name="expMission" id="expStory1" value="WhiteNoise">
+										<label for="expStory1">White Noise</label>
+									</td>
+									<td>
+										<input type="radio" name="expMission" id="expStory2" value="HomeFront">
+										<label for="expStory2">Home Front</label>
+									</td>
+									<td>
+										<input type="radio" name="expMission" id="expStory3" value="ReturnToEchoBase">
+										<label for="expStory3">Return to Echo Base</label>
+									</td>
+									<td>
+										<input type="radio" name="expMission" id="expStory4" value="RescueOps">
+										<label for="expStory4">Rescue Ops</label>
+									</td>
+								</tr>
+								<tr class="wave2">
+									<td>
+										<input type="radio" name="expMission" id="expStory5" value="TheLastLine">
+										<label for="expStory5">The Last Line</label>
+									</td>
+									<td>
+										<input type="radio" name="expMission" id="expStory6" value="Disaster">
+										<label for="expStory6">Disaster</label>
+									</td>
+									<td>
+										<input type="radio" name="expMission" id="expStory7" value="OurLastHope">
+										<label for="expStory7">Our Last Hope</label>
+									</td>
+								</tr>
+							</table>
+						</form>
+						<br>
+						<div class="buttonCenter padded">
+							<button id="missionExpCoreChooseButton" class="padded" onClick="missionExpacBoxSelect()">Choose</button>
+						</div>
+					</div>
+				</td>
+				<td>
+					<div class="col">
+					<h3 class="center">Expansion Box Side Missions: Colored by Expansion Box</h3>
+						<form id="expSideForm" onsubmit="return false">
+							<table class="center internalnonstack">
+								<tr class="wave1">
+									<td>
+										<input type="radio" name="Twin" id="expSide1" value="ShadyDealings">
+										<label for="expSide1">Shady Dealings</label>
+									</td>
+									<td>
+										<input type="radio" name="Twin" id="expSide2" value="HuntedDown">
+										<label for="expSide2">Hunted Down</label>
+									</td>
+									<td>
+										<input type="radio" name="Twin" id="expSide3" value="CanyonRun">
+										<label for="expSide3">Canyon Run</label>
+									</td>
+								</tr>
+								<tr class="wave2">
+									<td>
+										<input type="radio" name="expMission" id="expSide4" value="SurvivalOfTheFittest">
+										<label for="expSide4">Survival of the Fittest</label>
+									</td>
+									<td>
+										<input type="radio" name="expMission" id="expSide5" value="TheHardWay">
+										<label for="expSide5">The Hard Way</label>
+									</td>
+									<td>
+										<input type="radio" name="expMission" id="expSide6" value="PreventiveMeasures">
+										<label for="expSide6">Preventive Measures</label>
+									</td>
+									<td>
+										<input type="radio" name="expMission" id="expSide7" value="EscapeFromCloudCity">
+										<label for="expSide7">Escape from Cloud City</label>
+									</td>
+								</tr>
+								<tr class="wave2">
+									<td>
+										<input type="radio" name="expMission" id="expSide8" value="ScouringOfTheHomestead">
+										<label for="expSide8">Scouring of the Homestead</label>
+									</td>
+								</tr>
+								<tr class="wave3">
+									<td>
+										<input type="radio" name="Bespin" id="expSide9" value="Reclamation">
+										<label for="expSide9">Reclamation</label>
+									</td>
+									<td>
+										<input type="radio" name="Bespin" id="expSide10" value="CloudCitysSecret">
+										<label for="expSide10">Cloud City's Secret</label>
+									</td>
+									<td>
+										<input type="radio" name="Bespin" id="expSide11" value="FreedomFighters">
+										<label for="expSide11">Freedom Fighters</label>
+									</td>
+									<td>
+										<input type="radio" name="Bespin" id="expSide12" value="HostileTakeover">
+										<label for="expSide12">Hostile Takeover</label>
+									</td>
+								</tr>
+								<tr class="wave3">
+									<td>
+										<input type="radio" name="Bespin" id="expSide13" value="PanicInTheStreets">
+										<label for="expSide13">Panic in the Streets</label>
+									</td>
+									<td>
+										<input type="radio" name="Bespin" id="expSide14" value="Reclassified">
+										<label for="expSide14">Reclassified</label>
+									</td>
+								</tr>
+							</table>
+						</form>
+						<br>
+						
+						<div class="buttonCenter padded">
+							<button id="expacMissionChooseButton" onClick="missionExpacSideSelect()">Choose</button>
+						</div>
+					</div>
+				</td>
+			</tr>
+			
+			
+		</table>
+		</div>
+	</div>
 		<div class="modal-footer">
 		
 		</div>
@@ -1651,6 +1671,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 					}
 				}
 			}
+			closeMissionModal();
 		
 		}
 		
@@ -1667,6 +1688,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 					}
 				}
 			}
+			closeMissionModal();
 		
 		}
 		
@@ -2291,6 +2313,34 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 			}
 		}
 		
+		//mission Modal
+		var missionModal = document.getElementById('missionModal');
+
+		// Get the button that opens the modal
+		var missionBtn = document.getElementById("missionBtn");
+
+		// Get the <span> element that closes the modal
+		var missionSpan = document.getElementsByClassName("close")[2];
+
+		// When the user clicks on the button, open the modal 
+		missionBtn.onclick = function() {
+			missionModal.style.display = "block";
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		missionSpan.onclick = function() {
+			missionModal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+			if (event.target == missionModal) {
+				missionModal.style.display = "none";
+			}
+		}
+		
+		
+		
 		//Reference Modal
 		var referenceModal = document.getElementById('referenceModal');
 
@@ -2298,7 +2348,7 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		var referenceBtn = document.getElementById("referenceBtn");
 
 		// Get the <span> element that closes the modal
-		var referenceSpan = document.getElementsByClassName("close")[2];
+		var referenceSpan = document.getElementsByClassName("close")[3];
 
 		// When the user clicks on the button, open the modal 
 		referenceBtn.onclick = function() {
