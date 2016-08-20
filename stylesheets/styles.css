@@ -21,6 +21,29 @@ input[type=radio]:checked + label {
 	
 }
 
+input[type=checkbox] {
+	vertical-align: middle;
+	margin: 10px;
+	display: none;
+}
+
+input[type=checkbox] + label {
+	display: inline-block;
+	margin: -2px;
+	padding: 4px 12px;
+	background-color: #e7e7e7;
+	border: 1px solid #ccc;
+	border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+	border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+	border-bottom-color: #b3b3b3;
+}
+
+input[type=checkbox]:checked + label {
+	background-image: none;
+	background-color: #d0d0d0;
+	
+}
+
 label {
 	width: 100%;
 	font-family: calibri;
