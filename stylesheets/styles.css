@@ -369,6 +369,7 @@ BEGINS
 /* Modal Content */
 .modal-content {
     position: fixed;
+	z-index: 2; /* Sit on top */
     bottom: 0;
     background-color: #fefefe;
     width: 100%;
@@ -431,6 +432,7 @@ BEGINS
 /* Modal Content */
 .modal-contentRight {
     position: fixed;
+	z-index: 2; /* Sit on top */
     top: 20%;
     background-color: #fefefe;
     width: 100%;
