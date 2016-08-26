@@ -65,7 +65,7 @@ AGENT CARDS
 					<p class="center">Click card to flip
 					</p>
 				<br>
-				<img id="missionFront" class="center" onClick="missionFlip()" alt="mission card">
+				<img id="missionFront" class="center" onClick="missionFlip()">
 			</div>
 		</td>
 		<td>
@@ -95,7 +95,7 @@ AGENT CARDS
 					</form>
 				</div>
 				<br>
-				<img id="currentBlitzImg" class="center" alt="Automated Emperor Card">
+				<img id="currentBlitzImg" class="center">
 			</div>
 		</td>
 	</tr>
@@ -233,7 +233,7 @@ AGENT CARDS
 	<!--
 	Placeholder for image, when card is drawn
 	-->
-	<img id="deployImg" alt="deployment image">
+	<img id="deployImg">
 	
 	<div id="deployImgDiv">
 	</div>
@@ -676,30 +676,38 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 							<table>
 								<tr>
 									<td>
-										<input type="checkbox">
+										<input type="checkbox" id="p1check1">
+										<label for="p1check1" id="p1check1label"></label>
 									</td>
 									<td>
-										<input type="checkbox">
+										<input type="checkbox" id="p1check2">
+										<label for="p1check2" id="p1check2label"></label>
 									</td>
 									<td>
-										<input type="checkbox">
+										<input type="checkbox" id="p1check3">
+										<label for="p1check3" id="p1check3label"></label>
 									</td>
 									<td>
-										<input type="checkbox">
+										<input type="checkbox" id="p1check4">
+										<label for="p1check4" id="p1check4label"></label>
 									</td>
 								</tr>
 								<tr>
 									<td>
-										<input type="checkbox">
+										<input type="checkbox" id="p1check5">
+										<label for="p1check5" id="p1check5label"></label>
 									</td>
 									<td>
-										<input type="checkbox">
+										<input type="checkbox" id="p1check6">
+										<label for="p1check6" id="p1check6label"></label>
 									</td>
 									<td>
-										<input type="checkbox">
+										<input type="checkbox" id="p1check7">
+										<label for="p1check7" id="p1check7label"></label>
 									</td>
 									<td>
-										<input type="checkbox">
+										<input type="checkbox" id="p1check8">
+										<label for="p1check8" id="p1check8label"></label>
 									</td>
 								</tr>
 							</table>
@@ -2313,11 +2321,31 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 				}
 			}
 		}
-
+		
+		function selectPOne(){
+			var optionsBox = document.getElementById("charSelect1");
+			var selectedText = optionsBox.options[optionsBox.selectedIndex].value;
+			document.getElementById("p1check1label").innerHTML = selectedText;
+			var tempList = selectedChar(String(selectText));
+			
+			//should be a list
+			for (var i=0, len=tempList; i<len; i++){
+				document.getElementById("p1check"+ i + "label").innerHTML = tempList[i]
+			}
+		}
+		
+		/*
 		function selectPOne(){
 			//returns: sets player one skills
 			loadSkills(document.getElementById("charSelect1").value, document.getElementById("playerOneSkills"));
+			document.getElementById("p1check1")
+			for (var i=0, len=8; i<len; i++){
+				for skill in loadSkills(document.getElementById("charSelect1").value){
+					document.getElementById(String("p1check" + i)).innerHTML = loadSkills(document.getElementById("charSelect1").value)[i]
+				}
+			}
 		}
+		*/
 		
 		//mission Modal
 		var missionModal = document.getElementById('missionModal');
@@ -2344,8 +2372,6 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 				missionModal.style.display = "none";
 			}
 		}
-		
-		
 		
 		//Reference Modal
 		var referenceModal = document.getElementById('referenceModal');
