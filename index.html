@@ -752,6 +752,44 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 					</td>
 					<td>
 						<form id="playerTwoSkills" submit="return false">
+							<table>
+								<tr>
+									<td>
+										<input type="checkbox" id="p2check1">
+										<label for="p2check1" id="p2check1label"></label>
+									</td>
+									<td>
+										<input type="checkbox" id="p2check2">
+										<label for="p2check2" id="p2check2label"></label>
+									</td>
+									<td>
+										<input type="checkbox" id="p2check3">
+										<label for="p2check3" id="p2check3label"></label>
+									</td>
+									<td>
+										<input type="checkbox" id="p2check4">
+										<label for="p2check4" id="p2check4label"></label>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="checkbox" id="p2check5">
+										<label for="p2check5" id="p2check5label"></label>
+									</td>
+									<td>
+										<input type="checkbox" id="p2check6">
+										<label for="p2check6" id="p2check6label"></label>
+									</td>
+									<td>
+										<input type="checkbox" id="p2check7">
+										<label for="p2check7" id="p2check7label"></label>
+									</td>
+									<td>
+										<input type="checkbox" id="p2check8">
+										<label for="p2check8" id="p2check8label"></label>
+									</td>
+								</tr>
+							</table>
 						</form>
 					</td>
 					<td>
@@ -793,6 +831,44 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 					</td>
 					<td>
 						<form id="playerThreeSkills" submit="return false">
+							<table>
+								<tr>
+									<td>
+										<input type="checkbox" id="p3check1">
+										<label for="p3check1" id="p3check1label"></label>
+									</td>
+									<td>
+										<input type="checkbox" id="p3check2">
+										<label for="p3check2" id="p3check2label"></label>
+									</td>
+									<td>
+										<input type="checkbox" id="p3check3">
+										<label for="p3check3" id="p3check3label"></label>
+									</td>
+									<td>
+										<input type="checkbox" id="p3check4">
+										<label for="p3check4" id="p3check4label"></label>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="checkbox" id="p3check5">
+										<label for="p3check5" id="p3check5label"></label>
+									</td>
+									<td>
+										<input type="checkbox" id="p3check6">
+										<label for="p3check6" id="p3check6label"></label>
+									</td>
+									<td>
+										<input type="checkbox" id="p3check7">
+										<label for="p3check7" id="p3check7label"></label>
+									</td>
+									<td>
+										<input type="checkbox" id="p3check8">
+										<label for="p3check8" id="p3check8label"></label>
+									</td>
+								</tr>
+							</table>
 						</form>
 					</td>
 					<td>
@@ -834,6 +910,44 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 					</td>
 					<td>
 						<form id="playerFourSkills" submit="return false">
+							<table>
+								<tr>
+									<td>
+										<input type="checkbox" id="p4check1">
+										<label for="p4check1" id="p4check1label"></label>
+									</td>
+									<td>
+										<input type="checkbox" id="p4check2">
+										<label for="p4check2" id="p4check2label"></label>
+									</td>
+									<td>
+										<input type="checkbox" id="p4check3">
+										<label for="p4check3" id="p4check3label"></label>
+									</td>
+									<td>
+										<input type="checkbox" id="p4check4">
+										<label for="p4check4" id="p4check4label"></label>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="checkbox" id="p4check5">
+										<label for="p4check5" id="p4check5label"></label>
+									</td>
+									<td>
+										<input type="checkbox" id="p4check6">
+										<label for="p4check6" id="p4check6label"></label>
+									</td>
+									<td>
+										<input type="checkbox" id="p4check7">
+										<label for="p4check7" id="p4check7label"></label>
+									</td>
+									<td>
+										<input type="checkbox" id="p4check8">
+										<label for="p4check8" id="p4check8label"></label>
+									</td>
+								</tr>
+							</table>
 						</form>
 					</td>
 					<td>
@@ -2325,13 +2439,69 @@ PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 		function selectPOne(){
 			var optionsBox = document.getElementById("charSelect1");
 			var selectedText = optionsBox.options[optionsBox.selectedIndex].value;
-			document.getElementById("p1check1label").innerHTML = selectedText;
-			var tempList = selectedChar(String(selectText));
-			
-			//should be a list
-			for (var i=0, len=tempList; i<len; i++){
-				document.getElementById("p1check"+ i + "label").innerHTML = tempList[i]
-			}
+			//Testing
+			//document.getElementById("p1check1label").innerHTML = selectedText;
+			var tempList = selectedChar(selectedText);
+			//for loop having issues when concatenating string and int for elemnt
+			document.getElementById("p1check1label").innerHTML = tempList[0];
+			document.getElementById("p1check2label").innerHTML = tempList[1];
+			document.getElementById("p1check3label").innerHTML = tempList[2];
+			document.getElementById("p1check4label").innerHTML = tempList[3];
+			document.getElementById("p1check5label").innerHTML = tempList[4];
+			document.getElementById("p1check6label").innerHTML = tempList[5];
+			document.getElementById("p1check7label").innerHTML = tempList[6];
+			document.getElementById("p1check8label").innerHTML = tempList[7];
+		}
+		
+		function selectPTwo(){
+			var optionsBox = document.getElementById("charSelect2");
+			var selectedText = optionsBox.options[optionsBox.selectedIndex].value;
+			//Testing
+			//document.getElementById("p1check1label").innerHTML = selectedText;
+			var tempList = selectedChar(selectedText);
+			//for loop having issues when concatenating string and int for elemnt
+			document.getElementById("p2check1label").innerHTML = tempList[0];
+			document.getElementById("p2check2label").innerHTML = tempList[1];
+			document.getElementById("p2check3label").innerHTML = tempList[2];
+			document.getElementById("p2check4label").innerHTML = tempList[3];
+			document.getElementById("p2check5label").innerHTML = tempList[4];
+			document.getElementById("p2check6label").innerHTML = tempList[5];
+			document.getElementById("p2check7label").innerHTML = tempList[6];
+			document.getElementById("p2check8label").innerHTML = tempList[7];
+		}
+		
+		function selectPThree(){
+			var optionsBox = document.getElementById("charSelect3");
+			var selectedText = optionsBox.options[optionsBox.selectedIndex].value;
+			//Testing
+			//document.getElementById("p1check1label").innerHTML = selectedText;
+			var tempList = selectedChar(selectedText);
+			//for loop having issues when concatenating string and int for elemnt
+			document.getElementById("p3check1label").innerHTML = tempList[0];
+			document.getElementById("p3check2label").innerHTML = tempList[1];
+			document.getElementById("p3check3label").innerHTML = tempList[2];
+			document.getElementById("p3check4label").innerHTML = tempList[3];
+			document.getElementById("p3check5label").innerHTML = tempList[4];
+			document.getElementById("p3check6label").innerHTML = tempList[5];
+			document.getElementById("p3check7label").innerHTML = tempList[6];
+			document.getElementById("p3check8label").innerHTML = tempList[7];
+		}
+		
+		function selectPFour(){
+			var optionsBox = document.getElementById("charSelect4");
+			var selectedText = optionsBox.options[optionsBox.selectedIndex].value;
+			//Testing
+			//document.getElementById("p1check1label").innerHTML = selectedText;
+			var tempList = selectedChar(selectedText);
+			//for loop having issues when concatenating string and int for elemnt
+			document.getElementById("p4check1label").innerHTML = tempList[0];
+			document.getElementById("p4check2label").innerHTML = tempList[1];
+			document.getElementById("p4check3label").innerHTML = tempList[2];
+			document.getElementById("p4check4label").innerHTML = tempList[3];
+			document.getElementById("p4check5label").innerHTML = tempList[4];
+			document.getElementById("p4check6label").innerHTML = tempList[5];
+			document.getElementById("p4check7label").innerHTML = tempList[6];
+			document.getElementById("p4check8label").innerHTML = tempList[7];
 		}
 		
 		/*
