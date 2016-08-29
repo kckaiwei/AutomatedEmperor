@@ -233,6 +233,41 @@ img.intro-icons{
 		display: inline;
 		width: auto;
 	}
+	
+	.loadoutTable table, thead, tbody, th, td, tr {
+		display: inline-block;
+		width: 100%;
+	}
+	
+	.loadoutTable thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	.loadoutTable tr {
+		border: 1px solid #ccc;
+	}
+	
+	.loadoutTable td {
+		border: none;
+		border-bottom: 1px solid #eee;
+		position: relative;
+		padding-left: 0%;
+		width: 100%;
+	}
+	
+	.loadoutTable td:before{
+		position: absolute;
+		top: 6px;
+		left: 6px;
+		width: 100%;
+		padding-right: 10px;
+		white-space: nowrap;
+	}
+	
+	.loadoutTable td:nth-oftype(1):before { content:"Player #";}
+	.loadoutTable td:nth-oftype(2):before { content:"Character";}
 }
 
 @media only screen and (max-width: 480px) {
@@ -255,6 +290,41 @@ img.intro-icons{
 		display: inline;
 		width: auto;
 	}
+	
+	.loadoutTable table, thead, tbody, th, td, tr {
+		display: inline-block;
+		width: 100%;
+	}
+	
+	.loadoutTable thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	.loadoutTable tr {
+		border: 1px solid #ccc;
+	}
+	
+	.loadoutTable td {
+		border: none;
+		border-bottom: 1px solid #eee;
+		position: relative;
+		padding-left: 0%;
+		width: 100%;
+	}
+	
+	.loadoutTable td:before{
+		position: absolute;
+		top: 6px;
+		left: 6px;
+		width: 100%;
+		padding-right: 10px;
+		white-space: nowrap;
+	}
+	
+	.loadoutTable td:nth-oftype(1):before { content:"Player #";}
+	.loadoutTable td:nth-oftype(2):before { content:"Character";}
 }
 
 div.padded {
