@@ -274,6 +274,10 @@ img.intro-icons{
 	font-family: calibri;
 	text-shadow: 0 1px 1px rgba(255,255,255,0.75);
 	}
+	
+	h3 {
+		font-size: 100%;
+	}
 }
 
 div.padded {
