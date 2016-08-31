@@ -211,6 +211,11 @@ img.intro-icons{
 	width: 1em;
 }
 
+img.loadout-icons{
+	height: 2em;
+	width: 2em;
+}
+
 /* Some tablets have width of 800px? Weird. bq Curie 2 issue. 800px should fix.
 */
 @media only screen and (max-width: 800px) {
@@ -278,6 +283,10 @@ img.intro-icons{
 	h3 {
 		font-size: 100%;
 	}
+}
+
+@media only screen and (max-width: 480px) {
+	
 }
 
 div.padded {
