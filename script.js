@@ -39,6 +39,12 @@ var MHD = ["Bacta Injector (1)","Improper Procedure (1)","Field Surgeon (2)", "F
 var Verena = ["Combat Momentum (1)","Create Opening (1)","K'tara Maneuver (2)","Student of Battle (2)","Point Blank Shot (3)","Improvised Cover (3)", "Master Operative (4)","Combat Mastery (4)"];
 var Davith = ["Covert Operative (1)","Elusive Agent (1)","Blindside (2)","Falling Leaf (2)", "Force Illusion (3)", "Shrouded Lightsaber (3)","Fell Swoop (4)", "Embody the Force (4)"];
 var Murne = ["Company of Heroes (1)", "Sonic Bellow (1)", "Rebel Propaganda (2)", "Professional Aide (2)", "Solidarity (3)", "Double Agent (3)","Waylay (4)", "Leady from the Front (4)"];
+var StarterWeapons = ["Plasteel Staff","Infantry Rifle","Vibro-Ax","Holdout Blaster","Vintage Blaster","Longblaster","Repeating Blaster","Modified Blaster","All-Weather Rifle","Sidearm Blaster","Fighting Knife"," Military Dagger","Heirloom Dagger","Diplomat's Blaster"];
+var rewardWeapons = ["Shrouded Lightsaber","Shu Yen's Lightsaber"];
+var tierOneWeapons = ["Armored Gauntlets","DH-17","DL-44","E-11","Vibroblade"];
+var tierTwoWeapons = ["434 'Deathhammer'", "A280","BD-1 Vibro-Ax","T-21","Vibro Knuckles"]
+var tierThreeWeapons = ["DXR-6","Force Pike","Pulse Cannon","Sporting Blaster"];
+var totalWeapons = [];
 //THREAT COUNTER
 var threatCounterInt = 0;
 //INFLUENCE Counter
@@ -103,6 +109,11 @@ function pageLoad(){
 	selectPTwo();
 	selectPThree();
 	selectPFour();
+	
+	combineAllWeapons();
+	
+	//Populates loadouts dynamically
+	populateLoadouts();
 	
 	//BLITZ CARD ON LOAD SECTION
 	//Randomly pick Blitz Cards
@@ -1045,6 +1056,54 @@ function selectPFour(){
 	document.getElementById("p4check6label").innerHTML = tempList[5];
 	document.getElementById("p4check7label").innerHTML = tempList[6];
 	document.getElementById("p4check8label").innerHTML = tempList[7];
+}
+
+//Loadout populating
+
+function combineAllWeapons(){
+	//returns: creates a combined weaponlist, easier to maintain
+	addFromList(StarterWeapons,totalWeapons);
+	addFromList(rewardWeapons,totalWeapons);
+	addFromList(tierOneWeapons,totalWeapons);
+	addFromList(tierTwoWeapons,totalWeapons);
+	addFromList(tierThreeWeapons,totalWeapons);
+}
+
+function addFromList(fromList, toList){
+	//returns: CHANGES THE LIST
+	//param fromList: list to import items from
+	//type fromList: list
+	//param toList: list to add items to
+	//type toList: list
+	for (var i=0, len=fromList.length; i<len ; i++){
+		toList.push(fromList[i]);
+	}
+}
+
+function populateLoadouts(){
+	populateWeapons();
+}
+
+function populateWeapons(){
+	populatePlayerWeapons(1);
+	populatePlayerWeapons(2);
+	populatePlayerWeapons(3);
+	populatePlayerWeapons(4);
+}
+
+function populatePlayerWeapons(player){
+	var playerWep1 = document.getElementById("char" + player + "wep1");
+	var playerWep2 = document.getElementById("char" + player + "wep2");
+	for (var i=0, len=totalWeapons.length; i <len ; i++){
+		var newoption = document.createElement("option");
+		newoption.text = totalWeapons[i];
+		playerWep1.add(newoption, playerWep1[i])
+	}
+	for (var i=0, len=totalWeapons.length; i <len ; i++){
+		var newoption = document.createElement("option");
+		newoption.text = totalWeapons[i];
+		playerWep2.add(newoption, playerWep2[i])
+	}
 }
 
 /*
