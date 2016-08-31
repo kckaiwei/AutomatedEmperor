@@ -283,9 +283,14 @@ img.loadout-icons{
 	h3 {
 		font-size: 100%;
 	}
+	
 }
 
 @media only screen and (max-width: 480px) {
+	
+	h1 {
+		font-size: 125%;
+	}
 	
 }
 
