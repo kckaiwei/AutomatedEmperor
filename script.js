@@ -44,6 +44,9 @@ var rewardWeapons = ["Shrouded Lightsaber","Shu Yen's Lightsaber"];
 var tierOneWeapons = ["Armored Gauntlets","DH-17","DL-44","E-11","Vibroblade"];
 var tierTwoWeapons = ["434 'Deathhammer'", "A280","BD-1 Vibro-Ax","T-21","Vibro Knuckles"]
 var tierThreeWeapons = ["DXR-6","Force Pike","Pulse Cannon","Sporting Blaster"];
+var expTSWeapons = ["Gaffi Stick","Tatoonie Hunting Rifle","EE-3 Carbine","DLT-19"];
+var expRTSWeapons = ["DDC Defender","Vibroknife", "Stun Baton","Valken-38 Carbine"];
+var expTBGWeapons = ["Vibrosword","Disruptor Pistol"];
 var totalWeapons = [];
 //THREAT COUNTER
 var threatCounterInt = 0;
@@ -1067,6 +1070,9 @@ function combineAllWeapons(){
 	addFromList(tierOneWeapons,totalWeapons);
 	addFromList(tierTwoWeapons,totalWeapons);
 	addFromList(tierThreeWeapons,totalWeapons);
+	addFromList(expTSWeapons,totalWeapons);
+	addFromList(expRTSWeapons,totalWeapons);
+	addFromList(expTBGWeapons,totalWeapons);
 }
 
 function addFromList(fromList, toList){
