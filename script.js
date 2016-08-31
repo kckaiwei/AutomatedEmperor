@@ -1,7 +1,5 @@
-//MESS AHEAD! Should've started it modular. TODO
-
 //SETUP
-//MESS OF VARS
+//Variables - Export into some sort of database - todo
 
 //blitz cards filenames
 var blitzCards = ["Blitz 1","Blitz 2","Blitz 3","Blitz 4","Blitz 5", "Blitz 6","Blitz 7","Blitz 8","Blitz 9","Blitz 10"];
@@ -55,6 +53,15 @@ var characterArmor = ["Trophy Armor"];
 var expRTHArmor = ["Environment Hazard Suit"];
 var expTBGArmor = ["Shadowsilk Cloak"];
 var totalArmor = [];
+var starterEquip = ["Spectrum Scanner"];
+var rewardEquip = ["Adrenal Implant"];
+var tierOneEquip = ["Portable Medkit", "Survival Gear"];
+var tierTwoEquip = ["Extra Ammunition", "Slicing Tools"];
+var tierThreeEquip = ["Combat Knife", "Combat Visor", "Personal Shields", "Reinforced Helmet"];
+var expTSEquip = ["Tech Goggles", "Hidden Blade"];
+var expRTHEquip = ["Systems Upgrade", "Cybernetic Arm", "Concussion Grenades"];
+var expTBGEquip = ["Cam Droid", "Radiant Holocron", "R5 Astromech"];
+var totalEquip = [];
 //THREAT COUNTER
 var threatCounterInt = 0;
 //INFLUENCE Counter
@@ -1088,6 +1095,16 @@ function combineAllLoadouts(){
 	addFromList(tierTwoArmor,totalArmor);
 	addFromList(expRTHArmor, totalArmor);
 	addFromList(expTBGArmor, totalArmor);
+	
+	//Equipment
+	addFromList(starterEquip, totalEquip);
+	addFromList(rewardEquip, totalEquip);
+	addFromList(tierOneEquip, totalEquip);
+	addFromList(tierTwoEquip, totalEquip);
+	addFromList(tierThreeEquip, totalEquip);
+	addFromList(expTSEquip, totalEquip);
+	addFromList(expRTHEquip, totalEquip);
+	addFromList(expTBGEquip, totalEquip);
 }
 
 function addFromList(fromList, toList){
@@ -1104,6 +1121,7 @@ function addFromList(fromList, toList){
 function populateLoadouts(){
 	populateWeapons();
 	populateArmor();
+	populateEquip();
 }
 
 function populateWeapons(){
@@ -1118,6 +1136,13 @@ function populateArmor(){
 	populatePlayerArmor(2);
 	populatePlayerArmor(3);
 	populatePlayerArmor(4);
+}
+
+function populateWeapons(){
+	populatePlayerEquipment(1);
+	populatePlayerEquipment(2);
+	populatePlayerEquipment(3);
+	populatePlayerEquipment(4);
 }
 
 function populatePlayerWeapons(player){
@@ -1141,6 +1166,27 @@ function populatePlayerArmor(player){
 		var newoption = document.createElement("option");
 		newoption.text = totalArmor[i];
 		playerArm.add(newoption, playerArm[i+1])
+	}
+}
+
+function populatePlayerEquipment(player){
+	var playerEquip1 = document.getElementById("char" + player + "equip1");
+	var playerEquip2 = document.getElementById("char" + player + "equip2");
+	var playerEquip3 = document.getElementById("char" + player + "equip3");
+	for (var i=0, len=totalEquip.length; i <len ; i++){
+		var newoption = document.createElement("option");
+		newoption.text = totalEquip[i];
+		playerEquip1.add(newoption, playerEquip1[i+1])
+	}
+	for (var i=0, len=totalEquip.length; i <len ; i++){
+		var newoption = document.createElement("option");
+		newoption.text = totalEquip[i];
+		playerEquip2.add(newoption, playerEquip2[i+1])
+	}
+	for (var i=0, len=totalEquip.length; i <len ; i++){
+		var newoption = document.createElement("option");
+		newoption.text = totalEquip[i];
+		playerEquip3.add(newoption, playerEquip3[i+1])
 	}
 }
 
