@@ -48,6 +48,13 @@ var expTSWeapons = ["Gaffi Stick","Tatoonie Hunting Rifle","EE-3 Carbine","DLT-1
 var expRTSWeapons = ["DDC Defender","Vibroknife", "Stun Baton","Valken-38 Carbine"];
 var expTBGWeapons = ["Vibrosword","Disruptor Pistol"];
 var totalWeapons = [];
+var rewardArmor = ["Shadow Suit"];
+var tierOneArmor = ["Combat Coat"];
+var tierTwoArmor = ["Laminate Armor"];
+var characterArmor = ["Trophy Armor"];
+var expRTHArmor = ["Environment Hazard Suit"];
+var expTBGArmor = ["Shadowsilk Cloak"];
+var totalArmor = [];
 //THREAT COUNTER
 var threatCounterInt = 0;
 //INFLUENCE Counter
@@ -113,7 +120,7 @@ function pageLoad(){
 	selectPThree();
 	selectPFour();
 	
-	combineAllWeapons();
+	combineAllLoadouts();
 	
 	//Populates loadouts dynamically
 	populateLoadouts();
@@ -1063,7 +1070,7 @@ function selectPFour(){
 
 //Loadout populating
 
-function combineAllWeapons(){
+function combineAllLoadouts(){
 	//returns: creates a combined weaponlist, easier to maintain
 	addFromList(StarterWeapons,totalWeapons);
 	addFromList(rewardWeapons,totalWeapons);
@@ -1073,6 +1080,14 @@ function combineAllWeapons(){
 	addFromList(expTSWeapons,totalWeapons);
 	addFromList(expRTSWeapons,totalWeapons);
 	addFromList(expTBGWeapons,totalWeapons);
+	
+	//Armor
+	addFromList(characterArmor, totalArmor);
+	addFromList(rewardArmor,totalArmor);
+	addFromList(tierOneArmor,totalArmor);
+	addFromList(tierTwoArmor,totalArmor);
+	addFromList(expRTHArmor, totalArmor);
+	addFromList(expTBGArmor, totalArmor);
 }
 
 function addFromList(fromList, toList){
@@ -1088,6 +1103,7 @@ function addFromList(fromList, toList){
 
 function populateLoadouts(){
 	populateWeapons();
+	populateArmor();
 }
 
 function populateWeapons(){
@@ -1097,18 +1113,34 @@ function populateWeapons(){
 	populatePlayerWeapons(4);
 }
 
+function populateArmor(){
+	populatePlayerArmor(1);
+	populatePlayerArmor(2);
+	populatePlayerArmor(3);
+	populatePlayerArmor(4);
+}
+
 function populatePlayerWeapons(player){
 	var playerWep1 = document.getElementById("char" + player + "wep1");
 	var playerWep2 = document.getElementById("char" + player + "wep2");
 	for (var i=0, len=totalWeapons.length; i <len ; i++){
 		var newoption = document.createElement("option");
 		newoption.text = totalWeapons[i];
-		playerWep1.add(newoption, playerWep1[i])
+		playerWep1.add(newoption, playerWep1[i+1])
 	}
 	for (var i=0, len=totalWeapons.length; i <len ; i++){
 		var newoption = document.createElement("option");
 		newoption.text = totalWeapons[i];
-		playerWep2.add(newoption, playerWep2[i])
+		playerWep2.add(newoption, playerWep2[i+1])
+	}
+}
+
+function populatePlayerArmor(player){
+	var playerArm = document.getElementById("char" + player + "armor");
+	for (var i=0, len=totalArmor.length; i <len ; i++){
+		var newoption = document.createElement("option");
+		newoption.text = totalArmor[i];
+		playerArm.add(newoption, playerArm[i+1])
 	}
 }
 
