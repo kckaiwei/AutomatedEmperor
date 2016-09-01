@@ -1207,6 +1207,7 @@ var missionSpan = document.getElementsByClassName("close")[2];
 // When the user clicks on the button, open the modal 
 missionBtn.onclick = function() {
 	missionModal.style.display = "block";
+	missionModal.focus();
 }
 
 // When the user clicks on <span> (x), close the modal
