@@ -19,6 +19,7 @@
 		<icon src="files/Threat.png" width="180" height="180" />
 	</platform>
 	<preference name="android-minSdkVersion" value="17" />
+	<preference name="android-targetSdkVersion" value="17" />
 	
 	<platform name="winphone">
 		<icon src="files/Threat.png" width="180" height="180" />
