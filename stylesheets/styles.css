@@ -44,10 +44,18 @@ input[type=checkbox]:checked + label {
 	
 }
 
+input[type=tel]{
+	text-align: right;
+}
+
 label {
 	width: 93%;
 	font-family: calibri;
 	text-shadow: 0 1px 1px rgba(255,255,255,0.75);
+}
+
+.small-labels label{
+	font-size: 75%;
 }
 
 a{

@@ -1138,7 +1138,7 @@ function populateArmor(){
 	populatePlayerArmor(4);
 }
 
-function populateWeapons(){
+function populateEquip(){
 	populatePlayerEquipment(1);
 	populatePlayerEquipment(2);
 	populatePlayerEquipment(3);
@@ -1190,18 +1190,6 @@ function populatePlayerEquipment(player){
 	}
 }
 
-/*
-function selectPOne(){
-	//returns: sets player one skills
-	loadSkills(document.getElementById("charSelect1").value, document.getElementById("playerOneSkills"));
-	document.getElementById("p1check1")
-	for (var i=0, len=8; i<len; i++){
-		for skill in loadSkills(document.getElementById("charSelect1").value){
-			document.getElementById(String("p1check" + i)).innerHTML = loadSkills(document.getElementById("charSelect1").value)[i]
-		}
-	}
-}
-*/
 
 //mission Modal
 var missionModal = document.getElementById('missionModal');
