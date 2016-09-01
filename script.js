@@ -45,6 +45,7 @@ var tierThreeWeapons = ["DXR-6","Force Pike","Pulse Cannon","Sporting Blaster"];
 var expTSWeapons = ["Gaffi Stick","Tatoonie Hunting Rifle","EE-3 Carbine","DLT-19"];
 var expRTSWeapons = ["DDC Defender","Vibroknife", "Stun Baton","Valken-38 Carbine"];
 var expTBGWeapons = ["Vibrosword","Disruptor Pistol"];
+var expWeapons = ["DT-12 Heavy Blaster Pistol", "Ancient Lightsaber", "Electrostaff"];
 var totalWeapons = [];
 var rewardArmor = ["Shadow Suit"];
 var tierOneArmor = ["Combat Coat"];
@@ -61,6 +62,7 @@ var tierThreeEquip = ["Combat Knife", "Combat Visor", "Personal Shields", "Reinf
 var expTSEquip = ["Tech Goggles", "Hidden Blade"];
 var expRTHEquip = ["Systems Upgrade", "Cybernetic Arm", "Concussion Grenades"];
 var expTBGEquip = ["Cam Droid", "Radiant Holocron", "R5 Astromech"];
+var expEquip = ["Quickdraw Holster"];
 var totalEquip = [];
 //THREAT COUNTER
 var threatCounterInt = 0;
@@ -1087,6 +1089,7 @@ function combineAllLoadouts(){
 	addFromList(expTSWeapons,totalWeapons);
 	addFromList(expRTSWeapons,totalWeapons);
 	addFromList(expTBGWeapons,totalWeapons);
+	addFromList(expWeapons, totalWeapons);
 	
 	//Armor
 	addFromList(characterArmor, totalArmor);
@@ -1105,6 +1108,7 @@ function combineAllLoadouts(){
 	addFromList(expTSEquip, totalEquip);
 	addFromList(expRTHEquip, totalEquip);
 	addFromList(expTBGEquip, totalEquip);
+	addFromList(expEquip, totalEquip);
 }
 
 function addFromList(fromList, toList){
