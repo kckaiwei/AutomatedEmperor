@@ -432,6 +432,7 @@ BEGINS
     background-color: #fefefe;
     width: 100%;
 	height: 80%;
+	overflow: scroll;
     -webkit-animation-name: slideInRight;
     -webkit-animation-duration: 0.4s;
     animation-name: slideInRight;
@@ -495,6 +496,7 @@ BEGINS
     top: 20%;
     background-color: #fefefe;
     width: 100%;
+	overflow: scroll;
     -webkit-animation-name: slideInRight;
     -webkit-animation-duration: 0.4s;
     animation-name: slideInRight;
