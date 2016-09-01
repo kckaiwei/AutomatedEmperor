@@ -226,6 +226,15 @@ img.loadout-icons{
 
 /* Some tablets have width of 800px? Weird. bq Curie 2 issue. 800px should fix.
 */
+@media only screen and (max-width: 1024px) {
+	
+	label {
+		font-size: 90%;
+	}
+	
+}
+
+
 @media only screen and (max-width: 800px) {
 	div.shaded {
 		clear: both;
@@ -401,7 +410,7 @@ BEGINS
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 2; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -466,7 +475,7 @@ BEGINS
 .modalRight {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 2; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
