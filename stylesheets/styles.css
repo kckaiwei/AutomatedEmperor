@@ -211,10 +211,6 @@ h2.center {
 	transform: scale(1.3);
 }
 
-.mobilealign {
-	overflow: auto;
-}
-
 #shortInstructions {
 }
 
@@ -436,7 +432,7 @@ BEGINS
     background-color: #fefefe;
     width: 100%;
 	height: 80%;
-	overflow: scroll;
+	overflow: auto;
     -webkit-animation-name: slideInRight;
     -webkit-animation-duration: 0.4s;
     animation-name: slideInRight;
@@ -467,7 +463,7 @@ BEGINS
 .modal-body {
 	padding: 2px 16px;
 	max-height: calc(100vh - 210px);
-	overflow-y: scroll;		
+	overflow-y: auto;		
 }
 
 .modal-footer {
@@ -500,7 +496,7 @@ BEGINS
     top: 20%;
     background-color: #fefefe;
     width: 100%;
-	overflow: scroll;
+	overflow: auto;
     -webkit-animation-name: slideInRight;
     -webkit-animation-duration: 0.4s;
     animation-name: slideInRight;
