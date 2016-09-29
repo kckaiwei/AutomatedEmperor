@@ -1,52 +1,52 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Automated Emperor</title>
-	<link rel="stylesheet" type="text/css" href="stylesheets/styles.css" />
-	<link rel="icon" href="files/Threat.png" />
-	<meta name="viewport" content="width=device-width">
+    <title>Automated Emperor</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/styles.css" />
+    <link rel="icon" href="files/Threat.png" />
+    <meta name="viewport" content="width=device-width">
 </head>
+
 <body onload="pageLoad()">
     <!-- Wrapper div for alignment
     -->
-	<div id="shortInstructions" class="shaded center">
-	<h3>
+    <div id="shortInstructions" class="shaded center">
+        <h3>
 	Read the instructions <img src="files/itemIcons/Help.png" class="intro-icons" alt="instructions icon">. 
 	Set loadouts <img src="files/itemIcons/Ranged.png" class="intro-icons" alt="loadout icon">.
 	Choose a mission <img src="files/itemIcons/Mission.png" class="intro-icons" alt="mission icon">.
 	</h3>
-	</div>
-	<div id="counters">
-		<table>
-			<tr>
-				<td>
-					<div class="buttonCenter" id="threatCounterDiv">
-						<p>
-							<span>Imperial Threat Counter
+    </div>
+    <div id="counters">
+        <table>
+            <tr>
+                <td>
+                    <div class="buttonCenter" id="threatCounterDiv">
+                        <p>
+                            <span>Imperial Threat Counter
 							</span>
-						</p>
-						<button onClick="threatCounterDec()">-</button>
-						<span id ="threatCounterIntText" class="IAfont large green">0</span>
-						<button onClick="threatCounterInc()">+</button>
-					</div>
-				</td>
-				<td>
-					<div class="buttonCenter" id="influenceCounterDiv">
-						<p>
-							<span>Imperial Influence Counter
+                        </p>
+                        <button onClick="threatCounterDec()">-</button>
+                        <span id="threatCounterIntText" class="IAfont large green">0</span>
+                        <button onClick="threatCounterInc()">+</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="buttonCenter" id="influenceCounterDiv">
+                        <p>
+                            <span>Imperial Influence Counter
 							</span>
-						</p>
-						<button onClick="influenceCounterDec()">-</button>
-						<span id ="influenceCounterIntText" class="IAfont large green">0</span>
-						<button onClick="influenceCounterInc()">+</button>
-					</div>
-				</td>
-			</tr>
-		</table>
-	</div>
-
-
-<!--
+                        </p>
+                        <button onClick="influenceCounterDec()">-</button>
+                        <span id="influenceCounterIntText" class="IAfont large green">0</span>
+                        <button onClick="influenceCounterInc()">+</button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!--
 COMMENTED OUT UNTIL FULLY DONE
 AGENT CARDS
 
@@ -54,191 +54,183 @@ AGENT CARDS
 <img id="SubversiveTactics" src="files/ImpClass/SubversiveTactics.jpg" width="175" height="298" onclick="STsel()"></img>
 <img id="TechnologicalSuperiority" src="files/ImpClass/TechnologicalSuperiority.jpg" width="175" height="298" onclick="TSsel()"></img>
 -->
-<table id="blitzMissionSection" class="padded fillWidth divTable stack">
-	<!--Second Split section -->
-	<tr>
-		<td>
-			<div id="missionStaging" class="col">
-				<div class="shaded">
-					<h3 class="center">Current Mission:</h3>
-				</div>
-					<p class="center">Click card to flip
-					</p>
-				<br>
-				<img id="missionFront" class="center" onClick="missionFlip()">
-			</div>
-		</td>
-		<td>
-			<div id="blitz" class="col">
-				<div class="shaded">
-					<h3 class="title center"> Drawn Automated Emperor/Blitz Card: </h3>
-				</div>
-				<br>
-				<div class="buttonCenter">
-					<form id="blitzDraw" action="#" method="post" onsubmit="return false">
-						<button onClick="displayBlitzCards()">Draw Automated Emperor Card</button>
-						<button onClick="shuffleBlitzCards()">Reshuffle Automated Emperor deck</button>
-					</form>
-				</div>
-
-				<p id="blitzShuffleStatus" class="center"></p>
-					<p class="center">
-						Adjust Blitz Cards (WILL RESHUFFLE DECK!!!) - Add one when Imperial loses a mission (applies every lost mission)
-					</p>
-				<p class="center"> Current Blitz Level: </p> 
-				
-				<div class="buttonCenter">
-					<form id="blitzForm" action="#" method="post" onsubmit="return false">
-						<button onClick="blitzDec()">-</button>
-						<span id ="blitzLevelIntText" class="IAfont large"> </span>
-						<button onClick="blitzInc()">+</button>
-					</form>
-				</div>
-				<br>
-				<img id="currentBlitzImg" class="center">
-			</div>
-		</td>
-	</tr>
-</table>
-
-<div class="tablewrapper">
-	<table id="deploymentAddon" class="padded fillWidth divTable stack">
-		<tr>
-			<td id="avp" class="options">
-				<div id="avpDiv" class="col">
-					<div class="shaded center">
-						<h3>Villain Packs Deployments (Reshuffle after selecting!)</h3>
-					</div>
-					<br>
-					<form id="expacoptions" action="#" method="post" onsubmit="return false">
-						<table id="avpTable" class="center internalnonstack">
-							<tr>
-								<td>
-									<input type="checkbox" name="AVPoption" id="AVPoption1" value="HiredGun">
-									<label for="AVPoption1">Hired Guns</label>
-								</td>
-								<td>
-									<input type="checkbox" name="AVPoption" id="AVPoption2" value="Stormtrooper">
-									<label for="AVPoption2">Stormtroopers</label>
-								</td>
-								<td>
-									<input type="checkbox" name="AVPoption" id="AVPoption3" value="BanthaRider">
-									<label for="AVPoption3">Bantha Rider</label>
-								</td>
-								<td>
-									<input type="checkbox" name="AVPoption" id="AVPoption4" value="ISBInfiltrator">
-									<label for="AVPoption4">ISB Infiltrators</label>
-								</td>
-							</tr>
-						</table>
-					</form>
-				</div>
-			</td>
-			<td id="uniques">
-				<div id="rewardUniqueDiv" class="col">
-					<div class="shaded center">
-						<h3>Rewarded Uniques (Reshuffle after selecting!) </h3>
-					</div>
-					<br>
-					<form id="uniqueOptions" action="#" onsubmit="return false">
-						<table id="uniqueTable" class="center internalnonstack">
-							<tr>
-								<td>
-									<input type="checkbox" name="uniqueCheck" id="uniqueCheck1" value="DarthVader">
-									<label for="uniqueCheck1">Darth Vader</label>
-								</td>
-								<td>
-									<input type="checkbox" name="uniqueCheck" id="uniqueCheck2" value="ELGeneralWeiss">
-									<label for="uniqueCheck2">General Weiss</label>
-								</td>
-								<td>
-									<input type="checkbox" name="uniqueCheck" id="uniqueCheck3" value="ELRoyalGuardChamp">
-									<label for="uniqueCheck3">Royal Guard Champion</label>
-								</td>
-								<td>
-									<input type="checkbox" name="uniqueCheck" id="uniqueCheck4" value="ELIG88">
-									<label for="uniqueCheck4">IG-88</label>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<input type="checkbox" name="uniqueCheck" id="uniqueCheck5" value="BobaFett">
-									<label for="uniqueCheck5">Boba Fett</label>
-								</td>
-								<td>
-									<input type="checkbox" name="uniqueCheck" id="uniqueCheck6" value="KaynSomos">
-									<label for="uniqueCheck6">Kayn Somos</label>
-								</td>
-								<td>
-									<input type="checkbox" name="uniqueCheck" id="uniqueCheck7" value="Dengar">
-									<label for="uniqueCheck7">Dengar</label>
-								</td>
-								<td>
-									<input type="checkbox" name="uniqueCheck" id="uniqueCheck8" value="General Sorin">
-									<label for="uniqueCheck8">General Sorin</label>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<input type="checkbox" name="uniqueCheck" id="uniqueCheck9" value="AgentBlaiseC">
-									<label for="uniqueCheck9">Agent Blaise</label>
-								</td>
-								<td>
-									<input type="checkbox" name="uniqueCheck" id="uniqueCheck10" value="Greedo">
-									<label for="uniqueCheck10">Greedo</label>
-								</td>
-								<td>
-									<input type="checkbox" name="uniqueCheck" id="uniqueCheck11" value="TheGrandInquisitor">
-									<label for="uniqueCheck11">The Grand Inquisitor</label>
-								</td>
-							</tr>
-						</table>
-					</form>
-				</div>
-			</td>
-		</tr>
-	</table>
-</div>
-
-<div id="Deployment">
-    <div class="mobilealign">
-		<div class="shaded">
-			<h3 class="center"> Drawn Deployment Card for OPEN GROUP: </h3>
-		</div>
+    <table id="blitzMissionSection" class="padded fillWidth divTable stack">
+        <!--Second Split section -->
+        <tr>
+            <td>
+                <div id="missionStaging" class="col">
+                    <div class="shaded">
+                        <h3 class="center">Current Mission:</h3>
+                    </div>
+                    <p class="center">Click card to flip
+                    </p>
+                    <br>
+                    <img id="missionFront" class="center" onClick="missionFlip()">
+                </div>
+            </td>
+            <td>
+                <div id="blitz" class="col">
+                    <div class="shaded">
+                        <h3 class="title center"> Drawn Automated Emperor/Blitz Card: </h3>
+                    </div>
+                    <br>
+                    <div class="buttonCenter">
+                        <form id="blitzDraw" action="#" method="post" onsubmit="return false">
+                            <button onClick="displayBlitzCards()">Draw Automated Emperor Card</button>
+                            <button onClick="shuffleBlitzCards()">Reshuffle Automated Emperor deck</button>
+                        </form>
+                    </div>
+                    <p id="blitzShuffleStatus" class="center"></p>
+                    <p class="center">
+                        Adjust Blitz Cards (WILL RESHUFFLE DECK!!!) - Add one when Imperial loses a mission (applies every lost mission)
+                    </p>
+                    <p class="center"> Current Blitz Level: </p>
+                    <div class="buttonCenter">
+                        <form id="blitzForm" action="#" method="post" onsubmit="return false">
+                            <button onClick="blitzDec()">-</button>
+                            <span id="blitzLevelIntText" class="IAfont large"> </span>
+                            <button onClick="blitzInc()">+</button>
+                        </form>
+                    </div>
+                    <br>
+                    <img id="currentBlitzImg" class="center">
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div class="tablewrapper">
+        <table id="deploymentAddon" class="padded fillWidth divTable stack">
+            <tr>
+                <td id="avp" class="options">
+                    <div id="avpDiv" class="col">
+                        <div class="shaded center">
+                            <h3>Villain Packs Deployments (Reshuffle after selecting!)</h3>
+                        </div>
+                        <br>
+                        <form id="expacoptions" action="#" method="post" onsubmit="return false">
+                            <table id="avpTable" class="center internalnonstack">
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="AVPoption" id="AVPoption1" value="HiredGun">
+                                        <label for="AVPoption1">Hired Guns</label>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="AVPoption" id="AVPoption2" value="Stormtrooper">
+                                        <label for="AVPoption2">Stormtroopers</label>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="AVPoption" id="AVPoption3" value="BanthaRider">
+                                        <label for="AVPoption3">Bantha Rider</label>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="AVPoption" id="AVPoption4" value="ISBInfiltrator">
+                                        <label for="AVPoption4">ISB Infiltrators</label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </td>
+                <td id="uniques">
+                    <div id="rewardUniqueDiv" class="col">
+                        <div class="shaded center">
+                            <h3>Rewarded Uniques (Reshuffle after selecting!) </h3>
+                        </div>
+                        <br>
+                        <form id="uniqueOptions" action="#" onsubmit="return false">
+                            <table id="uniqueTable" class="center internalnonstack">
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="uniqueCheck" id="uniqueCheck1" value="DarthVader">
+                                        <label for="uniqueCheck1">Darth Vader</label>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="uniqueCheck" id="uniqueCheck2" value="ELGeneralWeiss">
+                                        <label for="uniqueCheck2">General Weiss</label>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="uniqueCheck" id="uniqueCheck3" value="ELRoyalGuardChamp">
+                                        <label for="uniqueCheck3">Royal Guard Champion</label>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="uniqueCheck" id="uniqueCheck4" value="ELIG88">
+                                        <label for="uniqueCheck4">IG-88</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="uniqueCheck" id="uniqueCheck5" value="BobaFett">
+                                        <label for="uniqueCheck5">Boba Fett</label>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="uniqueCheck" id="uniqueCheck6" value="KaynSomos">
+                                        <label for="uniqueCheck6">Kayn Somos</label>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="uniqueCheck" id="uniqueCheck7" value="Dengar">
+                                        <label for="uniqueCheck7">Dengar</label>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="uniqueCheck" id="uniqueCheck8" value="General Sorin">
+                                        <label for="uniqueCheck8">General Sorin</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="uniqueCheck" id="uniqueCheck9" value="AgentBlaiseC">
+                                        <label for="uniqueCheck9">Agent Blaise</label>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="uniqueCheck" id="uniqueCheck10" value="Greedo">
+                                        <label for="uniqueCheck10">Greedo</label>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="uniqueCheck" id="uniqueCheck11" value="TheGrandInquisitor">
+                                        <label for="uniqueCheck11">The Grand Inquisitor</label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        </table>
     </div>
-	<br>
-	<div class="center">
-		<form id="deploymentDisplayForm" action="#" method="post" onsubmit="return false">
-			<button onClick="displayDeploymentCards()">Draw deployment</button>
-			<button onClick="shuffleDeploymentCards()">Reshuffle deployment deck</button>
-		</form>
-	</div>
-	<br>
-	<p id="deployShuffleStatus" class="center"></p> 
-	<p class="center">
-		Adjust campaign threat level (WILL RESHUFFLE DECK!!!) 
-		<br>
-		Current Threat Level: 
-	</p> 
-	
-	<div class="center">
-		<form id="deploymentDiffForm" action="#" method="post" onsubmit="return false">
-			<button onClick="deploymentDec()">-</button>
-			<span id ="deployDiffInt" class="currentValues IAfont large"> </span>
-			<button onClick="deploymentInc()">+</button>
-		</form>
-	</div>
-	<br>
-	
-	<!--
+    <div id="Deployment">
+        <div class="mobilealign">
+            <div class="shaded">
+                <h3 class="center"> Drawn Deployment Card for OPEN GROUP: </h3>
+            </div>
+        </div>
+        <br>
+        <div class="center">
+            <form id="deploymentDisplayForm" action="#" method="post" onsubmit="return false">
+                <button onClick="displayDeploymentCards()">Draw deployment</button>
+                <button onClick="shuffleDeploymentCards()">Reshuffle deployment deck</button>
+            </form>
+        </div>
+        <br>
+        <p id="deployShuffleStatus" class="center"></p>
+        <p class="center">
+            Adjust campaign threat level (WILL RESHUFFLE DECK!!!)
+            <br> Current Threat Level:
+        </p>
+        <div class="center">
+            <form id="deploymentDiffForm" action="#" method="post" onsubmit="return false">
+                <button onClick="deploymentDec()">-</button>
+                <span id="deployDiffInt" class="currentValues IAfont large"> </span>
+                <button onClick="deploymentInc()">+</button>
+            </form>
+        </div>
+        <br>
+        <!--
 	Placeholder for image, when card is drawn
 	-->
-	<img id="deployImg">
-	
-	<div id="deployImgDiv">
-	</div>
-</div>
-<!--
+        <img id="deployImg">
+        <div id="deployImgDiv">
+        </div>
+    </div>
+    <!--
 COMMENTING THIS OUT UNTIL FULL DONE
 
 <div id="Imperial Class div">
@@ -251,1492 +243,1449 @@ COMMENTING THIS OUT UNTIL FULL DONE
 
 </div>
 -->
-
-<!--
+    <!--
 PLACE INSTRUCTIONS ON HOW TO USE HERE!!!!
 
 -->
-
-<div id="myModal" class="modal">
-	<!-- Modal content -->
-	<div class="modal-content">
-		<div class="modal-header">
-				<span class="close large">&times;</span>
-				<h1>Instructions on using Automated Emperor</h1>
-			</div>
-		<div class="modal-body">
-					<div id="instructionsteps">
-						<div id="setup" class="setupDivClass">
-							<h2>Setup</h2>
-							<ol>
-								<li>Automated Emperor Deck
-									<ul>
-										<li>Set Blitz level (2 at beginning of campaign)</li>
-										<li>Start at 2 at campaign start, increase by one for each mission Imperials lose</li>
-										<li>When drawn, deployment group focuses on Priority Target, regardless of if they would assigned one by mission card </li>
-										<li>Secondary Target is closest Rebel figure with least health </li>
-										<li>Resolve actions in listed order on Blitz Cards</li>
-									</ul>
-								</li>
-								<li>Deployment Deck
-									<ul>
-										<li>Draw cards equal to indicated number of open groups (0 if none) noted on mission to form deployment hand</li>
-										<li>When deployment group is defeated, shuffle back into deployment hand</li>
-										<li>When given AE has an opportunity to resolve an optional deployment at mission start, deploy a card starting from top of 
-											deployment hand	if sufficient threat.</li>
-										<li>If insufficient threat, cycle through deployment hand until able to deploy a card.</li>
-									</ul>
-								</li>
-								<li>Threat Level
-									<ul>
-										<li>Increase threat level as noted in campaign</li>
-									</ul>
-								</li>
-								<li>Agenda Deck
-									<ul>
-										<li>Choose one card from each Agenda set that applies to time period</li>
-										<li>Draw top 6 cards to determine which agenda sets are used by AE</li>
-										<li>Shuffle all cards from chosen sets to form Agenda Deck</li>
-									</ul>
-								</li>
-								<li>Rebel Color Assignment
-									<ul>
-										<li>Assign each rebel character with a color of: Blue, Yellow, Green, Red</li>
-									</ul>
-								</li>
-								<li>Mission Cards
-									<ul>
-										<li>Select the mission being played</li>
-										<li>Follow instructions on green side for setup</li>
-										<li>Mission cards will notify when to use red side</li>
-									</ul>
-								</li>
-								<li>Imperial Class Deck
-									<ul>
-										<li>Randomly select one of the class decks for AE to use</li>
-									</ul>
-								</li>
-							</ol>
-						</div>
-					</div>
-						<div id="Instructions">
-							<div id="ActivationPhase">
-								<h2>Activation Phase and Deployment Groups</h2>
-									<ul>
-										<li> Activate deployment groups left to right, figures from closest to furthest from a hero of priority target.</li>
-									</ul>
-									<ol>
-										<li><h4>Automated Emperor Cards</h4>
-											<ul>
-												<li>An AE card is drawn whenever AE activates a deployment group</li>
-												<li>Follow actions on drawn card to determine actions</li>
-												<li>A card can also be drawn when needing to determine a target outside of figure activation</li>
-												<li>Hit reshuffle when all cards are drawn</li>
-											</ul>
-										</li>
-										<li><h4>Blitz Cards (Part of AE deck)</h4>
-											<ul>
-												<li>When drawn deployment group focuses on Imperial Priority Target, regardless of group being assigned a target by mission card</li>
-												<li>Closest rebel figure with least health is designated as secondary target</li>
-												<li>All figures in deployment group attempt to resolve actions in listed order on Blitz card</li>
-												<li>If drawn to determine a target outside figure activation, target will be the rebel figure with least health. Threat is still gained as indicated</li>
-											</ul>
-										</li>
-										<li><h4>Imperial Class Cards</h4>
-											<ul>
-												<li>Cards bought by AE are arranged left to right by point cost</li>
-												<li>They are played at FIRST valid opportunity, starting from the left</li>
-												<li>When a deployment card leaves play, return any attachments to Imperial Class hand</li>
-												<li>Attachments with abilities can be triggered when the corresponding figure resolves an <b>ABILITY</b> action on an AE card</li>
-												<li>Attachments are played when a new deployment card is played only if valid</li>
-												<li>Cards with threat cost are only played if AE has twice the required threat</li>
-											</ul>
-										</li>
-										<li><h4>Agenda Cards</h4>
-											<ul>
-												<li>Agenda Cards are also arranged left to right, and played at first valid opportunity</li>
-												<li>If card can be discarded <b>OR</b> returned to deck after being played, it is discarded</li>
-												<li>Side missions are played immediately</li>
-												<li>If there is a current Imperial side mission, new side missions are held in reserve until current mission is complete</li>
-												<li>However, <b>forced</b> side missions are played immediately regardless if there is another Imperial side mission in play</li>
-											</ul>
-										</li>
-									</ol>
-							</div>
-							<div id="ChoosingTargets">
-								<h2>Choosing Targets</h2>
-								<ul class="tutoriallist">
-									<li>Target choice is determined by mission card and automated emperor card drawn at 
-									start of a group's activation
-									</li>
-									<li>Priority targets will <b>always</b> be targeted first</li>
-									<li>If a figure is not assigned a priority target, or priority target is not in range, 
-									figure attempts to resolve action against a Secondary Target</li>
-									<li>Secondary targets are shown as Rebel icons on the Automated Emperor card, 
-									and resolved left to right</li>
-									<li>If no priority or secondary targets are available, closest rebel controlled 
-									figure with least health is targeted</li>
-								</ul>
-							</div>
-							<div id="AEActions">
-								<h2>Automated Emperor Card Actions</h2>
-								
-								Attempt to resolve actions on drawn Automated Emperor card in listed order. 
-								Standard action rules apply. Actions that cannot be completed or don't apply are skipped. 
-								If bottom of list is reached and actions are still remaining, start from top of list. <br>
-								
-								<ul id="AEList">
-									<li>Attack
-										<ol>
-											<li>Closest assigned priority target</li>
-											<li>1st Secondary Target within range</li>
-											<li>Closes Rebel-controlled figure with least health</li>
-										</ol>
-									</li>
-									<li>Range Definition
-										<ul>
-											<li><b>Melee </b>: Adjacent space</li>
-											<li><b>Reach </b>: 2 spaces</li>
-											<li><b>Ranged </b>: 4 spaces</li>
-											<li>Non-surge +Accuracy modifiers are added to figure's max attack range</li>
-											<li>If no targets are in range/line of sight, Attack action is skipped</li>
-											<li>If priority target is not attackable, attack action becomes interact</li>
-											<li>Attack action becomes interact, in the case of doors</li>
-										</ul>
-									</li>
-									<li>Engage
-										<ul>
-											<li>Move action to figure's speed</li>
-											<li>
-												<ol>
-													<li>Attempt for max attack range & line of sight, using shortest route</li>
-													<li>Move towards closest assigned priority target as much as possible, 
-											regardless of distance</li>
-													<li>Move toward closest secondary target as list if no priority target</li>
-												</ol>
-											</li>
-											<li>Move through opposing figures if necessary if there are enough move points</li>
-										</ul>
-									</li>
-									<li>Ability
-										<ul>
-											<li>Activate ability if it makes sense</li>
-											<li>Includes attached Modification Imperial Class cards</li>
-											<li>Resolve in order as listed on deployment card</li>
-										</ul>
-									</li>
-									<li>Repositioning
-										<ul>
-											<li>Utilize any remaining move points to reposition to better position</li>
-											<li><b>Melee </b>: Break line of sight of ranged rebels </li>
-											<li><b>Reach </b>: Move to be 2 spaces away from nearby rebels </li>
-											<li><b>Ranged </b>: Move to be up to 4 spaces away from nearby rebels. 
-											Use cover if possible </li>
-											<li>Attempt to move towards closest Priority target if assigned 
-											and not already in max attack range and line of sight</li>
-										</ul>
-									</li>
-									<li>Surges
-										<ol>
-											<li>Spend to increase accuracy to hit</li>
-											<li>Double Surges</li>
-											<li>Apply remaining from left to right, top to bottom on deployment card</li>
-										</ol>
-									</li>
-								</ul>
-								<div id="conditionsText">
-								<h2>Conditions</h2>
-									<ul id="conditionslist">
-										<li>If an Imperial figure has condition that requires action to remove, they will use an action 
-										at start of activation to remove it</li>
-									</ul>
-								</div>
-								<div id="statusPhaseText">
-										<h2>Status Phase</h2>
-											<ul>
-												<li>During Status Phase, AE will reinforce an existing deployment group, or deploy a new group</li>
-												<li>If there are 4 or more deployment groups in play, or no cards in the deployment hand, it will attempt to reinforce 
-												a deployment group</li>
-												<li>If there are fewer than 4 deployment groups, it will attempt to deploy a new group.
-												<li>Reinforcements are placed at the closest Imperial spawn point to the heros</li>
-												<li><b>Reinforcement</b>
-													<ul>
-														<li>Locate the first deployment group in play starting from the left that can accept reinforcements</li>
-														<li>Reinforce with as many units as possible</li>
-														<li>If reinforcements are placed, AE will not attempt to deploy new groups</li>
-														<li>If is an inadequet amount of threat, AE will save it for next status phase</li>
-													</ul>
-												</li>
-												<li><b>Deployment</b>
-													<ul>
-														<li>Draw top card of deployment hand</li>
-														<li>If AE has enough threat to deploy, do so</li>
-														<li>Place deployment card right of any in play</li>
-														<li>If there is not enough theat, place the deployment card at the bottom of the deployment hand 
-														and save threat for next status phase</li>
-													</ul>
-												</li>
-												<li><b>Allies</b>
-													<ul>
-														<li>If playing with less than 4 Rebels, assign a color to an Ally when placing them for a mission</li>
-													</ul>
-												</li>
-											</ul>
-									</div>
-									<div id="upgradePhaseText">
-										<h2>Upgrade Stage</h2>
-											<ul>
-												<li>Rebels upgrade as usual</li>
-												<li><b>Purchasing Class Cards</b>
-													<ul>
-														<li>Shuffle the Imperial Class deck and draw the top card</li>
-														<li>If AE has enough XP to buy the card, place it into the AE play area</li>
-														<li>If it cannot be bought, draw another card until 3 cards are drawn, or a card is bought</li>
-													</ul>
-												</li>
-												<li><b>Purchasing Agenda Cards</b>
-													<ul>
-														<li>Shuffle the Agenda deck and draw the top card</li>
-														<li>If AE has enough influence to buy the card, place it into the AE play area</li>
-														<li>If the card cannot be bought, draw anohter card, repeat until 4 cards have been drawn, or a card has been bought</li>
-													</ul>
-												</li>
-												<li><b>Increase AE Difficulty</b>
-													<ul>
-														<li>If AE lost the previous mission, increase the Blitz card counter</li>
-													</ul>
-												</li>
-											</ul>
-									</div>
-									<div id="miscText">
-										<h2>Other Bits</h2>
-										<ul>
-											<li>Any effect that would target a single Rebel will target the mission Priority Target</li>
-											<li>If Priority Target is not a valid target, draw an AE card and target the first Secondary Target</li>
-											<li>Any effect/ability that targets multiple targets should be placed to maximize targets</li>
-											<li>If unsure of anything, do the action that is <b>MOST</b> damaging to the Rebels</li>
-											<li><b>Imperial Figure Abilities</b>
-												<ul>
-													<li>AT-ST
-														<ul>
-															<li>Targeting Computer: If a single HIT result is rolled on the RED die, use this ability to reroll</li>
-														</ul>
-													</li>
-													<li>Darth Vader
-														<ul>
-															<li>Brutality: This ability will only be used if there are 2 different targets in range</li>
-															<li>Foresight: If a single DEFENSE result is rolled on a DEFENSE die, then use this ability to reroll</li>
-														</ul>
-													</li>
-													<li>General Weiss
-														<ul>
-															<li>General's Orders: Choose 2 figures that are furthest away and not within max attack of a target</li>
-															<li>Epic Arsenal: If within 2 spaces of a target, use 2 RED and 1 GREEN attack dice. If not within 2 spaces, use 1 RED, 1 BLUE, and 1 GREEN attack dice</li>
-														</ul>
-													</li>
-													<li>IG-88
-														<ul>
-															<li>Arsenal: If within 2 spaces of a target, use the RED and GREEN attack dice. If not, use the BLUE and GREEN attack dice</li>
-														</ul>
-													</li>
-													<li>Imperial Officer
-														<ul>
-															<li>Order: Choose the closest friendly figure</li>
-															<li>Executive Order: Choose the closest friendly figure. If the figure is in range to attack, attck. If not, move</li>
-															<li>Cower: Reroll if the result is a blank face on a defense die</li>
-														</ul>
-													</li>
-													<li>Nexu
-														<ul>
-															<li>Pounce: Use if within 4 spaces of a target, and Nexu has not performed an Attack this activation</li>
-														</ul>
-													</li>
-													<li>Probe Droid
-														<ul>
-															<li>Self-Destruct: Use this ability when adjacent to 2 or more Rebels are the end of the round, and there are NO adjacent friendly figures</li>
-														</ul>
-													</li>
-													<li>Royal Guard Champion
-														<ul>
-															<li>Brutality: This ability will only be used if there are 2 different targets in range</li>
-														</ul>
-													</li>
-													<li>Stormtrooper
-														<ul>
-															<li>Last Stand: Choose the closest friendly figure when using this ability</li>
-														</ul>
-													</li>
-												</ul>
-											</li>
-										</ul>
-									</div>
-							</div>
-						</div>
-						</div>
-					<div class="modal-footer">
-						<p>Web app developed by <a href="https://github.com/kckaiwei">Kevin Chang</a> and <a href="https://github.com/katmd">Kathleen McDaniel</a> Automated Emperor Cards by <a href="https://boardgamegeek.com/user/RedJak7">RedJak7</a></p>
-					</div>
-				</div>
-	</div>
-</div>
-
-<!--END MODAL
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close large">&times;</span>
+                <h1>Instructions on using Automated Emperor</h1>
+            </div>
+            <div class="modal-body">
+                <div id="instructionsteps">
+                    <div id="setup" class="setupDivClass">
+                        <h2>Setup</h2>
+                        <ol>
+                            <li>Automated Emperor Deck
+                                <ul>
+                                    <li>Set Blitz level (2 at beginning of campaign)</li>
+                                    <li>Start at 2 at campaign start, increase by one for each mission Imperials lose</li>
+                                    <li>When drawn, deployment group focuses on Priority Target, regardless of if they would assigned one by mission card </li>
+                                    <li>Secondary Target is closest Rebel figure with least health </li>
+                                    <li>Resolve actions in listed order on Blitz Cards</li>
+                                </ul>
+                            </li>
+                            <li>Deployment Deck
+                                <ul>
+                                    <li>Draw cards equal to indicated number of open groups (0 if none) noted on mission to form deployment hand</li>
+                                    <li>When deployment group is defeated, shuffle back into deployment hand</li>
+                                    <li>When given AE has an opportunity to resolve an optional deployment at mission start, deploy a card starting from top of deployment hand if sufficient threat.</li>
+                                    <li>If insufficient threat, cycle through deployment hand until able to deploy a card.</li>
+                                </ul>
+                            </li>
+                            <li>Threat Level
+                                <ul>
+                                    <li>Increase threat level as noted in campaign</li>
+                                </ul>
+                            </li>
+                            <li>Agenda Deck
+                                <ul>
+                                    <li>Choose one card from each Agenda set that applies to time period</li>
+                                    <li>Draw top 6 cards to determine which agenda sets are used by AE</li>
+                                    <li>Shuffle all cards from chosen sets to form Agenda Deck</li>
+                                </ul>
+                            </li>
+                            <li>Rebel Color Assignment
+                                <ul>
+                                    <li>Assign each rebel character with a color of: Blue, Yellow, Green, Red</li>
+                                </ul>
+                            </li>
+                            <li>Mission Cards
+                                <ul>
+                                    <li>Select the mission being played</li>
+                                    <li>Follow instructions on green side for setup</li>
+                                    <li>Mission cards will notify when to use red side</li>
+                                </ul>
+                            </li>
+                            <li>Imperial Class Deck
+                                <ul>
+                                    <li>Randomly select one of the class decks for AE to use</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <div id="Instructions">
+                    <div id="ActivationPhase">
+                        <h2>Activation Phase and Deployment Groups</h2>
+                        <ul>
+                            <li> Activate deployment groups left to right, figures from closest to furthest from a hero of priority target.</li>
+                        </ul>
+                        <ol>
+                            <li>
+                                <h4>Automated Emperor Cards</h4>
+                                <ul>
+                                    <li>An AE card is drawn whenever AE activates a deployment group</li>
+                                    <li>Follow actions on drawn card to determine actions</li>
+                                    <li>A card can also be drawn when needing to determine a target outside of figure activation</li>
+                                    <li>Hit reshuffle when all cards are drawn</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h4>Blitz Cards (Part of AE deck)</h4>
+                                <ul>
+                                    <li>When drawn deployment group focuses on Imperial Priority Target, regardless of group being assigned a target by mission card</li>
+                                    <li>Closest rebel figure with least health is designated as secondary target</li>
+                                    <li>All figures in deployment group attempt to resolve actions in listed order on Blitz card</li>
+                                    <li>If drawn to determine a target outside figure activation, target will be the rebel figure with least health. Threat is still gained as indicated</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h4>Imperial Class Cards</h4>
+                                <ul>
+                                    <li>Cards bought by AE are arranged left to right by point cost</li>
+                                    <li>They are played at FIRST valid opportunity, starting from the left</li>
+                                    <li>When a deployment card leaves play, return any attachments to Imperial Class hand</li>
+                                    <li>Attachments with abilities can be triggered when the corresponding figure resolves an <b>ABILITY</b> action on an AE card</li>
+                                    <li>Attachments are played when a new deployment card is played only if valid</li>
+                                    <li>Cards with threat cost are only played if AE has twice the required threat</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h4>Agenda Cards</h4>
+                                <ul>
+                                    <li>Agenda Cards are also arranged left to right, and played at first valid opportunity</li>
+                                    <li>If card can be discarded <b>OR</b> returned to deck after being played, it is discarded</li>
+                                    <li>Side missions are played immediately</li>
+                                    <li>If there is a current Imperial side mission, new side missions are held in reserve until current mission is complete</li>
+                                    <li>However, <b>forced</b> side missions are played immediately regardless if there is another Imperial side mission in play</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                    <div id="ChoosingTargets">
+                        <h2>Choosing Targets</h2>
+                        <ul class="tutoriallist">
+                            <li>Target choice is determined by mission card and automated emperor card drawn at start of a group's activation
+                            </li>
+                            <li>Priority targets will <b>always</b> be targeted first</li>
+                            <li>If a figure is not assigned a priority target, or priority target is not in range, figure attempts to resolve action against a Secondary Target</li>
+                            <li>Secondary targets are shown as Rebel icons on the Automated Emperor card, and resolved left to right</li>
+                            <li>If no priority or secondary targets are available, closest rebel controlled figure with least health is targeted</li>
+                        </ul>
+                    </div>
+                    <div id="AEActions">
+                        <h2>Automated Emperor Card Actions</h2> Attempt to resolve actions on drawn Automated Emperor card in listed order. Standard action rules apply. Actions that cannot be completed or don't apply are skipped. If bottom of list is reached and actions are still remaining, start from top of list.
+                        <br>
+                        <ul id="AEList">
+                            <li>Attack
+                                <ol>
+                                    <li>Closest assigned priority target</li>
+                                    <li>1st Secondary Target within range</li>
+                                    <li>Closes Rebel-controlled figure with least health</li>
+                                </ol>
+                            </li>
+                            <li>Range Definition
+                                <ul>
+                                    <li><b>Melee </b>: Adjacent space</li>
+                                    <li><b>Reach </b>: 2 spaces</li>
+                                    <li><b>Ranged </b>: 4 spaces</li>
+                                    <li>Non-surge +Accuracy modifiers are added to figure's max attack range</li>
+                                    <li>If no targets are in range/line of sight, Attack action is skipped</li>
+                                    <li>If priority target is not attackable, attack action becomes interact</li>
+                                    <li>Attack action becomes interact, in the case of doors</li>
+                                </ul>
+                            </li>
+                            <li>Engage
+                                <ul>
+                                    <li>Move action to figure's speed</li>
+                                    <li>
+                                        <ol>
+                                            <li>Attempt for max attack range & line of sight, using shortest route</li>
+                                            <li>Move towards closest assigned priority target as much as possible, regardless of distance</li>
+                                            <li>Move toward closest secondary target as list if no priority target</li>
+                                        </ol>
+                                    </li>
+                                    <li>Move through opposing figures if necessary if there are enough move points</li>
+                                </ul>
+                            </li>
+                            <li>Ability
+                                <ul>
+                                    <li>Activate ability if it makes sense</li>
+                                    <li>Includes attached Modification Imperial Class cards</li>
+                                    <li>Resolve in order as listed on deployment card</li>
+                                </ul>
+                            </li>
+                            <li>Repositioning
+                                <ul>
+                                    <li>Utilize any remaining move points to reposition to better position</li>
+                                    <li><b>Melee </b>: Break line of sight of ranged rebels </li>
+                                    <li><b>Reach </b>: Move to be 2 spaces away from nearby rebels </li>
+                                    <li><b>Ranged </b>: Move to be up to 4 spaces away from nearby rebels. Use cover if possible </li>
+                                    <li>Attempt to move towards closest Priority target if assigned and not already in max attack range and line of sight</li>
+                                </ul>
+                            </li>
+                            <li>Surges
+                                <ol>
+                                    <li>Spend to increase accuracy to hit</li>
+                                    <li>Double Surges</li>
+                                    <li>Apply remaining from left to right, top to bottom on deployment card</li>
+                                </ol>
+                            </li>
+                        </ul>
+                        <div id="conditionsText">
+                            <h2>Conditions</h2>
+                            <ul id="conditionslist">
+                                <li>If an Imperial figure has condition that requires action to remove, they will use an action at start of activation to remove it</li>
+                            </ul>
+                        </div>
+                        <div id="statusPhaseText">
+                            <h2>Status Phase</h2>
+                            <ul>
+                                <li>During Status Phase, AE will reinforce an existing deployment group, or deploy a new group</li>
+                                <li>If there are 4 or more deployment groups in play, or no cards in the deployment hand, it will attempt to reinforce a deployment group</li>
+                                <li>If there are fewer than 4 deployment groups, it will attempt to deploy a new group.
+                                    <li>Reinforcements are placed at the closest Imperial spawn point to the heros</li>
+                                    <li><b>Reinforcement</b>
+                                        <ul>
+                                            <li>Locate the first deployment group in play starting from the left that can accept reinforcements</li>
+                                            <li>Reinforce with as many units as possible</li>
+                                            <li>If reinforcements are placed, AE will not attempt to deploy new groups</li>
+                                            <li>If is an inadequet amount of threat, AE will save it for next status phase</li>
+                                        </ul>
+                                    </li>
+                                    <li><b>Deployment</b>
+                                        <ul>
+                                            <li>Draw top card of deployment hand</li>
+                                            <li>If AE has enough threat to deploy, do so</li>
+                                            <li>Place deployment card right of any in play</li>
+                                            <li>If there is not enough theat, place the deployment card at the bottom of the deployment hand and save threat for next status phase</li>
+                                        </ul>
+                                    </li>
+                                    <li><b>Allies</b>
+                                        <ul>
+                                            <li>If playing with less than 4 Rebels, assign a color to an Ally when placing them for a mission</li>
+                                        </ul>
+                                    </li>
+                            </ul>
+                        </div>
+                        <div id="upgradePhaseText">
+                            <h2>Upgrade Stage</h2>
+                            <ul>
+                                <li>Rebels upgrade as usual</li>
+                                <li><b>Purchasing Class Cards</b>
+                                    <ul>
+                                        <li>Shuffle the Imperial Class deck and draw the top card</li>
+                                        <li>If AE has enough XP to buy the card, place it into the AE play area</li>
+                                        <li>If it cannot be bought, draw another card until 3 cards are drawn, or a card is bought</li>
+                                    </ul>
+                                </li>
+                                <li><b>Purchasing Agenda Cards</b>
+                                    <ul>
+                                        <li>Shuffle the Agenda deck and draw the top card</li>
+                                        <li>If AE has enough influence to buy the card, place it into the AE play area</li>
+                                        <li>If the card cannot be bought, draw anohter card, repeat until 4 cards have been drawn, or a card has been bought</li>
+                                    </ul>
+                                </li>
+                                <li><b>Increase AE Difficulty</b>
+                                    <ul>
+                                        <li>If AE lost the previous mission, increase the Blitz card counter</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="miscText">
+                            <h2>Other Bits</h2>
+                            <ul>
+                                <li>Any effect that would target a single Rebel will target the mission Priority Target</li>
+                                <li>If Priority Target is not a valid target, draw an AE card and target the first Secondary Target</li>
+                                <li>Any effect/ability that targets multiple targets should be placed to maximize targets</li>
+                                <li>If unsure of anything, do the action that is <b>MOST</b> damaging to the Rebels</li>
+                                <li><b>Imperial Figure Abilities</b>
+                                    <ul>
+                                        <li>AT-ST
+                                            <ul>
+                                                <li>Targeting Computer: If a single HIT result is rolled on the RED die, use this ability to reroll</li>
+                                            </ul>
+                                        </li>
+                                        <li>Darth Vader
+                                            <ul>
+                                                <li>Brutality: This ability will only be used if there are 2 different targets in range</li>
+                                                <li>Foresight: If a single DEFENSE result is rolled on a DEFENSE die, then use this ability to reroll</li>
+                                            </ul>
+                                        </li>
+                                        <li>General Weiss
+                                            <ul>
+                                                <li>General's Orders: Choose 2 figures that are furthest away and not within max attack of a target</li>
+                                                <li>Epic Arsenal: If within 2 spaces of a target, use 2 RED and 1 GREEN attack dice. If not within 2 spaces, use 1 RED, 1 BLUE, and 1 GREEN attack dice</li>
+                                            </ul>
+                                        </li>
+                                        <li>IG-88
+                                            <ul>
+                                                <li>Arsenal: If within 2 spaces of a target, use the RED and GREEN attack dice. If not, use the BLUE and GREEN attack dice</li>
+                                            </ul>
+                                        </li>
+                                        <li>Imperial Officer
+                                            <ul>
+                                                <li>Order: Choose the closest friendly figure</li>
+                                                <li>Executive Order: Choose the closest friendly figure. If the figure is in range to attack, attck. If not, move</li>
+                                                <li>Cower: Reroll if the result is a blank face on a defense die</li>
+                                            </ul>
+                                        </li>
+                                        <li>Nexu
+                                            <ul>
+                                                <li>Pounce: Use if within 4 spaces of a target, and Nexu has not performed an Attack this activation</li>
+                                            </ul>
+                                        </li>
+                                        <li>Probe Droid
+                                            <ul>
+                                                <li>Self-Destruct: Use this ability when adjacent to 2 or more Rebels are the end of the round, and there are NO adjacent friendly figures</li>
+                                            </ul>
+                                        </li>
+                                        <li>Royal Guard Champion
+                                            <ul>
+                                                <li>Brutality: This ability will only be used if there are 2 different targets in range</li>
+                                            </ul>
+                                        </li>
+                                        <li>Stormtrooper
+                                            <ul>
+                                                <li>Last Stand: Choose the closest friendly figure when using this ability</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <p>Web app developed by <a href="https://github.com/kckaiwei">Kevin Chang</a> and <a href="https://github.com/katmd">Kathleen McDaniel</a> Automated Emperor Cards by <a href="https://boardgamegeek.com/user/RedJak7">RedJak7</a></p>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!--END MODAL
 -->
-
-<!--Begin floating side pullouts-->
-
-<div id="loadoutIcon" class="floatRight">
-	<img src="files/itemIcons/Ranged.png" class="barIcons" id="loadoutBtn" alt="loadout icon">
-
-</div>
-
-<div id="missionIcon" class="floatRight">
-	<img src="files/itemIcons/Mission.png" class="barIcons" id="missionBtn" alt="mission icon">
-
-</div>
-
-<div id="referenceIcon" class="floatRight">
-	<img src="files/itemIcons/Tech.png" class="barIcons" id="referenceBtn" alt="reference icon">
-
-</div>
-
-<div id="helpIcon" class="floatRight">
-	<img src="files/itemIcons/Help.png" class="barIcons" id="myBtn" alt="help icon">
-
-</div>
-
-
-<!--Pullout Modals-->
-
-<div id="loadoutModal" class="modalRight">
-	<!-- Modal content -->
-	<div class="modal-contentRight">
-		<div class="modal-header">
-				<span class="close large">&times;</span>
-				<h1>Rebel Loadout</h1>
-		</div>
-		<div class="modal-body">
-			<table class="loadoutTable mobilealign">
-				<thead>
-				<tr id="titleRow">
-					<th>
-						<h3>Player #</h3>
-					</th>
-					<th>
-						<h3>Character</h3>
-					</th>
-					<th>
-						<h3>Current Experience</h3>
-					</th>
-					<th>
-						<h3>Credits</h3>
-					</th>
-					<th>
-						<h3>Skills</h3>
-					</th>
-					<th>
-						<h3>Equipment</h3>
-					</th>
-				</tr>
-				</thead>
-				<tbody>
-				<tr id="playerOneRow">
-					<td>
-						<h3 class="playerOne">1</h3>
-					</td>
-					<td>
-						<select id="charSelect1" onchange="selectPOne()">
-							<option value="Diala">Diala Passil</option>
-							<option value="Fenn">Fenn Signis</option>
-							<option value="Gaarkhan">Gaarkhan</option>
-							<option value="Gideon">Gideon</option>
-							<option value="Jyn">Jyn Odan</option>
-							<option value="Mak">Mak Eshka'rey</option>
-							<option value="Biv">Biv Bodhrik</option>
-							<option value="Saska">Saska Teft</option>
-							<option value="Loku">Loku Kanoloa</option>
-							<option value="MHD">MHD-19</option>
-							<option value="Verena">Verena Talos</option>
-							<option value="Davith">Davith Elso</option>
-							<option value="Murne">Murne Rin</option>
-						</select>
-					</td>
-					<td>
-						<div class="center">
-							<button onClick="playerOneExpDec()">-</button>
-							<span id ="playerOneExp" class="IAfont large">0</span>
-							<button onClick="playerOneExpInc()">+</button>
-						</div>
-					</td>
-					<td>
-						<input type="tel" id="playerOneCreds" value="0">
-					</td>
-					<td>
-						<form id="playerOneSkills">
-							<table class="small-labels">
-								<tr>
-									<td>
-										<input type="checkbox" id="p1check1">
-										<label for="p1check1" id="p1check1label"></label>
-									</td>
-									<td>
-										<input type="checkbox" id="p1check2">
-										<label for="p1check2" id="p1check2label"></label>
-									</td>
-									<td>
-										<input type="checkbox" id="p1check3">
-										<label for="p1check3" id="p1check3label"></label>
-									</td>
-									<td>
-										<input type="checkbox" id="p1check4">
-										<label for="p1check4" id="p1check4label"></label>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<input type="checkbox" id="p1check5">
-										<label for="p1check5" id="p1check5label"></label>
-									</td>
-									<td>
-										<input type="checkbox" id="p1check6">
-										<label for="p1check6" id="p1check6label"></label>
-									</td>
-									<td>
-										<input type="checkbox" id="p1check7">
-										<label for="p1check7" id="p1check7label"></label>
-									</td>
-									<td>
-										<input type="checkbox" id="p1check8">
-										<label for="p1check8" id="p1check8label"></label>
-									</td>
-								</tr>
-							</table>
-						</form>
-					</td>
-					<td>
-						<form id="playerOneEquip" submit="return false">
-							<table>
-								<tr>
-									<td>
-									<table>
-										<tr>
-											<td>
-												<img src="files/itemIcons/Weapons.png" class="loadout-icons" alt="weapon icon">
-											</td>
-											<td>
-											<select id="char1wep1" onchange="1wep1()">
-												<option value="None">None</option>
-											</select>
-											</td>
-										</tr>
-										<tr>
-											<td><img src="files/itemIcons/Weapons.png" class="loadout-icons" alt="weapon icon">
-											</td>
-											<td>
-												<select id="char1wep2" onchange="1wep2()">
-													<option value="None">None</option>
-												</select>
-											</td>
-										</tr>
-									</table>
-									</td>
-									<td>
-									<table>
-									<tr>
-										<td><img src="files/itemIcons/Armor.png" class="loadout-icons" alt="armor icon">
-										</td>
-										<td>
-											<select id="char1armor" onchange="1armor()">
-												<option value="None">None</option>
-											</select>
-										</td>
-									</tr>
-									<tr>
-										<td><img src="files/itemIcons/Equipment.png" class="loadout-icons" alt="equipment icon">
-										</td>
-										<td>
-											<select id="char1equip1" onchange="1equip1()">
-												<option value="None">None</option>
-											</select>
-										</td>
-									</tr>
-									</table>
-									</td>
-									<td>
-									<table>
-									<tr>
-										<td><img src="files/itemIcons/Equipment.png" class="loadout-icons" alt="equipment icon">
-										</td>
-										<td>
-											<select id="char1equip2" onchange="1equip2()">
-												<option value="None">None</option>
-											</select>
-										</td>
-									</tr>
-									<tr>
-										<td><img src="files/itemIcons/Equipment.png" class="loadout-icons" alt="equipment icon">
-										</td>
-										<td>
-											<select id="char1equip3" onchange="1equip3()">
-												<option value="None">None</option>
-											</select>
-										</td>
-									</tr>
-									</table>
-									</td>
-								</tr>
-							</table>
-						</form>
-					</td>
-				</tr>
-				<tr id="playerTwoRow">
-					<td>
-						<h3 class="playerTwo">2</h3>
-					</td>
-					<td>
-						<select id="charSelect2" onchange="selectPTwo()">
-							<option value="Diala">Diala Passil</option>
-							<option value="Fenn">Fenn Signis</option>
-							<option value="Gaarkhan">Gaarkhan</option>
-							<option value="Gideon">Gideon</option>
-							<option value="Jyn">Jyn Odan</option>
-							<option value="Mak">Mak Eshka'rey</option>
-							<option value="Biv">Biv Bodhrik</option>
-							<option value="Saska">Saska Teft</option>
-							<option value="Loku">Loku Kanoloa</option>
-							<option value="MHD">MHD-19</option>
-							<option value="Verena">Verena Talos</option>
-							<option value="Davith">Davith Elso</option>
-							<option value="Murne">Murne Rin</option>
-						</select>
-					</td>
-					<td>
-						<div class="center">
-							<button onClick="playerTwoExpDec()">-</button>
-							<span id ="playerTwoExp" class="IAfont large">0</span>
-							<button onClick="playerTwoExpInc()">+</button>
-						</div>
-					</td>
-					<td>
-						<input type="tel" id="playerTwoCreds" value="0">
-						</input>
-					</td>
-					<td>
-						<form id="playerTwoSkills" submit="return false">
-							<table class="small-labels">
-								<tr>
-									<td>
-										<input type="checkbox" id="p2check1">
-										<label for="p2check1" id="p2check1label"></label>
-									</td>
-									<td>
-										<input type="checkbox" id="p2check2">
-										<label for="p2check2" id="p2check2label"></label>
-									</td>
-									<td>
-										<input type="checkbox" id="p2check3">
-										<label for="p2check3" id="p2check3label"></label>
-									</td>
-									<td>
-										<input type="checkbox" id="p2check4">
-										<label for="p2check4" id="p2check4label"></label>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<input type="checkbox" id="p2check5">
-										<label for="p2check5" id="p2check5label"></label>
-									</td>
-									<td>
-										<input type="checkbox" id="p2check6">
-										<label for="p2check6" id="p2check6label"></label>
-									</td>
-									<td>
-										<input type="checkbox" id="p2check7">
-										<label for="p2check7" id="p2check7label"></label>
-									</td>
-									<td>
-										<input type="checkbox" id="p2check8">
-										<label for="p2check8" id="p2check8label"></label>
-									</td>
-								</tr>
-							</table>
-						</form>
-					</td>
-					<td>
-						<form id="playerTwoEquip" submit="return false">
-							<table>
-								<tr>
-									<td>
-										<table>
-										<tr>
-											<td><img src="files/itemIcons/Weapons.png" class="loadout-icons" alt="weapon icon">
-											</td>
-											<td>
-												<select id="char2wep1" onchange="1wep1()">
-													<option value="None">None</option>
-												</select>
-											</td>
-										</tr>
-										<tr>
-											<td><img src="files/itemIcons/Weapons.png" class="loadout-icons" alt="weapon icon">
-											</td>
-											<td>
-												<select id="char2wep2" onchange="1wep2()">
-													<option value="None">None</option>
-												</select>
-											</td>
-										</tr>
-										</table>
-									</td>
-									<td>
-										<table>
-										<tr>
-											<td><img src="files/itemIcons/Armor.png" class="loadout-icons" alt="armor icon">
-											</td>
-											<td>
-												<select id="char2armor" onchange="1armor()">
-													<option value="None">None</option>
-												</select>
-											</td>
-										</tr>
-										<tr>
-											<td><img src="files/itemIcons/Equipment.png" class="loadout-icons" alt="equipment icon">
-											</td>
-											<td>
-												<select id="char2equip1" onchange="1equip1()">
-													<option value="None">None</option>
-												</select>
-											</td>
-										</tr>
-										</table>
-									</td>
-									<td>
-										<table>
-										<tr>
-											<td><img src="files/itemIcons/Equipment.png" class="loadout-icons" alt="equipment icon">
-											</td>
-											<td>
-												<select id="char2equip2" onchange="1equip2()">
-													<option value="None">None</option>
-												</select>
-											</td>
-										</tr>
-										<tr>
-											<td><img src="files/itemIcons/Equipment.png" class="loadout-icons" alt="equipment icon">
-											</td>
-											<td>
-												<select id="char2equip3" onchange="1equip3()">
-													<option value="None">None</option>
-												</select>
-											</td>
-										</tr>
-										</table>
-									</td>
-								</tr>
-							</table>
-						</form>
-					</td>
-				</tr>
-				<tr id="playerThreeRow">
-					<td>
-						<h3 class="playerThree">3</h3>
-					</td>
-					<td>
-						<select id="charSelect3" onchange="selectPThree()">
-							<option value="Diala">Diala Passil</option>
-							<option value="Fenn">Fenn Signis</option>
-							<option value="Gaarkhan">Gaarkhan</option>
-							<option value="Gideon">Gideon</option>
-							<option value="Jyn">Jyn Odan</option>
-							<option value="Mak">Mak Eshka'rey</option>
-							<option value="Biv">Biv Bodhrik</option>
-							<option value="Saska">Saska Teft</option>
-							<option value="Loku">Loku Kanoloa</option>
-							<option value="MHD">MHD-19</option>
-							<option value="Verena">Verena Talos</option>
-							<option value="Davith">Davith Elso</option>
-							<option value="Murne">Murne Rin</option>
-						</select>
-					</td>
-					<td>
-						<div class="center">
-							<button onClick="playerThreeExpDec()">-</button>
-							<span id ="playerThreeExp" class="IAfont large">0</span>
-							<button onClick="playerThreeExpInc()">+</button>
-						</div>
-					</td>
-					<td>
-						<input type="tel" id="playerThreeCreds" value="0">
-						</input>
-					</td>
-					<td>
-						<form id="playerThreeSkills" submit="return false">
-							<table class="small-labels">
-								<tr>
-									<td>
-										<input type="checkbox" id="p3check1">
-										<label for="p3check1" id="p3check1label"></label>
-									</td>
-									<td>
-										<input type="checkbox" id="p3check2">
-										<label for="p3check2" id="p3check2label"></label>
-									</td>
-									<td>
-										<input type="checkbox" id="p3check3">
-										<label for="p3check3" id="p3check3label"></label>
-									</td>
-									<td>
-										<input type="checkbox" id="p3check4">
-										<label for="p3check4" id="p3check4label"></label>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<input type="checkbox" id="p3check5">
-										<label for="p3check5" id="p3check5label"></label>
-									</td>
-									<td>
-										<input type="checkbox" id="p3check6">
-										<label for="p3check6" id="p3check6label"></label>
-									</td>
-									<td>
-										<input type="checkbox" id="p3check7">
-										<label for="p3check7" id="p3check7label"></label>
-									</td>
-									<td>
-										<input type="checkbox" id="p3check8">
-										<label for="p3check8" id="p3check8label"></label>
-									</td>
-								</tr>
-							</table>
-						</form>
-					</td>
-					<td>
-						<form id="playerThreeEquip" submit="return false">
-							<table>
-								<tr>
-									<td>
-										<table>
-										<tr>
-											<td><img src="files/itemIcons/Weapons.png" class="loadout-icons" alt="weapon icon">
-											</td>
-											<td>
-												<select id="char3wep1" onchange="1wep1()">
-													<option value="None">None</option>
-												</select>
-											</td>
-										</tr>
-										<tr>
-											<td><img src="files/itemIcons/Weapons.png" class="loadout-icons" alt="weapon icon">
-											</td>
-											<td>
-												<select id="char3wep2" onchange="1wep2()">
-													<option value="None">None</option>
-												</select>
-											</td>
-										</tr>
-										</table>
-									</td>
-									<td>
-										<table>
-										<tr>
-											<td><img src="files/itemIcons/Armor.png" class="loadout-icons" alt="armor icon">
-											</td>
-											<td>
-												<select id="char3armor" onchange="1armor()">
-													<option value="None">None</option>
-												</select>
-											</td>
-										</tr>
-										<tr>
-											<td><img src="files/itemIcons/Equipment.png" class="loadout-icons" alt="equipment icon">
-											</td>
-											<td>
-												<select id="char3equip1" onchange="1equip1()">
-													<option value="None">None</option>
-												</select>
-											</td>
-										</tr>
-										</table>
-									</td>
-									<td>
-										<table>
-										<tr>
-											<td><img src="files/itemIcons/Equipment.png" class="loadout-icons" alt="equipment icon">
-											</td>
-											<td>
-												<select id="char3equip2" onchange="1equip2()">
-													<option value="None">None</option>
-												</select>
-											</td>
-										</tr>
-										<tr>
-											<td><img src="files/itemIcons/Equipment.png" class="loadout-icons" alt="equipment icon">
-											</td>
-											<td>
-												<select id="char3equip3" onchange="1equip3()">
-													<option value="None">None</option>
-												</select>
-											</td>
-										</tr>
-										</table>
-									</td>
-								</tr>
-							</table>
-						</form>
-					</td>
-				</tr>
-				<tr id="playerFourRow">
-					<td>
-						<h3 class="playerFour">4</h3>
-					</td>
-					<td>
-						<select id="charSelect4" onchange="selectPFour()">
-							<option value="Diala">Diala Passil</option>
-							<option value="Fenn">Fenn Signis</option>
-							<option value="Gaarkhan">Gaarkhan</option>
-							<option value="Gideon">Gideon</option>
-							<option value="Jyn">Jyn Odan</option>
-							<option value="Mak">Mak Eshka'rey</option>
-							<option value="Biv">Biv Bodhrik</option>
-							<option value="Saska">Saska Teft</option>
-							<option value="Loku">Loku Kanoloa</option>
-							<option value="MHD">MHD-19</option>
-							<option value="Verena">Verena Talos</option>
-							<option value="Davith">Davith Elso</option>
-							<option value="Murne">Murne Rin</option>
-						</select>
-					</td>
-					<td>
-						<div class="center">
-							<button onClick="playerFourExpDec()">-</button>
-							<span id ="playerFourExp" class="IAfont large">0</span>
-							<button onClick="playerFourExpInc()">+</button>
-						</div>
-					</td>
-					<td>
-						<input type="tel" id="playerFourCreds" value="0">
-						</input>
-					</td>
-					<td>
-						<form id="playerFourSkills" submit="return false">
-							<table class="small-labels">
-								<tr>
-									<td>
-										<input type="checkbox" id="p4check1">
-										<label for="p4check1" id="p4check1label"></label>
-									</td>
-									<td>
-										<input type="checkbox" id="p4check2">
-										<label for="p4check2" id="p4check2label"></label>
-									</td>
-									<td>
-										<input type="checkbox" id="p4check3">
-										<label for="p4check3" id="p4check3label"></label>
-									</td>
-									<td>
-										<input type="checkbox" id="p4check4">
-										<label for="p4check4" id="p4check4label"></label>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<input type="checkbox" id="p4check5">
-										<label for="p4check5" id="p4check5label"></label>
-									</td>
-									<td>
-										<input type="checkbox" id="p4check6">
-										<label for="p4check6" id="p4check6label"></label>
-									</td>
-									<td>
-										<input type="checkbox" id="p4check7">
-										<label for="p4check7" id="p4check7label"></label>
-									</td>
-									<td>
-										<input type="checkbox" id="p4check8">
-										<label for="p4check8" id="p4check8label"></label>
-									</td>
-								</tr>
-							</table>
-						</form>
-					</td>
-					<td>
-						<form id="playerFourEquip" submit="return false">
-							<table>
-								<tr>
-									<td>
-										<table>
-										<tr>
-											<td><img src="files/itemIcons/Weapons.png" class="loadout-icons" alt="weapon icon">
-											</td>
-											<td>
-												<select id="char4wep1" onchange="1wep1()">
-													<option value="None">None</option>
-												</select>
-											</td>
-										</tr>
-										<tr>
-											<td><img src="files/itemIcons/Weapons.png" class="loadout-icons" alt="weapon icon">
-											</td>
-											<td>
-												<select id="char4wep2" onchange="1wep2()">
-													<option value="None">None</option>
-												</select>
-											</td>
-										</tr>
-										</table>
-									</td>
-									<td>
-										<table>
-										<tr>
-											<td><img src="files/itemIcons/Armor.png" class="loadout-icons" alt="armor icon">
-											</td>
-											<td>
-												<select id="char4armor" onchange="1armor()">
-													<option value="None">None</option>
-												</select>
-											</td>
-										</tr>
-										<tr>
-											<td><img src="files/itemIcons/Equipment.png" class="loadout-icons" alt="equipment icon">
-											</td>
-											<td>
-												<select id="char4equip1" onchange="1equip1()">
-													<option value="None">None</option>
-												</select>
-											</td>
-										</tr>
-										</table>
-									</td>
-									<td>
-										<table>
-										<tr>
-											<td><img src="files/itemIcons/Equipment.png" class="loadout-icons" alt="equipment icon">
-											</td>
-											<td>
-												<select id="char4equip2" onchange="1equip2()">
-													<option value="None">None</option>
-												</select>
-											</td>
-										</tr>
-										<tr>
-										<td><img src="files/itemIcons/Equipment.png" class="loadout-icons" alt="equipment icon">
-										</td>
-										<td>
-											<select id="char4equip3" onchange="1equip3()">
-												<option value="None">None</option>
-											</select>
-										</td>
-										</tr>
-										</table>
-									</td>
-								</tr>
-							</table>
-						</form>
-					</td>
-				</tr>
-				</tbody>
-				
-			</table>
-		</div>
-		<div class="modal-footer">
-		
-		</div>
-			
-	</div>
-</div>
-
-<div id="missionModal" class="modalRight">
-	<!-- Modal content -->
-	<div class="modal-content">
-		<div id="missionModalHeader" class="modal-header">
-				<span class="close large">&times </span>
-				<h1>Mission Selection</h1>
-		</div>
-	<div class="modal-body">
-		<!-- wrapper div for alignment -->
-	<div id="missionSelector" class="shaded">
-		<h2 class="center">Missions</h2>
-	</div>
-	<div class="tablewrapper">
-		<table id="missionOverallTable" class="tableHolder section group divTable stack">
-				<tr>
-					<td>
-			<div class="col">
-				<h3 class="center">Core Missions (Story Missions in Blue)</h3>
-					<div>
-						<form id="missionOptions" action="#" method="post" onsubmit="return false">
-							<table id="missionTable" class="center internalnonstack">
-								<tr>
-									<td class="coreMission">
-										<input type="radio" name="mission" id="mission1" value="Aftermath">
-										<label for="mission1">Aftermath</label>
-									</td>
-									<td>
-										<input type="radio" name="mission" id="mission2" value="Captured">
-										<label for="mission2">Captured</label>
-									</td>
-									<td>
-										<input type="radio" name="mission" id="mission3" value="Brushfire">
-										<label for="mission3">Brushfire</label>
-									</td>
-									<td>
-										<input type="radio" name="mission" id="mission4" value="Temptation">
-										<label for="mission4">Temptation</label>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<input type="radio" name="mission" id="mission5" value="HighMoon"> 
-										<label for="mission5">High Moon</label>
-									</td>
-									<td>
-										<input type="radio" name="mission" id="mission6" value="Indebted">
-										<label for="mission6">Indebted</label>
-									</td>
-									<td>
-										<input type="radio" name="mission" id="mission7" value="LooseCannon">
-										<label for="mission7">Loose Cannon</label>
-									</td>
-									<td>
-										<input type="radio" name="mission" id="mission8" value="FriendsOfOld">
-										<label for="mission8">Friends Of Old</label>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<input type="radio" name="mission" id="mission9" value="SorryAboutTheMess">
-										<label for="mission9">Sorry About the Mess</label>
-									</td>
-									<td>
-										<input type="radio" name="mission" id="mission10" value="Homecoming">
-										<label for="mission10">Homecoming</label>
-									</td>
-									<td>
-										<input type="radio" name="mission" id="mission11" value="TheSpiceJob">
-										<label for="mission11">The Spice Job</label>
-									</td>
-									<td>
-										<input type="radio" name="mission" id="mission12" value="TargetOfOpportunity">
-										<label for="mission12">Target Of Opportunity</label>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<input type="radio" name="mission" id="mission13" value="VipersDen">
-										<label for="mission13">Viper's Den</label>
-									</td>
-									<td>
-										<input type="radio" name="mission" id="mission14" value="ASimpleTask">
-										<label for="mission14">A Simple Task</label>
-									</td>
-									<td>
-										<input type="radio" name="mission" id="mission15" value="GenerousDonations">
-										<label for="mission15">Generous Donations</label>
-									</td>
-									<td>
-										<input type="radio" name="mission" id="mission16" value="LuxuryCruise">
-										<label for="mission16">Luxury Cruise</label>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<input type="radio" name="mission" id="mission17" value="MeansOfProduction">
-										<label for="mission17">Means of Production</label>
-									</td>
-									<td>
-										<input type="radio" name="mission" id="mission18" value="BreakingPoint">
-										<label for="mission18">Breaking Point</label>
-									</td>
-									<td>
-										<input type="radio" name="mission" id="mission19" value="Impounded">
-										<label for="mission19">Impounded</label>
-									</td>
-									<td>
-										<input type="radio" name="mission" id="mission20" value="Wanted">
-										<label for="mission20">Wanted</label>
-									</td>
-								</tr>
-								<tr>
-									<td class="coreMission">
-										<input type="radio" name="mission" id="mission21" value="ANewThreat">
-										<label for="mission21">A New Threat</label>
-									</td>
-									<td class="coreMission">
-										<input type="radio" name="mission" id="mission22" value="UnderSiege">
-										<label for="mission22">Under Siege</label>
-									</td>
-									<td class="coreMission">
-										<input type="radio" name="mission" id="mission23" value="ImperialHospitality">
-										<label for="mission23">Imperial Hospitality</label>
-									</td>
-									<td class="coreMission">
-										<input type="radio" name="mission" id="mission24" value="FlySolo">
-										<label for="mission24">Fly Solo</label>
-									</td>
-								</tr>
-								<tr>
-									<td class="coreMission">
-										<input type="radio" name="mission" id="mission25" value="Incoming">
-										<label for="mission25">Incoming</label>
-									</td>
-									<td class="coreMission">
-										<input type="radio" name="mission" id="mission26" value="DrawnIn">
-										<label for="mission26">Drawn In</label>
-									</td>
-									<td class="coreMission">
-										<input type="radio" name="mission" id="mission27" value="ChainOfCommand">
-										<label for="mission27">Chain of Command</label>
-									</td>
-									<td class="coreMission">
-										<input type="radio" name="mission" id="mission28" value="TheSource">
-										<label for="mission28">The Source</label>
-									</td>
-								</tr>
-								<tr>
-									<td class="coreMission">
-										<input type="radio" name="mission" id="mission29" value="LastStand">
-										<label for="mission29">Last Stand</label>
-									</td>
-									<td class="coreMission">
-										<input type="radio" name="mission" id="mission30" value="DesperateHour">
-										<label for="mission30">Desperate Hour</label>
-									</td>
-									<td>
-										<input type="radio" name="mission" id="mission31" value="DarkObsession">
-										<label for="mission31">Dark Obsession</label>
-									</td>
-									<td>
-										<input type="radio" name="mission" id="mission32" value="SympathyForTheRebellion">
-										<label for="mission32">Sympathy for the Rebellion</label>
-									</td>
-								</tr>
-							</table>
-						</form>
-					</div>
-				<br>
-			
-				<div class="buttonCenter padded">
-					<button id="missionChooseButton" class="padded" onClick="missionCoreSelect()">Choose</button>
-				</div>
-				</td>
-				
-				<td>
-				
-				<div class="col">
-					<h3 id="expansionTitleText" class="center">Ally/Villain Pack Missions: Colored by Release Wave</h3>
-					<div>
-						<form id="expMissionOptions" action="#" onsubmit="return false">
-							<table class="center internalnonstack" id="expansionTable">
-								<tr class="wave1">
-									<td>
-										<input type="radio" name="expMission" id="expMission1" value="Celebration">
-										<label for="expMission1">Celebration</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission2" value="ForestAmbush">
-										<label for="expMission2">Forest Ambush</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission3" value="ImperialEntanglements">
-										<label for="expMission3">Imperial Entanglements</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission4" value="BinaryRevolution">
-										<label for="expMission4">Binary Revolution</label>
-									</td>
-								</tr>
-								<tr class="wave1">
-									<td>
-										<input type="radio" name="expMission" id="expMission5" value="ArmedAndOperational">
-										<label for="expMission5">Armed and Operational</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission6" value="BraceForImpact">
-										<label for="expMission6">Brace for Impact</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission7" value="Infection">
-										<label for="expMission7">Infection</label>
-									</td>
-								</tr>
-								<tr class="wave2">
-									<td>
-										<input type="radio" name="expMission" id="expMission8" value="PredatorAndPrey">
-										<label for="expMission8">Predator and Prey</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission9" value="StrengthOfCommand">
-										<label for="expMission9">Strength of Command</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission10" value="OpenToInterpretation">
-										<label for="expMission10">Open to Interpretation</label>
-									</td>
-								</tr>
-								<tr class="wave3">
-									<td>
-										<input type="radio" name="expMission" id="expMission11" value="Back-RoomBargains">
-										<label for="expMission11"> Back-Room Bargains</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission12" value="BunkerBuster">
-										<label for="expMission12">Bunker Buster</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission13" value="BruteForce">
-										<label for="expMission13">Brute Force</label>
-									</td>
-								</tr>
-								<tr class="wave4">
-									<td>
-										<input type="radio" name="expMission" id="expMission14" value="PreciousCargo">
-										<label for="expMission14">Precious Cargo</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission15" value="IntoTheWastes">
-										<label for="expMission15">Into the Wastes</label>
-									</td>
-								</tr>
-								<tr class="wave5">
-									<td>
-										<input type="radio" name="expMission" id="expMission16" value="ABountyProtected">
-										<label for="expMission16">A Bounty Protected</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission17" value="Snowcrash">
-										<label for="expMission17">Snowcrash</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission18" value="FullyCharged">
-										<label for="expMission18">Fully Charged</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission19" value="CommunicationBreakdown">
-										<label for="expMission19">Communication Breakdown</label>
-									</td>
-								</tr>
-								<tr class="wave6">
-									<td>
-										<input type="radio" name="expMission" id="expMission20" value="SecurityBreach">
-										<label for="expMission20">Security Breach</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission21" value="Gunrunner">
-										<label for="expMission21">Gunrunner</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission22" value="IntoTheUnknown">
-										<label for="expMission22">Into the Unknown</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission23" value="PayingDebts">
-										<label for="expMission23">Paying Debts</label>
-									</td>
-								</tr>
-								<tr class="wave7">
-									<td>
-										<input type="radio" name="expMission" id="expMission24" value="TopTarget">
-										<label for="expMission24">Top Target</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission25" value="DeadlyTransmission">
-										<label for="expMission25">Deadly Transmission</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expMission26" value="Cornered">
-										<label for="expMission26">Cornered</label>
-									</td>
-								</tr>
-							</table>
-						</form>
-					</div>
-					
-					<br>
-					
-					<div class="buttonCenter padded">
-						<button id="missionChooseButton" onClick="missionExpacSelect()">Choose</button>
-					</div>
-				</div>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<div id="expStory" class="col">
-					<h3 class="center">Expansion Box Story Missions</h3>
-						<form id="expStoryForm" onsubmit="return false">
-							<table class="center internalnonstack">
-								<tr class="wave2">
-									<td>
-										<input type="radio" name="expMission" id="expStory1" value="WhiteNoise">
-										<label for="expStory1">White Noise</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expStory2" value="HomeFront">
-										<label for="expStory2">Home Front</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expStory3" value="ReturnToEchoBase">
-										<label for="expStory3">Return to Echo Base</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expStory4" value="RescueOps">
-										<label for="expStory4">Rescue Ops</label>
-									</td>
-								</tr>
-								<tr class="wave2">
-									<td>
-										<input type="radio" name="expMission" id="expStory5" value="TheLastLine">
-										<label for="expStory5">The Last Line</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expStory6" value="Disaster">
-										<label for="expStory6">Disaster</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expStory7" value="OurLastHope">
-										<label for="expStory7">Our Last Hope</label>
-									</td>
-								</tr>
-							</table>
-						</form>
-						<br>
-						<div class="buttonCenter padded">
-							<button id="missionExpCoreChooseButton" class="padded" onClick="missionExpacBoxSelect()">Choose</button>
-						</div>
-					</div>
-				</td>
-				<td>
-					<div class="col">
-					<h3 class="center">Expansion Box Side Missions: Colored by Expansion Box</h3>
-						<form id="expSideForm" onsubmit="return false">
-							<table class="center internalnonstack">
-								<tr class="wave1">
-									<td>
-										<input type="radio" name="Twin" id="expSide1" value="ShadyDealings">
-										<label for="expSide1">Shady Dealings</label>
-									</td>
-									<td>
-										<input type="radio" name="Twin" id="expSide2" value="HuntedDown">
-										<label for="expSide2">Hunted Down</label>
-									</td>
-									<td>
-										<input type="radio" name="Twin" id="expSide3" value="CanyonRun">
-										<label for="expSide3">Canyon Run</label>
-									</td>
-								</tr>
-								<tr class="wave2">
-									<td>
-										<input type="radio" name="expMission" id="expSide4" value="SurvivalOfTheFittest">
-										<label for="expSide4">Survival of the Fittest</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expSide5" value="TheHardWay">
-										<label for="expSide5">The Hard Way</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expSide6" value="PreventiveMeasures">
-										<label for="expSide6">Preventive Measures</label>
-									</td>
-									<td>
-										<input type="radio" name="expMission" id="expSide7" value="EscapeFromCloudCity">
-										<label for="expSide7">Escape from Cloud City</label>
-									</td>
-								</tr>
-								<tr class="wave2">
-									<td>
-										<input type="radio" name="expMission" id="expSide8" value="ScouringOfTheHomestead">
-										<label for="expSide8">Scouring of the Homestead</label>
-									</td>
-								</tr>
-								<tr class="wave3">
-									<td>
-										<input type="radio" name="Bespin" id="expSide9" value="Reclamation">
-										<label for="expSide9">Reclamation</label>
-									</td>
-									<td>
-										<input type="radio" name="Bespin" id="expSide10" value="CloudCitysSecret">
-										<label for="expSide10">Cloud City's Secret</label>
-									</td>
-									<td>
-										<input type="radio" name="Bespin" id="expSide11" value="FreedomFighters">
-										<label for="expSide11">Freedom Fighters</label>
-									</td>
-									<td>
-										<input type="radio" name="Bespin" id="expSide12" value="HostileTakeover">
-										<label for="expSide12">Hostile Takeover</label>
-									</td>
-								</tr>
-								<tr class="wave3">
-									<td>
-										<input type="radio" name="Bespin" id="expSide13" value="PanicInTheStreets">
-										<label for="expSide13">Panic in the Streets</label>
-									</td>
-									<td>
-										<input type="radio" name="Bespin" id="expSide14" value="Reclassified">
-										<label for="expSide14">Reclassified</label>
-									</td>
-								</tr>
-							</table>
-						</form>
-						<br>
-						
-						<div class="buttonCenter padded">
-							<button id="expacMissionChooseButton" onClick="missionExpacSideSelect()">Choose</button>
-						</div>
-					</div>
-				</td>
-			</tr>
-			
-			
-		</table>
-		</div>
-	</div>			
-	</div>
-	</div>
-</div>
-
-<div id="referenceModal" class="modalRight">
-	<!-- Modal content -->
-	<div class="modal-contentRight">
-		<div id="referenceModalHeader" class="modal-header">
-				<span class="close large">&times </span>
-				<h1>Imperial Assault Reference Documents</h1>
-		</div>
-		<div class="modal-body">
-		<a href="https://images-cdn.fantasyflightgames.com/filer_public/84/fc/84fcff54-eafe-45ec-acf4-538a86e1acfc/imperial_assault_learn_to_play_guide.pdf">
+    <!--Begin floating side pullouts-->
+    <div id="loadoutIcon" class="floatRight">
+        <img src="files/itemIcons/Ranged.png" class="barIcons" id="loadoutBtn" alt="loadout icon">
+    </div>
+    <div id="missionIcon" class="floatRight">
+        <img src="files/itemIcons/Mission.png" class="barIcons" id="missionBtn" alt="mission icon">
+    </div>
+    <div id="referenceIcon" class="floatRight">
+        <img src="files/itemIcons/Tech.png" class="barIcons" id="referenceBtn" alt="reference icon">
+    </div>
+    <div id="helpIcon" class="floatRight">
+        <img src="files/itemIcons/Help.png" class="barIcons" id="myBtn" alt="help icon">
+    </div>
+    <!--Pullout Modals-->
+    <div id="loadoutModal" class="modalRight">
+        <!-- Modal content -->
+        <div class="modal-contentRight">
+            <div class="modal-header">
+                <span class="close large">&times;</span>
+                <h1>Rebel Loadout</h1>
+            </div>
+            <div class="modal-body">
+                <table class="loadoutTable mobilealign">
+                    <thead>
+                        <tr id="titleRow">
+                            <th>
+                                <h3>Player #</h3>
+                            </th>
+                            <th>
+                                <h3>Character</h3>
+                            </th>
+                            <th>
+                                <h3>Current Experience</h3>
+                            </th>
+                            <th>
+                                <h3>Credits</h3>
+                            </th>
+                            <th>
+                                <h3>Skills</h3>
+                            </th>
+                            <th>
+                                <h3>Equipment</h3>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="playerOneRow">
+                            <td>
+                                <h3 class="playerOne">1</h3>
+                            </td>
+                            <td>
+                                <select id="charSelect1" onchange="selectPOne()">
+                                    <option value="Diala">Diala Passil</option>
+                                    <option value="Fenn">Fenn Signis</option>
+                                    <option value="Gaarkhan">Gaarkhan</option>
+                                    <option value="Gideon">Gideon</option>
+                                    <option value="Jyn">Jyn Odan</option>
+                                    <option value="Mak">Mak Eshka'rey</option>
+                                    <option value="Biv">Biv Bodhrik</option>
+                                    <option value="Saska">Saska Teft</option>
+                                    <option value="Loku">Loku Kanoloa</option>
+                                    <option value="MHD">MHD-19</option>
+                                    <option value="Verena">Verena Talos</option>
+                                    <option value="Davith">Davith Elso</option>
+                                    <option value="Murne">Murne Rin</option>
+                                </select>
+                            </td>
+                            <td>
+                                <div class="center">
+                                    <button onClick="playerOneExpDec()">-</button>
+                                    <span id="playerOneExp" class="IAfont large">0</span>
+                                    <button onClick="playerOneExpInc()">+</button>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="tel" id="playerOneCreds" value="0">
+                            </td>
+                            <td>
+                                <form id="playerOneSkills">
+                                    <table class="small-labels">
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" id="p1check1">
+                                                <label for="p1check1" id="p1check1label"></label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" id="p1check2">
+                                                <label for="p1check2" id="p1check2label"></label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" id="p1check3">
+                                                <label for="p1check3" id="p1check3label"></label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" id="p1check4">
+                                                <label for="p1check4" id="p1check4label"></label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" id="p1check5">
+                                                <label for="p1check5" id="p1check5label"></label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" id="p1check6">
+                                                <label for="p1check6" id="p1check6label"></label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" id="p1check7">
+                                                <label for="p1check7" id="p1check7label"></label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" id="p1check8">
+                                                <label for="p1check8" id="p1check8label"></label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </td>
+                            <td>
+                                <form id="playerOneEquip" submit="return false">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            <img src="files/itemIcons/Weapons.png" class="loadout-icons" alt="weapon icon">
+                                                        </td>
+                                                        <td>
+                                                            <select id="char1wep1" onchange="1wep1()">
+                                                                <option value="None">None</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><img src="files/itemIcons/Weapons.png" class="loadout-icons" alt="weapon icon">
+                                                        </td>
+                                                        <td>
+                                                            <select id="char1wep2" onchange="1wep2()">
+                                                                <option value="None">None</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td><img src="files/itemIcons/Armor.png" class="loadout-icons" alt="armor icon">
+                                                        </td>
+                                                        <td>
+                                                            <select id="char1armor" onchange="1armor()">
+                                                                <option value="None">None</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><img src="files/itemIcons/Equipment.png" class="loadout-icons" alt="equipment icon">
+                                                        </td>
+                                                        <td>
+                                                            <select id="char1equip1" onchange="1equip1()">
+                                                                <option value="None">None</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td><img src="files/itemIcons/Equipment.png" class="loadout-icons" alt="equipment icon">
+                                                        </td>
+                                                        <td>
+                                                            <select id="char1equip2" onchange="1equip2()">
+                                                                <option value="None">None</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><img src="files/itemIcons/Equipment.png" class="loadout-icons" alt="equipment icon">
+                                                        </td>
+                                                        <td>
+                                                            <select id="char1equip3" onchange="1equip3()">
+                                                                <option value="None">None</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </td>
+                        </tr>
+                        <tr id="playerTwoRow">
+                            <td>
+                                <h3 class="playerTwo">2</h3>
+                            </td>
+                            <td>
+                                <select id="charSelect2" onchange="selectPTwo()">
+                                    <option value="Diala">Diala Passil</option>
+                                    <option value="Fenn">Fenn Signis</option>
+                                    <option value="Gaarkhan">Gaarkhan</option>
+                                    <option value="Gideon">Gideon</option>
+                                    <option value="Jyn">Jyn Odan</option>
+                                    <option value="Mak">Mak Eshka'rey</option>
+                                    <option value="Biv">Biv Bodhrik</option>
+                                    <option value="Saska">Saska Teft</option>
+                                    <option value="Loku">Loku Kanoloa</option>
+                                    <option value="MHD">MHD-19</option>
+                                    <option value="Verena">Verena Talos</option>
+                                    <option value="Davith">Davith Elso</option>
+                                    <option value="Murne">Murne Rin</option>
+                                </select>
+                            </td>
+                            <td>
+                                <div class="center">
+                                    <button onClick="playerTwoExpDec()">-</button>
+                                    <span id="playerTwoExp" class="IAfont large">0</span>
+                                    <button onClick="playerTwoExpInc()">+</button>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="tel" id="playerTwoCreds" value="0">
+                                </input>
+                            </td>
+                            <td>
+                                <form id="playerTwoSkills" submit="return false">
+                                    <table class="small-labels">
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" id="p2check1">
+                                                <label for="p2check1" id="p2check1label"></label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" id="p2check2">
+                                                <label for="p2check2" id="p2check2label"></label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" id="p2check3">
+                                                <label for="p2check3" id="p2check3label"></label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" id="p2check4">
+                                                <label for="p2check4" id="p2check4label"></label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" id="p2check5">
+                                                <label for="p2check5" id="p2check5label"></label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" id="p2check6">
+                                                <label for="p2check6" id="p2check6label"></label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" id="p2check7">
+                                                <label for="p2check7" id="p2check7label"></label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" id="p2check8">
+                                                <label for="p2check8" id="p2check8label"></label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </td>
+                            <td>
+                                <form id="playerTwoEquip" submit="return false">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td><img src="files/itemIcons/Weapons.png" class="loadout-icons" alt="weapon icon">
+                                                        </td>
+                                                        <td>
+                                                            <select id="char2wep1" onchange="1wep1()">
+                                                                <option value="None">None</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><img src="files/itemIcons/Weapons.png" class="loadout-icons" alt="weapon icon">
+                                                        </td>
+                                                        <td>
+                                                            <select id="char2wep2" onchange="1wep2()">
+                                                                <option value="None">None</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td><img src="files/itemIcons/Armor.png" class="loadout-icons" alt="armor icon">
+                                                        </td>
+                                                        <td>
+                                                            <select id="char2armor" onchange="1armor()">
+                                                                <option value="None">None</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><img src="files/itemIcons/Equipment.png" class="loadout-icons" alt="equipment icon">
+                                                        </td>
+                                                        <td>
+                                                            <select id="char2equip1" onchange="1equip1()">
+                                                                <option value="None">None</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td><img src="files/itemIcons/Equipment.png" class="loadout-icons" alt="equipment icon">
+                                                        </td>
+                                                        <td>
+                                                            <select id="char2equip2" onchange="1equip2()">
+                                                                <option value="None">None</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><img src="files/itemIcons/Equipment.png" class="loadout-icons" alt="equipment icon">
+                                                        </td>
+                                                        <td>
+                                                            <select id="char2equip3" onchange="1equip3()">
+                                                                <option value="None">None</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </td>
+                        </tr>
+                        <tr id="playerThreeRow">
+                            <td>
+                                <h3 class="playerThree">3</h3>
+                            </td>
+                            <td>
+                                <select id="charSelect3" onchange="selectPThree()">
+                                    <option value="Diala">Diala Passil</option>
+                                    <option value="Fenn">Fenn Signis</option>
+                                    <option value="Gaarkhan">Gaarkhan</option>
+                                    <option value="Gideon">Gideon</option>
+                                    <option value="Jyn">Jyn Odan</option>
+                                    <option value="Mak">Mak Eshka'rey</option>
+                                    <option value="Biv">Biv Bodhrik</option>
+                                    <option value="Saska">Saska Teft</option>
+                                    <option value="Loku">Loku Kanoloa</option>
+                                    <option value="MHD">MHD-19</option>
+                                    <option value="Verena">Verena Talos</option>
+                                    <option value="Davith">Davith Elso</option>
+                                    <option value="Murne">Murne Rin</option>
+                                </select>
+                            </td>
+                            <td>
+                                <div class="center">
+                                    <button onClick="playerThreeExpDec()">-</button>
+                                    <span id="playerThreeExp" class="IAfont large">0</span>
+                                    <button onClick="playerThreeExpInc()">+</button>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="tel" id="playerThreeCreds" value="0">
+                                </input>
+                            </td>
+                            <td>
+                                <form id="playerThreeSkills" submit="return false">
+                                    <table class="small-labels">
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" id="p3check1">
+                                                <label for="p3check1" id="p3check1label"></label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" id="p3check2">
+                                                <label for="p3check2" id="p3check2label"></label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" id="p3check3">
+                                                <label for="p3check3" id="p3check3label"></label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" id="p3check4">
+                                                <label for="p3check4" id="p3check4label"></label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" id="p3check5">
+                                                <label for="p3check5" id="p3check5label"></label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" id="p3check6">
+                                                <label for="p3check6" id="p3check6label"></label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" id="p3check7">
+                                                <label for="p3check7" id="p3check7label"></label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" id="p3check8">
+                                                <label for="p3check8" id="p3check8label"></label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </td>
+                            <td>
+                                <form id="playerThreeEquip" submit="return false">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td><img src="files/itemIcons/Weapons.png" class="loadout-icons" alt="weapon icon">
+                                                        </td>
+                                                        <td>
+                                                            <select id="char3wep1" onchange="1wep1()">
+                                                                <option value="None">None</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><img src="files/itemIcons/Weapons.png" class="loadout-icons" alt="weapon icon">
+                                                        </td>
+                                                        <td>
+                                                            <select id="char3wep2" onchange="1wep2()">
+                                                                <option value="None">None</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td><img src="files/itemIcons/Armor.png" class="loadout-icons" alt="armor icon">
+                                                        </td>
+                                                        <td>
+                                                            <select id="char3armor" onchange="1armor()">
+                                                                <option value="None">None</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><img src="files/itemIcons/Equipment.png" class="loadout-icons" alt="equipment icon">
+                                                        </td>
+                                                        <td>
+                                                            <select id="char3equip1" onchange="1equip1()">
+                                                                <option value="None">None</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td><img src="files/itemIcons/Equipment.png" class="loadout-icons" alt="equipment icon">
+                                                        </td>
+                                                        <td>
+                                                            <select id="char3equip2" onchange="1equip2()">
+                                                                <option value="None">None</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><img src="files/itemIcons/Equipment.png" class="loadout-icons" alt="equipment icon">
+                                                        </td>
+                                                        <td>
+                                                            <select id="char3equip3" onchange="1equip3()">
+                                                                <option value="None">None</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </td>
+                        </tr>
+                        <tr id="playerFourRow">
+                            <td>
+                                <h3 class="playerFour">4</h3>
+                            </td>
+                            <td>
+                                <select id="charSelect4" onchange="selectPFour()">
+                                    <option value="Diala">Diala Passil</option>
+                                    <option value="Fenn">Fenn Signis</option>
+                                    <option value="Gaarkhan">Gaarkhan</option>
+                                    <option value="Gideon">Gideon</option>
+                                    <option value="Jyn">Jyn Odan</option>
+                                    <option value="Mak">Mak Eshka'rey</option>
+                                    <option value="Biv">Biv Bodhrik</option>
+                                    <option value="Saska">Saska Teft</option>
+                                    <option value="Loku">Loku Kanoloa</option>
+                                    <option value="MHD">MHD-19</option>
+                                    <option value="Verena">Verena Talos</option>
+                                    <option value="Davith">Davith Elso</option>
+                                    <option value="Murne">Murne Rin</option>
+                                </select>
+                            </td>
+                            <td>
+                                <div class="center">
+                                    <button onClick="playerFourExpDec()">-</button>
+                                    <span id="playerFourExp" class="IAfont large">0</span>
+                                    <button onClick="playerFourExpInc()">+</button>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="tel" id="playerFourCreds" value="0">
+                                </input>
+                            </td>
+                            <td>
+                                <form id="playerFourSkills" submit="return false">
+                                    <table class="small-labels">
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" id="p4check1">
+                                                <label for="p4check1" id="p4check1label"></label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" id="p4check2">
+                                                <label for="p4check2" id="p4check2label"></label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" id="p4check3">
+                                                <label for="p4check3" id="p4check3label"></label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" id="p4check4">
+                                                <label for="p4check4" id="p4check4label"></label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" id="p4check5">
+                                                <label for="p4check5" id="p4check5label"></label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" id="p4check6">
+                                                <label for="p4check6" id="p4check6label"></label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" id="p4check7">
+                                                <label for="p4check7" id="p4check7label"></label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" id="p4check8">
+                                                <label for="p4check8" id="p4check8label"></label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </td>
+                            <td>
+                                <form id="playerFourEquip" submit="return false">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td><img src="files/itemIcons/Weapons.png" class="loadout-icons" alt="weapon icon">
+                                                        </td>
+                                                        <td>
+                                                            <select id="char4wep1" onchange="1wep1()">
+                                                                <option value="None">None</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><img src="files/itemIcons/Weapons.png" class="loadout-icons" alt="weapon icon">
+                                                        </td>
+                                                        <td>
+                                                            <select id="char4wep2" onchange="1wep2()">
+                                                                <option value="None">None</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td><img src="files/itemIcons/Armor.png" class="loadout-icons" alt="armor icon">
+                                                        </td>
+                                                        <td>
+                                                            <select id="char4armor" onchange="1armor()">
+                                                                <option value="None">None</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><img src="files/itemIcons/Equipment.png" class="loadout-icons" alt="equipment icon">
+                                                        </td>
+                                                        <td>
+                                                            <select id="char4equip1" onchange="1equip1()">
+                                                                <option value="None">None</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td><img src="files/itemIcons/Equipment.png" class="loadout-icons" alt="equipment icon">
+                                                        </td>
+                                                        <td>
+                                                            <select id="char4equip2" onchange="1equip2()">
+                                                                <option value="None">None</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><img src="files/itemIcons/Equipment.png" class="loadout-icons" alt="equipment icon">
+                                                        </td>
+                                                        <td>
+                                                            <select id="char4equip3" onchange="1equip3()">
+                                                                <option value="None">None</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+    <div id="missionModal" class="modalRight">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div id="missionModalHeader" class="modal-header">
+                <span class="close large">&times </span>
+                <h1>Mission Selection</h1>
+            </div>
+            <div class="modal-body">
+                <!-- wrapper div for alignment -->
+                <div id="missionSelector" class="shaded">
+                    <h2 class="center">Missions</h2>
+                </div>
+                <div class="tablewrapper">
+                    <table id="missionOverallTable" class="tableHolder section group divTable stack">
+                        <tr>
+                            <td>
+                                <div class="col">
+                                    <h3 class="center">Core Missions (Story Missions in Blue)</h3>
+                                    <div>
+                                        <form id="missionOptions" action="#" method="post" onsubmit="return false">
+                                            <table id="missionTable" class="center internalnonstack">
+                                                <tr>
+                                                    <td class="coreMission">
+                                                        <input type="radio" name="mission" id="mission1" value="Aftermath">
+                                                        <label for="mission1">Aftermath</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="mission" id="mission2" value="Captured">
+                                                        <label for="mission2">Captured</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="mission" id="mission3" value="Brushfire">
+                                                        <label for="mission3">Brushfire</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="mission" id="mission4" value="Temptation">
+                                                        <label for="mission4">Temptation</label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <input type="radio" name="mission" id="mission5" value="HighMoon">
+                                                        <label for="mission5">High Moon</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="mission" id="mission6" value="Indebted">
+                                                        <label for="mission6">Indebted</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="mission" id="mission7" value="LooseCannon">
+                                                        <label for="mission7">Loose Cannon</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="mission" id="mission8" value="FriendsOfOld">
+                                                        <label for="mission8">Friends Of Old</label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <input type="radio" name="mission" id="mission9" value="SorryAboutTheMess">
+                                                        <label for="mission9">Sorry About the Mess</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="mission" id="mission10" value="Homecoming">
+                                                        <label for="mission10">Homecoming</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="mission" id="mission11" value="TheSpiceJob">
+                                                        <label for="mission11">The Spice Job</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="mission" id="mission12" value="TargetOfOpportunity">
+                                                        <label for="mission12">Target Of Opportunity</label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <input type="radio" name="mission" id="mission13" value="VipersDen">
+                                                        <label for="mission13">Viper's Den</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="mission" id="mission14" value="ASimpleTask">
+                                                        <label for="mission14">A Simple Task</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="mission" id="mission15" value="GenerousDonations">
+                                                        <label for="mission15">Generous Donations</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="mission" id="mission16" value="LuxuryCruise">
+                                                        <label for="mission16">Luxury Cruise</label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <input type="radio" name="mission" id="mission17" value="MeansOfProduction">
+                                                        <label for="mission17">Means of Production</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="mission" id="mission18" value="BreakingPoint">
+                                                        <label for="mission18">Breaking Point</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="mission" id="mission19" value="Impounded">
+                                                        <label for="mission19">Impounded</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="mission" id="mission20" value="Wanted">
+                                                        <label for="mission20">Wanted</label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="coreMission">
+                                                        <input type="radio" name="mission" id="mission21" value="ANewThreat">
+                                                        <label for="mission21">A New Threat</label>
+                                                    </td>
+                                                    <td class="coreMission">
+                                                        <input type="radio" name="mission" id="mission22" value="UnderSiege">
+                                                        <label for="mission22">Under Siege</label>
+                                                    </td>
+                                                    <td class="coreMission">
+                                                        <input type="radio" name="mission" id="mission23" value="ImperialHospitality">
+                                                        <label for="mission23">Imperial Hospitality</label>
+                                                    </td>
+                                                    <td class="coreMission">
+                                                        <input type="radio" name="mission" id="mission24" value="FlySolo">
+                                                        <label for="mission24">Fly Solo</label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="coreMission">
+                                                        <input type="radio" name="mission" id="mission25" value="Incoming">
+                                                        <label for="mission25">Incoming</label>
+                                                    </td>
+                                                    <td class="coreMission">
+                                                        <input type="radio" name="mission" id="mission26" value="DrawnIn">
+                                                        <label for="mission26">Drawn In</label>
+                                                    </td>
+                                                    <td class="coreMission">
+                                                        <input type="radio" name="mission" id="mission27" value="ChainOfCommand">
+                                                        <label for="mission27">Chain of Command</label>
+                                                    </td>
+                                                    <td class="coreMission">
+                                                        <input type="radio" name="mission" id="mission28" value="TheSource">
+                                                        <label for="mission28">The Source</label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="coreMission">
+                                                        <input type="radio" name="mission" id="mission29" value="LastStand">
+                                                        <label for="mission29">Last Stand</label>
+                                                    </td>
+                                                    <td class="coreMission">
+                                                        <input type="radio" name="mission" id="mission30" value="DesperateHour">
+                                                        <label for="mission30">Desperate Hour</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="mission" id="mission31" value="DarkObsession">
+                                                        <label for="mission31">Dark Obsession</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="mission" id="mission32" value="SympathyForTheRebellion">
+                                                        <label for="mission32">Sympathy for the Rebellion</label>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </form>
+                                    </div>
+                                    <br>
+                                    <div class="buttonCenter padded">
+                                        <button id="missionChooseButton" class="padded" onClick="missionCoreSelect()">Choose</button>
+                                    </div>
+                            </td>
+                            <td>
+                                <div class="col">
+                                    <h3 id="expansionTitleText" class="center">Ally/Villain Pack Missions: Colored by Release Wave</h3>
+                                    <div>
+                                        <form id="expMissionOptions" action="#" onsubmit="return false">
+                                            <table class="center internalnonstack" id="expansionTable">
+                                                <tr class="wave1">
+                                                    <td>
+                                                        <input type="radio" name="expMission" id="expMission1" value="Celebration">
+                                                        <label for="expMission1">Celebration</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="expMission" id="expMission2" value="ForestAmbush">
+                                                        <label for="expMission2">Forest Ambush</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="expMission" id="expMission3" value="ImperialEntanglements">
+                                                        <label for="expMission3">Imperial Entanglements</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="expMission" id="expMission4" value="BinaryRevolution">
+                                                        <label for="expMission4">Binary Revolution</label>
+                                                    </td>
+                                                </tr>
+                                                <tr class="wave1">
+                                                    <td>
+                                                        <input type="radio" name="expMission" id="expMission5" value="ArmedAndOperational">
+                                                        <label for="expMission5">Armed and Operational</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="expMission" id="expMission6" value="BraceForImpact">
+                                                        <label for="expMission6">Brace for Impact</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="expMission" id="expMission7" value="Infection">
+                                                        <label for="expMission7">Infection</label>
+                                                    </td>
+                                                </tr>
+                                                <tr class="wave2">
+                                                    <td>
+                                                        <input type="radio" name="expMission" id="expMission8" value="PredatorAndPrey">
+                                                        <label for="expMission8">Predator and Prey</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="expMission" id="expMission9" value="StrengthOfCommand">
+                                                        <label for="expMission9">Strength of Command</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="expMission" id="expMission10" value="OpenToInterpretation">
+                                                        <label for="expMission10">Open to Interpretation</label>
+                                                    </td>
+                                                </tr>
+                                                <tr class="wave3">
+                                                    <td>
+                                                        <input type="radio" name="expMission" id="expMission11" value="Back-RoomBargains">
+                                                        <label for="expMission11"> Back-Room Bargains</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="expMission" id="expMission12" value="BunkerBuster">
+                                                        <label for="expMission12">Bunker Buster</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="expMission" id="expMission13" value="BruteForce">
+                                                        <label for="expMission13">Brute Force</label>
+                                                    </td>
+                                                </tr>
+                                                <tr class="wave4">
+                                                    <td>
+                                                        <input type="radio" name="expMission" id="expMission14" value="PreciousCargo">
+                                                        <label for="expMission14">Precious Cargo</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="expMission" id="expMission15" value="IntoTheWastes">
+                                                        <label for="expMission15">Into the Wastes</label>
+                                                    </td>
+                                                </tr>
+                                                <tr class="wave5">
+                                                    <td>
+                                                        <input type="radio" name="expMission" id="expMission16" value="ABountyProtected">
+                                                        <label for="expMission16">A Bounty Protected</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="expMission" id="expMission17" value="Snowcrash">
+                                                        <label for="expMission17">Snowcrash</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="expMission" id="expMission18" value="FullyCharged">
+                                                        <label for="expMission18">Fully Charged</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="expMission" id="expMission19" value="CommunicationBreakdown">
+                                                        <label for="expMission19">Communication Breakdown</label>
+                                                    </td>
+                                                </tr>
+                                                <tr class="wave6">
+                                                    <td>
+                                                        <input type="radio" name="expMission" id="expMission20" value="SecurityBreach">
+                                                        <label for="expMission20">Security Breach</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="expMission" id="expMission21" value="Gunrunner">
+                                                        <label for="expMission21">Gunrunner</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="expMission" id="expMission22" value="IntoTheUnknown">
+                                                        <label for="expMission22">Into the Unknown</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="expMission" id="expMission23" value="PayingDebts">
+                                                        <label for="expMission23">Paying Debts</label>
+                                                    </td>
+                                                </tr>
+                                                <tr class="wave7">
+                                                    <td>
+                                                        <input type="radio" name="expMission" id="expMission24" value="TopTarget">
+                                                        <label for="expMission24">Top Target</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="expMission" id="expMission25" value="DeadlyTransmission">
+                                                        <label for="expMission25">Deadly Transmission</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" name="expMission" id="expMission26" value="Cornered">
+                                                        <label for="expMission26">Cornered</label>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </form>
+                                    </div>
+                                    <br>
+                                    <div class="buttonCenter padded">
+                                        <button id="missionChooseButton" onClick="missionExpacSelect()">Choose</button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="expStory" class="col">
+                                    <h3 class="center">Expansion Box Story Missions</h3>
+                                    <form id="expStoryForm" onsubmit="return false">
+                                        <table class="center internalnonstack">
+                                            <tr class="wave2">
+                                                <td>
+                                                    <input type="radio" name="expMission" id="expStory1" value="WhiteNoise">
+                                                    <label for="expStory1">White Noise</label>
+                                                </td>
+                                                <td>
+                                                    <input type="radio" name="expMission" id="expStory2" value="HomeFront">
+                                                    <label for="expStory2">Home Front</label>
+                                                </td>
+                                                <td>
+                                                    <input type="radio" name="expMission" id="expStory3" value="ReturnToEchoBase">
+                                                    <label for="expStory3">Return to Echo Base</label>
+                                                </td>
+                                                <td>
+                                                    <input type="radio" name="expMission" id="expStory4" value="RescueOps">
+                                                    <label for="expStory4">Rescue Ops</label>
+                                                </td>
+                                            </tr>
+                                            <tr class="wave2">
+                                                <td>
+                                                    <input type="radio" name="expMission" id="expStory5" value="TheLastLine">
+                                                    <label for="expStory5">The Last Line</label>
+                                                </td>
+                                                <td>
+                                                    <input type="radio" name="expMission" id="expStory6" value="Disaster">
+                                                    <label for="expStory6">Disaster</label>
+                                                </td>
+                                                <td>
+                                                    <input type="radio" name="expMission" id="expStory7" value="OurLastHope">
+                                                    <label for="expStory7">Our Last Hope</label>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </form>
+                                    <br>
+                                    <div class="buttonCenter padded">
+                                        <button id="missionExpCoreChooseButton" class="padded" onClick="missionExpacBoxSelect()">Choose</button>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="col">
+                                    <h3 class="center">Expansion Box Side Missions: Colored by Expansion Box</h3>
+                                    <form id="expSideForm" onsubmit="return false">
+                                        <table class="center internalnonstack">
+                                            <tr class="wave1">
+                                                <td>
+                                                    <input type="radio" name="Twin" id="expSide1" value="ShadyDealings">
+                                                    <label for="expSide1">Shady Dealings</label>
+                                                </td>
+                                                <td>
+                                                    <input type="radio" name="Twin" id="expSide2" value="HuntedDown">
+                                                    <label for="expSide2">Hunted Down</label>
+                                                </td>
+                                                <td>
+                                                    <input type="radio" name="Twin" id="expSide3" value="CanyonRun">
+                                                    <label for="expSide3">Canyon Run</label>
+                                                </td>
+                                            </tr>
+                                            <tr class="wave2">
+                                                <td>
+                                                    <input type="radio" name="expMission" id="expSide4" value="SurvivalOfTheFittest">
+                                                    <label for="expSide4">Survival of the Fittest</label>
+                                                </td>
+                                                <td>
+                                                    <input type="radio" name="expMission" id="expSide5" value="TheHardWay">
+                                                    <label for="expSide5">The Hard Way</label>
+                                                </td>
+                                                <td>
+                                                    <input type="radio" name="expMission" id="expSide6" value="PreventiveMeasures">
+                                                    <label for="expSide6">Preventive Measures</label>
+                                                </td>
+                                                <td>
+                                                    <input type="radio" name="expMission" id="expSide7" value="EscapeFromCloudCity">
+                                                    <label for="expSide7">Escape from Cloud City</label>
+                                                </td>
+                                            </tr>
+                                            <tr class="wave2">
+                                                <td>
+                                                    <input type="radio" name="expMission" id="expSide8" value="ScouringOfTheHomestead">
+                                                    <label for="expSide8">Scouring of the Homestead</label>
+                                                </td>
+                                            </tr>
+                                            <tr class="wave3">
+                                                <td>
+                                                    <input type="radio" name="Bespin" id="expSide9" value="Reclamation">
+                                                    <label for="expSide9">Reclamation</label>
+                                                </td>
+                                                <td>
+                                                    <input type="radio" name="Bespin" id="expSide10" value="CloudCitysSecret">
+                                                    <label for="expSide10">Cloud City's Secret</label>
+                                                </td>
+                                                <td>
+                                                    <input type="radio" name="Bespin" id="expSide11" value="FreedomFighters">
+                                                    <label for="expSide11">Freedom Fighters</label>
+                                                </td>
+                                                <td>
+                                                    <input type="radio" name="Bespin" id="expSide12" value="HostileTakeover">
+                                                    <label for="expSide12">Hostile Takeover</label>
+                                                </td>
+                                            </tr>
+                                            <tr class="wave3">
+                                                <td>
+                                                    <input type="radio" name="Bespin" id="expSide13" value="PanicInTheStreets">
+                                                    <label for="expSide13">Panic in the Streets</label>
+                                                </td>
+                                                <td>
+                                                    <input type="radio" name="Bespin" id="expSide14" value="Reclassified">
+                                                    <label for="expSide14">Reclassified</label>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </form>
+                                    <br>
+                                    <div class="buttonCenter padded">
+                                        <button id="expacMissionChooseButton" onClick="missionExpacSideSelect()">Choose</button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="referenceModal" class="modalRight">
+        <!-- Modal content -->
+        <div class="modal-contentRight">
+            <div id="referenceModalHeader" class="modal-header">
+                <span class="close large">&times;</span>
+                <h1>Imperial Assault Reference Documents</h1>
+            </div>
+            <div class="modal-body">
+                <a href="https://images-cdn.fantasyflightgames.com/filer_public/84/fc/84fcff54-eafe-45ec-acf4-538a86e1acfc/imperial_assault_learn_to_play_guide.pdf">
 		Imperial Assault Learn-to-Play Guide
 		</a>
-		<br>
-		<a href="https://images-cdn.fantasyflightgames.com/filer_public/ef/86/ef866943-534b-429e-b8db-7d99875431b7/imperial_assault_rules_reference_guide.pdf">
+                <br>
+                <a href="https://images-cdn.fantasyflightgames.com/filer_public/ef/86/ef866943-534b-429e-b8db-7d99875431b7/imperial_assault_rules_reference_guide.pdf">
 		Imperial Assault Rules Reference Guide
 		</a>
-		<br>
-		<a href="https://images-cdn.fantasyflightgames.com/filer_public/00/45/00451ac7-4dfe-46b6-987a-743c5b1e5108/imperial_assault_twin_shadows_rulebook.pdf">
+                <br>
+                <a href="https://images-cdn.fantasyflightgames.com/filer_public/00/45/00451ac7-4dfe-46b6-987a-743c5b1e5108/imperial_assault_twin_shadows_rulebook.pdf">
 		Twin Shadows Rules
 		</a>
-		<br>
-		<a href="https://images-cdn.fantasyflightgames.com/filer_public/71/c1/71c1dbbc-6427-4674-be0e-5d35937c4f37/return_to_hoth_rules.pdf">
+                <br>
+                <a href="https://images-cdn.fantasyflightgames.com/filer_public/71/c1/71c1dbbc-6427-4674-be0e-5d35937c4f37/return_to_hoth_rules.pdf">
 		Return to Hoth Rules
 		</a>
-		<br>
-		<a href="https://images-cdn.fantasyflightgames.com/filer_public/95/9c/959cd379-db67-4218-ae79-7450f183d090/swi24_rulebook.pdf">
+                <br>
+                <a href="https://images-cdn.fantasyflightgames.com/filer_public/95/9c/959cd379-db67-4218-ae79-7450f183d090/swi24_rulebook.pdf">
 		The Bespin Gambit Rules
 		</a>
-		<br>
-		</div>
-		<div class="modal-footer">
-		
-		</div>
-			
-	</div>
-</div>
-
-<!--END PULLOUTS-->
-
-<script type='text/javascript' src="script.js">
-	</script>
-
+                <br>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+    <!--END PULLOUTS-->
+    <script type='text/javascript' src="script.js">
+    </script>
 </body>
+
 </html>
